@@ -130,17 +130,26 @@
 #### CSS Logo Implementation
 **SCENIC INC Logo**: Pure CSS recreation using geometric shapes
 
+**Color**: `#00308C` (Bright blue)
+
 **Components**:
-- **Top blue bar**: `clip-path: polygon()` for angled edges (wider proportions)
-- **Main text**: "SCENIC" with variable letter sizing - first "S" and last "C" are 30% larger
-- **Arrow brackets**: CSS border triangles positioned closer to text
-- **Bottom blue bar**: Contains white "INC" text inside the blue shape
-- **Integrated design**: INC text embedded within bottom bar using ::after pseudo-element
+- **Top blue bar**: Overlaps/intersects with outer letters (S and C) using precise clip-path
+- **Main text**: "SCENIC" with delicate weight (normal, not bold) and variable letter sizing
+- **Arrow brackets**: Narrower CSS border triangles positioned closer to text
+- **Bottom blue bar**: Contains white "INC" text, intersects with S and C letters
+- **Integrated design**: Geometric elements overlap with typography for cohesive look
 
 **Typography Details**:
-- **Letter sizing**: First "S" and last "C" at 1.3em, middle "CENI" at 1em
-- **Visual emphasis**: Creates bookend effect with larger outer letters
-- **Consistent spacing**: Letter spacing maintained across variable sizes
+- **Font weight**: Normal (not bold) for delicate appearance
+- **Letter sizing**: First "S" and last "C" at 1.2em, middle "CENI" at 1em
+- **Letter spacing**: Tighter spacing (1px) for narrow, refined look
+- **Visual overlap**: Blue bars extend into letter spaces for integrated design
+
+**CSS Techniques**:
+- `z-index` layering for proper overlap of bars and text
+- Precise `clip-path` polygons for angled intersections
+- Narrower CSS border triangles for refined arrows
+- Delicate proportions matching reference design
 
 **CSS Techniques**:
 - `::before` pseudo-element for top bar
@@ -196,3 +205,4 @@
 - **Nov 8, 2025**: HTML structure implemented - Complete semantic layout with header, hero, and services sections
 - **Nov 8, 2025**: CSS logo implementation - Pure CSS SCENIC INC logo with geometric shapes and responsive scaling
 - **Nov 8, 2025**: CSS logo refinement - Fixed proportions, spacing, and integrated INC text within bottom bar
+- **Nov 8, 2025**: CSS logo precision update - Corrected color (#00308C), delicate typography, overlapping geometric elements
