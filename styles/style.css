@@ -34,10 +34,103 @@ body {
     margin: 0 auto;
 }
 
+.logo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .logo h1 {
-    font-size: 24px; /* Medium font size */
+    display: none; /* Hide the text version */
+}
+
+/* CSS SCENIC Logo */
+.scenic-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-family: 'DIN 2014', 'Helvetica Neue', Arial, sans-serif;
     color: #00300C; /* Navy Blue */
+}
+
+/* Top blue bar */
+.scenic-logo::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background-color: #00300C;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+}
+
+/* Bottom blue bar */
+.scenic-logo::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background-color: #00300C;
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+}
+
+/* Main SCENIC text container */
+.scenic-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00300C;
+    margin: 8px 0;
+}
+
+/* Left arrow bracket */
+.scenic-main::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 12px solid #00300C;
+}
+
+/* Right arrow bracket */
+.scenic-main::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 12px solid #00300C;
+}
+
+/* INC text */
+.scenic-inc {
+    font-size: 12px;
     font-weight: normal;
+    letter-spacing: 4px;
+    color: #00300C;
+    margin-top: 2px;
 }
 
 /* Navigation */
@@ -176,6 +269,38 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    /* Logo scaling for mobile */
+    .scenic-logo::before,
+    .scenic-logo::after {
+        width: 100px;
+    }
+    
+    .scenic-main {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+    }
+    
+    .scenic-main::before,
+    .scenic-main::after {
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+    }
+    
+    .scenic-main::before {
+        border-right: 10px solid #00300C;
+        left: -16px;
+    }
+    
+    .scenic-main::after {
+        border-left: 10px solid #00300C;
+        right: -16px;
+    }
+    
+    .scenic-inc {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
     .nav-list {
         display: none;
         position: absolute;
