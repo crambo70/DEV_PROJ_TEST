@@ -131,17 +131,23 @@
 **SCENIC INC Logo**: Pure CSS recreation using geometric shapes
 
 **Components**:
-- **Top blue bar**: `clip-path: polygon()` for angled edges
-- **Main text**: "SCENIC" with custom letter spacing and bold weight
-- **Arrow brackets**: CSS border triangles positioned absolutely
-- **Bottom blue bar**: Inverted angle using `clip-path`
-- **"INC" text**: Smaller, spaced text below main logo
+- **Top blue bar**: `clip-path: polygon()` for angled edges (wider proportions)
+- **Main text**: "SCENIC" with variable letter sizing - first "S" and last "C" are 30% larger
+- **Arrow brackets**: CSS border triangles positioned closer to text
+- **Bottom blue bar**: Contains white "INC" text inside the blue shape
+- **Integrated design**: INC text embedded within bottom bar using ::after pseudo-element
+
+**Typography Details**:
+- **Letter sizing**: First "S" and last "C" at 1.3em, middle "CENI" at 1em
+- **Visual emphasis**: Creates bookend effect with larger outer letters
+- **Consistent spacing**: Letter spacing maintained across variable sizes
 
 **CSS Techniques**:
-- `::before` and `::after` pseudo-elements for bars
-- `clip-path` for angled geometric shapes
-- CSS borders for arrow triangles
-- Flexbox for precise alignment
+- `::before` pseudo-element for top bar
+- `::after` pseudo-element for bottom bar WITH text content
+- `clip-path` for angled geometric shapes with proper proportions
+- CSS borders for arrow triangles (closer spacing)
+- White text on blue background for INC
 - Responsive scaling across breakpoints
 
 #### Geometric Hero Background
@@ -189,3 +195,4 @@
 - **Nov 8, 2025**: Geometric background approach - Pure CSS grid-based geometric artwork implementation
 - **Nov 8, 2025**: HTML structure implemented - Complete semantic layout with header, hero, and services sections
 - **Nov 8, 2025**: CSS logo implementation - Pure CSS SCENIC INC logo with geometric shapes and responsive scaling
+- **Nov 8, 2025**: CSS logo refinement - Fixed proportions, spacing, and integrated INC text within bottom bar
