@@ -3,27 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEV_PROJ_TEST</title>
+    <title>SCENIC - Imagine What We Can Create</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to DEV_PROJ_TEST</h1>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>SCENIC</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#work">WORK</a></li>
+                    <li><a href="#contact">GET IN TOUCH</a></li>
+                    <li><a href="#events">EVENT SERVICES</a></li>
+                </ul>
+                <!-- Hamburger menu for mobile -->
+                <button class="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
     </header>
-    
-    <main>
-        <section>
-            <h2>About This Project</h2>
-            <p>This is an HTML5 and JavaScript web project hosted on GitHub Pages!</p>
-            <button id="demo-button">Click Me!</button>
-            <p id="demo-text">Click the button above to see JavaScript in action.</p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 DEV_PROJ_TEST. All rights reserved.</p>
-    </footer>
-    
+
+    <!-- Hero Section with Geometric Background -->
+    <section class="hero">
+        <div class="geometric-background">
+            <!-- Geometric CSS grid will be implemented here -->
+        </div>
+        <div class="hero-content">
+            <div class="cta-button">
+                <span>IMAGINE WHAT WE CAN CREATE</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">
+                    <!-- CSS-based icon placeholder -->
+                    <div class="icon-ideate"></div>
+                </div>
+                <h3 class="service-title">IDEATE/DESIGN</h3>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <div class="icon-events"></div>
+                </div>
+                <h3 class="service-title">EVENT SERVICES</h3>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <div class="icon-build"></div>
+                </div>
+                <h3 class="service-title">BUILD</h3>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <div class="icon-logistics"></div>
+                </div>
+                <h3 class="service-title">LOGISTICS</h3>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <div class="icon-onsite"></div>
+                </div>
+                <h3 class="service-title">ON-SITE</h3>
+            </div>
+        </div>
+    </section>
+
     <script src="scripts/main.js"></script>
 </body>
 </html>
