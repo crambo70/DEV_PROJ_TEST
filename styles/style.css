@@ -537,67 +537,22 @@ body {
     color: #00308C; /* Navy Blue from StyleGuide */
     padding: 1rem 2rem;
     border-radius: 50px;
-    font-size: 24px; /* Medium font size */
-    font-weight: bold;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     display: inline-block;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 1rem;
     position: relative;
-}
-
-/* Font Variation Experiments */
-.cta-button.variation-1 {
-    /* Updated with provided CSS styling */
-    color: #00308C; /* Corrected Navy Blue */
+    
+    /* Apply Variation 1 styling directly */
     text-align: center;
     font: normal normal normal 48px/62px "din-2014", sans-serif;
     letter-spacing: 0px;
     opacity: 1;
-    transform: scaleX(1); /* Normal width */
-    
-    /* Override default button styles for this variation */
-    font-weight: normal !important;
-    font-size: 48px !important;
-    line-height: 62px !important;
-}
-
-.cta-button.variation-2 {
-    /* Less bold, slightly narrower */
-    font-weight: 500; /* Medium weight */
-    transform: scaleX(0.95); /* 5% narrower */
-}
-
-.cta-button.variation-3 {
-    /* Even less bold, more narrow */
-    font-weight: 400; /* Normal weight - Adobe Fonts default */
-    transform: scaleX(0.90); /* 10% narrower */
-}
-
-/* Variation labels for testing */
-.variation-label {
-    display: block;
-    font-size: 10px;
-    font-weight: normal;
-    opacity: 0.7;
-    margin-top: 0.5rem;
 }
 
 .cta-button:hover {
-    transform: translateY(-2px) scaleX(var(--scale-x, 1)); /* Preserve horizontal scaling on hover */
+    transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-
-.cta-button.variation-1:hover {
-    --scale-x: 1;
-}
-
-.cta-button.variation-2:hover {
-    --scale-x: 0.95;
-}
-
-.cta-button.variation-3:hover {
-    --scale-x: 0.90;
 }
 
 /* Services Section */
