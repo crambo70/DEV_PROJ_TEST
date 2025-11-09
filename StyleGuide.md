@@ -84,7 +84,8 @@
 |------|-------|-----|
 | **Large** | `48px` | Main headlines, hero text | `font-size: 48px;` |
 | **Medium** | `24px` | Section headers, subheadings | `font-size: 24px;` |
-| **Small** | `18px` | Body text, navigation, minimum readable size | `font-size: 18px;` |
+| **Small** | `18px` | Body text, minimum readable size | `font-size: 18px;` |
+| **Extra Small** | `9px` | Navigation menu items | `font-size: 9px;` |
 
 #### Implementation Notes
 - DIN 2014 Regular will need to be imported via web fonts or fallback to system fonts
@@ -210,3 +211,4 @@
 - **Nov 8, 2025**: CSS logo refinement - Fixed proportions, spacing, and integrated INC text within bottom bar
 - **Nov 8, 2025**: CSS logo precision update - Corrected color (#00308C), delicate typography, overlapping geometric elements
 - **Nov 8, 2025**: Logo implementation change - Switched from CSS to PNG image with responsive scaling for better quality
+- **Nov 8, 2025**: Navigation typography adjustment - Reduced menu text size by 50% (from 18px to 9px) for better proportion balance

@@ -82,7 +82,7 @@ body {
 .nav-list a {
     text-decoration: none;
     color: #000000;
-    font-size: 18px; /* Small font size */
+    font-size: 9px; /* Small font size - reduced 50% from 18px */
     transition: color 0.3s ease;
 }
 
