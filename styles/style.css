@@ -405,6 +405,30 @@ body {
     letter-spacing: 2px;
 }
 
+/* =================================================================== */
+/* EXPERIMENTAL CTA STYLING - EASILY REMOVABLE                        */
+/* Remove this entire block if styling is not approved                */
+/* =================================================================== */
+.experimental-cta-styling {
+    /* UI Properties from user specification */
+    text-align: center;
+    font: normal normal normal 48px/62px DIN 2014;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+    
+    /* Override existing cta-title styles */
+    font-size: 48px !important;
+    line-height: 62px !important;
+    font-weight: normal !important;
+    letter-spacing: 0px !important;
+    margin-bottom: 2rem;
+}
+/* =================================================================== */
+/* END EXPERIMENTAL CTA STYLING                                       */
+/* =================================================================== */
+
 .cta-btn {
     background-color: #FFFFFF;
     color: #E53E3E;
