@@ -691,8 +691,7 @@ body {
     background-color: #FFFFFF;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     position: relative;
     overflow: visible; /* Allow the callout to extend below */
     display: flex;
@@ -703,7 +702,6 @@ body {
 
 .service-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Top area for icon/Lottie animation */
@@ -717,8 +715,8 @@ body {
 }
 
 .service-icon {
-    width: 93px; /* 33% larger (70px * 1.33) */
-    height: 93px;
+    width: 140px; /* 50% larger (93px * 1.5) */
+    height: 140px;
     background-color: transparent;
     border-radius: 8px;
     display: flex;
@@ -876,8 +874,8 @@ body {
 
     /* Service icon sizing for mobile */
     .service-icon {
-        width: 65px; /* Mobile size - scaled down from 93px */
-        height: 65px;
+        width: 98px; /* Mobile size - 50% larger (65px * 1.5) */
+        height: 98px;
     }
 
     .team-title {
@@ -929,8 +927,8 @@ body {
 
     /* Service icon sizing for tablet */
     .service-icon {
-        width: 80px; /* Tablet size - scaled down from 93px */
-        height: 80px;
+        width: 120px; /* Tablet size - 50% larger (80px * 1.5) */
+        height: 120px;
     }
 
     .team-title {
