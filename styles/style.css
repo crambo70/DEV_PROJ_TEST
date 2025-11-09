@@ -869,17 +869,25 @@ body {
 
     /* Reduce services section padding on mobile */
     .services {
-        padding: 2rem 1rem; /* Much less padding on mobile */
+        padding: 1rem 0.5rem; /* Even tighter padding on mobile */
     }
 
     /* Adjust service card spacing for mobile */
     .service-card {
-        margin-bottom: 4rem; /* More space for pop-below callouts */
+        margin-bottom: 6rem; /* Much more space for pop-below callouts */
     }
 
     /* Reduce icon area padding on mobile */
     .service-icon-area {
-        padding: 1rem 0.5rem 0.5rem 0.5rem; /* Less white space above icons */
+        padding: 0.5rem 0.5rem 0.25rem 0.5rem; /* Minimal white space above icons */
+    }
+
+    /* Alternative: Position callout above card on mobile */
+    .service-hover-overlay {
+        top: auto;
+        bottom: 100%; /* Position above the card instead */
+        border-radius: 8px 8px 0 0; /* Rounded top corners */
+        z-index: 20; /* Higher z-index to appear above other cards */
     }
 
     /* Text sizing for mobile */
