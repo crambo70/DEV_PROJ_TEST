@@ -154,91 +154,88 @@ body {
     justify-content: center;
 }
 
-/* Grid container for geometric tiles */
+/* Grid container for geometric tiles - 2 rows x 6 columns, full width */
 .geo-grid {
     display: grid;
-    grid-template-columns: repeat(9, 100px); /* 9 columns, 100px each */
-    grid-template-rows: repeat(3, 100px); /* 3 rows, 100px each */
+    grid-template-columns: repeat(6, 1fr); /* 6 equal columns spanning full width */
+    grid-template-rows: repeat(2, 1fr); /* 2 equal rows */
     gap: 0; /* No gaps between tiles */
-    width: 900px; /* 9 * 100px */
-    height: 300px; /* 3 * 100px */
+    width: 100%; /* Full width of container (2240px max) */
+    height: 400px; /* Fixed height for the grid */
 }
 
 /* Individual grid tile */
 .geo-tile {
-    width: 100px;
-    height: 100px;
     border: 1px solid #84858D; /* Medium gray border - visible for now */
     background-color: #FFFFFF; /* White background */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
+    font-size: 12px;
     color: #84858D;
     font-family: 'DIN 2014', 'Helvetica Neue', Arial, sans-serif;
+    min-height: 200px; /* Each tile is 200px tall (400px / 2 rows) */
 }
 
 /* Tile numbering for reference (will be removed later) */
 .geo-tile::after {
     content: attr(data-tile);
     position: absolute;
-    top: 2px;
-    left: 2px;
-    font-size: 8px;
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
     color: #84858D;
+    font-weight: bold;
 }
 
-/* Responsive grid scaling */
+/* Responsive grid scaling - maintains 2x6 proportions */
 @media (max-width: 1024px) {
     .geo-grid {
-        grid-template-columns: repeat(9, 80px);
-        grid-template-rows: repeat(3, 80px);
-        width: 720px;
-        height: 240px;
+        height: 320px; /* Slightly smaller on tablets */
     }
     
     .geo-tile {
-        width: 80px;
-        height: 80px;
+        min-height: 160px;
+        font-size: 10px;
+    }
+    
+    .geo-tile::after {
+        font-size: 12px;
     }
 }
 
 @media (max-width: 768px) {
     .geo-grid {
-        grid-template-columns: repeat(9, 60px);
-        grid-template-rows: repeat(3, 60px);
-        width: 540px;
-        height: 180px;
+        height: 240px; /* Smaller on mobile */
     }
     
     .geo-tile {
-        width: 60px;
-        height: 60px;
+        min-height: 120px;
         font-size: 8px;
     }
     
     .geo-tile::after {
-        font-size: 6px;
+        font-size: 10px;
+        top: 5px;
+        left: 5px;
     }
 }
 
 @media (max-width: 600px) {
     .geo-grid {
-        grid-template-columns: repeat(9, 40px);
-        grid-template-rows: repeat(3, 40px);
-        width: 360px;
-        height: 120px;
+        height: 160px; /* Very compact on small screens */
     }
     
     .geo-tile {
-        width: 40px;
-        height: 40px;
+        min-height: 80px;
         font-size: 6px;
     }
     
     .geo-tile::after {
-        font-size: 5px;
+        font-size: 8px;
+        top: 3px;
+        left: 3px;
     }
 }
 
