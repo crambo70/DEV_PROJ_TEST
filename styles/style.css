@@ -867,6 +867,21 @@ body {
         gap: 0; /* Zero gap for mobile too */
     }
 
+    /* Reduce services section padding on mobile */
+    .services {
+        padding: 2rem 1rem; /* Much less padding on mobile */
+    }
+
+    /* Adjust service card spacing for mobile */
+    .service-card {
+        margin-bottom: 4rem; /* More space for pop-below callouts */
+    }
+
+    /* Reduce icon area padding on mobile */
+    .service-icon-area {
+        padding: 1rem 0.5rem 0.5rem 0.5rem; /* Less white space above icons */
+    }
+
     /* Text sizing for mobile */
     .service-title {
         font-size: 11px; /* Mobile size - smallest */
@@ -929,6 +944,21 @@ body {
     .service-icon {
         width: 138px; /* Tablet size - 15% larger (120px * 1.15) */
         height: 138px;
+    }
+
+    /* Reduce services section padding on tablet */
+    .services {
+        padding: 3rem 1.5rem; /* Less padding on tablet */
+    }
+
+    /* Adjust service card spacing for tablet */
+    .service-card {
+        margin-bottom: 3rem; /* More space for pop-below callouts */
+    }
+
+    /* Reduce icon area padding on tablet */
+    .service-icon-area {
+        padding: 1.2rem 0.8rem 0.5rem 0.8rem; /* Less white space above icons */
     }
 
     .team-title {
