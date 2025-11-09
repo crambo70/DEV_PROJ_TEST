@@ -715,7 +715,7 @@ body {
 .service-icon {
     width: 80px;
     height: 80px;
-    background-color: #C7C9D4; /* Light gray placeholder */
+    background-color: transparent; /* Remove gray background for images */
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -723,8 +723,19 @@ body {
     transition: transform 0.3s ease;
 }
 
+.service-icon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Maintain aspect ratio */
+    transition: transform 0.3s ease;
+}
+
 .service-icon:hover {
     transform: scale(1.1); /* Icon animation on hover */
+}
+
+.service-icon:hover .service-icon-image {
+    transform: scale(1.05); /* Additional image animation */
 }
 
 /* Bottom area for service title */
