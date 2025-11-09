@@ -76,7 +76,17 @@
 .dev-debug .service-card,
 .dev-debug .team-member,
 .dev-debug .portfolio-item {
-    outline: 2px solid #3366FF !important; /* Medium Blue - Cards/Items */
+    outline: 2px dashed #0066FF !important; /* Blue dashed - Service card containers */
+}
+
+/* New debug styles for service card internal areas */
+.dev-debug .service-icon-area,
+.dev-debug .service-text-area {
+    outline: 2px dashed #00FF00 !important; /* Green dashed - Internal areas */
+}
+
+.dev-debug .service-hover-overlay {
+    outline: 2px dashed #FF00FF !important; /* Pink dashed - Hover overlay areas */
 }
 
 /* =================================================================== */
@@ -676,11 +686,15 @@ body {
 
 .service-card {
     background-color: #FFFFFF;
-    padding: 2rem 1rem;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
 }
 
 .service-card:hover {
@@ -688,22 +702,90 @@ body {
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
+/* Top area for icon/Lottie animation */
+.service-icon-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem 1rem 1rem;
+    background-color: #FFFFFF;
+}
+
 .service-icon {
     width: 80px;
     height: 80px;
-    margin: 0 auto 1rem;
     background-color: #C7C9D4; /* Light gray placeholder */
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.service-icon:hover {
+    transform: scale(1.1); /* Icon animation on hover */
+}
+
+/* Bottom area for service title */
+.service-text-area {
+    padding: 1rem 1rem 2rem 1rem;
+    background-color: #FFFFFF;
 }
 
 .service-title {
     font-family: "din-2014", sans-serif;
     font-size: 24px; /* Desktop size - base font increased from 18px */
     color: #00308C; /* Navy Blue */
-    margin-bottom: 0.5rem;
+    margin: 0;
+}
+
+/* Hover overlay with description and link */
+.service-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 48, 140, 0.95); /* Navy blue overlay */
+    color: #FFFFFF;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-hover-overlay {
+    opacity: 1;
+}
+
+.service-description {
+    font-family: "din-2014", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    max-width: 200px;
+}
+
+.service-link {
+    font-family: "din-2014", sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+    border: 2px solid #FFFFFF;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.service-link:hover {
+    background-color: #FFFFFF;
+    color: #00308C;
 }
 
 /* Mobile Responsive */
