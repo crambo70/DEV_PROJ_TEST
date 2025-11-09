@@ -81,7 +81,7 @@ body {
 
 .nav-list a {
     text-decoration: none;
-    color: #000000;
+    color: #84858D; /* Medium Gray from palette */
     font-size: 9px; /* Small font size - reduced 50% from 18px */
     transition: color 0.3s ease;
 }
