@@ -131,16 +131,19 @@ body {
     background-color: #FFFFFF; /* White background */
 }
 
-/* Responsive hero section height */
-@media (max-width: 768px) {
+/* Responsive hero section height - Three breakpoints */
+
+/* Medium screens (Tablet) */
+@media (max-width: 1024px) {
     .hero {
-        height: 300px; /* Smaller height on mobile */
+        height: 300px; /* Match geometric grid height */
     }
 }
 
-@media (max-width: 480px) {
+/* Small screens (Mobile) */
+@media (max-width: 768px) {
     .hero {
-        height: 250px; /* Even more compact on very small screens */
+        height: 200px; /* Match geometric grid height */
     }
 }
 
@@ -216,30 +219,23 @@ body {
     z-index: 10; /* Higher than geometric background */
 }
 
-/* Responsive grid scaling - maintains 2x6 proportions and square tiles */
+/* Responsive grid scaling - Three breakpoints maintaining square tiles */
+
+/* Medium screens (Tablet) */
 @media (max-width: 1024px) {
     .geo-grid {
-        height: 320px; /* Proportionally smaller */
+        height: 300px; /* Proportionally smaller for tablets */
     }
 }
 
+/* Small screens (Mobile) */
 @media (max-width: 768px) {
     .geo-grid {
-        height: 240px; /* Smaller on mobile */
+        height: 200px; /* Compact for mobile */
     }
     
     .geo-tile {
         font-size: 8px;
-    }
-}
-
-@media (max-width: 600px) {
-    .geo-grid {
-        height: 180px; /* Very compact on small screens */
-    }
-    
-    .geo-tile {
-        font-size: 6px;
     }
 }
 
@@ -518,9 +514,13 @@ body {
 }
 
 .hero-content {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Perfect centering */
     z-index: 10; /* Above geometric background */
     text-align: center;
+    width: 100%; /* Allow full width for text centering */
 }
 
 .cta-button {
@@ -546,20 +546,26 @@ body {
     box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
-/* Responsive hero text sizing */
-@media (max-width: 768px) {
+/* Responsive hero text sizing - Three breakpoints */
+
+/* Large screens (Desktop) - Default styling is already set */
+/* 48px font, 62px line-height */
+
+/* Medium screens (Tablet) */
+@media (max-width: 1024px) {
     .cta-button {
-        font-size: 32px; /* Smaller on mobile */
-        line-height: 42px;
-        padding: 0.75rem 1.5rem; /* Smaller padding */
+        font-size: 36px; /* Medium size for tablets */
+        line-height: 46px;
+        padding: 0.8rem 1.6rem;
     }
 }
 
-@media (max-width: 480px) {
+/* Small screens (Mobile/iPhone) */
+@media (max-width: 768px) {
     .cta-button {
-        font-size: 24px; /* Even smaller on very small screens */
-        line-height: 32px;
-        padding: 0.5rem 1rem; /* Compact padding */
+        font-size: 28px; /* Smaller for mobile */
+        line-height: 36px;
+        padding: 0.6rem 1.2rem;
     }
 }
 
