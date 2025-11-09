@@ -40,6 +40,18 @@ document.addEventListener('DOMContentLoaded', function() {
     serviceCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-4px) scale(1.02)';
+            
+            // Center the active card on mobile/tablet screens
+            if (window.innerWidth <= 1024) {
+                // Small delay to allow the callout to appear first
+                setTimeout(() => {
+                    this.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center',
+                        inline: 'nearest'
+                    });
+                }, 100); // 100ms delay to let the callout render
+            }
         });
         
         card.addEventListener('mouseleave', function() {
