@@ -52,6 +52,9 @@
 
 /* Special container classes */
 .dev-debug .main-container {
+    border: 3px solid #FF0000 !important; /* Red border - Main Container (development visibility) */
+}
+.dev-debug .main-container {
     outline: 4px solid #FF0066 !important; /* Hot Pink - Main Container */
 }
 
@@ -116,7 +119,6 @@ body {
     max-width: 2240px;
     width: 100%;
     margin: 0 auto;
-    border: 3px solid #FF0000; /* Red border for development visibility */
     position: relative;
     background-color: #FFFFFF;
 }
