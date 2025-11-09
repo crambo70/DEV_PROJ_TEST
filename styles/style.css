@@ -130,58 +130,77 @@ body {
     overflow: hidden;
 }
 
-/* Single Geometric Building Block */
+/* Single Geometric Building Block - Redesigned */
 .geo-block {
     position: absolute;
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     overflow: hidden;
 }
 
-/* Radial arc layers using clip-path and borders */
-.geo-block::before {
-    content: '';
+/* Individual geometric segments - refined to match source */
+.geo-segment {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 120px;
-    height: 120px;
-    background: conic-gradient(
-        from 0deg,
-        #00308C 0deg 45deg,
-        #12AEE7 45deg 90deg,
-        #34CBC2 90deg 135deg,
-        #00308C 135deg 180deg,
-        #12AEE7 180deg 225deg,
-        #34CBC2 225deg 270deg,
-        #00308C 270deg 315deg,
-        #12AEE7 315deg 360deg
-    );
-    border-radius: 50%;
-    clip-path: polygon(50% 50%, 100% 0%, 100% 100%, 50% 100%);
+    width: 200px;
+    height: 200px;
 }
 
-/* Inner concentric circle */
-.geo-block::after {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 20px;
+/* Large navy quarter circle - bottom left origin */
+.geo-segment-1 {
+    background-color: #00308C; /* Navy Blue */
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    clip-path: polygon(0% 50%, 0% 100%, 50% 100%);
+    z-index: 1;
+    top: 40px;
+    left: 0px;
+}
+
+/* Teal curved segment - middle layer */
+.geo-segment-2 {
+    background-color: #34CBC2; /* Teal */
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    clip-path: polygon(0% 60%, 0% 100%, 60% 100%, 60% 60%);
+    z-index: 2;
+    top: 30px;
+    left: 30px;
+}
+
+/* Light blue arc - outer layer */
+.geo-segment-3 {
+    background-color: #12AEE7; /* Light Blue */
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    clip-path: polygon(0% 40%, 0% 100%, 40% 100%);
+    z-index: 3;
+    top: 10px;
+    left: 10px;
+}
+
+/* Navy accent triangle - top area */
+.geo-segment-4 {
+    background-color: #00308C; /* Navy Blue */
+    width: 100px;
+    height: 100px;
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+    z-index: 4;
+    top: 0px;
+    left: 0px;
+}
+
+/* Teal small curved accent */
+.geo-segment-5 {
+    background-color: #34CBC2; /* Teal */
+    border-radius: 50%;
     width: 80px;
     height: 80px;
-    background: conic-gradient(
-        from 45deg,
-        #34CBC2 0deg 45deg,
-        #00308C 45deg 90deg,
-        #12AEE7 90deg 135deg,
-        #34CBC2 135deg 180deg,
-        #00308C 180deg 225deg,
-        #12AEE7 225deg 270deg,
-        #34CBC2 270deg 315deg,
-        #00308C 315deg 360deg
-    );
-    border-radius: 50%;
-    clip-path: polygon(50% 50%, 100% 0%, 100% 100%, 50% 100%);
+    z-index: 5;
+    top: 60px;
+    left: 60px;
 }
 
 /* Test single block positioned in hero */
