@@ -94,7 +94,7 @@ body {
 .nav-list a {
     text-decoration: none;
     color: #84858D; /* Medium Gray from palette */
-    font-size: 9px; /* Small font size - reduced 50% from 18px */
+    font-size: 18px; /* Desktop size - doubled from 9px */
     transition: color 0.3s ease;
 }
 
@@ -253,7 +253,7 @@ body {
 }
 
 .team-title {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Desktop size - 48px equivalent */
     font-weight: bold;
     color: #000000;
     margin-bottom: 2rem;
@@ -289,13 +289,13 @@ body {
 .blue-arc { background-color: #12AEE7; }
 
 .team-info-arc .member-name {
-    font-size: 0.9rem;
+    font-size: 1.2rem; /* Desktop size - increased from 0.9rem */
     font-weight: bold;
     margin-bottom: 0.2rem;
 }
 
 .team-info-arc .member-title {
-    font-size: 0.8rem;
+    font-size: 1rem; /* Desktop size - increased from 0.8rem */
     opacity: 0.9;
 }
 
@@ -339,7 +339,7 @@ body {
 .blue-overlay { background-color: #12AEE7; }
 
 .team-description {
-    font-size: 1.1rem;
+    font-size: 1.4rem; /* Desktop size - increased from 1.1rem */
     color: #84858D;
     max-width: 600px;
     margin: 0 auto;
@@ -395,7 +395,7 @@ body {
 }
 
 .cta-title {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Desktop size - 48px equivalent */
     font-weight: bold;
     color: #FFFFFF;
     margin-bottom: 2rem;
@@ -432,7 +432,7 @@ body {
     padding: 1rem 2rem;
     border: none;
     border-radius: 25px;
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Desktop size - increased from 1.2rem */
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -610,7 +610,7 @@ body {
 }
 
 .service-title {
-    font-size: 18px; /* Small font size */
+    font-size: 24px; /* Desktop size - base font increased from 18px */
     color: #00308C; /* Navy Blue */
     margin-bottom: 0.5rem;
 }
@@ -621,6 +621,11 @@ body {
     .scenic-logo-img {
         height: 48px; /* Smaller on mobile - doubled from 24px */
         max-width: 300px; /* Doubled from 150px */
+    }
+
+    /* Navigation font size for mobile */
+    .nav-list a {
+        font-size: 12px; /* Mobile size - doubled from 6px */
     }
 
     .nav-list {
@@ -670,7 +675,36 @@ body {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
+    /* Text sizing for mobile */
+    .service-title {
+        font-size: 16px; /* Mobile size */
+    }
+
+    .team-title {
+        font-size: 2rem; /* Mobile size - 32px equivalent */
+    }
+
+    .team-info-arc .member-name {
+        font-size: 0.9rem; /* Mobile size */
+    }
+
+    .team-info-arc .member-title {
+        font-size: 0.8rem; /* Mobile size */
+    }
+
+    .team-description {
+        font-size: 1rem; /* Mobile size */
+    }
+
+    .cta-title {
+        font-size: 2rem; /* Mobile size - 32px equivalent */
+    }
+
+    .cta-btn {
+        font-size: 1.1rem; /* Mobile size */
+    }
+
     .header {
         padding: 1rem;
     }
@@ -682,6 +716,40 @@ body {
     .scenic-logo-img {
         height: 56px; /* Doubled from 28px */
         max-width: 350px; /* Doubled from 175px */
+    }
+
+    /* Navigation font size for tablet */
+    .nav-list a {
+        font-size: 14px; /* Tablet size - doubled from 7px */
+    }
+
+    /* Text sizing for tablet */
+    .service-title {
+        font-size: 20px; /* Tablet size */
+    }
+
+    .team-title {
+        font-size: 2.5rem; /* Tablet size - 40px equivalent */
+    }
+
+    .team-info-arc .member-name {
+        font-size: 1rem; /* Tablet size */
+    }
+
+    .team-info-arc .member-title {
+        font-size: 0.9rem; /* Tablet size */
+    }
+
+    .team-description {
+        font-size: 1.2rem; /* Tablet size */
+    }
+
+    .cta-title {
+        font-size: 2.5rem; /* Tablet size - 40px equivalent */
+    }
+
+    .cta-btn {
+        font-size: 1.3rem; /* Tablet size */
     }
 
     .services-container {
