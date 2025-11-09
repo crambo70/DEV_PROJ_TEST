@@ -72,9 +72,9 @@ body {
 
 /* Responsive SCENIC Logo Image */
 .scenic-logo-img {
-    height: 64px; /* Desktop size - doubled from 32px */
+    height: 74px; /* Desktop size - 15% larger (64px * 1.15) */
     width: auto; /* Maintain aspect ratio */
-    max-width: 400px; /* Prevent it from getting too wide - doubled from 200px */
+    max-width: 460px; /* Prevent it from getting too wide - 15% larger (400px * 1.15) */
     object-fit: contain; /* Ensure proper scaling */
     display: block;
 }
@@ -619,8 +619,8 @@ body {
 @media (max-width: 768px) {
     /* Logo scaling for mobile */
     .scenic-logo-img {
-        height: 48px; /* Smaller on mobile - doubled from 24px */
-        max-width: 300px; /* Doubled from 150px */
+        height: 55px; /* Mobile size - 15% larger (48px * 1.15) */
+        max-width: 345px; /* 15% larger (300px * 1.15) */
     }
 
     /* Navigation font size for mobile */
@@ -714,8 +714,8 @@ body {
 @media (min-width: 769px) and (max-width: 1024px) {
     /* Logo scaling for tablet */
     .scenic-logo-img {
-        height: 56px; /* Doubled from 28px */
-        max-width: 350px; /* Doubled from 175px */
+        height: 64px; /* Tablet size - 15% larger (56px * 1.15) */
+        max-width: 403px; /* 15% larger (350px * 1.15) */
     }
 
     /* Navigation font size for tablet */
