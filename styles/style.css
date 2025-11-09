@@ -130,83 +130,106 @@ body {
     overflow: hidden;
 }
 
-/* Single Geometric Building Block - Redesigned */
-.geo-block {
+.geometric-background {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-}
-
-/* Individual geometric segments - refined to match source */
-.geo-segment {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-}
-
-/* Large navy quarter circle - bottom left origin */
-.geo-segment-1 {
-    background-color: #00308C; /* Navy Blue */
-    border-radius: 50%;
-    width: 160px;
-    height: 160px;
-    clip-path: polygon(0% 50%, 0% 100%, 50% 100%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
-    top: 40px;
-    left: 0px;
+    background: #F1F1F4; /* Off-white base */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Teal curved segment - middle layer */
-.geo-segment-2 {
-    background-color: #34CBC2; /* Teal */
-    border-radius: 50%;
-    width: 140px;
-    height: 140px;
-    clip-path: polygon(0% 60%, 0% 100%, 60% 100%, 60% 60%);
-    z-index: 2;
-    top: 30px;
-    left: 30px;
+/* Grid container for geometric tiles */
+.geo-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 100px); /* 9 columns, 100px each */
+    grid-template-rows: repeat(3, 100px); /* 3 rows, 100px each */
+    gap: 0; /* No gaps between tiles */
+    width: 900px; /* 9 * 100px */
+    height: 300px; /* 3 * 100px */
 }
 
-/* Light blue arc - outer layer */
-.geo-segment-3 {
-    background-color: #12AEE7; /* Light Blue */
-    border-radius: 50%;
-    width: 180px;
-    height: 180px;
-    clip-path: polygon(0% 40%, 0% 100%, 40% 100%);
-    z-index: 3;
-    top: 10px;
-    left: 10px;
-}
-
-/* Navy accent triangle - top area */
-.geo-segment-4 {
-    background-color: #00308C; /* Navy Blue */
+/* Individual grid tile */
+.geo-tile {
     width: 100px;
     height: 100px;
-    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
-    z-index: 4;
-    top: 0px;
-    left: 0px;
+    border: 1px solid #84858D; /* Medium gray border - visible for now */
+    background-color: #FFFFFF; /* White background */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #84858D;
+    font-family: 'DIN 2014', 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Teal small curved accent */
-.geo-segment-5 {
-    background-color: #34CBC2; /* Teal */
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    z-index: 5;
-    top: 60px;
-    left: 60px;
+/* Tile numbering for reference (will be removed later) */
+.geo-tile::after {
+    content: attr(data-tile);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 8px;
+    color: #84858D;
 }
 
-/* Test single block positioned in hero */
-.test-geo-block {
-    top: 50px;
-    left: 50px;
+/* Responsive grid scaling */
+@media (max-width: 1024px) {
+    .geo-grid {
+        grid-template-columns: repeat(9, 80px);
+        grid-template-rows: repeat(3, 80px);
+        width: 720px;
+        height: 240px;
+    }
+    
+    .geo-tile {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .geo-grid {
+        grid-template-columns: repeat(9, 60px);
+        grid-template-rows: repeat(3, 60px);
+        width: 540px;
+        height: 180px;
+    }
+    
+    .geo-tile {
+        width: 60px;
+        height: 60px;
+        font-size: 8px;
+    }
+    
+    .geo-tile::after {
+        font-size: 6px;
+    }
+}
+
+@media (max-width: 600px) {
+    .geo-grid {
+        grid-template-columns: repeat(9, 40px);
+        grid-template-rows: repeat(3, 40px);
+        width: 360px;
+        height: 120px;
+    }
+    
+    .geo-tile {
+        width: 40px;
+        height: 40px;
+        font-size: 6px;
+    }
+    
+    .geo-tile::after {
+        font-size: 5px;
+    }
 }
 
 .hero-content {
