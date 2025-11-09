@@ -201,6 +201,11 @@ body {
     z-index: 1; /* Behind the tile number and below hero content */
 }
 
+/* Vertical flip for geo tile images */
+.geo-tile-image.flipped-vertical {
+    transform: scaleY(-1); /* Flip vertically */
+}
+
 /* Ensure hero content stays above geometric background */
 .hero-content {
     position: relative;
