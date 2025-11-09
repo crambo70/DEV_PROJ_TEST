@@ -895,20 +895,25 @@ body {
         visibility: hidden;
         background: rgba(0, 48, 140, 0.95);
         color: white;
-        padding: 1rem;
-        margin-top: 1rem;
+        padding: 0; /* No padding when collapsed */
+        margin-top: 0; /* No margin when collapsed */
         border-radius: 8px;
         transform: none !important;
         top: auto !important;
         left: auto !important;
         right: auto !important;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        height: 0; /* Collapsed height */
+        overflow: hidden; /* Hide content when collapsed */
+        transition: all 0.3s ease;
     }
     
     .service-card:hover .service-hover-overlay {
         opacity: 1;
         visibility: visible;
         transform: none !important;
+        padding: 1rem; /* Expand padding on hover */
+        margin-top: 1rem; /* Add margin on hover */
+        height: auto; /* Allow natural height on hover */
     }
 
     /* Text sizing for mobile */
@@ -994,20 +999,25 @@ body {
         visibility: hidden;
         background: rgba(0, 48, 140, 0.95);
         color: white;
-        padding: 1rem;
-        margin-top: 1rem;
+        padding: 0; /* No padding when collapsed */
+        margin-top: 0; /* No margin when collapsed */
         border-radius: 8px;
         transform: none !important;
         top: auto !important;
         left: auto !important;
         right: auto !important;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        height: 0; /* Collapsed height */
+        overflow: hidden; /* Hide content when collapsed */
+        transition: all 0.3s ease;
     }
     
     .service-card:hover .service-hover-overlay {
         opacity: 1;
         visibility: visible;
         transform: none !important;
+        padding: 1rem; /* Expand padding on hover */
+        margin-top: 1rem; /* Add margin on hover */
+        height: auto; /* Allow natural height on hover */
     }
 
     /* Reduce icon area padding on tablet */
