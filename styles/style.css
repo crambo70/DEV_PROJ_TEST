@@ -682,7 +682,7 @@ body {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
+    gap: 0; /* Zero gap for tighter appearance */
     align-items: start;
     padding-bottom: 3rem; /* Extra padding for pop-below callouts */
 }
@@ -715,8 +715,8 @@ body {
 }
 
 .service-icon {
-    width: 140px; /* 50% larger (93px * 1.5) */
-    height: 140px;
+    width: 161px; /* 15% larger (140px * 1.15) */
+    height: 161px;
     background-color: transparent;
     border-radius: 8px;
     display: flex;
@@ -864,7 +864,7 @@ body {
     
     .services-container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 0; /* Zero gap for mobile too */
     }
 
     /* Text sizing for mobile */
@@ -874,8 +874,8 @@ body {
 
     /* Service icon sizing for mobile */
     .service-icon {
-        width: 98px; /* Mobile size - 50% larger (65px * 1.5) */
-        height: 98px;
+        width: 113px; /* Mobile size - 15% larger (98px * 1.15) */
+        height: 113px;
     }
 
     .team-title {
@@ -927,8 +927,8 @@ body {
 
     /* Service icon sizing for tablet */
     .service-icon {
-        width: 120px; /* Tablet size - 50% larger (80px * 1.5) */
-        height: 120px;
+        width: 138px; /* Tablet size - 15% larger (120px * 1.15) */
+        height: 138px;
     }
 
     .team-title {
