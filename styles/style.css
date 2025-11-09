@@ -867,6 +867,12 @@ body {
         gap: 0; /* Zero gap for mobile too */
     }
 
+    /* Mobile service cards with auto height for inline content */
+    .service-card {
+        height: auto;
+        min-height: 250px;
+    }
+
     /* Reduce services section padding on mobile */
     .services {
         padding: 1rem 0.5rem; /* Even tighter padding on mobile */
@@ -874,7 +880,7 @@ body {
 
     /* Adjust service card spacing for mobile */
     .service-card {
-        margin-bottom: 6rem; /* Much more space for pop-below callouts */
+        margin-bottom: 1rem; /* Normal spacing since callout is now inline */
     }
 
     /* Reduce icon area padding on mobile */
@@ -882,12 +888,27 @@ body {
         padding: 0.5rem 0.5rem 0.25rem 0.5rem; /* Minimal white space above icons */
     }
 
-    /* Alternative: Position callout above card on mobile */
-    .service-hover-overlay {
-        top: auto;
-        bottom: 100%; /* Position above the card instead */
-        border-radius: 8px 8px 0 0; /* Rounded top corners */
-        z-index: 20; /* Higher z-index to appear above other cards */
+    /* Alternative: Make callout inline content on mobile */
+    .service-card .service-hover-overlay {
+        position: static !important;
+        opacity: 0;
+        visibility: hidden;
+        background: rgba(0, 48, 140, 0.95);
+        color: white;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .service-card:hover .service-hover-overlay {
+        opacity: 1;
+        visibility: visible;
+        transform: none !important;
     }
 
     /* Text sizing for mobile */
@@ -961,7 +982,32 @@ body {
 
     /* Adjust service card spacing for tablet */
     .service-card {
-        margin-bottom: 3rem; /* More space for pop-below callouts */
+        margin-bottom: 1rem; /* Normal spacing with inline callout */
+        height: auto;
+        min-height: 280px;
+    }
+
+    /* Tablet - also use inline hover overlay */
+    .service-card .service-hover-overlay {
+        position: static !important;
+        opacity: 0;
+        visibility: hidden;
+        background: rgba(0, 48, 140, 0.95);
+        color: white;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .service-card:hover .service-hover-overlay {
+        opacity: 1;
+        visibility: visible;
+        transform: none !important;
     }
 
     /* Reduce icon area padding on tablet */
