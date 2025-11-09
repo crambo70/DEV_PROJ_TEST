@@ -1,6 +1,88 @@
 /* SCENIC Website Styles */
 /* Based on StyleGuide.md - Mobile-first approach */
 
+/* =================================================================== */
+/* DEVELOPMENT DEBUG SYSTEM - BOUNDING BOXES                          */
+/* Add class="dev-debug" to <body> to enable visual debugging         */
+/* =================================================================== */
+
+.dev-debug body {
+    outline: 3px solid #FF0000 !important; /* Red - Body */
+}
+
+.dev-debug div {
+    outline: 2px solid #0066FF !important; /* Blue - Generic Divs */
+}
+
+.dev-debug section {
+    outline: 3px solid #00CC00 !important; /* Green - Sections */
+}
+
+.dev-debug header {
+    outline: 3px solid #FF6600 !important; /* Orange - Header */
+}
+
+.dev-debug nav {
+    outline: 2px solid #9933FF !important; /* Purple - Navigation */
+}
+
+.dev-debug footer {
+    outline: 3px solid #666666 !important; /* Gray - Footer */
+}
+
+.dev-debug ul {
+    outline: 2px solid #FFFF00 !important; /* Yellow - Lists */
+}
+
+.dev-debug li {
+    outline: 1px solid #FF99CC !important; /* Pink - List Items */
+}
+
+.dev-debug main {
+    outline: 3px solid #00FFFF !important; /* Cyan - Main Content */
+}
+
+.dev-debug article {
+    outline: 2px solid #FFCC00 !important; /* Gold - Articles */
+}
+
+.dev-debug aside {
+    outline: 2px solid #CC6600 !important; /* Brown - Aside */
+}
+
+/* Special container classes */
+.dev-debug .main-container {
+    outline: 4px solid #FF0066 !important; /* Hot Pink - Main Container */
+}
+
+.dev-debug .header-container,
+.dev-debug .services-container,
+.dev-debug .team-info-container,
+.dev-debug .team-photos-container,
+.dev-debug .portfolio-container,
+.dev-debug .cta-container,
+.dev-debug .footer-content {
+    outline: 2px solid #00FF99 !important; /* Mint Green - Content Containers */
+}
+
+.dev-debug .geo-grid {
+    outline: 2px solid #FF3366 !important; /* Red-Pink - Grid Systems */
+}
+
+.dev-debug .geo-tile {
+    outline: 1px solid #CCCCCC !important; /* Light Gray - Grid Tiles */
+}
+
+.dev-debug .service-card,
+.dev-debug .team-member,
+.dev-debug .portfolio-item {
+    outline: 2px solid #3366FF !important; /* Medium Blue - Cards/Items */
+}
+
+/* =================================================================== */
+/* END DEVELOPMENT DEBUG SYSTEM                                       */
+/* =================================================================== */
+
 /* Reset and Base Styles */
 * {
     margin: 0;

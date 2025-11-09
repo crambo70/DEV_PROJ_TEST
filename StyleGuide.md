@@ -196,7 +196,65 @@
 - Background remains visually cohesive when compressed
 
 ### Interactive Elements
-*To be defined*
+
+#### Development Debug System
+**Purpose**: Visual debugging tool to display bounding boxes around all container elements
+
+**Activation**: Add `class="dev-debug"` to the `<body>` element to enable
+**Deactivation**: Remove `class="dev-debug"` from the `<body>` element to disable
+
+**Color Coding**:
+| HTML Element | Color | Hex Code | Outline Width | Purpose |
+|--------------|-------|----------|---------------|---------|
+| `<body>` | **Red** | `#FF0000` | 3px | Root body element |
+| `<div>` | **Blue** | `#0066FF` | 2px | Generic container divs |
+| `<section>` | **Green** | `#00CC00` | 3px | Main content sections |
+| `<header>` | **Orange** | `#FF6600` | 3px | Page header |
+| `<nav>` | **Purple** | `#9933FF` | 2px | Navigation elements |
+| `<footer>` | **Gray** | `#666666` | 3px | Page footer |
+| `<ul>` | **Yellow** | `#FFFF00` | 2px | Unordered lists |
+| `<li>` | **Pink** | `#FF99CC` | 1px | List items |
+| `<main>` | **Cyan** | `#00FFFF` | 3px | Main content areas |
+| `<article>` | **Gold** | `#FFCC00` | 2px | Article content |
+| `<aside>` | **Brown** | `#CC6600` | 2px | Sidebar content |
+
+**Special Container Classes**:
+| Class Name | Color | Hex Code | Outline Width | Purpose |
+|------------|-------|----------|---------------|---------|
+| `.main-container` | **Hot Pink** | `#FF0066` | 4px | Primary page container |
+| Content Containers | **Mint Green** | `#00FF99` | 2px | Section content wrappers |
+| `.geo-grid` | **Red-Pink** | `#FF3366` | 2px | Grid layout systems |
+| `.geo-tile` | **Light Gray** | `#CCCCCC` | 1px | Individual grid tiles |
+| Cards/Items | **Medium Blue** | `#3366FF` | 2px | Service cards, team members, portfolio items |
+
+**Content Container Classes Include**:
+- `.header-container`
+- `.services-container` 
+- `.team-info-container`
+- `.team-photos-container`
+- `.portfolio-container`
+- `.cta-container`
+- `.footer-content`
+
+**Card/Item Classes Include**:
+- `.service-card`
+- `.team-member`
+- `.portfolio-item`
+
+**Usage Examples**:
+```html
+<!-- Enable debugging -->
+<body class="dev-debug">
+
+<!-- Disable debugging -->
+<body>
+```
+
+**Implementation Notes**:
+- Uses `outline` property to avoid affecting layout/box model
+- All outlines use `!important` to override existing styles
+- System is completely non-intrusive when disabled
+- Provides clear visual hierarchy of container nesting
 
 ---
 
@@ -212,3 +270,4 @@
 - **Nov 8, 2025**: CSS logo precision update - Corrected color (#00308C), delicate typography, overlapping geometric elements
 - **Nov 8, 2025**: Logo implementation change - Switched from CSS to PNG image with responsive scaling for better quality
 - **Nov 8, 2025**: Navigation typography adjustment - Reduced menu text size by 50% (from 18px to 9px) for better proportion balance
+- **Nov 9, 2025**: Development debug system - Added comprehensive bounding box visualization with color-coded HTML element identification
