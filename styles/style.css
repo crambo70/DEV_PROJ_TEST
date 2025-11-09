@@ -131,6 +131,19 @@ body {
     background-color: #FFFFFF; /* White background */
 }
 
+/* Responsive hero section height */
+@media (max-width: 768px) {
+    .hero {
+        height: 300px; /* Smaller height on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 250px; /* Even more compact on very small screens */
+    }
+}
+
 .geometric-background {
     position: absolute;
     top: 0;
@@ -165,6 +178,7 @@ body {
     gap: 0; /* No gaps between tiles */
     width: 100%; /* Full width of container (2240px max) */
     height: 400px; /* Fixed height for the grid */
+    aspect-ratio: 6/2; /* Maintain proper aspect ratio */
 }
 
 /* Individual grid tile */
@@ -177,7 +191,7 @@ body {
     font-size: 12px;
     color: #84858D;
     font-family: "din-2014", sans-serif;
-    min-height: 200px; /* Each tile is 200px tall (400px / 2 rows) */
+    aspect-ratio: 1/1; /* Maintain square shape */
 }
 
 /* Images within geo tiles */
@@ -202,19 +216,10 @@ body {
     z-index: 10; /* Higher than geometric background */
 }
 
-/* Responsive grid scaling - maintains 2x6 proportions */
+/* Responsive grid scaling - maintains 2x6 proportions and square tiles */
 @media (max-width: 1024px) {
     .geo-grid {
-        height: 320px; /* Slightly smaller on tablets */
-    }
-    
-    .geo-tile {
-        min-height: 160px;
-        font-size: 10px;
-    }
-    
-    .geo-tile::after {
-        font-size: 12px;
+        height: 320px; /* Proportionally smaller */
     }
 }
 
@@ -224,31 +229,17 @@ body {
     }
     
     .geo-tile {
-        min-height: 120px;
         font-size: 8px;
-    }
-    
-    .geo-tile::after {
-        font-size: 10px;
-        top: 5px;
-        left: 5px;
     }
 }
 
 @media (max-width: 600px) {
     .geo-grid {
-        height: 160px; /* Very compact on small screens */
+        height: 180px; /* Very compact on small screens */
     }
     
     .geo-tile {
-        min-height: 80px;
         font-size: 6px;
-    }
-    
-    .geo-tile::after {
-        font-size: 8px;
-        top: 3px;
-        left: 3px;
     }
 }
 
@@ -553,6 +544,23 @@ body {
 .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+/* Responsive hero text sizing */
+@media (max-width: 768px) {
+    .cta-button {
+        font-size: 32px; /* Smaller on mobile */
+        line-height: 42px;
+        padding: 0.75rem 1.5rem; /* Smaller padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-button {
+        font-size: 24px; /* Even smaller on very small screens */
+        line-height: 32px;
+        padding: 0.5rem 1rem; /* Compact padding */
+    }
 }
 
 /* Services Section */
