@@ -126,6 +126,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #FFFFFF; /* White background */
 }
 
 .geometric-background {
@@ -147,10 +148,10 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background: #F1F1F4; /* Off-white base */
+    background: transparent; /* Remove gray background */
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align to top instead of center */
     justify-content: center;
 }
 
