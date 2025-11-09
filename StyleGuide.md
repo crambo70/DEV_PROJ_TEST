@@ -51,11 +51,12 @@
 
 **Key Components:**
 - **Header Section**: Clean navigation with SCENIC logo and menu items
-  - **CSS Logo**: Pure CSS recreation of SCENIC INC logo with geometric elements
-    - Top/bottom blue bars with angled clip-path
-    - Arrow brackets using CSS borders
-    - Proper typography and letter spacing
-    - Responsive scaling for mobile devices
+  - **Logo**: PNG image implementation with responsive scaling
+    - Desktop: 32px height, auto width with 200px max-width
+    - Tablet: 28px height, 175px max-width  
+    - Mobile: 24px height, 150px max-width
+    - Perfect aspect ratio maintenance with object-fit: contain
+    - Future-ready for SVG upgrade for optimal scaling
   - Desktop: Horizontal menu (WORK, GET IN TOUCH, EVENT SERVICES)
   - Mobile: Hamburger menu with slide-down panel
 - **Hero Section**: Geometric background with centered call-to-action
@@ -127,29 +128,31 @@
 
 ### Background & Visual Elements
 
-#### CSS Logo Implementation
-**SCENIC INC Logo**: Pure CSS recreation using geometric shapes
+#### Logo Implementation
+**SCENIC INC Logo**: PNG image with responsive scaling
 
-**Color**: `#00308C` (Bright blue)
+**Image Specifications**:
+- **Format**: PNG (placeholder for future SVG upgrade)
+- **Location**: `/images/scenic-logo.png`
+- **Scaling**: Responsive height-based sizing with auto width
+- **Aspect Ratio**: Maintained with `object-fit: contain`
 
-**Components**:
-- **Top blue bar**: Overlaps/intersects with outer letters (S and C) using precise clip-path
-- **Main text**: "SCENIC" with delicate weight (normal, not bold) and variable letter sizing
-- **Arrow brackets**: Narrower CSS border triangles positioned closer to text
-- **Bottom blue bar**: Contains white "INC" text, intersects with S and C letters
-- **Integrated design**: Geometric elements overlap with typography for cohesive look
+**Responsive Sizing**:
+- **Desktop (1025px+)**: 32px height, 200px max-width
+- **Tablet (769-1024px)**: 28px height, 175px max-width  
+- **Mobile (≤768px)**: 24px height, 150px max-width
 
-**Typography Details**:
-- **Font weight**: Normal (not bold) for delicate appearance
-- **Letter sizing**: First "S" and last "C" at 1.2em, middle "CENI" at 1em
-- **Letter spacing**: Tighter spacing (1px) for narrow, refined look
-- **Visual overlap**: Blue bars extend into letter spaces for integrated design
+**Implementation Benefits**:
+- **Perfect quality**: No CSS typography limitations
+- **True scaling**: Maintains design integrity across devices
+- **Future-ready**: Easy SVG replacement for infinite scalability
+- **Performance**: Single image request vs complex CSS shapes
 
-**CSS Techniques**:
-- `z-index` layering for proper overlap of bars and text
-- Precise `clip-path` polygons for angled intersections
-- Narrower CSS border triangles for refined arrows
-- Delicate proportions matching reference design
+**CSS Properties**:
+- `height`: Fixed height for consistent sizing
+- `width: auto`: Maintains aspect ratio
+- `max-width`: Prevents oversizing on large screens
+- `object-fit: contain`: Ensures proper scaling without distortion
 
 **CSS Techniques**:
 - `::before` pseudo-element for top bar
@@ -206,3 +209,4 @@
 - **Nov 8, 2025**: CSS logo implementation - Pure CSS SCENIC INC logo with geometric shapes and responsive scaling
 - **Nov 8, 2025**: CSS logo refinement - Fixed proportions, spacing, and integrated INC text within bottom bar
 - **Nov 8, 2025**: CSS logo precision update - Corrected color (#00308C), delicate typography, overlapping geometric elements
+- **Nov 8, 2025**: Logo implementation change - Switched from CSS to PNG image with responsive scaling for better quality
