@@ -672,15 +672,15 @@ body {
 /* Services Section */
 .services {
     padding: 4rem 2rem;
-    background-color: #F1F1F4; /* Off-white from palette */
+    background-color: #FFFFFF; /* Clean white background - changed from off-white */
 }
 
 .services-container {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Slightly smaller cards */
+    gap: 1.5rem; /* Tighter spacing */
     align-items: start;
 }
 
@@ -694,12 +694,12 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 250px;
+    min-height: 220px; /* Slightly smaller height */
 }
 
 .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transform: translateY(-2px); /* Reduced hover lift */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Softer shadow */
 }
 
 /* Top area for icon/Lottie animation */
@@ -708,14 +708,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1rem 1rem 1rem;
+    padding: 1.5rem 1rem 0.5rem 1rem; /* Reduced padding */
     background-color: #FFFFFF;
 }
 
 .service-icon {
-    width: 80px;
-    height: 80px;
-    background-color: transparent; /* Remove gray background for images */
+    width: 70px; /* Slightly smaller icons */
+    height: 70px;
+    background-color: transparent;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -740,15 +740,16 @@ body {
 
 /* Bottom area for service title */
 .service-text-area {
-    padding: 1rem 1rem 2rem 1rem;
+    padding: 0.5rem 1rem 1.5rem 1rem; /* Reduced padding */
     background-color: #FFFFFF;
 }
 
 .service-title {
     font-family: "din-2014", sans-serif;
-    font-size: 24px; /* Desktop size - base font increased from 18px */
+    font-size: 14px; /* Much smaller text - matching reference */
     color: #00308C; /* Navy Blue */
     margin: 0;
+    font-weight: normal; /* Less bold for cleaner look */
 }
 
 /* Hover overlay with description and link */
@@ -758,9 +759,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 48, 140, 0.95); /* Navy blue overlay */
+    background-color: rgba(255, 0, 255, 0.9); /* Pink/magenta overlay - matching reference */
     color: #FFFFFF;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem; /* Reduced padding */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -776,27 +777,27 @@ body {
 
 .service-description {
     font-family: "din-2014", sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 12px; /* Smaller description text */
+    line-height: 1.4; /* Tighter line height */
     margin-bottom: 1rem;
-    max-width: 200px;
+    max-width: 160px; /* Smaller max width */
 }
 
 .service-link {
     font-family: "din-2014", sans-serif;
     color: #FFFFFF;
     text-decoration: none;
-    border: 2px solid #FFFFFF;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: bold;
+    border: 1px solid #FFFFFF; /* Thinner border */
+    padding: 0.4rem 0.8rem; /* Smaller button */
+    border-radius: 20px; /* Smaller radius */
+    font-size: 11px; /* Smaller link text */
+    font-weight: normal; /* Less bold */
     transition: all 0.3s ease;
 }
 
 .service-link:hover {
     background-color: #FFFFFF;
-    color: #00308C;
+    color: #FF00FF; /* Pink text on white background */
 }
 
 /* Mobile Responsive */
@@ -862,7 +863,7 @@ body {
 
     /* Text sizing for mobile */
     .service-title {
-        font-size: 16px; /* Mobile size */
+        font-size: 11px; /* Mobile size - smallest */
     }
 
     .team-title {
@@ -909,7 +910,7 @@ body {
 
     /* Text sizing for tablet */
     .service-title {
-        font-size: 20px; /* Tablet size */
+        font-size: 12px; /* Tablet size - smaller */
     }
 
     .team-title {
