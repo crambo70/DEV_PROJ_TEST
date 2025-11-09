@@ -242,13 +242,14 @@ body {
     }
 }
 
-/* Team Section */
-.team {
-    background-color: #F1F1F4; /* Off-white background */
-    padding: 4rem 2rem;
+/* Team Info Section (Upper - White Background) */
+.team-info {
+    background-color: #FFFFFF; /* White background */
+    padding: 3rem 2rem 1rem 2rem;
+    border-bottom: 1px solid #84858D; /* Subtle division line */
 }
 
-.team-container {
+.team-info-container {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
@@ -258,8 +259,59 @@ body {
     font-size: 2.5rem;
     font-weight: bold;
     color: #000000;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     letter-spacing: 2px;
+}
+
+.team-info-arcs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.team-info-arc {
+    width: 150px;
+    height: 75px; /* Half circle height */
+    position: relative;
+    border-radius: 150px 150px 0 0; /* Top half circle */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1rem 0.5rem;
+}
+
+/* Arc color backgrounds matching team photos */
+.red-arc { background-color: #E53E3E; }
+.teal-arc { background-color: #34CBC2; }
+.purple-arc { background-color: #6B46C1; }
+.yellow-arc { background-color: #FDD835; color: #000000; } /* Dark text on yellow */
+.blue-arc { background-color: #12AEE7; }
+
+.team-info-arc .member-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.team-info-arc .member-title {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* Team Photos Section (Lower - Gray Background) */
+.team-photos {
+    background-color: #F1F1F4; /* Gray background from StyleGuide */
+    padding: 2rem 2rem 4rem 2rem;
+}
+
+.team-photos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .team-members {
@@ -278,28 +330,16 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    margin: 0 auto 1rem auto;
+    margin: 0 auto;
     position: relative;
 }
 
-/* Color overlays for team photos */
+/* Color overlays for team photos - matching the arcs above */
 .red-overlay { background-color: #E53E3E; }
 .teal-overlay { background-color: #34CBC2; }
 .purple-overlay { background-color: #6B46C1; }
 .yellow-overlay { background-color: #FDD835; }
 .blue-overlay { background-color: #12AEE7; }
-
-.member-name {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #000000;
-    margin-bottom: 0.5rem;
-}
-
-.member-title {
-    font-size: 0.9rem;
-    color: #84858D;
-}
 
 .team-description {
     font-size: 1.1rem;
@@ -422,6 +462,16 @@ body {
 
 /* Responsive adjustments for new sections */
 @media (max-width: 768px) {
+    .team-info-arcs {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .team-info-arc {
+        width: 200px;
+    }
+    
     .team-members {
         flex-direction: column;
         align-items: center;
