@@ -46,7 +46,7 @@ body {
     display: none; /* Hide the text version */
 }
 
-/* CSS SCENIC Logo */
+/* CSS SCENIC Logo - Precise Geometric Layout */
 .scenic-logo {
     display: flex;
     flex-direction: column;
@@ -54,107 +54,110 @@ body {
     justify-content: center;
     position: relative;
     font-family: 'DIN 2014', 'Helvetica Neue', Arial, sans-serif;
-    color: #00308C; /* Corrected blue color */
-    padding: 10px 0;
+    color: #00308C;
+    padding: 8px 0;
 }
 
-/* Top blue bar - extends into S and C */
+/* Top blue bar - ONLY spans from S midpoint to C midpoint */
 .scenic-logo::before {
     content: '';
     position: absolute;
-    top: 2px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 140px;
-    height: 6px;
+    width: 70px; /* Much shorter - only S to C span */
+    height: 3px;
     background-color: #00308C;
-    clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
     z-index: 2;
 }
 
-/* Bottom blue bar with INC text inside - extends into S and C */
+/* Bottom white section with angled blue edges */
 .scenic-logo::after {
-    content: 'INC';
+    content: '';
     position: absolute;
-    bottom: 2px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 140px;
-    height: 6px;
-    background-color: #00308C;
-    clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
+    width: 70px; /* Same width as top */
+    height: 10px;
+    background-color: #FFFFFF;
+    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
     z-index: 2;
-    
-    /* Text styling for INC */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 7px;
-    font-weight: normal;
-    letter-spacing: 2px;
-    color: #FFFFFF;
-    line-height: 1;
+    outline: 1px solid #00308C;
 }
 
-/* Main SCENIC text container - more delicate */
+/* Main SCENIC text - very bold and condensed */
 .scenic-main {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    font-size: 20px;
-    font-weight: normal; /* Changed from bold to normal */
-    letter-spacing: 1px; /* Tighter spacing */
+    font-size: 16px;
+    font-weight: 900; /* Extra bold */
+    letter-spacing: -1px; /* Condensed */
     color: #00308C;
-    margin: 4px 0;
-    padding: 0 28px;
-    z-index: 1;
+    margin: 5px 0;
+    padding: 0 20px;
+    z-index: 3;
+    font-stretch: condensed;
 }
 
-/* Larger letters for first S and last C - more delicate */
+/* Make letters even bolder */
 .letter-large {
-    font-size: 1.2em; /* Reduced from 1.3em */
+    font-size: 1.1em;
+    font-weight: 900;
     line-height: 1;
-    position: relative;
-    z-index: 1;
 }
 
-/* Normal sized letters for middle text */
 .letter-normal {
     font-size: 1em;
+    font-weight: 900;
     line-height: 1;
-    position: relative;
-    z-index: 1;
 }
 
-/* Left arrow bracket - narrower */
+/* Left arrow - positioned precisely */
 .scenic-main::before {
     content: '';
     position: absolute;
-    left: 6px;
+    left: 2px;
     top: 50%;
     transform: translateY(-50%);
     width: 0;
     height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-right: 12px solid #00308C;
-    z-index: 3;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 8px solid #00308C;
+    z-index: 4;
 }
 
-/* Right arrow bracket - narrower */
+/* Right arrow - positioned precisely */
 .scenic-main::after {
     content: '';
     position: absolute;
-    right: 6px;
+    right: 2px;
     top: 50%;
     transform: translateY(-50%);
     width: 0;
     height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 12px solid #00308C;
-    z-index: 3;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid #00308C;
+    z-index: 4;
+}
+
+/* INC text - blue text in white section */
+.scenic-inc {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6px;
+    font-weight: 900;
+    color: #00308C;
+    letter-spacing: 1px;
+    z-index: 4;
+    line-height: 1;
 }
 
 /* Remove the separate INC element since it's now part of ::after */
