@@ -715,8 +715,8 @@ body {
 }
 
 .service-icon {
-    width: 70px; /* Slightly smaller icons */
-    height: 70px;
+    width: 93px; /* 33% larger (70px * 1.33) */
+    height: 93px;
     background-color: transparent;
     border-radius: 8px;
     display: flex;
@@ -872,6 +872,12 @@ body {
         font-size: 11px; /* Mobile size - smallest */
     }
 
+    /* Service icon sizing for mobile */
+    .service-icon {
+        width: 65px; /* Mobile size - scaled down from 93px */
+        height: 65px;
+    }
+
     .team-title {
         font-size: 2rem; /* Mobile size - 32px equivalent */
     }
@@ -917,6 +923,12 @@ body {
     /* Text sizing for tablet */
     .service-title {
         font-size: 12px; /* Tablet size - smaller */
+    }
+
+    /* Service icon sizing for tablet */
+    .service-icon {
+        width: 80px; /* Tablet size - scaled down from 93px */
+        height: 80px;
     }
 
     .team-title {
