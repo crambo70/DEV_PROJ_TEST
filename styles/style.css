@@ -166,7 +166,6 @@ body {
 
 /* Individual grid tile */
 .geo-tile {
-    border: 1px solid #84858D; /* Medium gray border - visible for now */
     background-color: #FFFFFF; /* White background */
     position: relative;
     display: flex;
@@ -178,18 +177,6 @@ body {
     min-height: 200px; /* Each tile is 200px tall (400px / 2 rows) */
 }
 
-/* Tile numbering for reference (will be removed later) */
-.geo-tile::after {
-    content: attr(data-tile);
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 14px;
-    color: #84858D;
-    font-weight: bold;
-    z-index: 2; /* Above the image */
-}
-
 /* Images within geo tiles */
 .geo-tile-image {
     width: 100%;
@@ -198,7 +185,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Behind the tile number and below hero content */
+    z-index: 1; /* Behind the hero content */
 }
 
 /* Vertical flip for geo tile images */
