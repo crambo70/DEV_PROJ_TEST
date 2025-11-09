@@ -9,7 +9,7 @@
 |------------|----------|-------|
 | **White** | `#FFFFFF` | Header background, text overlays, clean sections |
 | **Red** | `#EE3D33` | Accent color, call-to-action elements |
-| **Navy Blue** | `#00300C` | Primary brand color, geometric background |
+| **Navy Blue** | `#00308C` | Primary brand color, geometric background |
 | **Light Blue** | `#12AEE7` | Secondary accent, geometric background |
 | **Black** | `#000000` | Primary text, high contrast elements |
 | **Teal/Mint** | `#34CBC2` | Accent color, geometric background |
