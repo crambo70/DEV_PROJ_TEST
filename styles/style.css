@@ -125,16 +125,69 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
-    /* Geometric background will be added here */
-    background: linear-gradient(45deg, #12AEE7, #00300C, #EE3D33, #FAC813);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
+    /* Remove temporary gradient */
+    background: #F1F1F4; /* Off-white base */
+    overflow: hidden;
 }
 
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* Single Geometric Building Block */
+.geo-block {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+
+/* Radial arc layers using clip-path and borders */
+.geo-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    background: conic-gradient(
+        from 0deg,
+        #00308C 0deg 45deg,
+        #12AEE7 45deg 90deg,
+        #34CBC2 90deg 135deg,
+        #00308C 135deg 180deg,
+        #12AEE7 180deg 225deg,
+        #34CBC2 225deg 270deg,
+        #00308C 270deg 315deg,
+        #12AEE7 315deg 360deg
+    );
+    border-radius: 50%;
+    clip-path: polygon(50% 50%, 100% 0%, 100% 100%, 50% 100%);
+}
+
+/* Inner concentric circle */
+.geo-block::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background: conic-gradient(
+        from 45deg,
+        #34CBC2 0deg 45deg,
+        #00308C 45deg 90deg,
+        #12AEE7 90deg 135deg,
+        #34CBC2 135deg 180deg,
+        #00308C 180deg 225deg,
+        #12AEE7 225deg 270deg,
+        #34CBC2 270deg 315deg,
+        #00308C 315deg 360deg
+    );
+    border-radius: 50%;
+    clip-path: polygon(50% 50%, 100% 0%, 100% 100%, 50% 100%);
+}
+
+/* Test single block positioned in hero */
+.test-geo-block {
+    top: 50px;
+    left: 50px;
 }
 
 .hero-content {
