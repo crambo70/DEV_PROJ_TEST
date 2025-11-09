@@ -238,7 +238,7 @@ body {
 /* Small screens (Mobile) */
 @media (max-width: 768px) {
     .hero {
-        height: 200px; /* Match geometric grid height */
+        height: 250px; /* Taller on mobile for better text centering */
     }
 }
 
@@ -326,7 +326,7 @@ body {
 /* Small screens (Mobile) */
 @media (max-width: 768px) {
     .geo-grid {
-        height: 200px; /* Compact for mobile */
+        height: 250px; /* Match hero height for proper alignment */
     }
     
     .geo-tile {
@@ -870,12 +870,13 @@ body {
     /* Mobile service cards with auto height for inline content */
     .service-card {
         height: auto;
-        min-height: 220px; /* Slightly shorter to show more cards */
+        min-height: 180px; /* Much shorter to show multiple cards */
+        margin-bottom: 0.5rem; /* Tighter spacing between cards */
     }
 
     /* Reduce services section padding on mobile */
     .services {
-        padding: 0.5rem 0.5rem; /* Much tighter top padding to show more cards */
+        padding: 0rem 0.5rem; /* No top padding - services start immediately after hero */
     }
 
     /* Adjust service card spacing for mobile */
