@@ -870,12 +870,12 @@ body {
     /* Mobile service cards with auto height for inline content */
     .service-card {
         height: auto;
-        min-height: 250px;
+        min-height: 220px; /* Slightly shorter to show more cards */
     }
 
     /* Reduce services section padding on mobile */
     .services {
-        padding: 1rem 0.5rem; /* Even tighter padding on mobile */
+        padding: 0.5rem 0.5rem; /* Much tighter top padding to show more cards */
     }
 
     /* Adjust service card spacing for mobile */
