@@ -548,9 +548,18 @@ body {
 
 /* Font Variation Experiments */
 .cta-button.variation-1 {
-    /* Current baseline styling */
-    font-weight: 700; /* Bold */
+    /* Updated with provided CSS styling */
+    color: #00308C;
+    text-align: center;
+    font: normal normal normal 48px/62px "din-2014", sans-serif;
+    letter-spacing: 0px;
+    opacity: 1;
     transform: scaleX(1); /* Normal width */
+    
+    /* Override default button styles for this variation */
+    font-weight: normal !important;
+    font-size: 48px !important;
+    line-height: 62px !important;
 }
 
 .cta-button.variation-2 {
