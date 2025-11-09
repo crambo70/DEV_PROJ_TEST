@@ -679,9 +679,10 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Slightly smaller cards */
-    gap: 1.5rem; /* Tighter spacing */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
     align-items: start;
+    padding-bottom: 3rem; /* Extra padding for pop-below callouts */
 }
 
 .service-card {
@@ -691,15 +692,16 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* Allow the callout to extend below */
     display: flex;
     flex-direction: column;
-    min-height: 220px; /* Slightly smaller height */
+    min-height: 220px;
+    margin-bottom: 2rem; /* Extra space for the pop-below callout */
 }
 
 .service-card:hover {
-    transform: translateY(-2px); /* Reduced hover lift */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Softer shadow */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Top area for icon/Lottie animation */
@@ -752,52 +754,56 @@ body {
     font-weight: normal; /* Less bold for cleaner look */
 }
 
-/* Hover overlay with description and link */
+/* Hover callout that appears below the service card */
 .service-hover-overlay {
     position: absolute;
-    top: 0;
+    top: 100%; /* Position below the card */
     left: 0;
     right: 0;
-    bottom: 0;
-    background-color: rgba(255, 0, 255, 0.9); /* Pink/magenta overlay - matching reference */
+    background-color: #84858D; /* Medium Gray from style guide */
     color: #FFFFFF;
-    padding: 1.5rem 1rem; /* Reduced padding */
+    padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(-10px); /* Start slightly above final position */
+    transition: all 0.3s ease;
+    border-radius: 0 0 8px 8px; /* Rounded bottom corners to match card */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Shadow for depth */
+    z-index: 10; /* Ensure it appears above other cards */
 }
 
 .service-card:hover .service-hover-overlay {
     opacity: 1;
+    transform: translateY(0); /* Slide into final position */
 }
 
 .service-description {
     font-family: "din-2014", sans-serif;
-    font-size: 12px; /* Smaller description text */
-    line-height: 1.4; /* Tighter line height */
+    font-size: 12px;
+    line-height: 1.4;
     margin-bottom: 1rem;
-    max-width: 160px; /* Smaller max width */
+    max-width: 160px;
 }
 
 .service-link {
     font-family: "din-2014", sans-serif;
     color: #FFFFFF;
     text-decoration: none;
-    border: 1px solid #FFFFFF; /* Thinner border */
-    padding: 0.4rem 0.8rem; /* Smaller button */
-    border-radius: 20px; /* Smaller radius */
-    font-size: 11px; /* Smaller link text */
-    font-weight: normal; /* Less bold */
+    border: 1px solid #FFFFFF;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: normal;
     transition: all 0.3s ease;
 }
 
 .service-link:hover {
     background-color: #FFFFFF;
-    color: #FF00FF; /* Pink text on white background */
+    color: #84858D; /* Gray text on white background */
 }
 
 /* Mobile Responsive */
