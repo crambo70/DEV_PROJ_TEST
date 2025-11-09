@@ -17,6 +17,16 @@ body {
     background-color: #FFFFFF; /* White from palette */
 }
 
+/* Main Container - Maximum 2240px width */
+.main-container {
+    max-width: 2240px;
+    width: 100%;
+    margin: 0 auto;
+    border: 3px solid #FF0000; /* Red border for development visibility */
+    position: relative;
+    background-color: #FFFFFF;
+}
+
 /* Header Section */
 .header {
     background-color: #FFFFFF;
@@ -229,6 +239,206 @@ body {
     
     .geo-tile::after {
         font-size: 5px;
+    }
+}
+
+/* Team Section */
+.team {
+    background-color: #F1F1F4; /* Off-white background */
+    padding: 4rem 2rem;
+}
+
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 1rem auto;
+    position: relative;
+}
+
+/* Color overlays for team photos */
+.red-overlay { background-color: #E53E3E; }
+.teal-overlay { background-color: #34CBC2; }
+.purple-overlay { background-color: #6B46C1; }
+.yellow-overlay { background-color: #FDD835; }
+.blue-overlay { background-color: #12AEE7; }
+
+.member-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.member-title {
+    font-size: 0.9rem;
+    color: #84858D;
+}
+
+.team-description {
+    font-size: 1.1rem;
+    color: #84858D;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Portfolio Section */
+.portfolio {
+    background-color: #FFFFFF;
+    padding: 4rem 2rem;
+}
+
+.portfolio-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    grid-auto-rows: 200px;
+}
+
+.portfolio-item {
+    background-color: #F1F1F4;
+    border: 2px solid #84858D;
+    position: relative;
+}
+
+.portfolio-item.large {
+    grid-row: span 2;
+}
+
+.portfolio-item.medium {
+    grid-row: span 1;
+}
+
+.portfolio-item.small {
+    grid-row: span 1;
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: #E53E3E; /* Red background */
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.cta-btn {
+    background-color: #FFFFFF;
+    color: #E53E3E;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #F1F1F4;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background-color: #00308C; /* Navy background */
+    padding: 3rem 2rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-geometric-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    /* Will add geometric pattern similar to hero */
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo-img {
+    height: 60px;
+    filter: brightness(0) invert(1); /* Make logo white */
+}
+
+.footer-info {
+    color: #FFFFFF;
+    font-size: 1rem;
+}
+
+/* Responsive adjustments for new sections */
+@media (max-width: 768px) {
+    .team-members {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .team-title, .cta-title {
+        font-size: 2rem;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
     }
 }
 
