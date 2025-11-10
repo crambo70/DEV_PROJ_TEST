@@ -671,12 +671,55 @@ Current issues:
 
 ---
 
+## **🔄 DEVELOPMENT WORKFLOW**
+
+### **Version Number Management:**
+
+**Location:** `index.html` line 22 - Version indicator in header
+
+**Standard Practice:** Increment version number with EVERY commit to production/dev
+
+**Workflow:**
+1. Make your code changes
+2. **Increment version number** in `index.html`:
+   ```html
+   <span class="version-number">1.0.X</span>
+   ```
+3. Commit with version in message:
+   ```bash
+   git commit -m "v1.0.X - Your change description"
+   ```
+4. Push and verify version on live site
+
+**Versioning Scheme:**
+- `1.0.X` - Bug fixes, minor updates, small changes
+- `1.X.0` - New features, new pages, significant additions
+- `X.0.0` - Major releases, redesigns, milestones
+
+**Current Version:** `v1.0.1` (as of Nov 10, 2025)
+
+### **Deployment Commands:**
+```bash
+# Development deployment
+gitdeploy -dev
+
+# Production deployment (with confirmation)
+gitdeploy -prod
+
+# Production deployment (force, no confirmation)
+gitdeploy -prod -f
+```
+
+---
+
 ## **💡 NOTES & DECISIONS**
 
 *(Use this section to track important decisions, blockers, and insights)*
 
 ### **Decisions Made:**
-- None yet
+- Nov 10, 2025: Added version indicator to header for deployment verification
+- Nov 10, 2025: Switched from native lazy loading to Intersection Observer for precise control
+- Nov 10, 2025: Skipped image optimization (Task 1.1) - images are SVG placeholders
 
 ### **Blockers:**
 - None yet
