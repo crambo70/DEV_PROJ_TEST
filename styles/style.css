@@ -1109,7 +1109,7 @@ body {
         opacity: 0;
         background: rgba(0, 48, 140, 0.95);
         color: white;
-        padding: 0 1rem; /* Horizontal padding maintained */
+        padding: 1.5rem 1rem; /* Balanced vertical and horizontal padding */
         margin-top: 0;
         border-radius: 8px;
         transform: none !important;
@@ -1233,7 +1233,7 @@ body {
         opacity: 0;
         background: rgba(0, 48, 140, 0.95);
         color: white;
-        padding: 0 1rem; /* Horizontal padding maintained */
+        padding: 1.5rem 1rem; /* Balanced vertical and horizontal padding */
         margin-top: 0;
         border-radius: 8px;
         transform: none !important;
