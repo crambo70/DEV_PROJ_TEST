@@ -1327,6 +1327,12 @@ body {
         justify-self: center; /* Center within the span */
         max-width: 50%; /* Keep same width as other cards */
     }
+
+    /* Remove horizontal margins on overlay for centered last card */
+    .services-container .service-card:last-child:nth-child(odd) .service-hover-overlay {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 /* Desktop Enhancement */
