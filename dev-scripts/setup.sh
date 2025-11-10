@@ -19,14 +19,24 @@ case "$SHELL_NAME" in
         ;;
     "bash")
         if [[ "$OSTYPE" == "darwin"* ]]; then
+            # macOS prefers .bash_profile
             SHELL_CONFIG="$HOME/.bash_profile"
         else
+            # Linux typically uses .bashrc
             SHELL_CONFIG="$HOME/.bashrc"
         fi
+        ;;
+    "fish")
+        echo "⚠️  Fish shell detected. Manual setup required:"
+        echo "Add this to your ~/.config/fish/config.fish:"
+        echo "source \"$CURRENT_DIR/dev-scripts/gitdeploy.sh\""
+        exit 1
         ;;
     *)
         echo "⚠️  Unsupported shell: $SHELL_NAME"
         echo "Supported shells: zsh, bash"
+        echo "For manual setup, add this to your shell config:"
+        echo "source \"$CURRENT_DIR/dev-scripts/gitdeploy.sh\""
         exit 1
         ;;
 esac
@@ -40,24 +50,53 @@ echo "🔧 Checking required tools..."
 # Check for git
 if ! command -v git &> /dev/null; then
     echo "❌ Git is not installed. Please install Git and try again."
+    echo "Visit: https://git-scm.com/downloads"
     exit 1
+fi
+
+# Check git version (need at least 2.0 for some features)
+GIT_VERSION=$(git --version | grep -oE '[0-9]+\.[0-9]+' | head -1)
+if [[ $(echo "$GIT_VERSION 2.0" | tr ' ' '\n' | sort -V | head -1) != "2.0" ]]; then
+    echo "⚠️  Git version $GIT_VERSION detected. Some features may not work."
+    echo "Recommended: Git 2.0 or newer"
 fi
 echo "✅ Git found: $(git --version)"
 
 # Check for rsync
 if ! command -v rsync &> /dev/null; then
     echo "❌ rsync is not installed. Please install rsync and try again."
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "On macOS: Install Xcode Command Line Tools"
+        echo "  xcode-select --install"
+    elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        echo "On Ubuntu/Debian: sudo apt install rsync"
+        echo "On RHEL/CentOS: sudo yum install rsync"
+    fi
     exit 1
 fi
 echo "✅ rsync found"
+
+# Check bash/zsh features
+if [[ "$SHELL_NAME" == "bash" ]]; then
+    # Check bash version (need at least 4.0 for associative arrays)
+    BASH_VERSION=$(bash --version | head -1 | grep -oE '[0-9]+\.[0-9]+' | head -1)
+    if [[ $(echo "$BASH_VERSION 4.0" | tr ' ' '\n' | sort -V | head -1) != "4.0" ]]; then
+        echo "⚠️  Bash version $BASH_VERSION detected. Some features may not work optimally."
+        echo "Recommended: Bash 4.0 or newer"
+    fi
+fi
 
 echo ""
 
 # Get current directory (should be inside Dev_Proj_Test)
 CURRENT_DIR=$(pwd)
 if [[ ! -f "$CURRENT_DIR/dev-scripts/gitdeploy.sh" ]]; then
-    echo "❌ Error: This script must be run from the Dev_Proj_Test directory"
+    echo "❌ Error: This script must be run from the development repository directory"
     echo "Expected to find: $CURRENT_DIR/dev-scripts/gitdeploy.sh"
+    echo ""
+    echo "Make sure you:"
+    echo "1. Are in the correct directory (should contain dev-scripts folder)"
+    echo "2. Have cloned the complete repository with all files"
     exit 1
 fi
 
@@ -68,29 +107,54 @@ echo ""
 # Backup existing shell configuration
 if [[ -f "$SHELL_CONFIG" ]]; then
     echo "💾 Backing up existing shell configuration..."
-    cp "$SHELL_CONFIG" "${SHELL_CONFIG}.scenic-backup-$(date +%Y%m%d-%H%M%S)"
-    echo "✅ Backup created: ${SHELL_CONFIG}.scenic-backup-$(date +%Y%m%d-%H%M%S)"
+    BACKUP_FILE="${SHELL_CONFIG}.scenic-backup-$(date +%Y%m%d-%H%M%S)"
+    if cp "$SHELL_CONFIG" "$BACKUP_FILE"; then
+        echo "✅ Backup created: $BACKUP_FILE"
+    else
+        echo "❌ Failed to create backup. Check permissions."
+        exit 1
+    fi
+else
+    echo "📝 Creating new shell configuration file: $SHELL_CONFIG"
+    touch "$SHELL_CONFIG" || {
+        echo "❌ Cannot create shell configuration file. Check permissions."
+        exit 1
+    }
 fi
 
 # Install gitdeploy function
 echo ""
 echo "🔧 Installing gitdeploy function..."
 
-# Remove any existing gitdeploy function
-if grep -q "gitdeploy()" "$SHELL_CONFIG" 2>/dev/null; then
-    echo "🔄 Removing existing gitdeploy function..."
-    # Create temporary file without gitdeploy function
-    grep -v -A 200 "gitdeploy()" "$SHELL_CONFIG" | grep -v -B 200 "export -f gitdeploy" > "${SHELL_CONFIG}.tmp" || true
-    mv "${SHELL_CONFIG}.tmp" "$SHELL_CONFIG"
+# Remove any existing gitdeploy function (safer approach)
+if [[ -f "$SHELL_CONFIG" ]] && grep -q "SCENIC Development Environment" "$SHELL_CONFIG"; then
+    echo "🔄 Removing existing SCENIC development environment..."
+    # Create temporary file without SCENIC section
+    awk '
+    /# SCENIC Development Environment/ { skip=1 }
+    /# End SCENIC Development Environment/ { skip=0; next }
+    !skip { print }
+    ' "$SHELL_CONFIG" > "${SHELL_CONFIG}.tmp"
+    
+    if [[ -s "${SHELL_CONFIG}.tmp" ]]; then
+        mv "${SHELL_CONFIG}.tmp" "$SHELL_CONFIG"
+        echo "✅ Previous installation removed"
+    else
+        echo "❌ Error processing shell configuration. Using backup."
+        rm -f "${SHELL_CONFIG}.tmp"
+        return 1
+    fi
 fi
 
-# Add SCENIC development environment marker
+# Add SCENIC development environment marker with end marker for safer removal
 echo "" >> "$SHELL_CONFIG"
 echo "# SCENIC Development Environment - Auto-generated $(date)" >> "$SHELL_CONFIG"
 echo "# Source: $CURRENT_DIR/dev-scripts/" >> "$SHELL_CONFIG"
 
 # Source the gitdeploy script
 echo "source \"$CURRENT_DIR/dev-scripts/gitdeploy.sh\"" >> "$SHELL_CONFIG"
+
+echo "# End SCENIC Development Environment" >> "$SHELL_CONFIG"
 
 echo "✅ gitdeploy function installed"
 echo ""

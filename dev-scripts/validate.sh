@@ -97,6 +97,38 @@ if [[ -d "$PROD_DIR" ]]; then
 fi
 
 echo ""
+echo "🔒 Security and Safety Checks"
+echo "============================="
+
+# Check if we're in a git repository
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "❌ Not in a git repository"
+    ((ISSUES++))
+else
+    echo "✅ Valid git repository"
+fi
+
+# Check for sensitive files that shouldn't be committed
+SENSITIVE_FILES=(".env" ".env.local" "*.key" "*.pem" "config.json")
+for pattern in "${SENSITIVE_FILES[@]}"; do
+    if find . -name "$pattern" -not -path "./.git/*" | grep -q .; then
+        echo "⚠️  Found potentially sensitive files matching: $pattern"
+        echo "💡 Consider adding to .gitignore"
+    fi
+done
+
+# Check shell configuration for potentially dangerous additions
+if [[ -f "$HOME/.zshrc" ]] && grep -q "SCENIC Development Environment" "$HOME/.zshrc"; then
+    echo "✅ SCENIC environment found in shell config"
+elif [[ -f "$HOME/.bashrc" ]] && grep -q "SCENIC Development Environment" "$HOME/.bashrc"; then
+    echo "✅ SCENIC environment found in shell config"
+elif [[ -f "$HOME/.bash_profile" ]] && grep -q "SCENIC Development Environment" "$HOME/.bash_profile"; then
+    echo "✅ SCENIC environment found in shell config"
+else
+    echo "ℹ️  SCENIC environment not found in shell config (may need setup)"
+fi
+
+echo ""
 echo "🎯 Environment Status Summary"
 echo "=============================="
 

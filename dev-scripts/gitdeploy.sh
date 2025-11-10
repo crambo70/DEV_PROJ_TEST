@@ -37,14 +37,22 @@ gitdeploy() {
     local current_branch=$(git branch --show-current)
     local current_repo=$(basename $(git rev-parse --show-toplevel))
     
+    # Detect expected repository patterns (flexible naming)
+    local is_dev_repo=false
+    if [[ "$current_repo" =~ ^(Dev_Proj_Test|DEV_PROJ_TEST|dev-proj-test)$ ]]; then
+        is_dev_repo=true
+    fi
+    
     # Production deployment logic
     if [[ "$deploy_target" == "prod" ]]; then
         echo "🚀 PRODUCTION DEPLOYMENT MODE"
         echo "Current repo: $current_repo"
         
         # Make sure we're in the dev repository
-        if [[ "$current_repo" != "Dev_Proj_Test" ]]; then
-            echo "❌ Error: Production deployment must be run from the development repository (Dev_Proj_Test)"
+        if [[ "$is_dev_repo" != true ]]; then
+            echo "❌ Error: Production deployment must be run from the development repository"
+            echo "Expected repository patterns: Dev_Proj_Test, DEV_PROJ_TEST, or dev-proj-test"
+            echo "Current repository: $current_repo"
             return 1
         fi
         
@@ -86,39 +94,92 @@ gitdeploy() {
             
             echo "Commit message: \"$commit_msg\""
             git add .
-            git commit -m "$commit_msg"
-            git push origin "$current_branch"
+            if git commit -m "$commit_msg"; then
+                echo "✅ Development changes committed"
+            else
+                echo "❌ Failed to commit development changes"
+                return 1
+            fi
+            
+            if git push origin "$current_branch"; then
+                echo "✅ Development changes pushed"
+            else
+                echo "❌ Failed to push development changes"
+                echo "Check your GitHub authentication and network connection"
+                return 1
+            fi
         fi
         
         echo ""
         echo "=== Deploying to Production Repository ==="
         
-        # Navigate to production repository
-        local prod_path="../DEV_PROJ_TEST-prod"
-        if [[ ! -d "$prod_path" ]]; then
-            echo "❌ Error: Production repository not found at $prod_path"
+        # Navigate to production repository (flexible naming)
+        local prod_path
+        local parent_dir=$(dirname $(pwd))
+        
+        # Try multiple possible production repository names
+        for prod_name in "DEV_PROJ_TEST-prod" "${current_repo}-prod" "$(echo $current_repo | tr '[:upper:]' '[:lower:]')-prod"; do
+            if [[ -d "$parent_dir/$prod_name" ]]; then
+                prod_path="$parent_dir/$prod_name"
+                break
+            fi
+        done
+        
+        if [[ -z "$prod_path" ]]; then
+            echo "❌ Error: Production repository not found"
+            echo "Searched for: DEV_PROJ_TEST-prod, ${current_repo}-prod"
+            echo "In directory: $parent_dir"
             echo "Make sure you have cloned the production repository."
             return 1
         fi
+        
+        echo "Using production repository: $prod_path"
         
         cd "$prod_path"
         
         # Pull latest from production
         echo "Pulling latest production changes..."
-        git pull origin main
+        if ! git pull origin main; then
+            echo "⚠️  Warning: Could not pull from production remote. Continuing anyway..."
+            echo "This might be the first deployment or there could be network issues."
+        fi
         
-        # Copy files from dev (excluding .git directory)
+        # Copy files from dev (excluding .git directory and other unnecessary files)
         echo "Copying files from development..."
-        rsync -av --exclude='.git' ../Dev_Proj_Test/ ./
+        rsync -av --exclude='.git' --exclude='*.log' --exclude='.DS_Store' --exclude='node_modules' $(pwd)/ "$prod_path/"
         
-        # Remove dev-debug styling for production
+        # Remove dev-debug styling for production (cross-platform compatible)
         echo "Cleaning up for production (removing dev-debug)..."
-        sed -i.bak 's/<body class="dev-debug">/<body>/g' index.html && rm -f index.html.bak
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            # macOS (BSD sed)
+            sed -i.bak 's/<body class="dev-debug">/<body>/g' index.html && rm -f index.html.bak
+        else
+            # Linux (GNU sed)
+            sed -i 's/<body class="dev-debug">/<body>/g' index.html
+        fi
         
         # Commit and push production changes
         git add .
-        git commit -m "Production deployment from dev - $(date '+%Y-%m-%d %H:%M')"
-        git push origin main
+        if git diff --staged --quiet; then
+            echo "ℹ️  No changes to commit in production repository."
+        else
+            if git commit -m "Production deployment from dev - $(date '+%Y-%m-%d %H:%M')"; then
+                echo "✅ Production changes committed"
+            else
+                echo "❌ Failed to commit production changes"
+                cd - > /dev/null
+                return 1
+            fi
+        fi
+        
+        if git push origin main; then
+            echo "✅ Production changes pushed to GitHub"
+        else
+            echo "❌ Failed to push to production repository"
+            echo "Check your GitHub authentication and network connection"
+            cd - > /dev/null
+            return 1
+        fi
         
         # Return to dev repository
         cd - > /dev/null
@@ -177,7 +238,13 @@ gitdeploy() {
         git commit -m "$commit_msg"
         
         echo "git push origin $current_branch"
-        git push origin "$current_branch"
+        if git push origin "$current_branch"; then
+            echo "✅ Development changes pushed successfully"
+        else
+            echo "❌ Failed to push development changes"
+            echo "Check your GitHub authentication and network connection"
+            return 1
+        fi
         
         echo ""
         echo "✅ Development changes committed!"
