@@ -1114,7 +1114,7 @@ body {
         background: rgba(0, 48, 140, 0.95);
         color: white;
         padding: 1.5rem 1rem; /* Balanced vertical and horizontal padding */
-        margin-top: 0;
+        margin: 0 0.75rem; /* Inset from card edges (left/right), no top margin initially */
         border-radius: 8px;
         transform: none !important;
         top: auto !important;
@@ -1247,7 +1247,7 @@ body {
         background: rgba(0, 48, 140, 0.95);
         color: white;
         padding: 1.5rem 1rem; /* Balanced vertical and horizontal padding */
-        margin-top: 0;
+        margin: 0 0.75rem; /* Inset from card edges (left/right), no top margin initially */
         border-radius: 8px;
         transform: none !important;
         top: auto !important;
