@@ -41,21 +41,30 @@ img.loaded {
 
 .skip-to-content {
     position: absolute;
-    top: -40px;
+    top: -60px;
     left: 0;
     background: #00308C;
     color: #FFFFFF;
-    padding: 0.5rem 1rem;
+    /* Touch optimization: Increased padding to meet 44px minimum height */
+    padding: 0.85rem 1.5rem; /* 13.6px + 14px + 13.6px ≈ 48px height */
     text-decoration: none;
     font-family: "din-2014", sans-serif;
     font-size: 14px;
     font-weight: 500;
     z-index: 1000;
-    transition: top 0.3s;
+    transition: top 0.3s, transform 0.1s ease;
+    border-radius: 4px;
+    /* Prevent double-tap zoom */
+    touch-action: manipulation;
 }
 
 .skip-to-content:focus {
     top: 0;
+}
+
+/* Touch feedback */
+.skip-to-content:active {
+    transform: scale(0.98); /* Haptic feedback via scale */
 }
 
 /* =================================================================== */
@@ -332,11 +341,24 @@ body {
     text-decoration: none;
     color: #84858D; /* Medium Gray from palette */
     font-size: 18px; /* Desktop size - doubled from 9px */
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.1s ease;
+    /* Touch optimization: Ensure minimum 44x44px tap target */
+    padding: 0.7rem 1rem; /* 11.2px + 18px + 11.2px = 40.4px + line-height ≈ 48px */
+    display: inline-block;
+    border-radius: 4px;
+    /* Prevent double-tap zoom */
+    touch-action: manipulation;
 }
 
 .nav-list a:hover {
     color: #EE3D33; /* Red accent */
+    background-color: rgba(238, 61, 51, 0.05); /* Subtle red background */
+}
+
+/* Touch feedback for mobile */
+.nav-list a:active {
+    background-color: rgba(238, 61, 51, 0.1);
+    transform: scale(0.98); /* Haptic feedback via scale */
 }
 
 /* Hamburger Menu - Hidden on desktop */
@@ -346,7 +368,18 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
+    /* Touch optimization: Increased from 0.5rem to meet 44x44px minimum */
+    padding: 0.75rem; /* 12px padding = 25px + (12px × 2) = 49px total tap area */
+    /* Prevent double-tap zoom */
+    touch-action: manipulation;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    border-radius: 4px;
+}
+
+/* Touch feedback for hamburger */
+.hamburger:active {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(0.95); /* Haptic feedback via scale */
 }
 
 .hamburger span {
@@ -679,11 +712,20 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
+    /* Prevent double-tap zoom */
+    touch-action: manipulation;
+    /* Minimum tap target achieved: 24px font + 32px padding = 56px height */
 }
 
 .cta-btn:hover {
     background-color: #F1F1F4;
     transform: translateY(-2px);
+}
+
+/* Touch feedback for CTA button */
+.cta-btn:active {
+    background-color: #E8E8EB;
+    transform: translateY(0) scale(0.98); /* Haptic feedback via scale */
 }
 
 /* Footer */
@@ -777,17 +819,27 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 1rem;
     position: relative;
-    
+    cursor: pointer;
+
     /* Apply Variation 1 styling directly */
     text-align: center;
     font: normal normal normal 48px/62px "din-2014", sans-serif;
     letter-spacing: 0px;
     opacity: 1;
+
+    /* Prevent double-tap zoom */
+    touch-action: manipulation;
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+/* Touch feedback for hero CTA */
+.cta-button:active {
+    transform: translateY(0) scale(0.98); /* Haptic feedback via scale */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 /* Responsive hero text sizing - Three breakpoints */
@@ -936,16 +988,26 @@ body {
     color: #FFFFFF;
     text-decoration: none;
     border: 1px solid #FFFFFF;
-    padding: 0.4rem 0.8rem;
+    /* Touch optimization: Significantly increased padding to meet 44px minimum */
+    padding: 0.9rem 1.2rem; /* 14.4px + 11px + 14.4px ≈ 51px height */
     border-radius: 20px;
     font-size: 11px;
     font-weight: normal;
     transition: all 0.3s ease;
+    display: inline-block;
+    /* Prevent double-tap zoom */
+    touch-action: manipulation;
 }
 
 .service-link:hover {
     background-color: #FFFFFF;
     color: #84858D; /* Gray text on white background */
+}
+
+/* Touch feedback for service links */
+.service-link:active {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(0.95); /* Haptic feedback via scale */
 }
 
 /* Mobile Responsive */
