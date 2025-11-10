@@ -1320,6 +1320,13 @@ body {
     .services-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* Center the last card if it's alone in its row (5th card) */
+    .services-container .service-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1; /* Span both columns */
+        justify-self: center; /* Center within the span */
+        max-width: 50%; /* Keep same width as other cards */
+    }
 }
 
 /* Desktop Enhancement */
