@@ -2,6 +2,21 @@
 /* Based on StyleGuide.md - Mobile-first approach */
 
 /* =================================================================== */
+/* FONT LOADING OPTIMIZATION                                          */
+/* Adobe Fonts (Typekit) loaded with swap behavior for performance    */
+/* =================================================================== */
+
+@font-face {
+    font-family: 'din-2014';
+    font-display: swap; /* Show fallback font while custom font loads */
+    src: local('din-2014');
+}
+
+/* =================================================================== */
+/* END FONT LOADING OPTIMIZATION                                      */
+/* =================================================================== */
+
+/* =================================================================== */
 /* DEVELOPMENT DEBUG SYSTEM - BOUNDING BOXES                          */
 /* Add class="dev-debug" to <body> to enable visual debugging         */
 /* =================================================================== */
@@ -889,32 +904,52 @@ body {
         padding: 0.5rem 0.5rem 0.25rem 0.5rem; /* Minimal white space above icons */
     }
 
-    /* Alternative: Make callout inline content on mobile */
+    /* Mobile: Inline expandable callout with smooth animation */
     .service-card .service-hover-overlay {
         position: static !important;
         opacity: 0;
-        visibility: hidden;
         background: rgba(0, 48, 140, 0.95);
         color: white;
-        padding: 0; /* No padding when collapsed */
-        margin-top: 0; /* No margin when collapsed */
+        padding: 0 1rem; /* Horizontal padding maintained */
+        margin-top: 0;
         border-radius: 8px;
         transform: none !important;
         top: auto !important;
         left: auto !important;
         right: auto !important;
-        height: 0; /* Collapsed height */
-        overflow: hidden; /* Hide content when collapsed */
-        transition: all 0.3s ease;
+        max-height: 0; /* Use max-height for smooth animation */
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.3s ease 0.1s,
+                    margin-top 0.3s ease;
     }
-    
-    .service-card:hover .service-hover-overlay {
+
+    /* Touch-friendly expansion - works on tap for mobile */
+    .service-card:hover .service-hover-overlay,
+    .service-card:active .service-hover-overlay,
+    .service-card:focus-within .service-hover-overlay {
         opacity: 1;
-        visibility: visible;
         transform: none !important;
-        padding: 1rem; /* Expand padding on hover */
-        margin-top: 1rem; /* Add margin on hover */
-        height: auto; /* Allow natural height on hover */
+        margin-top: 0.75rem;
+        max-height: 300px; /* Large enough for content, enables smooth animation */
+    }
+
+    /* Visual indicator that card is tappable - chevron icon */
+    .service-card .service-title::after {
+        content: '▼';
+        display: inline-block;
+        margin-left: 0.5rem;
+        font-size: 10px;
+        transition: transform 0.3s ease;
+        opacity: 0.6;
+    }
+
+    /* Rotate chevron when expanded */
+    .service-card:hover .service-title::after,
+    .service-card:active .service-title::after,
+    .service-card:focus-within .service-title::after {
+        transform: rotate(180deg);
+        opacity: 1;
     }
 
     /* Text sizing for mobile */
@@ -993,32 +1028,52 @@ body {
         min-height: 280px;
     }
 
-    /* Tablet - also use inline hover overlay */
+    /* Tablet: Inline expandable callout with smooth animation */
     .service-card .service-hover-overlay {
         position: static !important;
         opacity: 0;
-        visibility: hidden;
         background: rgba(0, 48, 140, 0.95);
         color: white;
-        padding: 0; /* No padding when collapsed */
-        margin-top: 0; /* No margin when collapsed */
+        padding: 0 1rem; /* Horizontal padding maintained */
+        margin-top: 0;
         border-radius: 8px;
         transform: none !important;
         top: auto !important;
         left: auto !important;
         right: auto !important;
-        height: 0; /* Collapsed height */
-        overflow: hidden; /* Hide content when collapsed */
-        transition: all 0.3s ease;
+        max-height: 0; /* Use max-height for smooth animation */
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.3s ease 0.1s,
+                    margin-top 0.3s ease;
     }
-    
-    .service-card:hover .service-hover-overlay {
+
+    /* Touch-friendly expansion for tablet */
+    .service-card:hover .service-hover-overlay,
+    .service-card:active .service-hover-overlay,
+    .service-card:focus-within .service-hover-overlay {
         opacity: 1;
-        visibility: visible;
         transform: none !important;
-        padding: 1rem; /* Expand padding on hover */
-        margin-top: 1rem; /* Add margin on hover */
-        height: auto; /* Allow natural height on hover */
+        margin-top: 0.75rem;
+        max-height: 300px; /* Large enough for content, enables smooth animation */
+    }
+
+    /* Visual indicator for tablet */
+    .service-card .service-title::after {
+        content: '▼';
+        display: inline-block;
+        margin-left: 0.5rem;
+        font-size: 10px;
+        transition: transform 0.3s ease;
+        opacity: 0.6;
+    }
+
+    /* Rotate chevron when expanded on tablet */
+    .service-card:hover .service-title::after,
+    .service-card:active .service-title::after,
+    .service-card:focus-within .service-title::after {
+        transform: rotate(180deg);
+        opacity: 1;
     }
 
     /* Reduce icon area padding on tablet */
