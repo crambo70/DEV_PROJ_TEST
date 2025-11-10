@@ -1085,17 +1085,21 @@ body {
     .service-card {
         height: auto;
         min-height: 180px; /* Much shorter to show multiple cards */
-        margin-bottom: 0.5rem; /* Tighter spacing between cards */
+        margin-bottom: 1rem; /* Normal spacing since callout is now inline */
+        position: relative; /* Enable z-index stacking */
+        z-index: 1; /* Base z-index */
+    }
+
+    /* Elevate expanded card on mobile (for consistency) */
+    .service-card:hover,
+    .service-card:active,
+    .service-card:focus-within {
+        z-index: 10; /* Bring to front when expanded */
     }
 
     /* Reduce services section padding on mobile */
     .services {
         padding: 0rem 0.5rem; /* No top padding - services start immediately after hero */
-    }
-
-    /* Adjust service card spacing for mobile */
-    .service-card {
-        margin-bottom: 1rem; /* Normal spacing since callout is now inline */
     }
 
     /* Reduce icon area padding on mobile */
@@ -1225,6 +1229,15 @@ body {
         margin-bottom: 1rem; /* Normal spacing with inline callout */
         height: auto;
         min-height: 280px;
+        position: relative; /* Enable z-index stacking */
+        z-index: 1; /* Base z-index */
+    }
+
+    /* Elevate expanded card above adjacent cards on tablet */
+    .service-card:hover,
+    .service-card:active,
+    .service-card:focus-within {
+        z-index: 10; /* Bring to front when expanded */
     }
 
     /* Tablet: Inline expandable callout with smooth animation */
