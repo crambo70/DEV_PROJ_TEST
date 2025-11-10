@@ -1325,7 +1325,7 @@ body {
     .services-container .service-card:last-child:nth-child(odd) {
         grid-column: 1 / -1; /* Span both columns */
         justify-self: center; /* Center within the span */
-        max-width: 50%; /* Keep same width as other cards */
+        width: calc(50% + 1.5rem); /* Wider to compensate for no overlay margins (50% + 2×0.75rem) */
     }
 
     /* Remove horizontal margins on overlay for centered last card */
