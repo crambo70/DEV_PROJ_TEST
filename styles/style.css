@@ -35,6 +35,85 @@ img.loaded {
 /* =================================================================== */
 
 /* =================================================================== */
+/* ACCESSIBILITY - SKIP TO CONTENT LINK                               */
+/* Visible only when focused (keyboard navigation)                    */
+/* =================================================================== */
+
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #00308C;
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-family: "din-2014", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* =================================================================== */
+/* END SKIP TO CONTENT LINK                                           */
+/* =================================================================== */
+
+/* =================================================================== */
+/* ACCESSIBILITY - VISUALLY HIDDEN UTILITY                            */
+/* Hides content visually but keeps it available for screen readers   */
+/* =================================================================== */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =================================================================== */
+/* END VISUALLY HIDDEN UTILITY                                        */
+/* =================================================================== */
+
+/* =================================================================== */
+/* ACCESSIBILITY - ENHANCED FOCUS STATES                              */
+/* Visible keyboard focus indicators for all interactive elements     */
+/* =================================================================== */
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid #12AEE7; /* Light Blue for high visibility */
+    outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #12AEE7;
+    outline-offset: 2px;
+}
+
+/* Remove outline for mouse users only */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* =================================================================== */
+/* END ENHANCED FOCUS STATES                                          */
+/* =================================================================== */
+
+/* =================================================================== */
 /* DEVELOPMENT DEBUG SYSTEM - BOUNDING BOXES                          */
 /* Add class="dev-debug" to <body> to enable visual debugging         */
 /* =================================================================== */

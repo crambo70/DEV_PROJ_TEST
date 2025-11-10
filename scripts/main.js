@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (hamburger && navList) {
         hamburger.addEventListener('click', function() {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
             navList.classList.toggle('nav-active');
             hamburger.classList.toggle('hamburger-active');
         });
@@ -17,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', () => {
                 navList.classList.remove('nav-active');
                 hamburger.classList.remove('hamburger-active');
+                hamburger.setAttribute('aria-expanded', 'false');
             });
         });
     }

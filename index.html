@@ -8,27 +8,30 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body> <!-- class="dev-debug" -->
+    <!-- Skip to main content link for screen readers and keyboard users -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
     <div class="main-container">
         <!-- Header Section -->
-        <header class="header">
+        <header class="header" role="banner">
         <div class="header-container">
             <div class="logo">
                 <h1>SCENIC</h1>
                 <!-- Image-based SCENIC logo -->
-                <img src="images/small_scenic_logo.png" alt="SCENIC INC Logo" class="scenic-logo-img">
+                <img src="images/small_scenic_logo.png" alt="SCENIC INC - Event Services Company Logo" class="scenic-logo-img">
             </div>
-            <div class="version-indicator">
-                <span class="version-label">v</span>
-                <span class="version-number">1.0.2</span>
+            <div class="version-indicator" aria-label="Site version 1.0.3">
+                <span class="version-label" aria-hidden="true">v</span>
+                <span class="version-number">1.0.3</span>
             </div>
-            <nav class="nav">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
                 <ul class="nav-list">
                     <li><a href="#work">WORK</a></li>
                     <li><a href="#contact">GET IN TOUCH</a></li>
                     <li><a href="#events">EVENT SERVICES</a></li>
                 </ul>
                 <!-- Hamburger menu for mobile -->
-                <button class="hamburger" aria-label="Toggle navigation">
+                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -38,7 +41,7 @@
     </header>
 
     <!-- Hero Section with Geometric Background -->
-    <section class="hero">
+    <section class="hero" id="main-content" aria-label="Hero banner with call to action">
         <div class="geometric-background">
             <div class="geo-grid">
                 <!-- Row 1 -->
@@ -90,7 +93,8 @@
     </section>
 
     <!-- Services Section -->
-    <section class="services">
+    <section class="services" aria-labelledby="services-heading">
+        <h2 id="services-heading" class="visually-hidden">Our Services</h2>
         <div class="services-container">
             <div class="service-card">
                 <div class="service-icon-area">
@@ -175,9 +179,9 @@
     </section>
 
     <!-- Team Info Section (Upper - White Background) -->
-    <section class="team-info">
+    <section class="team-info" aria-labelledby="team-title">
         <div class="team-info-container">
-            <h2 class="team-title">OUR CREATIVE TEAM</h2>
+            <h2 class="team-title" id="team-title">OUR CREATIVE TEAM</h2>
             <div class="team-info-arcs">
                 <div class="team-info-arc red-arc">
                     <h3 class="member-name">Team Member 1</h3>
@@ -204,7 +208,7 @@
     </section>
 
     <!-- Team Photos Section (Lower - Gray Background) -->
-    <section class="team-photos">
+    <section class="team-photos" aria-label="Team member photos">
         <div class="team-photos-container">
             <div class="team-members">
                 <div class="team-member">
@@ -228,7 +232,7 @@
     </section>
 
     <!-- Portfolio/Gallery Section -->
-    <section class="portfolio">
+    <section class="portfolio" aria-label="Portfolio gallery">
         <div class="portfolio-container">
             <div class="portfolio-grid">
                 <div class="portfolio-item large"></div>
@@ -244,15 +248,15 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section" aria-labelledby="cta-title">
         <div class="cta-container">
-            <h2 class="cta-title experimental-cta-styling">LET'S CREATE SOMETHING WONDROUS</h2>
-            <button class="cta-btn">GET STARTED</button>
+            <h2 class="cta-title experimental-cta-styling" id="cta-title">LET'S CREATE SOMETHING WONDROUS</h2>
+            <button class="cta-btn" aria-label="Get started with SCENIC">GET STARTED</button>
         </div>
     </section>
 
     <!-- Footer with Geometric Background -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-geometric-background">
             <!-- Similar geometric pattern to hero but darker -->
         </div>
