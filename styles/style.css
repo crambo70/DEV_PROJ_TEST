@@ -516,9 +516,9 @@ body {
 .team-section {
     background: linear-gradient(to bottom,
         transparent 0%,
-        transparent 110px,
-        #F1F1F4 110px,
-        #F1F1F4 100%); /* Gray starts below arcs */
+        transparent calc(4rem + 110px),
+        #C7C9D4 calc(4rem + 110px),
+        #C7C9D4 100%); /* Light Gray starts below arcs */
     padding: 4rem 2rem;
 }
 
@@ -590,7 +590,7 @@ body {
     border-radius: 0 0 110px 110px; /* Rounded bottom, flat top connects to arc */
     position: relative;
     overflow: hidden;
-    margin-top: -5px; /* Zero clearance - overlaps arc slightly for seamless connection */
+    margin-top: -15px; /* Zero clearance - significant overlap for seamless connection */
 }
 
 .headshot-image {
@@ -804,9 +804,9 @@ body {
     .team-section {
         background: linear-gradient(to bottom,
             transparent 0%,
-            transparent 90px,
-            #F1F1F4 90px,
-            #F1F1F4 100%); /* Gray starts below mobile arcs */
+            transparent calc(4rem + 90px),
+            #C7C9D4 calc(4rem + 90px),
+            #C7C9D4 100%); /* Light Gray starts below mobile arcs */
     }
 
     .team-members {
@@ -837,7 +837,7 @@ body {
         width: 180px;
         height: 240px; /* Proportional */
         border-radius: 0 0 90px 90px; /* Pill shape for mobile */
-        margin-top: -5px; /* Zero clearance on mobile */
+        margin-top: -15px; /* Zero clearance on mobile */
     }
 
     .team-title {
@@ -1361,9 +1361,9 @@ body {
     .team-section {
         background: linear-gradient(to bottom,
             transparent 0%,
-            transparent 100px,
-            #F1F1F4 100px,
-            #F1F1F4 100%); /* Gray starts below tablet arcs */
+            transparent calc(4rem + 100px),
+            #C7C9D4 calc(4rem + 100px),
+            #C7C9D4 100%); /* Light Gray starts below tablet arcs */
     }
 
     .team-members {
@@ -1391,7 +1391,7 @@ body {
         width: 200px;
         height: 270px; /* Proportional */
         border-radius: 0 0 100px 100px; /* Pill shape for tablet */
-        margin-top: -5px; /* Zero clearance on tablet */
+        margin-top: -15px; /* Zero clearance on tablet */
     }
 
     .team-title {
