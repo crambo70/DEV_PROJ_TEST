@@ -514,7 +514,11 @@ body {
 /* =================================================================== */
 
 .team-section {
-    background-color: #F1F1F4; /* Light gray background */
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        transparent 110px,
+        #F1F1F4 110px,
+        #F1F1F4 100%); /* Gray starts below arcs */
     padding: 4rem 2rem;
 }
 
@@ -797,6 +801,14 @@ body {
 /* Responsive adjustments for team and other sections */
 @media (max-width: 768px) {
     /* Team Section Mobile */
+    .team-section {
+        background: linear-gradient(to bottom,
+            transparent 0%,
+            transparent 90px,
+            #F1F1F4 90px,
+            #F1F1F4 100%); /* Gray starts below mobile arcs */
+    }
+
     .team-members {
         flex-direction: column;
         align-items: center;
@@ -1345,6 +1357,14 @@ body {
     }
 
     /* Team Section Tablet */
+    .team-section {
+        background: linear-gradient(to bottom,
+            transparent 0%,
+            transparent 100px,
+            #F1F1F4 100px,
+            #F1F1F4 100%); /* Gray starts below tablet arcs */
+    }
+
     .team-members {
         gap: 1.2rem;
     }
