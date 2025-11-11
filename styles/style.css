@@ -764,13 +764,14 @@ body {
 .cta-btn-arrow {
     background-color: #FAC813; /* Yellow/Gold */
     color: #FFFFFF;
-    width: 70px; /* Equal to button height for perfect semicircle */
+    width: 58px; /* Slightly less than button height for proper cap appearance */
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
     font-weight: normal;
-    line-height: 1;
+    line-height: 0.9;
+    padding-bottom: 2px; /* Subtle nudge down for optical centering */
 }
 
 .cta-btn:hover {
