@@ -708,10 +708,10 @@ body {
 
 .cta-title {
     font-family: "din-2014", sans-serif;
-    font-size: 3rem; /* Desktop size - 48px equivalent */
+    font-size: 1.65rem; /* 45% reduction from 3rem */
     font-weight: bold;
     color: #FFFFFF;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     letter-spacing: 2px;
 }
 
@@ -747,20 +747,20 @@ body {
     display: inline-flex;
     align-items: stretch;
     overflow: hidden;
-    border-radius: 30px; /* Half of button height (60px / 2) */
+    border-radius: 16.5px; /* Half of button height (33px / 2) */
     /* Prevent double-tap zoom */
     touch-action: manipulation;
     /* Minimum tap target achieved with padding */
-    height: 60px;
+    height: 33px;
 }
 
 .cta-btn-text {
     background-color: #FFFFFF;
     color: #00308C; /* Navy blue text */
-    padding: 0 2.25rem; /* Horizontal padding only, vertical handled by parent height */
-    font-size: 1.15rem; /* ~18.4px - slightly increased */
+    padding: 0 1.25rem; /* Horizontal padding - proportionally reduced */
+    font-size: 0.63rem; /* 45% reduction from 1.15rem */
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     display: flex;
     align-items: center;
 }
@@ -768,14 +768,14 @@ body {
 .cta-btn-arrow {
     background-color: #FAC813; /* Yellow/Gold */
     color: #FFFFFF;
-    width: 50px; /* Proportional to button height */
+    width: 27.5px; /* 45% reduction from 50px */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.6rem; /* Slightly increased */
+    font-size: 1.43rem; /* 45% reduction from 2.6rem */
     font-weight: normal;
     line-height: 0.9;
-    padding-bottom: 6px; /* Optical centering adjustment */
+    padding-bottom: 3px; /* Proportionally reduced from 6px */
 }
 
 .cta-btn:hover {
@@ -1402,23 +1402,23 @@ body {
     }
 
     .cta-title {
-        font-size: 1.75rem; /* Mobile size */
+        font-size: 0.96rem; /* 45% reduction from 1.75rem */
     }
 
     .cta-btn {
-        height: 52px; /* Mobile size */
-        border-radius: 26px;
+        height: 28.6px; /* 45% reduction from 52px */
+        border-radius: 14.3px;
     }
 
     .cta-btn-text {
-        font-size: 1rem; /* Mobile size */
-        padding: 0 1.75rem;
+        font-size: 0.55rem; /* 45% reduction from 1rem */
+        padding: 0 0.96rem;
     }
 
     .cta-btn-arrow {
-        width: 44px; /* Proportional to mobile button height */
-        font-size: 2.2rem;
-        padding-bottom: 6px; /* Consistent optical centering */
+        width: 24.2px; /* 45% reduction from 44px */
+        font-size: 1.21rem; /* 45% reduction from 2.2rem */
+        padding-bottom: 3px; /* Proportionally reduced */
     }
 
     .header {
@@ -1582,23 +1582,23 @@ body {
     }
 
     .cta-title {
-        font-size: 2.25rem; /* Tablet size */
+        font-size: 1.24rem; /* 45% reduction from 2.25rem */
     }
 
     .cta-btn {
-        height: 56px; /* Medium size for tablet */
-        border-radius: 28px;
+        height: 30.8px; /* 45% reduction from 56px */
+        border-radius: 15.4px;
     }
 
     .cta-btn-text {
-        font-size: 1.1rem; /* Tablet size */
-        padding: 0 2rem;
+        font-size: 0.61rem; /* 45% reduction from 1.1rem */
+        padding: 0 1.1rem;
     }
 
     .cta-btn-arrow {
-        width: 47px; /* Proportional to tablet button height */
-        font-size: 2.4rem;
-        padding-bottom: 6px; /* Consistent optical centering */
+        width: 25.85px; /* 45% reduction from 47px */
+        font-size: 1.32rem; /* 45% reduction from 2.4rem */
+        padding-bottom: 3px; /* Proportionally reduced */
     }
 
     .services-container {
