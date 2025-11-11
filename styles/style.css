@@ -257,7 +257,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 2240px; /* Match main container width */
     margin: 0 auto;
 }
 
