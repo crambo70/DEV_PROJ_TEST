@@ -1340,4 +1340,65 @@ body {
     .services-container {
         grid-template-columns: repeat(5, 1fr);
     }
+
+    /* Service card positioning for z-index stacking */
+    .service-card {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Elevate expanded card above adjacent cards on desktop */
+    .service-card:hover,
+    .service-card:active,
+    .service-card:focus-within {
+        z-index: 10;
+    }
+
+    /* Desktop: Inline expandable callout with smooth animation (same as mobile/tablet) */
+    .service-card .service-hover-overlay {
+        position: static !important;
+        opacity: 0;
+        background: rgba(0, 48, 140, 0.95); /* Navy blue like mobile/tablet */
+        color: white;
+        padding: 1.5rem 1rem; /* Balanced vertical and horizontal padding */
+        margin: 0 0.75rem; /* Inset from card edges */
+        border-radius: 8px;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.3s ease 0.1s,
+                    margin-top 0.3s ease;
+    }
+
+    /* Expansion on hover/active/focus */
+    .service-card:hover .service-hover-overlay,
+    .service-card:active .service-hover-overlay,
+    .service-card:focus-within .service-hover-overlay {
+        opacity: 1;
+        transform: none !important;
+        margin-top: 0.75rem;
+        max-height: 300px;
+    }
+
+    /* Chevron indicator for desktop */
+    .service-card .service-title::after {
+        content: '▼';
+        display: inline-block;
+        margin-left: 0.5rem;
+        font-size: 10px;
+        transition: transform 0.3s ease;
+        opacity: 0.6;
+    }
+
+    /* Rotate chevron when expanded on desktop */
+    .service-card:hover .service-title::after,
+    .service-card:active .service-title::after,
+    .service-card:focus-within .service-title::after {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
 }
