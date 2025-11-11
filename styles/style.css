@@ -247,7 +247,7 @@ body {
 /* Header Section */
 .header {
     background-color: #FFFFFF;
-    padding: 1rem 2rem;
+    padding: 1rem 5rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: relative;
     z-index: 100;
@@ -340,7 +340,7 @@ body {
     font-family: "din-2014", sans-serif;
     text-decoration: none;
     color: #84858D; /* Medium Gray from palette */
-    font-size: 18px; /* Desktop size - doubled from 9px */
+    font-size: 11px; /* Desktop size - doubled from 9px */
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.1s ease;
     /* Touch optimization: Ensure minimum 44x44px tap target */
     padding: 0.7rem 1rem; /* 11.2px + 18px + 11.2px = 40.4px + line-height ≈ 48px */
