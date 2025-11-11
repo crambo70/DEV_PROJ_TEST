@@ -1242,7 +1242,7 @@ body {
 
     /* Navigation font size for mobile */
     .nav-list a {
-        font-size: 12px; /* Mobile size - doubled from 6px */
+        font-size: 9px; /* Mobile size - proportionally smaller than desktop 11px */
     }
 
     .nav-list {
@@ -1435,9 +1435,14 @@ body {
         max-width: 403px;
     }
 
+    /* Header padding for tablet */
+    .header {
+        padding: 1rem 3rem; /* Reduced from desktop 5rem for tablet */
+    }
+
     /* Navigation font size for tablet */
     .nav-list a {
-        font-size: 14px; /* Tablet size - doubled from 7px */
+        font-size: 10px; /* Tablet size - proportionally between desktop 11px and mobile 9px */
     }
 
     /* Text sizing for tablet */
