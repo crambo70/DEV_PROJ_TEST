@@ -550,10 +550,10 @@ body {
     border-radius: 220px 220px 0 0; /* Top half circle */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end; /* Push content to bottom for zero clearance */
     align-items: center;
     text-align: center;
-    padding: 1rem 1.5rem 0 1.5rem; /* No bottom padding for zero clearance */
+    padding: 1rem 1.5rem 0.5rem 1.5rem; /* Restored bottom padding since content is at bottom */
     position: relative;
     z-index: 2;
     overflow: hidden; /* Clip any content extending beyond arc */
@@ -825,7 +825,8 @@ body {
     .member-arc {
         width: 180px;
         height: 90px;
-        padding: 0.8rem 1rem 0 1rem; /* No bottom padding for zero clearance */
+        padding: 0.8rem 1rem 0.4rem 1rem; /* Restored bottom padding */
+        justify-content: flex-end; /* Push content to bottom */
     }
 
     .member-arc .member-name {
@@ -1382,7 +1383,8 @@ body {
     .member-arc {
         width: 200px;
         height: 100px;
-        padding: 1rem 1.5rem 0 1.5rem; /* No bottom padding for zero clearance */
+        padding: 1rem 1.5rem 0.5rem 1.5rem; /* Restored bottom padding */
+        justify-content: flex-end; /* Push content to bottom */
     }
 
     .member-arc .member-name {
