@@ -593,7 +593,7 @@ body {
     border-radius: 0 0 110px 110px; /* Rounded bottom, flat top connects to arc */
     position: relative;
     overflow: hidden;
-    margin-top: -20px; /* Zero clearance - maximum overlap for seamless connection */
+    margin-top: 0; /* No margin - arc and photo edges align perfectly */
 }
 
 .headshot-image {
@@ -843,7 +843,7 @@ body {
         width: 180px;
         height: 240px; /* Proportional */
         border-radius: 0 0 90px 90px; /* Pill shape for mobile */
-        margin-top: -20px; /* Maximum overlap on mobile */
+        margin-top: 0; /* No margin - arc and photo edges align perfectly */
     }
 
     .team-title {
@@ -1401,7 +1401,7 @@ body {
         width: 200px;
         height: 270px; /* Proportional */
         border-radius: 0 0 100px 100px; /* Pill shape for tablet */
-        margin-top: -20px; /* Maximum overlap on tablet */
+        margin-top: 0; /* No margin - arc and photo edges align perfectly */
     }
 
     .team-title {
