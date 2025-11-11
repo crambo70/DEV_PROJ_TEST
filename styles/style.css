@@ -846,6 +846,11 @@ body {
     filter: brightness(0) invert(1); /* Make logo white */
 }
 
+.footer-logo-svg {
+    height: 60px;
+    width: auto;
+}
+
 .footer-info {
     font-family: "din-2014", sans-serif;
     color: #FFFFFF;
