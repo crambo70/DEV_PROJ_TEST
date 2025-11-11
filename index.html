@@ -20,9 +20,9 @@
                 <!-- Image-based SCENIC logo -->
                 <img src="images/small_scenic_logo.png" alt="SCENIC INC - Event Services Company Logo" class="scenic-logo-img">
             </div>
-            <div class="version-indicator" aria-label="Site version 1.1.2">
+            <div class="version-indicator" aria-label="Site version 1.2.0">
                 <span class="version-label" aria-hidden="true">v</span>
-                <span class="version-number">1.1.2</span>
+                <span class="version-number">1.2.0</span>
             </div>
             <nav class="nav" role="navigation" aria-label="Main navigation">
                 <ul class="nav-list">
@@ -178,56 +178,77 @@
         </div>
     </section>
 
-    <!-- Team Info Section (Upper - White Background) -->
-    <section class="team-info" aria-labelledby="team-title">
-        <div class="team-info-container">
-            <h2 class="team-title" id="team-title">OUR CREATIVE TEAM</h2>
-            <div class="team-info-arcs">
-                <div class="team-info-arc red-arc">
-                    <h3 class="member-name">Team Member 1</h3>
-                    <p class="member-title">Position</p>
-                </div>
-                <div class="team-info-arc teal-arc">
-                    <h3 class="member-name">Team Member 2</h3>
-                    <p class="member-title">Position</p>
-                </div>
-                <div class="team-info-arc purple-arc">
-                    <h3 class="member-name">Team Member 3</h3>
-                    <p class="member-title">Position</p>
-                </div>
-                <div class="team-info-arc yellow-arc">
-                    <h3 class="member-name">Team Member 4</h3>
-                    <p class="member-title">Position</p>
-                </div>
-                <div class="team-info-arc blue-arc">
-                    <h3 class="member-name">Team Member 5</h3>
-                    <p class="member-title">Position</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Photos Section (Lower - Gray Background) -->
-    <section class="team-photos" aria-label="Team member photos">
-        <div class="team-photos-container">
+    <!-- Team Section -->
+    <section class="team-section" aria-labelledby="team-title">
+        <div class="team-container">
+            <!-- Team Member Cards -->
             <div class="team-members">
-                <div class="team-member">
-                    <div class="member-photo red-overlay"></div>
+                <!-- John Smith -->
+                <div class="team-member-card">
+                    <div class="member-arc arc-purple">
+                        <h3 class="member-name">JOHN SMITH</h3>
+                        <p class="member-title">TECHNICAL DIRECTOR</p>
+                    </div>
+                    <div class="member-photo">
+                        <img data-src="images/random_headshot.png" alt="John Smith - Technical Director" class="headshot-image lazy">
+                        <div class="photo-overlay overlay-red"></div>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <div class="member-photo teal-overlay"></div>
+
+                <!-- Jessica Davis -->
+                <div class="team-member-card">
+                    <div class="member-arc arc-teal">
+                        <h3 class="member-name">JESSICA DAVIS</h3>
+                        <p class="member-title">EVENT DESIGNER</p>
+                    </div>
+                    <div class="member-photo">
+                        <img data-src="images/random_headshot.png" alt="Jessica Davis - Event Designer" class="headshot-image lazy">
+                        <div class="photo-overlay overlay-teal"></div>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <div class="member-photo purple-overlay"></div>
+
+                <!-- Michael Jones -->
+                <div class="team-member-card">
+                    <div class="member-arc arc-red">
+                        <h3 class="member-name">MICHAEL JONES</h3>
+                        <p class="member-title">FABRICATION MANAGER</p>
+                    </div>
+                    <div class="member-photo">
+                        <img data-src="images/random_headshot.png" alt="Michael Jones - Fabrication Manager" class="headshot-image lazy">
+                        <div class="photo-overlay overlay-purple"></div>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <div class="member-photo yellow-overlay"></div>
+
+                <!-- David Williams -->
+                <div class="team-member-card">
+                    <div class="member-arc arc-navy">
+                        <h3 class="member-name">DAVID WILLIAMS</h3>
+                        <p class="member-title">PRODUCTION CREW</p>
+                    </div>
+                    <div class="member-photo">
+                        <img data-src="images/random_headshot.png" alt="David Williams - Production Crew" class="headshot-image lazy">
+                        <div class="photo-overlay overlay-yellow"></div>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <div class="member-photo blue-overlay"></div>
+
+                <!-- Jennifer Brown -->
+                <div class="team-member-card">
+                    <div class="member-arc arc-lightblue">
+                        <h3 class="member-name">JENNIFER BROWN</h3>
+                        <p class="member-title">PROJECT MANAGER</p>
+                    </div>
+                    <div class="member-photo">
+                        <img data-src="images/random_headshot.png" alt="Jennifer Brown - Project Manager" class="headshot-image lazy">
+                        <div class="photo-overlay overlay-lightblue"></div>
+                    </div>
                 </div>
             </div>
-            <p class="team-description">Our creative team brings diverse expertise and innovative thinking to every project.</p>
+
+            <!-- Team Title & Description (Below cards) -->
+            <div class="team-info">
+                <h2 class="team-title" id="team-title">OUR CREATIVE TEAM</h2>
+                <p class="team-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+            </div>
         </div>
     </section>
 

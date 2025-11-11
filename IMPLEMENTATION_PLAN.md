@@ -66,6 +66,8 @@
 | 2025-11-10 | **Completed Task 1.3:** Full accessibility foundation - skip-to-content, ARIA labels, enhanced focus states, verified alt text and color contrast | WCAG AA compliant, keyboard/screen reader accessible |
 | 2025-11-10 | **Completed Task 1.4:** Mobile touch optimization - all tap targets now 44×44px minimum, added :active states, prevented double-tap zoom, added haptic feedback | Meets WCAG 2.5.5, native app-like touch experience |
 | 2025-11-10 | **PHASE 1 COMPLETE (100% of active tasks)** | Critical foundation established - ready for Phase 2 |
+| 2025-11-10 | Fine-tuning: Service card overlay spacing, z-index fixes, tablet centering, desktop styling unification, header max-width (v1.0.5-1.1.2) | Polished UI across all breakpoints |
+| 2025-11-10 | Expanded Task 2.6: "Redesign & Populate Team Section" - Full redesign to match Adobe XD with CSS arcs, stacked photos, color overlays | Preparing for team section rebuild |
 
 ---
 
@@ -360,16 +362,44 @@
 - **Dependencies:** None
 - **Status:** ❌ Not Started
 
-#### **Task 2.6: Populate Team Section with Real Content**
-- **Files:** `index.html` (lines 174-224), team photos (new)
-- **Complexity:** LOW
+#### **Task 2.6: Redesign & Populate Team Section**
+- **Files:** `index.html` (lines 181-232), `styles/style.css`, `images/random_headshot.png`
+- **Complexity:** MEDIUM
 - **Action:**
-  - Replace "Team Member 1-5" with actual names/titles
-  - Add real team photos
-  - Optimize photos for web (circular crop, WebP format)
-  - Consider lazy loading
-- **Mobile Impact:** Low - content update
-- **Dependencies:** Team photos/bios from client
+  - **Redesign layout** to match Adobe XD design:
+    - 5 team member cards in horizontal row (desktop)
+    - Each card: colored arc top + vertical oval photo below (stacked seamlessly)
+    - Title "OUR CREATIVE TEAM" positioned BELOW cards (not above)
+    - Lorem ipsum description text below title
+    - Light gray section background
+  - **CSS Arc Implementation:**
+    - Pure CSS dome shapes using border-radius
+    - Brand color backgrounds (purple, teal, red, navy, light blue)
+    - White uppercase text (name + title)
+    - No images - all CSS polyshapes
+  - **Photo Implementation:**
+    - Vertical oval shape (taller than wide)
+    - Black & white headshot base image
+    - CSS color overlay using semi-transparent div with mix-blend-mode
+    - Use `random_headshot.png` as placeholder for all 5 members
+    - Lazy loading for photos
+  - **Stacking Structure:**
+    - Wrapper: `.team-member-card`
+    - Top: `.member-arc` (CSS shape with text)
+    - Bottom: `.member-photo` (image + color overlay)
+    - Seamless connection between arc and photo
+  - **Team Members:**
+    1. John Smith - Technical Director (Purple arc, Red overlay)
+    2. Jessica Davis - Event Designer (Teal)
+    3. Michael Jones - Fabrication Manager (Red arc, Purple overlay)
+    4. David Williams - Production Crew (Navy arc, Yellow overlay)
+    5. Jennifer Brown - Project Manager (Light Blue)
+  - **Responsive Behavior:**
+    - Desktop: 5 cards in row
+    - Tablet: 2-3 cards per row
+    - Mobile: Stack vertically
+- **Mobile Impact:** Medium - visual redesign
+- **Dependencies:** Final team photos from client (using placeholder for now)
 - **Status:** ❌ Not Started
 
 #### **Task 2.7: Portfolio Grid Real Images**
