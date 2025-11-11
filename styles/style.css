@@ -729,7 +729,7 @@ body {
     opacity: 1;
     
     /* Override existing cta-title styles */
-    font-size: 48px !important;
+    font-size: 35px !important;
     line-height: 62px !important;
     font-weight: normal !important;
     letter-spacing: 0px !important;
@@ -747,19 +747,19 @@ body {
     display: inline-flex;
     align-items: stretch;
     overflow: hidden;
-    border-radius: 16.5px; /* Half of button height (33px / 2) */
+    border-radius: 35px; /* Half of button height (33px / 2) */
     /* Prevent double-tap zoom */
     touch-action: manipulation;
     /* Minimum tap target achieved with padding */
-    height: 33px;
+    height: 45px;
 }
 
 .cta-btn-text {
     background-color: #FFFFFF;
     color: #00308C; /* Navy blue text */
-    padding: 0 1.25rem; /* Horizontal padding - proportionally reduced */
-    font-size: 0.63rem; /* 45% reduction from 1.15rem */
-    font-weight: bold;
+    padding: 0 2.25rem; /* Horizontal padding - proportionally reduced */
+    font-size: 1.05rem; /* 45% reduction from 1.15rem */
+    font-weight: normal;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
@@ -768,15 +768,16 @@ body {
 .cta-btn-arrow {
     background-color: #FAC813; /* Yellow/Gold */
     color: #FFFFFF;
-    width: 27.5px; /* 45% reduction from 50px */
+    width: 38px; /* 45% reduction from 50px */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.43rem; /* 45% reduction from 2.6rem */
+    font-size: 2rem; /* 45% reduction from 2.6rem */
     font-weight: normal;
     line-height: 0.9;
     padding-bottom: 3px; /* Proportionally reduced from 6px */
 }
+
 
 .cta-btn:hover {
     background-color: #F1F1F4;
