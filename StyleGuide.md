@@ -31,22 +31,64 @@
 
 ## Design Elements
 
-### Layout Structure (Based on Reference Image)
+### Multi-Page HTML Framework Architecture
 
-**HTML Structure Implemented:**
+**Design Philosophy**: Maintain consistent HTML structure across all pages while allowing page-specific sections. Shared components (header, CTA, footer) use identical markup for propagation of changes.
 
+#### **Shared Components** (Identical across all pages)
+1. **Header** - SCENIC logo + navigation (WORK, GET IN TOUCH, EVENT SERVICES)
+2. **CTA Section** - Red background with "LET'S CREATE SOMETHING WONDROUS" + button
+3. **Footer** - Colorful geometric background + SCENIC logo + navy blue section
+
+#### **Page-Specific Sections**
+
+**Home Page (index.html):**
+- Hero section - Colorful geometric background with "IMAGINE WHAT WE CAN CREATE"
+- Services section - 5 service cards (IDEATE/DESIGN, EVENT SERVICES, BUILD, LOGISTICS, ON-SITE)
+- Team section - 5 team member cards with arcs/photos + gray background
+- Portfolio section - Compact masonry grid (~8 items, 2-3 columns)
+
+**Work Page (work.html):**
+- Portfolio section - **EXPANDED** masonry grid (~20+ items, 3-4 columns)
+  - Primary page content
+  - Uses `.portfolio--full-page` modifier class
+
+**Get in Touch Page (contact.html):**
+- Contact form section (TBD)
+
+#### **HTML Structure Pattern**
+
+**Home Page Structure:**
 ```html
-<header class="header">
-  <!-- SCENIC logo + navigation menu -->
-</header>
+<div class="main-container">
+  <header class="header">...</header>
+  <section class="hero">...</section>
+  <section class="services">...</section>
+  <section class="team-section">...</section>
+  <section class="portfolio">...</section>
+  <section class="cta-section">...</section>
+  <footer class="footer">...</footer>
+</div>
+```
 
-<section class="hero">
-  <!-- Geometric background + "IMAGINE WHAT WE CAN CREATE" CTA -->
-</section>
+**Work Page Structure:**
+```html
+<div class="main-container">
+  <header class="header">...</header>
+  <section class="portfolio portfolio--full-page">...</section>
+  <section class="cta-section">...</section>
+  <footer class="footer">...</footer>
+</div>
+```
 
-<section class="services">
-  <!-- 5 service cards with icons -->
-</section>
+**Get in Touch Page Structure:**
+```html
+<div class="main-container">
+  <header class="header">...</header>
+  <section class="contact-section">...</section>
+  <section class="cta-section">...</section>
+  <footer class="footer">...</footer>
+</div>
 ```
 
 **Key Components:**
@@ -69,11 +111,34 @@
   4. LOGISTICS
   5. ON-SITE
 
-**CSS Framework:**
+**CSS Architecture Strategy:**
+
+**Single Stylesheet Approach** (`style.css`):
+- All pages share one CSS file for consistency and maintainability
+- Base component styles apply universally (header, footer, CTA, portfolio)
+- BEM-style modifiers for page-specific variants (`.portfolio--full-page`)
+- Page-specific sections have their own CSS blocks (`.hero`, `.services`, `.team-section`, `.contact-section`)
+
+**CSS Organization:**
+1. **Global Styles** - Reset, typography, shared utilities
+2. **Shared Components** - Header, CTA, Footer (used on all pages)
+3. **Home-Specific** - Hero, Services, Team sections
+4. **Work-Specific** - Portfolio modifier (`.portfolio--full-page`)
+5. **Contact-Specific** - Contact form section
+6. **Responsive** - Media queries at end of file
+
+**Benefits:**
+- Changes to shared components (header, CTA, footer) automatically apply to all pages
+- Single CSS file = fewer HTTP requests, easier cache management
+- Clear semantic naming prevents style conflicts
+- Modular organization supports future page additions
+
+**Technical Approach:**
 - Mobile-first responsive design
-- CSS Grid for service cards layout
+- CSS Grid for service cards and portfolio layouts
 - Flexbox for navigation and content alignment
 - CSS transitions for interactive elements
+- BEM methodology for component variants
 
 ### Typography
 
@@ -271,3 +336,4 @@
 - **Nov 8, 2025**: Logo implementation change - Switched from CSS to PNG image with responsive scaling for better quality
 - **Nov 8, 2025**: Navigation typography adjustment - Reduced menu text size by 50% (from 18px to 9px) for better proportion balance
 - **Nov 9, 2025**: Development debug system - Added comprehensive bounding box visualization with color-coded HTML element identification
+- **Nov 11, 2025**: Multi-page HTML framework architecture - Documented shared components strategy and single stylesheet approach with BEM modifiers for maintaining consistency across Home, Work, and Contact pages
