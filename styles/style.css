@@ -693,7 +693,7 @@ body {
 /* CTA Section */
 .cta-section {
     background-color: #E53E3E; /* Red background */
-    padding: 6rem 2rem; /* Increased vertical padding for more breathing room */
+    padding: 3.5rem 2rem; /* Compact vertical padding to match reference */
     text-align: center;
 }
 
@@ -703,7 +703,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.5rem; /* Generous spacing between title and button */
+    gap: 1.5rem; /* Tight spacing between title and button */
 }
 
 .cta-title {
@@ -747,18 +747,18 @@ body {
     display: inline-flex;
     align-items: stretch;
     overflow: hidden;
-    border-radius: 29px; /* Half of button height (58px / 2) */
+    border-radius: 30px; /* Half of button height (60px / 2) */
     /* Prevent double-tap zoom */
     touch-action: manipulation;
     /* Minimum tap target achieved with padding */
-    height: 58px;
+    height: 60px;
 }
 
 .cta-btn-text {
     background-color: #FFFFFF;
     color: #00308C; /* Navy blue text */
     padding: 0 2.25rem; /* Horizontal padding only, vertical handled by parent height */
-    font-size: 1.125rem; /* ~18px - reduced for better proportion */
+    font-size: 1.15rem; /* ~18.4px - slightly increased */
     font-weight: bold;
     letter-spacing: 1px;
     display: flex;
@@ -768,11 +768,11 @@ body {
 .cta-btn-arrow {
     background-color: #FAC813; /* Yellow/Gold */
     color: #FFFFFF;
-    width: 48px; /* Proportional to reduced button height */
+    width: 50px; /* Proportional to button height */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem; /* Reduced proportionally */
+    font-size: 2.6rem; /* Slightly increased */
     font-weight: normal;
     line-height: 0.9;
     padding-bottom: 6px; /* Optical centering adjustment */
@@ -1394,30 +1394,30 @@ body {
     }
 
     .cta-section {
-        padding: 4rem 1.5rem; /* Reduced padding for mobile */
+        padding: 2.5rem 1.5rem; /* Compact padding for mobile */
     }
 
     .cta-container {
-        gap: 2rem; /* Slightly reduced gap for mobile */
+        gap: 1.25rem; /* Tight gap for mobile */
     }
 
     .cta-title {
-        font-size: 1.75rem; /* Mobile size - reduced */
+        font-size: 1.75rem; /* Mobile size */
     }
 
     .cta-btn {
-        height: 50px; /* Smaller on mobile */
-        border-radius: 25px;
+        height: 52px; /* Mobile size */
+        border-radius: 26px;
     }
 
     .cta-btn-text {
-        font-size: 0.95rem; /* Mobile size - reduced */
+        font-size: 1rem; /* Mobile size */
         padding: 0 1.75rem;
     }
 
     .cta-btn-arrow {
-        width: 42px; /* Proportional to mobile button height */
-        font-size: 2rem;
+        width: 44px; /* Proportional to mobile button height */
+        font-size: 2.2rem;
         padding-bottom: 6px; /* Consistent optical centering */
     }
 
@@ -1574,30 +1574,30 @@ body {
     }
 
     .cta-section {
-        padding: 5rem 2rem; /* Medium padding for tablet */
+        padding: 3rem 2rem; /* Compact padding for tablet */
     }
 
     .cta-container {
-        gap: 2.25rem; /* Medium gap for tablet */
+        gap: 1.35rem; /* Tight gap for tablet */
     }
 
     .cta-title {
-        font-size: 2.25rem; /* Tablet size - reduced */
+        font-size: 2.25rem; /* Tablet size */
     }
 
     .cta-btn {
-        height: 54px; /* Medium size for tablet */
-        border-radius: 27px;
+        height: 56px; /* Medium size for tablet */
+        border-radius: 28px;
     }
 
     .cta-btn-text {
-        font-size: 1.05rem; /* Tablet size - reduced */
+        font-size: 1.1rem; /* Tablet size */
         padding: 0 2rem;
     }
 
     .cta-btn-arrow {
-        width: 45px; /* Proportional to tablet button height */
-        font-size: 2.25rem;
+        width: 47px; /* Proportional to tablet button height */
+        font-size: 2.4rem;
         padding-bottom: 6px; /* Consistent optical centering */
     }
 
