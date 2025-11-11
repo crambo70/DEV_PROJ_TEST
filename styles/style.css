@@ -842,13 +842,9 @@ body {
 }
 
 .footer-logo-img {
-    height: 60px;
-    filter: brightness(0) invert(1); /* Make logo white */
-}
-
-.footer-logo-svg {
-    height: 60px;
+    height: 50px;
     width: auto;
+    filter: brightness(0) invert(1); /* Make logo white */
 }
 
 .footer-info {
@@ -872,19 +868,20 @@ body {
 
 .footer-column-title {
     font-family: "din-2014", sans-serif;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: bold;
     color: #FFFFFF;
     margin: 0 0 0.5rem 0;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .footer-column-text {
     font-family: "din-2014", sans-serif;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: #FFFFFF;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .footer-link {
@@ -905,8 +902,8 @@ body {
 
 .social-icon {
     color: #FFFFFF;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
