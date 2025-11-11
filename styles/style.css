@@ -771,7 +771,7 @@ body {
     font-size: 3rem;
     font-weight: normal;
     line-height: 0.9;
-    padding-bottom: 2px; /* Subtle nudge down for optical centering */
+    padding-bottom: 6px; /* Optical centering adjustment */
 }
 
 .cta-btn:hover {
@@ -1394,7 +1394,19 @@ body {
     }
 
     .cta-btn {
+        height: 60px; /* Slightly smaller on mobile */
+        border-radius: 30px;
+    }
+
+    .cta-btn-text {
         font-size: 1.1rem; /* Mobile size */
+        padding: 0 2rem;
+    }
+
+    .cta-btn-arrow {
+        width: 50px; /* Proportional to smaller button height */
+        font-size: 2.5rem;
+        padding-bottom: 6px; /* Consistent optical centering */
     }
 
     .header {
@@ -1554,7 +1566,19 @@ body {
     }
 
     .cta-btn {
-        font-size: 1.3rem; /* Tablet size */
+        height: 65px; /* Medium size for tablet */
+        border-radius: 32.5px;
+    }
+
+    .cta-btn-text {
+        font-size: 1.25rem; /* Tablet size */
+        padding: 0 2.25rem;
+    }
+
+    .cta-btn-arrow {
+        width: 54px; /* Proportional to tablet button height */
+        font-size: 2.75rem;
+        padding-bottom: 6px; /* Consistent optical centering */
     }
 
     .services-container {
