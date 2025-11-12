@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** November 11, 2025
-> **Current Version:** v1.5.8
+> **Current Version:** v1.5.9
 > **Overall Progress:** 91% → Target: 100%
 
 ---
@@ -103,6 +103,7 @@
 | 2025-11-11 | **v1.5.6:** Fixed responsive nav font sizes (desktop 11px, tablet 10px, mobile 9px), added tablet header padding | Navigation consistency |
 | 2025-11-11 | **v1.5.7:** Comprehensive footer layout fixes (40px logo, 5rem padding, 2.5rem column gap, center alignment) | Footer matching reference |
 | 2025-11-11 | **v1.5.8:** Footer refinements - new logo image, spacing (5rem gap), typography (1rem titles, normal weight), gray text (#C7C9D4) | User adjustments |
+| 2025-11-11 | **v1.5.9:** Footer logo CSS updates - increased height (40px → 65px), removed white filter for color logo | User adjustments |
 | 2025-11-11 | **Task 2.4 COMPLETE:** Footer geometric background and layout fully implemented | Phase 2 progress: 2/7 tasks (29%) |
 
 ---
