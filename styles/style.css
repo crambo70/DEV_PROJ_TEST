@@ -850,9 +850,9 @@ body {
 }
 
 .footer-logo-img {
-    height: 40px; /* Reduced from 50px to match reference */
+    height: 65px; /* Reduced from 50px to match reference */
     width: auto;
-    filter: brightness(0) invert(1); /* Make logo white */
+
 }
 
 .footer-info {
