@@ -1,8 +1,8 @@
 # SCENIC Website - Mobile-First Implementation Plan
 
 > **Living Document** - Updated as we progress and priorities evolve
-> **Last Updated:** November 11, 2025
-> **Current Version:** v1.6.0
+> **Last Updated:** November 12, 2025
+> **Current Version:** v1.6.1
 > **Overall Progress:** 93% → Target: 100%
 
 ---
@@ -106,6 +106,7 @@
 | 2025-11-11 | **v1.5.8:** Footer refinements - new logo image, spacing (5rem gap), typography (1rem titles, normal weight), gray text (#C7C9D4) | User adjustments |
 | 2025-11-11 | **v1.5.9:** Footer logo CSS updates - increased height (40px → 65px), removed white filter for color logo | User adjustments |
 | 2025-11-11 | **v1.6.0:** WORK page implementation with Masonry.js portfolio gallery (4 cols desktop, 3 tablet, 2 mobile), shared header/footer/CTA | Major feature |
+| 2025-11-12 | **v1.6.1:** Fixed Masonry.js layout issues - added imagesLoaded library, resize handler, corrected CSS calc() widths | Bug fix |
 | 2025-11-11 | **Task 2.1 COMPLETE:** Create "Work" Portfolio Page with Masonry.js integration | Phase 2 progress: 3/7 tasks (43%) |
 
 ---
