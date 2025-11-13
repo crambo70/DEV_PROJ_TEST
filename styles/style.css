@@ -1694,3 +1694,92 @@ body {
         opacity: 1;
     }
 }
+
+/* ===================================
+   WORK PAGE - PORTFOLIO GALLERY
+   =================================== */
+
+/* Portfolio main container */
+.portfolio-main {
+    width: 100%;
+    background: #FFFFFF;
+}
+
+/* Portfolio gallery section */
+.portfolio-gallery {
+    max-width: 2240px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* Portfolio grid - Masonry.js handles layout */
+.portfolio-grid {
+    /* Masonry will manage the column layout via JavaScript */
+}
+
+/* Individual portfolio items */
+.portfolio-item {
+    width: 23%; /* 4 columns on desktop with gaps */
+    margin-bottom: 16px;
+    overflow: hidden;
+    background: #F5F5F5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Hover effect for portfolio items */
+.portfolio-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+/* Active state for touch devices */
+.portfolio-item:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================
+   WORK PAGE - RESPONSIVE BREAKPOINTS
+   =================================== */
+
+/* Tablet: 769px - 1024px (3 columns) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .portfolio-gallery {
+        padding: 3rem 2rem;
+    }
+
+    .portfolio-item {
+        width: 31.33%; /* 3 columns */
+    }
+}
+
+/* Mobile: ≤768px (2 columns) */
+@media (max-width: 768px) {
+    .portfolio-gallery {
+        padding: 2rem 1rem;
+    }
+
+    .portfolio-item {
+        width: 48%; /* 2 columns */
+        margin-bottom: 12px;
+    }
+
+    /* Reduce hover effects on mobile */
+    .portfolio-item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .portfolio-item:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
