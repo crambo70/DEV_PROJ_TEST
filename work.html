@@ -20,9 +20,9 @@
                 <!-- Image-based SCENIC logo -->
                 <img src="images/small_scenic_logo.png" alt="SCENIC INC - Event Services Company Logo" class="scenic-logo-img">
             </div>
-            <div class="version-indicator" aria-label="Site version 1.6.0">
+            <div class="version-indicator" aria-label="Site version 1.6.1">
                 <span class="version-label" aria-hidden="true">v</span>
-                <span class="version-number">1.6.0</span>
+                <span class="version-number">1.6.1</span>
             </div>
             <nav class="nav" role="navigation" aria-label="Main navigation">
                 <ul class="nav-list">
@@ -187,18 +187,36 @@
 
     <!-- Masonry.js Library -->
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <!-- imagesLoaded Library (ensures images are loaded before Masonry calculates) -->
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 
     <!-- Initialize Masonry -->
     <script>
-        // Wait for images to load before initializing Masonry
-        window.addEventListener('load', function() {
-            var grid = document.querySelector('.portfolio-grid');
-            var msnry = new Masonry(grid, {
+        // Initialize Masonry after ALL images are loaded
+        var grid = document.querySelector('.portfolio-grid');
+        var msnry;
+
+        // Wait for images to load before initializing
+        imagesLoaded(grid, function() {
+            msnry = new Masonry(grid, {
                 itemSelector: '.portfolio-item',
-                columnWidth: '.portfolio-item',
-                percentPosition: true,
-                gutter: 16
+                percentPosition: false,
+                gutter: 16,
+                resize: true,
+                initLayout: true,
+                transitionDuration: 0 // Disable animations for better resize performance
             });
+        });
+
+        // Recalculate layout on window resize
+        var resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (msnry) {
+                    msnry.layout();
+                }
+            }, 250);
         });
     </script>
 

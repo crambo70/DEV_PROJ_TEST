@@ -1719,8 +1719,8 @@ body {
 
 /* Individual portfolio items */
 .portfolio-item {
-    width: 23%; /* 4 columns on desktop with gaps */
-    margin-bottom: 16px;
+    width: calc(25% - 12px); /* 4 columns on desktop, accounting for 16px gutter */
+    margin-bottom: 0; /* Masonry handles vertical spacing */
     overflow: hidden;
     background: #F5F5F5;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1757,7 +1757,7 @@ body {
     }
 
     .portfolio-item {
-        width: 31.33%; /* 3 columns */
+        width: calc(33.333% - 11px); /* 3 columns, accounting for 16px gutter */
     }
 }
 
@@ -1768,8 +1768,7 @@ body {
     }
 
     .portfolio-item {
-        width: 48%; /* 2 columns */
-        margin-bottom: 12px;
+        width: calc(50% - 8px); /* 2 columns, accounting for 16px gutter */
     }
 
     /* Reduce hover effects on mobile */
