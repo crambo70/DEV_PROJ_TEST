@@ -1,10 +1,26 @@
-# DEV_PROJ_TEST
+# SCENIC - Event Services Website
 
-An HTML5 and JavaScript web project.
+A modern, responsive website for SCENIC Inc., an event services company specializing in event design, production, fabrication, logistics, and on-site management.
+
+**Current Version:** v2.1.1
+
+---
+
+## ⚠️ **FOR DEVELOPERS/AI AGENTS: READ THIS FIRST!**
+
+### **🎯 MANDATORY BEFORE ANY CODE CHANGES:**
+
+1. **READ** → [`VERSION_CONTROL.md`](VERSION_CONTROL.md) ← **START HERE!**
+2. **THEN READ** → [`IMPLEMENTATION_PLAN.md`](IMPLEMENTATION_PLAN.md)
+3. **FOLLOW** the version control workflow strictly
+
+**DO NOT** make changes without following the version control process!
+
+---
 
 ## Description
 
-This project uses HTML5 for markup and JavaScript for programmatic elements.
+Professional event services website built with modern web technologies and mobile-first responsive design.
 
 ## Getting Started
 

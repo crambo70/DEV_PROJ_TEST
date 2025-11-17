@@ -287,9 +287,9 @@ body {
 
 /* Responsive SCENIC Logo Image */
 .scenic-logo-img {
-    height: 70px; /* Desktop size */
+    height: 93px; /* Desktop size - increased by 33% from 70px */
     width: auto; /* Maintain aspect ratio */
-    max-width: 460px; /* Prevent it from getting too wide */
+    max-width: 600px; /* Prevent it from getting too wide - also increased */
     object-fit: contain; /* Ensure proper scaling */
     display: block;
 }
@@ -478,9 +478,26 @@ body {
     z-index: 1; /* Behind the hero content */
 }
 
-/* Vertical flip for geo tile images */
+/* Transform classes for geo tile images */
 .geo-tile-image.flipped-vertical {
     transform: scaleY(-1); /* Flip vertically */
+}
+
+.geo-tile-image.rotate-90 {
+    transform: rotate(90deg);
+}
+
+.geo-tile-image.rotate-180 {
+    transform: rotate(180deg);
+}
+
+/* Combined transforms - rotation + flip */
+.geo-tile-image.rotate-90.flipped-vertical {
+    transform: rotate(90deg) scaleY(-1);
+}
+
+.geo-tile-image.rotate-180.flipped-vertical {
+    transform: rotate(180deg) scaleY(-1);
 }
 
 /* Ensure hero content stays above geometric background */
@@ -661,21 +678,29 @@ body {
 }
 
 .portfolio-container {
-    max-width: 1400px;
+    max-width: 2240px;
     margin: 0 auto;
 }
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    grid-auto-rows: 200px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    grid-auto-rows: 140px;
 }
 
 .portfolio-item {
     background-color: #F1F1F4;
-    border: 2px solid #84858D;
+    overflow: hidden;
     position: relative;
+    border: none;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .portfolio-item.large {
@@ -683,11 +708,19 @@ body {
 }
 
 .portfolio-item.medium {
-    grid-row: span 1;
+    grid-row: span 2;
 }
 
 .portfolio-item.small {
     grid-row: span 1;
+}
+
+/* Hover effect */
+.portfolio-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 /* CTA Section */
@@ -985,9 +1018,11 @@ body {
     .cta-title {
         font-size: 2rem;
     }
-    
+
     .portfolio-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        grid-auto-rows: 120px;
     }
     
     .footer-geometric-background {
@@ -1081,7 +1116,7 @@ body {
 
 /* Services Section */
 .services {
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 10rem 2rem; /* Extra bottom padding for tooltips */
     background-color: #FFFFFF; /* Clean white background - changed from off-white */
 }
 
@@ -1118,13 +1153,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem 1rem 0.5rem 1rem; /* Reduced padding */
+    padding: 1rem 0.5rem 0.5rem 0.5rem; /* Minimal padding for larger icons */
     background-color: #FFFFFF;
 }
 
 .service-icon {
-    width: 161px; /* 15% larger (140px * 1.15) */
-    height: 161px;
+    width: 240px; /* Much larger for desktop - fills space better */
+    height: 240px;
     background-color: transparent;
     border-radius: 8px;
     display: flex;
@@ -1162,66 +1197,78 @@ body {
     font-weight: normal; /* Less bold for cleaner look */
 }
 
-/* Hover callout that appears below the service card */
+/* New Minimal Tooltip - v2.0.0 */
+/* Base styles for all viewports */
+.service-card {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+}
+
+.service-card:hover {
+    z-index: 100; /* Bring to front when hovered */
+}
+
+/* Minimal tooltip positioned below card */
 .service-hover-overlay {
-    position: absolute;
-    top: 100%; /* Position below the card */
-    left: 0;
-    right: 0;
-    background-color: #84858D; /* Medium Gray from style guide */
+    position: absolute !important;
+    top: calc(100% + 12px); /* 12px gap below card */
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    width: 220px;
+    padding: 12px 16px;
+    background-color: #84858D; /* Medium gray from reference */
     color: #FFFFFF;
-    padding: 1.5rem 1rem;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease,
+                visibility 0.2s ease,
+                transform 0.2s ease;
+    z-index: 200;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(-10px); /* Start slightly above final position */
-    transition: all 0.3s ease;
-    border-radius: 0 0 8px 8px; /* Rounded bottom corners to match card */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Shadow for depth */
-    z-index: 10; /* Ensure it appears above other cards */
+    justify-content: center;
 }
 
+/* Upward arrow */
+.service-hover-overlay::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #84858D;
+}
+
+/* Show on hover */
 .service-card:hover .service-hover-overlay {
     opacity: 1;
-    transform: translateY(0); /* Slide into final position */
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
+/* Tooltip description text */
 .service-description {
-    font-family: "din-2014", sans-serif;
-    font-size: 12px;
+    margin: 0;
+    font-size: 10px;
     line-height: 1.4;
-    margin-bottom: 1rem;
-    max-width: 160px;
-}
-
-.service-link {
     font-family: "din-2014", sans-serif;
-    color: #FFFFFF;
-    text-decoration: none;
-    border: 1px solid #FFFFFF;
-    /* Touch optimization: Significantly increased padding to meet 44px minimum */
-    padding: 0.9rem 1.2rem; /* 14.4px + 11px + 14.4px ≈ 51px height */
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: normal;
-    transition: all 0.3s ease;
-    display: inline-block;
-    /* Prevent double-tap zoom */
-    touch-action: manipulation;
 }
 
-.service-link:hover {
-    background-color: #FFFFFF;
-    color: #84858D; /* Gray text on white background */
-}
-
-/* Touch feedback for service links */
-.service-link:active {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: scale(0.95); /* Haptic feedback via scale */
+/* Hide "Learn More" link if it exists */
+.service-hover-overlay .service-link {
+    display: none !important;
 }
 
 /* Mobile Responsive */
@@ -1321,52 +1368,30 @@ body {
         padding: 0.5rem 0.5rem 0.25rem 0.5rem; /* Minimal white space above icons */
     }
 
-    /* Mobile: Inline expandable callout with smooth animation */
-    .service-card .service-hover-overlay {
-        position: static !important;
-        opacity: 0;
-        background: rgba(0, 48, 140, 0.95);
-        color: white;
-        padding: 1.5rem 1rem; /* Balanced vertical and horizontal padding */
-        margin: 0 0.75rem; /* Inset from card edges (left/right), no top margin initially */
-        border-radius: 8px;
-        transform: none !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        max-height: 0; /* Use max-height for smooth animation */
-        overflow: hidden;
-        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                    opacity 0.3s ease 0.1s,
-                    margin-top 0.3s ease;
+    /* Mobile tooltip styles */
+    .service-hover-overlay {
+        width: 180px;
+        font-size: 9px;
+        padding: 10px 12px;
+        top: calc(100% + 8px);
     }
 
-    /* Touch-friendly expansion - works on tap for mobile */
-    .service-card:hover .service-hover-overlay,
-    .service-card:active .service-hover-overlay,
-    .service-card:focus-within .service-hover-overlay {
+    .service-hover-overlay::before {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #84858D;
+        top: -5px;
+    }
+
+    .service-description {
+        font-size: 9px;
+    }
+
+    /* Touch interaction for mobile */
+    .service-card:active .service-hover-overlay {
         opacity: 1;
-        transform: none !important;
-        margin-top: 0.75rem;
-        max-height: 300px; /* Large enough for content, enables smooth animation */
-    }
-
-    /* Visual indicator that card is tappable - chevron icon */
-    .service-card .service-title::after {
-        content: '▼';
-        display: inline-block;
-        margin-left: 0.5rem;
-        font-size: 10px;
-        transition: transform 0.3s ease;
-        opacity: 0.6;
-    }
-
-    /* Rotate chevron when expanded */
-    .service-card:hover .service-title::after,
-    .service-card:active .service-title::after,
-    .service-card:focus-within .service-title::after {
-        transform: rotate(180deg);
-        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
     }
 
     /* Text sizing for mobile */
@@ -1376,8 +1401,8 @@ body {
 
     /* Service icon sizing for mobile */
     .service-icon {
-        width: 113px; /* Mobile size - 15% larger (98px * 1.15) */
-        height: 113px;
+        width: 200px; /* Much larger for mobile - fills width better */
+        height: 200px;
     }
 
     .team-title {
@@ -1454,8 +1479,8 @@ body {
 
     /* Service icon sizing for tablet */
     .service-icon {
-        width: 138px; /* Tablet size - 15% larger (120px * 1.15) */
-        height: 138px;
+        width: 220px; /* Much larger for tablet - fills space better */
+        height: 220px;
     }
 
     /* Reduce services section padding on tablet */
@@ -1479,52 +1504,15 @@ body {
         z-index: 10; /* Bring to front when expanded */
     }
 
-    /* Tablet: Inline expandable callout with smooth animation */
-    .service-card .service-hover-overlay {
-        position: static !important;
-        opacity: 0;
-        background: rgba(0, 48, 140, 0.95);
-        color: white;
-        padding: 1.5rem 1rem; /* Balanced vertical and horizontal padding */
-        margin: 0 0.75rem; /* Inset from card edges (left/right), no top margin initially */
-        border-radius: 8px;
-        transform: none !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        max-height: 0; /* Use max-height for smooth animation */
-        overflow: hidden;
-        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                    opacity 0.3s ease 0.1s,
-                    margin-top 0.3s ease;
-    }
-
-    /* Touch-friendly expansion for tablet */
-    .service-card:hover .service-hover-overlay,
-    .service-card:active .service-hover-overlay,
-    .service-card:focus-within .service-hover-overlay {
-        opacity: 1;
-        transform: none !important;
-        margin-top: 0.75rem;
-        max-height: 300px; /* Large enough for content, enables smooth animation */
-    }
-
-    /* Visual indicator for tablet */
-    .service-card .service-title::after {
-        content: '▼';
-        display: inline-block;
-        margin-left: 0.5rem;
+    /* Tablet tooltip styles */
+    .service-hover-overlay {
+        width: 200px;
         font-size: 10px;
-        transition: transform 0.3s ease;
-        opacity: 0.6;
+        padding: 11px 14px;
     }
 
-    /* Rotate chevron when expanded on tablet */
-    .service-card:hover .service-title::after,
-    .service-card:active .service-title::after,
-    .service-card:focus-within .service-title::after {
-        transform: rotate(180deg);
-        opacity: 1;
+    .service-description {
+        font-size: 10px;
     }
 
     /* Reduce icon area padding on tablet */
@@ -1625,6 +1613,11 @@ body {
         margin-left: 0;
         margin-right: 0;
     }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
 }
 
 /* Desktop Enhancement */
@@ -1646,53 +1639,7 @@ body {
         z-index: 10;
     }
 
-    /* Desktop: Inline expandable callout with smooth animation (same as mobile/tablet) */
-    .service-card .service-hover-overlay {
-        position: static !important;
-        opacity: 0;
-        background: rgba(0, 48, 140, 0.95); /* Navy blue like mobile/tablet */
-        color: white;
-        padding: 1.5rem 1rem; /* Balanced vertical and horizontal padding */
-        margin: 0 0.75rem; /* Inset from card edges */
-        border-radius: 8px;
-        transform: none !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                    opacity 0.3s ease 0.1s,
-                    margin-top 0.3s ease;
-    }
-
-    /* Expansion on hover/active/focus */
-    .service-card:hover .service-hover-overlay,
-    .service-card:active .service-hover-overlay,
-    .service-card:focus-within .service-hover-overlay {
-        opacity: 1;
-        transform: none !important;
-        margin-top: 0.75rem;
-        max-height: 300px;
-    }
-
-    /* Chevron indicator for desktop */
-    .service-card .service-title::after {
-        content: '▼';
-        display: inline-block;
-        margin-left: 0.5rem;
-        font-size: 10px;
-        transition: transform 0.3s ease;
-        opacity: 0.6;
-    }
-
-    /* Rotate chevron when expanded on desktop */
-    .service-card:hover .service-title::after,
-    .service-card:active .service-title::after,
-    .service-card:focus-within .service-title::after {
-        transform: rotate(180deg);
-        opacity: 1;
-    }
+    /* Desktop tooltip styles will be added in new implementation */
 }
 
 /* ===================================

@@ -1,0 +1,83 @@
+# CLAUDE INSTRUCTIONS FOR SCENIC PROJECT
+
+## 🚨 CRITICAL: Version Control Protocol
+
+**BEFORE making ANY code changes, you MUST:**
+
+1. Read `VERSION_CONTROL.md` - This contains the complete workflow
+2. Read `IMPLEMENTATION_PLAN.md` - Check current version (line 5)
+3. Verify version in `index.html` (line ~32-34) matches IMPLEMENTATION_PLAN.md
+4. If versions don't match, STOP and alert the user
+
+## 📋 Required Actions for EVERY Change:
+
+### Before:
+- Note current version from IMPLEMENTATION_PLAN.md
+- Determine if change is Patch (X.X.+1), Minor (X.+1.0), or Major (+1.0.0)
+
+### During:
+- Make your code changes
+- Keep notes of what you changed and why
+
+### After (MANDATORY):
+- Update version in `index.html` (line ~32-34)
+- Update version in `IMPLEMENTATION_PLAN.md` (line 5)
+- Add changelog entry in `IMPLEMENTATION_PLAN.md` (~line 116)
+- Add version history entry in `IMPLEMENTATION_PLAN.md` (~line 600)
+- Verify both version numbers match EXACTLY
+
+## 🎯 Version Increment Rules:
+
+- **Patch (X.X.+1)**: Bug fixes, typos, minor CSS adjustments
+  - Example: v2.1.1 → v2.1.2
+
+- **Minor (X.+1.0)**: New features, new assets, enhancements
+  - Example: v2.1.1 → v2.2.0
+
+- **Major (+1.0.0)**: Breaking changes, complete redesigns
+  - Example: v2.1.1 → v3.0.0
+
+## ⚠️ Common Mistakes to Avoid:
+
+- ❌ Updating version in only ONE location
+- ❌ Skipping changelog entry
+- ❌ Not checking current version first
+- ❌ Using arbitrary version numbers
+- ❌ Reverting to old versions
+
+## ✅ Checklist Before Committing:
+
+- [ ] Read VERSION_CONTROL.md
+- [ ] Checked current version
+- [ ] Updated index.html version
+- [ ] Updated IMPLEMENTATION_PLAN.md version (line 5)
+- [ ] Added changelog entry
+- [ ] Added version history entry
+- [ ] Both versions match exactly
+
+## 🆘 If You Make a Mistake:
+
+1. Stop immediately
+2. Tell the user what happened
+3. Read VERSION_CONTROL.md for recovery steps
+4. Fix version numbers in both files
+5. Add/correct changelog entries
+
+## 📚 Key Files:
+
+- `VERSION_CONTROL.md` - Complete version control guide (READ FIRST!)
+- `IMPLEMENTATION_PLAN.md` - Source of truth for current version
+- `index.html` - User-facing version display
+- `README.md` - Project overview with links to above
+
+## Current Project State:
+
+- **Version**: v2.1.1
+- **Last Updated**: November 17, 2025
+- **Tech Stack**: HTML5, CSS3, JavaScript, Adobe Fonts (DIN 2014)
+- **Responsive**: Mobile-first (320px-2240px)
+- **Key Features**: Service tooltips, portfolio grid, team section, geometric backgrounds
+
+---
+
+**REMEMBER:** Always ask the user if you're unsure about version incrementing!

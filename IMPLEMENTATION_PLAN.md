@@ -1,9 +1,23 @@
 # SCENIC Website - Mobile-First Implementation Plan
 
 > **Living Document** - Updated as we progress and priorities evolve
-> **Last Updated:** November 12, 2025
-> **Current Version:** v1.6.1
-> **Overall Progress:** 93% → Target: 100%
+> **Last Updated:** November 17, 2025
+> **Current Version:** v2.1.1
+> **Overall Progress:** 96% → Target: 100%
+
+---
+
+## ⚠️ **IMPORTANT: READ BEFORE MAKING CHANGES!**
+
+**If you are a NEW developer or AI agent working on this codebase:**
+
+1. **STOP** - Do not make changes yet
+2. **READ** → [`VERSION_CONTROL.md`](VERSION_CONTROL.md) ← **Required reading!**
+3. **FOLLOW** the version control workflow for ALL changes
+4. **UPDATE** version numbers in TWO places (index.html + this file)
+5. **DOCUMENT** all changes in the changelog below
+
+**Failure to follow version control will cause conflicts and confusion!**
 
 ---
 
@@ -108,6 +122,12 @@
 | 2025-11-11 | **v1.6.0:** WORK page implementation with Masonry.js portfolio gallery (4 cols desktop, 3 tablet, 2 mobile), shared header/footer/CTA | Major feature |
 | 2025-11-12 | **v1.6.1:** Fixed Masonry.js layout issues - added imagesLoaded library, resize handler, corrected CSS calc() widths | Bug fix |
 | 2025-11-11 | **Task 2.1 COMPLETE:** Create "Work" Portfolio Page with Masonry.js integration | Phase 2 progress: 3/7 tasks (43%) |
+| 2025-11-17 | **v1.7.0:** Replaced all PNG pattern blocks with SVG files - Using 4 base SVGs (A, C, D, E) with CSS transforms (rotate, flip) for all 6 pattern variations | Asset optimization |
+| 2025-11-17 | **v2.0.0:** MAJOR REDESIGN - Service card tooltips completely redesigned: removed chevron indicators, changed from inline navy overlays to minimal gray tooltips positioned below cards with upward-pointing arrows, short text only (no "Learn More"), working on all viewports | Major UX overhaul |
+| 2025-11-17 | **v2.0.0:** Service icons significantly enlarged: Desktop 161px→240px (+49%), Tablet 138px→220px (+59%), Mobile 113px→200px (+77%), reduced padding to minimize whitespace | Icon size optimization |
+| 2025-11-17 | **v2.0.0:** Portfolio grid fully populated with 9 placeholder images in 4-column masonry layout with variable heights (large/medium/small items), responsive (4/3/2 cols) | Portfolio completion |
+| 2025-11-17 | **v2.1.0:** New SCENIC blue logo implemented with responsive srcset - Created 3 optimized versions: desktop (4.7K), tablet (5.0K), mobile (3.6K) - 85% size reduction from 32K source | Logo update |
+| 2025-11-17 | **v2.1.1:** Desktop logo size increased 33% (70px→93px height) for better prominence and balance with navigation | Logo sizing patch |
 
 ---
 
@@ -583,12 +603,20 @@
    ```
 4. Push and verify version on live site
 
-**Versioning Scheme:**
-- `1.X.X` - Minor updates, refinements, styling adjustments
-- `1.X.0` - New features, major sections, significant additions
-- `X.0.0` - Major releases, redesigns, milestones
+**Versioning Scheme (Semantic Versioning):**
+- `X.X.1` - Patch: Bug fixes, minor tweaks, small adjustments
+- `X.1.0` - Minor: New features, enhancements, non-breaking changes
+- `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v1.5.7` (as of Nov 11, 2025)
+**Current Version:** `v2.1.1` (as of Nov 17, 2025)
+
+**Version History:**
+- v2.1.1 - Desktop logo size increase (33% larger)
+- v2.1.0 - New blue SCENIC logo with optimized responsive images
+- v2.0.0 - Major redesign: minimal tooltips, enlarged service icons, populated portfolio
+- v1.7.0 - SVG pattern blocks implementation
+- v1.6.1 - Masonry.js fixes
+- v1.6.0 - WORK page with portfolio gallery
 
 ### **Deployment Commands:**
 ```bash
