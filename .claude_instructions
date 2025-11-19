@@ -5,14 +5,14 @@
 **BEFORE making ANY code changes, you MUST:**
 
 1. Read `VERSION_CONTROL.md` - This contains the complete workflow
-2. Read `IMPLEMENTATION_PLAN.md` - Check current version (line 5)
-3. Verify version in `index.html` (line ~32-34) matches IMPLEMENTATION_PLAN.md
+2. Read `version.json` - **SINGLE SOURCE OF TRUTH** for version number
+3. Read `IMPLEMENTATION_PLAN.md` - Check version matches version.json
 4. If versions don't match, STOP and alert the user
 
 ## 📋 Required Actions for EVERY Change:
 
 ### Before:
-- Note current version from IMPLEMENTATION_PLAN.md
+- Note current version from `version.json`
 - Determine if change is Patch (X.X.+1), Minor (X.+1.0), or Major (+1.0.0)
 
 ### During:
@@ -20,11 +20,12 @@
 - Keep notes of what you changed and why
 
 ### After (MANDATORY):
-- Update version in `index.html` (line ~32-34)
+- Update version in `version.json` (PRIMARY)
 - Update version in `IMPLEMENTATION_PLAN.md` (line 5)
 - Add changelog entry in `IMPLEMENTATION_PLAN.md` (~line 116)
 - Add version history entry in `IMPLEMENTATION_PLAN.md` (~line 600)
-- Verify both version numbers match EXACTLY
+- HTML pages will auto-update via `scripts/version-loader.js`
+- Verify version.json and IMPLEMENTATION_PLAN.md match EXACTLY
 
 ## 🎯 Version Increment Rules:
 
@@ -48,12 +49,13 @@
 ## ✅ Checklist Before Committing:
 
 - [ ] Read VERSION_CONTROL.md
-- [ ] Checked current version
-- [ ] Updated index.html version
+- [ ] Checked current version in version.json
+- [ ] Updated version.json (PRIMARY)
 - [ ] Updated IMPLEMENTATION_PLAN.md version (line 5)
 - [ ] Added changelog entry
 - [ ] Added version history entry
-- [ ] Both versions match exactly
+- [ ] version.json and IMPLEMENTATION_PLAN.md match exactly
+- [ ] HTML pages will auto-update (no manual changes needed)
 
 ## 🆘 If You Make a Mistake:
 
@@ -66,8 +68,9 @@
 ## 📚 Key Files:
 
 - `VERSION_CONTROL.md` - Complete version control guide (READ FIRST!)
-- `IMPLEMENTATION_PLAN.md` - Source of truth for current version
-- `index.html` - User-facing version display
+- `version.json` - **SINGLE SOURCE OF TRUTH** for version number
+- `scripts/version-loader.js` - Auto-updates version on all pages
+- `IMPLEMENTATION_PLAN.md` - Documentation and changelog
 - `README.md` - Project overview with links to above
 
 ## Current Project State:

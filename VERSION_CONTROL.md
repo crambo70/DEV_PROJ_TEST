@@ -16,13 +16,13 @@
 ### **BEFORE Making Any Changes:**
 
 1. **CHECK CURRENT VERSION**
-   - Open `IMPLEMENTATION_PLAN.md`
-   - Note the current version number (top of file)
-   - Read the last 5 changelog entries to understand recent changes
+   - Open `version.json` - **This is the single source of truth for version number**
+   - Note the current version number
+   - Open `IMPLEMENTATION_PLAN.md` and read the last 5 changelog entries to understand recent changes
 
-2. **VERIFY VERSION IN CODE**
-   - Check `index.html` line ~32-34 for version indicator
-   - Ensure it matches `IMPLEMENTATION_PLAN.md`
+2. **VERIFY VERSION CONSISTENCY**
+   - Check that `version.json` exists and is valid JSON
+   - Ensure `IMPLEMENTATION_PLAN.md` version matches `version.json`
    - If they don't match, DO NOT PROCEED - ask user for clarification
 
 ### **WHILE Making Changes:**
@@ -42,20 +42,24 @@
 
 ### **AFTER Completing Changes:**
 
-5. **UPDATE VERSION NUMBER (2 locations)**
+5. **UPDATE VERSION NUMBER (3 locations)**
 
-   **Location 1:** `index.html` (lines ~32-34)
-   ```html
-   <div class="version-indicator" aria-label="Site version X.X.X">
-       <span class="version-label" aria-hidden="true">v</span>
-       <span class="version-number">X.X.X</span>
-   </div>
+   **Location 1 (PRIMARY):** `version.json` - **Single source of truth**
+   ```json
+   {
+     "version": "X.X.X",
+     "lastUpdated": "YYYY-MM-DD"
+   }
    ```
 
    **Location 2:** `IMPLEMENTATION_PLAN.md` (line ~5)
    ```markdown
    > **Current Version:** vX.X.X
    ```
+
+   **Location 3:** All HTML pages will automatically update via `scripts/version-loader.js`
+   - The script reads from `version.json` and updates the version indicator on page load
+   - No manual HTML updates needed!
 
 6. **ADD CHANGELOG ENTRY**
 
@@ -239,15 +243,17 @@ It's better to ask than to create version chaos!
 
 ## **📚 REFERENCE**
 
-- **Version Source of Truth**: `IMPLEMENTATION_PLAN.md` line ~5
-- **User-Facing Version**: `index.html` line ~32-34
+- **Version Source of Truth**: `version.json` - **PRIMARY VERSION CONTROL FILE**
+- **Version Loader Script**: `scripts/version-loader.js` - Automatically updates all pages
+- **Documentation Version**: `IMPLEMENTATION_PLAN.md` line ~5
+- **User-Facing Version**: All HTML pages (auto-updated via JavaScript)
 - **Full Changelog**: `IMPLEMENTATION_PLAN.md` starting ~line 112
 - **Version History**: `IMPLEMENTATION_PLAN.md` starting ~line 600
 
 ---
 
-**Last Updated:** November 17, 2025
-**Document Version:** 1.0
+**Last Updated:** November 19, 2025
+**Document Version:** 2.0
 **Maintained By:** Project Team
 
 ---

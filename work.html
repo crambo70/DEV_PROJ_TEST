@@ -17,12 +17,21 @@
         <div class="header-container">
             <div class="logo">
                 <h1>SCENIC</h1>
-                <!-- Image-based SCENIC logo -->
-                <img src="images/small_scenic_logo.png" alt="SCENIC INC - Event Services Company Logo" class="scenic-logo-img">
+                <!-- Responsive SCENIC logo with optimized sizes -->
+                <img
+                    src="images/scenic-logo-desktop.png"
+                    srcset="images/scenic-logo-mobile.png 400w,
+                            images/scenic-logo-tablet.png 768w,
+                            images/scenic-logo-desktop.png 1024w"
+                    sizes="(max-width: 768px) 52px,
+                           (max-width: 1024px) 61px,
+                           93px"
+                    alt="SCENIC - Event Services Company"
+                    class="scenic-logo-img">
             </div>
-            <div class="version-indicator" aria-label="Site version 1.7.0">
+            <div class="version-indicator" aria-label="Site version 2.1.1">
                 <span class="version-label" aria-hidden="true">v</span>
-                <span class="version-number">1.7.0</span>
+                <span class="version-number">2.1.1</span>
             </div>
             <nav class="nav" role="navigation" aria-label="Main navigation">
                 <ul class="nav-list">
@@ -220,6 +229,7 @@
         });
     </script>
 
+    <script src="scripts/version-loader.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 </html>

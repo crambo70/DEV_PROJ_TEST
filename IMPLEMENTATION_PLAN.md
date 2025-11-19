@@ -1,8 +1,8 @@
 # SCENIC Website - Mobile-First Implementation Plan
 
 > **Living Document** - Updated as we progress and priorities evolve
-> **Last Updated:** November 17, 2025
-> **Current Version:** v2.1.1
+> **Last Updated:** November 19, 2025
+> **Current Version:** v2.1.2
 > **Overall Progress:** 96% → Target: 100%
 
 ---
@@ -75,6 +75,7 @@
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-11-19 | **v2.1.2:** Implemented centralized version management system with version.json and auto-loader script | Version consistency across all pages |
 | 2025-11-10 | Initial plan created | Established roadmap |
 | 2025-11-10 | Task 1.1 skipped - images are placeholders for SVGs with animations | Avoiding optimization of temporary assets |
 | 2025-11-10 | Started Task 1.2: Implement Lazy Loading | Performance improvement in progress |
@@ -611,6 +612,7 @@
 **Current Version:** `v2.1.1` (as of Nov 17, 2025)
 
 **Version History:**
+- v2.1.2 - Centralized version management with version.json and auto-loader script
 - v2.1.1 - Desktop logo size increase (33% larger)
 - v2.1.0 - New blue SCENIC logo with optimized responsive images
 - v2.0.0 - Major redesign: minimal tooltips, enlarged service icons, populated portfolio
