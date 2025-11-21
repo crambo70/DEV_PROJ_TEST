@@ -192,7 +192,7 @@
     </div>
 
     <div class="frame-slider">
-      <input type="range" id="frame-range" min="0" max="22" value="0" step="1">
+      <input type="range" id="frame-range" min="0" max="42" value="0" step="1">
     </div>
 
     <div class="speed-control">
@@ -212,7 +212,7 @@
       </div>
       <div class="info-row">
         <span class="info-label">Total Frames:</span>
-        <span id="total-frames">23</span>
+        <span id="total-frames">43</span>
       </div>
       <div class="info-row">
         <span class="info-label">FPS:</span>
@@ -220,17 +220,17 @@
       </div>
       <div class="info-row">
         <span class="info-label">Duration:</span>
-        <span id="duration">0.77s</span>
+        <span id="duration">1.43s</span>
       </div>
       <div class="info-row">
         <span class="info-label">Interpolation:</span>
-        <span>10 frames between keyframes</span>
+        <span>20 frames between keyframes</span>
       </div>
     </div>
   </div>
 
   <script>
-    const TOTAL_FRAMES = 23; // Updated: 3 keyframes + (2 * 10 interpolated frames)
+    const TOTAL_FRAMES = 43; // Updated: 3 keyframes + (2 * 20 interpolated frames)
     const BASE_FPS = 30;
     let currentFrame = 0;
     let isPlaying = false;

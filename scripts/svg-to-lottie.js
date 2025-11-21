@@ -18,7 +18,7 @@ const CONFIG = {
     'Design_Ideation_Keyframe Two.svg',
     'Design_Ideation_Keyframe Three.svg'
   ],
-  framesPerTransition: 10, // 10 interpolated frames between each keyframe
+  framesPerTransition: 20, // 20 interpolated frames between each keyframe (slower, smoother transitions)
   fps: 30,
   outputName: 'ideate_design_animation.json'
 };
@@ -415,19 +415,12 @@ function interpolateKeyframes(svgDocA, svgDocB, t, keyframeIndex) {
       interpolateGroupChildren(padTopA, padTopB, padTopResult, t);
     }
 
-    // SPECIAL: Bulb crossfade (Bulb_One → Bulb_Two)
-    // Problem: Bulb_One and Bulb_Two have different structures (isometric vs front-facing)
-    // Solution: Move Bulb_One to Bulb_Two's position while crossfading opacity
+    // SPECIAL: Bulb morph (Bulb_One morphs into Bulb_Two)
+    // Extended transition over 20 frames with crossfade + transformation
     const bulbOneA = elementsA['Bulb_One'];
     const bulbTwoB = elementsB['Bulb_Two'];
 
     if (bulbOneA && bulbTwoB) {
-      // Clone Bulb_Two from keyframe B
-      const serializer = new XMLSerializer();
-      const parser = new DOMParser();
-      const bulbTwoString = serializer.serializeToString(bulbTwoB);
-      const bulbTwoClone = parser.parseFromString(bulbTwoString, 'image/svg+xml').documentElement;
-
       // Calculate translation needed to move Bulb_One to Bulb_Two's position
       // Bulb_One approximate center: (157, 142) - based on visual inspection
       // Bulb_Two center: (144.5, 115.43) - from the path's bulb center
@@ -443,29 +436,42 @@ function interpolateKeyframes(svgDocA, svgDocB, t, keyframeIndex) {
       const translateX = deltaX * t;
       const translateY = deltaY * t;
 
-      // Set opacity for crossfade
-      // Bulb_One: fade out (1.0 → 0.0) AND move to new position
-      // Bulb_Two: fade in (0.0 → 1.0)
+      // Crossfade parameters (start Bulb_Two fade-in at 25% through transition)
+      const fadeStartPoint = 0.25;
+      const bulbOneOpacity = t < fadeStartPoint ? 1.0 : Math.max(0, 1.0 - ((t - fadeStartPoint) / (1 - fadeStartPoint)));
+      const bulbTwoOpacity = t < fadeStartPoint ? 0.0 : Math.min(1.0, (t - fadeStartPoint) / (1 - fadeStartPoint));
+
+      // Scale Bulb_One slightly as it transforms (subtle size change)
+      // Start at 100%, grow to 110%, then shrink to 90% as it fades
+      const scaleT = Math.sin(t * Math.PI); // Creates smooth arc from 0 to 1 to 0
+      const scale = 1.0 + (scaleT * 0.1); // Scale range: 1.0 to 1.1
+
+      // Apply transformation to Bulb_One
       const bulbOneResult = getElementById(result, 'Bulb_One');
       if (bulbOneResult) {
-        bulbOneResult.setAttribute('opacity', (1 - t).toFixed(2));
-        bulbOneResult.setAttribute('transform', `translate(${translateX.toFixed(2)}, ${translateY.toFixed(2)})`);
+        bulbOneResult.setAttribute('opacity', bulbOneOpacity.toFixed(2));
+        bulbOneResult.setAttribute('transform',
+          `translate(${translateX.toFixed(2)}, ${translateY.toFixed(2)}) scale(${scale.toFixed(2)})`
+        );
       }
 
-      bulbTwoClone.setAttribute('opacity', t.toFixed(2));
+      // Clone and insert Bulb_Two with fade-in
+      const serializer = new XMLSerializer();
+      const parser = new DOMParser();
+      const bulbTwoString = serializer.serializeToString(bulbTwoB);
+      const bulbTwoClone = parser.parseFromString(bulbTwoString, 'image/svg+xml').documentElement;
+
+      bulbTwoClone.setAttribute('opacity', bulbTwoOpacity.toFixed(2));
 
       // Insert Bulb_Two right after Bulb_One
       if (bulbOneResult && bulbOneResult.parentNode) {
-        // Find the next sibling after Bulb_One
         const nextSibling = bulbOneResult.nextSibling;
-
-        // Check if Bulb_Two already exists (from previous iteration)
         const existingBulbTwo = getElementById(result, 'Bulb_Two');
+
         if (existingBulbTwo) {
-          // Update opacity only
-          existingBulbTwo.setAttribute('opacity', t.toFixed(2));
-        } else {
-          // Insert new Bulb_Two
+          existingBulbTwo.setAttribute('opacity', bulbTwoOpacity.toFixed(2));
+        } else if (bulbTwoOpacity > 0) {
+          // Only insert Bulb_Two once it starts fading in
           bulbOneResult.parentNode.insertBefore(bulbTwoClone, nextSibling);
         }
       }
