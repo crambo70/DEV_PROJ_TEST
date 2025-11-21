@@ -256,6 +256,26 @@ The script needs to **generate placeholder lines** at center point for Keyframe 
 
 ---
 
+---
+
+## 📋 **TODO LIST - NEXT SESSION**
+
+### ✅ Completed:
+- [x] Fix malformed SVG path data (coordinate pairing)
+- [x] Fix pencil eraser path corruption (missing leading decimals)
+
+### 🔄 In Progress:
+- [ ] Implement bulb crossfade (Bulb_One to Bulb_Two transition)
+
+### ⏳ Pending (Priority Order):
+1. [ ] Fix missing elements (eraser cap, filament highlights)
+2. [ ] Fix missing beam rays (grow from center)
+3. [ ] Fix element z-ordering (cls-1 on top)
+4. [ ] Regenerate all frames and test thoroughly with Playwright
+5. [ ] Final validation: Test all 23 frames for console errors
+
+---
+
 ## ✅ **FIXES COMPLETED** (Session 1)
 
 ### **1. Fixed Malformed SVG Path Data** ✅
