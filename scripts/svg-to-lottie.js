@@ -414,6 +414,62 @@ function interpolateKeyframes(svgDocA, svgDocB, t, keyframeIndex) {
       const padTopResult = getElementById(result, 'Pad_Top');
       interpolateGroupChildren(padTopA, padTopB, padTopResult, t);
     }
+
+    // SPECIAL: Bulb crossfade (Bulb_One → Bulb_Two)
+    // Problem: Bulb_One and Bulb_Two have different structures (isometric vs front-facing)
+    // Solution: Move Bulb_One to Bulb_Two's position while crossfading opacity
+    const bulbOneA = elementsA['Bulb_One'];
+    const bulbTwoB = elementsB['Bulb_Two'];
+
+    if (bulbOneA && bulbTwoB) {
+      // Clone Bulb_Two from keyframe B
+      const serializer = new XMLSerializer();
+      const parser = new DOMParser();
+      const bulbTwoString = serializer.serializeToString(bulbTwoB);
+      const bulbTwoClone = parser.parseFromString(bulbTwoString, 'image/svg+xml').documentElement;
+
+      // Calculate translation needed to move Bulb_One to Bulb_Two's position
+      // Bulb_One approximate center: (157, 142) - based on visual inspection
+      // Bulb_Two center: (144.5, 115.43) - from the path's bulb center
+      const bulbOneStartX = 157;
+      const bulbOneStartY = 142;
+      const bulbTwoTargetX = 144.5;
+      const bulbTwoTargetY = 115.43;
+
+      const deltaX = bulbTwoTargetX - bulbOneStartX;
+      const deltaY = bulbTwoTargetY - bulbOneStartY;
+
+      // Interpolate position
+      const translateX = deltaX * t;
+      const translateY = deltaY * t;
+
+      // Set opacity for crossfade
+      // Bulb_One: fade out (1.0 → 0.0) AND move to new position
+      // Bulb_Two: fade in (0.0 → 1.0)
+      const bulbOneResult = getElementById(result, 'Bulb_One');
+      if (bulbOneResult) {
+        bulbOneResult.setAttribute('opacity', (1 - t).toFixed(2));
+        bulbOneResult.setAttribute('transform', `translate(${translateX.toFixed(2)}, ${translateY.toFixed(2)})`);
+      }
+
+      bulbTwoClone.setAttribute('opacity', t.toFixed(2));
+
+      // Insert Bulb_Two right after Bulb_One
+      if (bulbOneResult && bulbOneResult.parentNode) {
+        // Find the next sibling after Bulb_One
+        const nextSibling = bulbOneResult.nextSibling;
+
+        // Check if Bulb_Two already exists (from previous iteration)
+        const existingBulbTwo = getElementById(result, 'Bulb_Two');
+        if (existingBulbTwo) {
+          // Update opacity only
+          existingBulbTwo.setAttribute('opacity', t.toFixed(2));
+        } else {
+          // Insert new Bulb_Two
+          bulbOneResult.parentNode.insertBefore(bulbTwoClone, nextSibling);
+        }
+      }
+    }
   }
 
   // Special handling for Beam growth (Keyframe 1→2)
