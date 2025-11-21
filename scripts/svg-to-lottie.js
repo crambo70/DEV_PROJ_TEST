@@ -50,9 +50,12 @@ function parsePath(d) {
       continue;
     }
 
-    // Handle negative numbers that might not have spaces (like "0-.76")
-    // Add space before minus signs that follow a digit
-    const normalized = coordString.replace(/(\d)-/g, '$1 -');
+    // Handle compact SVG notation:
+    // 1. Add space before minus signs that follow a digit (like "0-.76" -> "0 -.76")
+    // 2. Add space between abutting decimal points (like "1.46.26" -> "1.46 .26")
+    //    This regex looks for: decimal-digits followed immediately by another decimal point
+    let normalized = coordString.replace(/(\d)-/g, '$1 -');
+    normalized = normalized.replace(/(\.\d+)\./g, '$1 .');
 
     // Split on whitespace and commas, handling negative numbers
     const coords = normalized
@@ -101,11 +104,34 @@ function interpolatePath(pathA, pathB, t) {
       return t < 0.5 ? pathA : pathB;
     }
 
+    // Build coordinate string with proper SVG syntax
+    // Different commands have different coordinate grouping rules
+    const cmd = cmdA.cmd.toUpperCase();
+    const coordsPerGroup = {
+      'M': 2, 'L': 2, 'H': 1, 'V': 1,  // Move, Line, Horizontal, Vertical
+      'C': 6, 'S': 4, 'Q': 4, 'T': 2,  // Bezier curves
+      'A': 7,  // Arc
+      'Z': 0   // Close path
+    };
+
+    const groupSize = coordsPerGroup[cmd] || 2;
+    const interpolatedCoords = [];
+
     for (let j = 0; j < coordsA.length; j++) {
       const interpolated = lerp(coordsA[j], coordsB[j], t);
-      // Use comma separator and add space for readability
-      if (j > 0) result += ',';
-      result += interpolated.toFixed(2);
+      interpolatedCoords.push(interpolated.toFixed(2));
+    }
+
+    // Group coordinates and join with proper spacing
+    // Within a group: use commas (x,y)
+    // Between groups: use spaces
+    if (groupSize > 0) {
+      const groups = [];
+      for (let j = 0; j < interpolatedCoords.length; j += groupSize) {
+        const group = interpolatedCoords.slice(j, j + groupSize);
+        groups.push(group.join(','));
+      }
+      result += groups.join(' ');
     }
   }
 
