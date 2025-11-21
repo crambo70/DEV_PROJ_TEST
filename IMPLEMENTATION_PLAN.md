@@ -330,18 +330,36 @@
 - **Dependencies:** Backend integration decision
 - **Status:** ❌ Not Started
 
-#### **Task 2.3: Implement Lottie Animations for Service Icons**
-- **Files:** `index.html`, `scripts/main.js`, Lottie JSON files (new)
-- **Complexity:** MEDIUM
+#### **Task 2.3: Implement Lottie Animations for Service Icons** ⏳ IN PROGRESS
+- **Files:** `scripts/svg-to-lottie.js` (new), `animations/` (new), `test-animation.html` (new), `package.json`
+- **Complexity:** HIGH
 - **Action:**
-  - Replace static placeholder images with Lottie animations
-  - Load lottie-player library (via CDN or npm)
-  - Create/source 5 animations (IDEATE, EVENTS, BUILD, LOGISTICS, ON-SITE)
-  - Implement play-on-hover for desktop, play-on-scroll for mobile
-  - Optimize JSON file sizes
+  - ✅ Built custom SVG keyframe interpolation system using Node.js
+  - ✅ Implemented 10-frame interpolation between keyframes for smooth animations
+  - ✅ Created test animation for IDEATE/DESIGN service icon (23 frames total)
+  - ✅ Resolved complex path interpolation issues (notepad holes, pencil shape preservation)
+  - ✅ Fixed element z-ordering to ensure proper rendering (eraser visibility)
+  - ✅ Implemented custom animations: pencil rolling movement, light beam growth
+  - ⏳ Need to create animations for remaining 4 service icons (EVENTS, BUILD, LOGISTICS, ON-SITE)
+  - ⏳ Convert SVG frame sequences to true Lottie JSON format
+  - ⏳ Integrate lottie-player library into index.html
+  - ⏳ Implement play-on-hover for desktop, play-on-scroll for mobile
 - **Mobile Impact:** Medium - visual enhancement, bandwidth consideration
-- **Dependencies:** Lottie animation files creation
-- **Status:** ❌ Not Started
+- **Dependencies:** Complete keyframe SVGs for all 5 service icons
+- **Status:** ⏳ **IN PROGRESS** (Nov 20, 2025)
+- **Implementation Notes:**
+  - **Custom Interpolation Engine:** Built `scripts/svg-to-lottie.js` to generate smooth frame transitions
+  - **Technology Stack:** Node.js, @xmldom/xmldom for SVG parsing, Playwright for testing
+  - **Frame Generation:** 10 interpolated frames between each keyframe pair (configurable)
+  - **Animation Quality:** 30fps, smooth path morphing, preserved colors and shapes
+  - **Technical Challenges Solved:**
+    - SVG path coordinate interpolation with compact notation (e.g., `0-.76`)
+    - xmldom setAttribute truncation for long paths (>200 chars) - used post-serialization fix
+    - Element z-ordering issues - moved cls-1 elements to render on top
+    - Complex shape preservation (notepad holes, pencil eraser)
+  - **Test Framework:** Created `test-animation.html` with frame scrubber, play/pause controls, variable speed
+  - **Output:** 23 frames per animation (3 keyframes + 20 interpolated), ~290KB per animation
+  - **Next Steps:** Create keyframe SVGs for remaining icons, finalize Lottie JSON conversion
 
 #### **Task 2.4: Implement Footer Geometric Background** ✅ COMPLETED
 - **Files:** `index.html`, `styles/style.css`, `reference_images/RED_CTA_GEOMETRIC_ELEMENT_BLUE_FOOTER.png`
