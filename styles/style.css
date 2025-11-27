@@ -686,29 +686,33 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    grid-auto-rows: 140px;
+    grid-auto-rows: auto;
 }
 
 .portfolio-item {
+    /* CSS Grid will stretch items by default - no width needed */
     background-color: #F1F1F4;
     overflow: hidden;
     position: relative;
     border: none;
+    justify-self: stretch; /* Ensure item stretches to fill grid cell */
+    align-self: start; /* Align to top, natural height */
 }
 
 .portfolio-item img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     display: block;
 }
 
+/* Row span classes - for homepage CSS Grid layout */
 .portfolio-item.large {
     grid-row: span 2;
 }
 
 .portfolio-item.medium {
-    grid-row: span 2;
+    grid-row: span 1;
 }
 
 .portfolio-item.small {
@@ -1022,7 +1026,7 @@ body {
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
-        grid-auto-rows: 120px;
+        grid-auto-rows: auto;
     }
     
     .footer-geometric-background {
@@ -1659,15 +1663,10 @@ body {
     padding: 4rem 2rem;
 }
 
-/* Portfolio grid - Masonry.js handles layout */
-.portfolio-grid {
-    /* Masonry will manage the column layout via JavaScript */
-}
-
-/* Individual portfolio items */
+/* Individual portfolio items - base styles for homepage CSS Grid */
+/* Note: width is NOT set here - CSS Grid handles sizing on homepage */
+/* Work page (.work-page) has specific width rules for Masonry below */
 .portfolio-item {
-    width: calc(25% - 12px); /* 4 columns on desktop, accounting for 16px gutter */
-    margin-bottom: 0; /* Masonry handles vertical spacing */
     overflow: hidden;
     background: #F5F5F5;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1697,25 +1696,18 @@ body {
    WORK PAGE - RESPONSIVE BREAKPOINTS
    =================================== */
 
-/* Tablet: 769px - 1024px (3 columns) */
+/* Tablet: 769px - 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
     .portfolio-gallery {
         padding: 3rem 2rem;
     }
-
-    .portfolio-item {
-        width: calc(33.333% - 11px); /* 3 columns, accounting for 16px gutter */
-    }
+    /* Note: .portfolio-item widths for work page are in .work-page section below */
 }
 
-/* Mobile: ≤768px (2 columns) */
+/* Mobile: ≤768px */
 @media (max-width: 768px) {
     .portfolio-gallery {
         padding: 2rem 1rem;
-    }
-
-    .portfolio-item {
-        width: calc(50% - 8px); /* 2 columns, accounting for 16px gutter */
     }
 
     /* Reduce hover effects on mobile */
@@ -1727,5 +1719,41 @@ body {
     .portfolio-item:active {
         transform: scale(0.98);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    /* Note: .portfolio-item widths for work page are in .work-page section below */
+}
+
+/* ===================================
+   WORK PAGE - Masonry Layout Override
+   Disables CSS Grid so Masonry.js can control layout
+   =================================== */
+
+.work-page .portfolio-grid {
+    display: block; /* Override CSS Grid - Masonry needs block */
+    position: relative;
+}
+
+.work-page .portfolio-item {
+    width: calc(25% - 12px); /* 4 columns on desktop */
+    margin-bottom: 16px;
+}
+
+.work-page .portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Work page tablet: 3 columns */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .work-page .portfolio-item {
+        width: calc(33.333% - 11px);
+    }
+}
+
+/* Work page mobile: 2 columns */
+@media (max-width: 768px) {
+    .work-page .portfolio-item {
+        width: calc(50% - 8px);
     }
 }
