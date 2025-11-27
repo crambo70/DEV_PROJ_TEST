@@ -1,6 +1,61 @@
 /* SCENIC Website Styles */
 /* Based on StyleGuide.md - Mobile-first approach */
 
+/* ============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================ */
+:root {
+  /* Brand Colors */
+  --color-primary-blue: #00308C;
+  --color-accent-red: #EE3D33;
+  --color-accent-teal: #34CBC2;
+  --color-accent-yellow: #FAC813;
+  --color-light-blue: #12AEE7;
+  --color-purple: #600040;
+
+  /* Neutral Colors */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray-light: #F5F5F5;
+  --color-gray-medium: #C7C9D4;
+  --color-gray-dark: #84858D;
+  --color-off-white: #F1F1F4;
+
+  /* Typography */
+  --font-family-primary: "din-2014", sans-serif;
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 2rem;      /* 32px */
+  --font-size-3xl: 3rem;      /* 48px */
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;      /* 4px */
+  --spacing-sm: 0.5rem;       /* 8px */
+  --spacing-md: 1rem;         /* 16px */
+  --spacing-lg: 1.5rem;       /* 24px */
+  --spacing-xl: 2rem;         /* 32px */
+  --spacing-2xl: 3rem;        /* 48px */
+
+  /* Layout */
+  --max-width-content: 1200px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Z-Index Scale */
+  --z-index-dropdown: 100;
+  --z-index-sticky: 200;
+  --z-index-modal: 1000;
+}
+
 /* =================================================================== */
 /* FONT LOADING OPTIMIZATION                                          */
 /* Adobe Fonts (Typekit) loaded with swap behavior for performance    */
@@ -43,12 +98,12 @@ img.loaded {
     position: absolute;
     top: -60px;
     left: 0;
-    background: #00308C;
-    color: #FFFFFF;
+    background: var(--color-primary-blue);
+    color: var(--color-white);
     /* Touch optimization: Increased padding to meet 44px minimum height */
     padding: 0.85rem 1.5rem; /* 13.6px + 14px + 13.6px ≈ 48px height */
     text-decoration: none;
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 14px;
     font-weight: 500;
     z-index: 1000;
@@ -102,13 +157,13 @@ button:focus,
 input:focus,
 textarea:focus,
 select:focus {
-    outline: 3px solid #12AEE7; /* Light Blue for high visibility */
+    outline: 3px solid var(--color-light-blue); /* Light Blue for high visibility */
     outline-offset: 2px;
 }
 
 a:focus-visible,
 button:focus-visible {
-    outline: 3px solid #12AEE7;
+    outline: 3px solid var(--color-light-blue);
     outline-offset: 2px;
 }
 
@@ -226,13 +281,13 @@ button:focus:not(:focus-visible) {
 
 /* Typography - DIN 2014 from Adobe Fonts */
 body {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-weight: 400;
     font-style: normal;
     font-size: 18px; /* Base font size - minimum */
     line-height: 1.6;
-    color: #000000; /* Black from palette */
-    background-color: #FFFFFF; /* White from palette */
+    color: var(--color-black); /* Black from palette */
+    background-color: var(--color-white); /* White from palette */
 }
 
 /* Main Container - Maximum 2240px width */
@@ -241,12 +296,12 @@ body {
     width: 100%;
     margin: 0 auto;
     position: relative;
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
 }
 
 /* Header Section */
 .header {
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
     padding: 1rem 5rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: relative;
@@ -259,18 +314,6 @@ body {
     align-items: center;
     max-width: 2240px; /* Match main container width */
     margin: 0 auto;
-}
-
-.logo {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo h1 {
-    display: none; /* Hide the text version */
 }
 
 .logo {
@@ -304,15 +347,15 @@ body {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 11px;
-    color: #84858D; /* Medium Gray */
+    color: var(--color-gray-dark); /* Medium Gray */
     text-transform: uppercase;
     letter-spacing: 0.5px;
     padding: 0.25rem 0.75rem;
-    background-color: #F1F1F4; /* Off-white background */
+    background-color: var(--color-off-white); /* Off-white background */
     border-radius: 12px;
-    border: 1px solid #C7C9D4; /* Light gray border */
+    border: 1px solid var(--color-gray-medium); /* Light gray border */
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -326,7 +369,7 @@ body {
 
 .version-number {
     font-weight: 500;
-    color: #00308C; /* Navy Blue */
+    color: var(--color-primary-blue); /* Navy Blue */
 }
 
 /* Navigation */
@@ -337,9 +380,9 @@ body {
 }
 
 .nav-list a {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     text-decoration: none;
-    color: #84858D; /* Medium Gray from palette */
+    color: var(--color-gray-dark); /* Medium Gray from palette */
     font-size: 11px; /* Desktop size - doubled from 9px */
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.1s ease;
     /* Touch optimization: Ensure minimum 44x44px tap target */
@@ -351,7 +394,7 @@ body {
 }
 
 .nav-list a:hover {
-    color: #EE3D33; /* Red accent */
+    color: var(--color-accent-red); /* Red accent */
     background-color: rgba(238, 61, 51, 0.05); /* Subtle red background */
 }
 
@@ -385,7 +428,7 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background-color: #000000;
+    background-color: var(--color-black);
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -398,35 +441,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FFFFFF; /* White background */
+    background-color: var(--color-white); /* White background */
 }
 
-/* Responsive hero section height - Three breakpoints */
+/* Hero Section - Responsive Heights */
 
-/* Medium screens (Tablet) */
+/* Hero Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
     .hero {
         height: 300px; /* Match geometric grid height */
     }
 }
 
-/* Small screens (Mobile) */
+/* Hero Mobile (max-width: 768px) */
 @media (max-width: 768px) {
     .hero {
         height: 250px; /* Taller on mobile for better text centering */
     }
-}
-
-.geometric-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    /* Remove temporary gradient */
-    background: #F1F1F4; /* Off-white base */
-    overflow: hidden;
 }
 
 .geometric-background {
@@ -456,14 +487,14 @@ body {
 
 /* Individual grid tile */
 .geo-tile {
-    background-color: #FFFFFF; /* White background */
+    background-color: var(--color-white); /* White background */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 12px;
-    color: #84858D;
-    font-family: "din-2014", sans-serif;
+    color: var(--color-gray-dark);
+    font-family: var(--font-family-primary);
     aspect-ratio: 1/1; /* Maintain square shape */
 }
 
@@ -506,21 +537,21 @@ body {
     z-index: 10; /* Higher than geometric background */
 }
 
-/* Responsive grid scaling - Three breakpoints maintaining square tiles */
+/* Geometric Grid - Responsive Scaling */
 
-/* Medium screens (Tablet) */
+/* Geo Grid Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
     .geo-grid {
         height: 300px; /* Proportionally smaller for tablets */
     }
 }
 
-/* Small screens (Mobile) */
+/* Geo Grid Mobile (max-width: 768px) */
 @media (max-width: 768px) {
     .geo-grid {
         height: 250px; /* Match hero height for proper alignment */
     }
-    
+
     .geo-tile {
         font-size: 8px;
     }
@@ -534,8 +565,8 @@ body {
     background: linear-gradient(to bottom,
         transparent 0%,
         transparent calc(4rem + 110px),
-        #C7C9D4 calc(4rem + 110px),
-        #C7C9D4 100%); /* Light Gray starts below arcs */
+        var(--color-gray-medium) calc(4rem + 110px),
+        var(--color-gray-medium) 100%); /* Light Gray starts below arcs */
     padding: 4rem 2rem;
 }
 
@@ -577,19 +608,19 @@ body {
 }
 
 .member-arc .member-name {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 14px;
     font-weight: bold;
-    color: #FFFFFF;
+    color: var(--color-white);
     margin: 0 0 0.25rem 0;
     letter-spacing: 0.5px;
     line-height: 1; /* Tight line height to eliminate extra space */
 }
 
 .member-arc .member-title {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 11px;
-    color: #FFFFFF;
+    color: var(--color-white);
     margin: 0;
     opacity: 0.95;
     letter-spacing: 0.3px;
@@ -597,11 +628,11 @@ body {
 }
 
 /* Arc Colors */
-.arc-purple { background-color: #600040; } /* Purple/Maroon */
-.arc-teal { background-color: #34CBC2; } /* Teal */
-.arc-red { background-color: #EE3D33; } /* Red */
-.arc-navy { background-color: #00308C; } /* Navy Blue */
-.arc-lightblue { background-color: #12AEE7; } /* Light Blue */
+.arc-purple { background-color: var(--color-purple); } /* Purple/Maroon */
+.arc-teal { background-color: var(--color-accent-teal); } /* Teal */
+.arc-red { background-color: var(--color-accent-red); } /* Red */
+.arc-navy { background-color: var(--color-primary-blue); } /* Navy Blue */
+.arc-lightblue { background-color: var(--color-light-blue); } /* Light Blue */
 
 /* Photo Container (Vertical Pill/Capsule) */
 .member-photo {
@@ -635,11 +666,11 @@ body {
 }
 
 /* Overlay Colors */
-.overlay-red { background-color: #EE3D33; }
-.overlay-teal { background-color: #34CBC2; }
-.overlay-purple { background-color: #600040; }
-.overlay-yellow { background-color: #FAC813; }
-.overlay-lightblue { background-color: #12AEE7; }
+.overlay-red { background-color: var(--color-accent-red); }
+.overlay-teal { background-color: var(--color-accent-teal); }
+.overlay-purple { background-color: var(--color-purple); }
+.overlay-yellow { background-color: var(--color-accent-yellow); }
+.overlay-lightblue { background-color: var(--color-light-blue); }
 
 /* Team Info (Below Cards) */
 .team-info {
@@ -650,18 +681,18 @@ body {
 }
 
 .team-title {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 3rem; /* 48px */
     font-weight: bold;
-    color: #00308C; /* Navy Blue */
+    color: var(--color-primary-blue); /* Navy Blue */
     margin-bottom: 1.5rem;
     letter-spacing: 2px;
 }
 
 .team-description {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 1.1rem;
-    color: #00308C; /* Navy Blue for lorem ipsum */
+    color: var(--color-primary-blue); /* Navy Blue for lorem ipsum */
     line-height: 1.8;
     max-width: 700px;
     margin: 0 auto;
@@ -673,7 +704,7 @@ body {
 
 /* Portfolio Section */
 .portfolio {
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
     padding: 4rem 2rem;
 }
 
@@ -691,7 +722,7 @@ body {
 
 .portfolio-item {
     /* CSS Grid will stretch items by default - no width needed */
-    background-color: #F1F1F4;
+    background-color: var(--color-off-white);
     overflow: hidden;
     position: relative;
     border: none;
@@ -729,7 +760,7 @@ body {
 
 /* CTA Section */
 .cta-section {
-    background-color: #E53E3E; /* Red background */
+    background-color: var(--color-accent-red); /* Red background */
     padding: 3.5rem 2rem; /* Compact vertical padding to match reference */
     text-align: center;
 }
@@ -744,10 +775,10 @@ body {
 }
 
 .cta-title {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 1.65rem; /* 45% reduction from 3rem */
     font-weight: bold;
-    color: #FFFFFF;
+    color: var(--color-white);
     margin-bottom: 0;
     letter-spacing: 2px;
 }
@@ -759,9 +790,9 @@ body {
 .experimental-cta-styling {
     /* UI Properties from user specification */
     text-align: center;
-    font: normal normal normal 48px/62px DIN 2014;
+    font: normal normal normal 48px/62px var(--font-family-primary);
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: var(--color-white);
     text-transform: uppercase;
     opacity: 1;
     
@@ -777,7 +808,7 @@ body {
 /* =================================================================== */
 
 .cta-btn {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -792,8 +823,8 @@ body {
 }
 
 .cta-btn-text {
-    background-color: #FFFFFF;
-    color: #00308C; /* Navy blue text */
+    background-color: var(--color-white);
+    color: var(--color-primary-blue); /* Navy blue text */
     padding: 0 2.25rem; /* Horizontal padding - proportionally reduced */
     font-size: 1.05rem; /* 45% reduction from 1.15rem */
     font-weight: normal;
@@ -803,8 +834,8 @@ body {
 }
 
 .cta-btn-arrow {
-    background-color: #FAC813; /* Yellow/Gold */
-    color: #FFFFFF;
+    background-color: var(--color-accent-yellow); /* Yellow/Gold */
+    color: var(--color-white);
     width: 38px; /* 45% reduction from 50px */
     display: flex;
     align-items: center;
@@ -817,7 +848,7 @@ body {
 
 
 .cta-btn:hover {
-    background-color: #F1F1F4;
+    background-color: var(--color-off-white);
     transform: translateY(-2px);
 }
 
@@ -829,7 +860,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #00308C; /* Navy background */
+    background-color: var(--color-primary-blue); /* Navy background */
     padding: 0; /* Remove padding, handle spacing in footer-content */
     position: relative;
     overflow: hidden;
@@ -893,8 +924,8 @@ body {
 }
 
 .footer-info {
-    font-family: "din-2014", sans-serif;
-    color: #FFFFFF;
+    font-family: var(--font-family-primary);
+    color: var(--color-white);
     font-size: 1rem;
 }
 
@@ -913,25 +944,25 @@ body {
 }
 
 .footer-column-title {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 1rem;
     font-weight: normal;
-    color: #FFFFFF;
+    color: var(--color-white);
     margin: 0 0 0.5rem 0;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
 .footer-column-text {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 0.75rem;
-    color: #C7C9D4;
+    color: var(--color-gray-medium);
     margin: 0;
     line-height: 1;
 }
 
 .footer-link {
-    color: #C7C9D4;
+    color: var(--color-gray-medium);
     text-decoration: none;
     transition: opacity 0.3s ease;
 }
@@ -948,7 +979,7 @@ body {
 }
 
 .social-icon {
-    color: #FFFFFF;
+    color: var(--color-white);
     width: 20px;
     height: 20px;
     display: flex;
@@ -966,15 +997,16 @@ body {
     height: 100%;
 }
 
-/* Responsive adjustments for team and other sections */
+/* Component-Specific Responsive - Mobile (max-width: 768px) */
+/* Team, Portfolio, CTA, Footer - Mobile adjustments */
 @media (max-width: 768px) {
-    /* Team Section Mobile */
+    /* Team Section - Mobile */
     .team-section {
         background: linear-gradient(to bottom,
             transparent 0%,
             transparent calc(4rem + 90px),
-            #C7C9D4 calc(4rem + 90px),
-            #C7C9D4 100%); /* Light Gray starts below mobile arcs */
+            var(--color-gray-medium) calc(4rem + 90px),
+            var(--color-gray-medium) 100%); /* Light Gray starts below mobile arcs */
     }
 
     .team-members {
@@ -1011,24 +1043,9 @@ body {
         margin-top: 0; /* No margin - arc and photo edges align perfectly */
     }
 
-    .team-title {
-        font-size: 2rem;
-    }
+    /* Note: .team-title, .team-description, .cta-title, and .portfolio-grid
+       are styled in the main mobile responsive section below */
 
-    .team-description {
-        font-size: 1rem;
-    }
-
-    .cta-title {
-        font-size: 2rem;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-        grid-auto-rows: auto;
-    }
-    
     .footer-geometric-background {
         height: 100px; /* Shorter on mobile */
     }
@@ -1063,8 +1080,8 @@ body {
 }
 
 .cta-button {
-    background-color: #FFFFFF;
-    color: #00308C; /* Navy Blue from StyleGuide */
+    background-color: var(--color-white);
+    color: var(--color-primary-blue); /* Navy Blue from StyleGuide */
     padding: 1rem 2rem;
     border-radius: 50px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -1076,7 +1093,7 @@ body {
 
     /* Apply Variation 1 styling directly */
     text-align: center;
-    font: normal normal normal 48px/62px "din-2014", sans-serif;
+    font: normal normal normal 48px/62px var(--font-family-primary);
     letter-spacing: 0px;
     opacity: 1;
 
@@ -1095,12 +1112,9 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Responsive hero text sizing - Three breakpoints */
+/* Hero CTA Button - Responsive Sizing */
 
-/* Large screens (Desktop) - Default styling is already set */
-/* 48px font, 62px line-height */
-
-/* Medium screens (Tablet) */
+/* Hero CTA Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
     .cta-button {
         font-size: 36px; /* Medium size for tablets */
@@ -1109,7 +1123,7 @@ body {
     }
 }
 
-/* Small screens (Mobile/iPhone) */
+/* Hero CTA Mobile (max-width: 768px) */
 @media (max-width: 768px) {
     .cta-button {
         font-size: 28px; /* Smaller for mobile */
@@ -1121,7 +1135,7 @@ body {
 /* Services Section */
 .services {
     padding: 4rem 2rem 10rem 2rem; /* Extra bottom padding for tooltips */
-    background-color: #FFFFFF; /* Clean white background - changed from off-white */
+    background-color: var(--color-white); /* Clean white background - changed from off-white */
 }
 
 .services-container {
@@ -1135,7 +1149,7 @@ body {
 }
 
 .service-card {
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
     border-radius: 8px;
     text-align: center;
     transition: transform 0.3s ease;
@@ -1158,7 +1172,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1rem 0.5rem 0.5rem 0.5rem; /* Minimal padding for larger icons */
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
 }
 
 .service-icon {
@@ -1190,13 +1204,13 @@ body {
 /* Bottom area for service title */
 .service-text-area {
     padding: 0.5rem 1rem 1.5rem 1rem; /* Reduced padding */
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
 }
 
 .service-title {
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 14px; /* Much smaller text - matching reference */
-    color: #00308C; /* Navy Blue */
+    color: var(--color-primary-blue); /* Navy Blue */
     margin: 0;
     font-weight: normal; /* Less bold for cleaner look */
 }
@@ -1221,8 +1235,8 @@ body {
     transform: translateX(-50%) translateY(-8px);
     width: 220px;
     padding: 12px 16px;
-    background-color: #84858D; /* Medium gray from reference */
-    color: #FFFFFF;
+    background-color: var(--color-gray-dark); /* Medium gray from reference */
+    color: var(--color-white);
     font-size: 10px;
     line-height: 1.4;
     text-align: center;
@@ -1252,7 +1266,7 @@ body {
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-bottom: 6px solid #84858D;
+    border-bottom: 6px solid var(--color-gray-dark);
 }
 
 /* Show on hover */
@@ -1267,7 +1281,7 @@ body {
     margin: 0;
     font-size: 10px;
     line-height: 1.4;
-    font-family: "din-2014", sans-serif;
+    font-family: var(--font-family-primary);
 }
 
 /* Hide "Learn More" link if it exists */
@@ -1275,7 +1289,9 @@ body {
     display: none !important;
 }
 
-/* Mobile Responsive */
+/* ============================================
+   RESPONSIVE STYLES - Mobile (max-width: 768px)
+   ============================================ */
 @media (max-width: 768px) {
     /* Logo scaling for mobile */
     .scenic-logo-img {
@@ -1303,7 +1319,7 @@ body {
         position: absolute;
         top: 100%;
         right: 0;
-        background-color: #FFFFFF;
+        background-color: var(--color-white);
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         border-radius: 8px;
         padding: 1rem;
@@ -1383,7 +1399,7 @@ body {
     .service-hover-overlay::before {
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
-        border-bottom: 5px solid #84858D;
+        border-bottom: 5px solid var(--color-gray-dark);
         top: -5px;
     }
 
@@ -1458,7 +1474,9 @@ body {
     }
 }
 
-/* Tablet Responsive */
+/* ============================================
+   RESPONSIVE STYLES - Tablet (769px - 1024px)
+   ============================================ */
 @media (min-width: 769px) and (max-width: 1024px) {
     /* Logo scaling for tablet */
     .scenic-logo-img {
@@ -1529,8 +1547,8 @@ body {
         background: linear-gradient(to bottom,
             transparent 0%,
             transparent calc(4rem + 100px),
-            #C7C9D4 calc(4rem + 100px),
-            #C7C9D4 100%); /* Light Gray starts below tablet arcs */
+            var(--color-gray-medium) calc(4rem + 100px),
+            var(--color-gray-medium) 100%); /* Light Gray starts below tablet arcs */
     }
 
     .team-members {
@@ -1624,7 +1642,9 @@ body {
     }
 }
 
-/* Desktop Enhancement */
+/* ============================================
+   RESPONSIVE STYLES - Desktop (min-width: 1025px)
+   ============================================ */
 @media (min-width: 1025px) {
     .services-container {
         grid-template-columns: repeat(5, 1fr);
@@ -1653,7 +1673,7 @@ body {
 /* Portfolio main container */
 .portfolio-main {
     width: 100%;
-    background: #FFFFFF;
+    background: var(--color-white);
 }
 
 /* Portfolio gallery section */
@@ -1668,7 +1688,7 @@ body {
 /* Work page (.work-page) has specific width rules for Masonry below */
 .portfolio-item {
     overflow: hidden;
-    background: #F5F5F5;
+    background: var(--color-gray-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1692,11 +1712,11 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* ===================================
+/* ============================================
    WORK PAGE - RESPONSIVE BREAKPOINTS
-   =================================== */
+   ============================================ */
 
-/* Tablet: 769px - 1024px */
+/* Work Page Tablet (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .portfolio-gallery {
         padding: 3rem 2rem;
@@ -1704,7 +1724,7 @@ body {
     /* Note: .portfolio-item widths for work page are in .work-page section below */
 }
 
-/* Mobile: ≤768px */
+/* Work Page Mobile (≤768px) */
 @media (max-width: 768px) {
     .portfolio-gallery {
         padding: 2rem 1rem;
