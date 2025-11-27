@@ -51,9 +51,9 @@ You are a specialized documentation agent for the SCENIC project. Your role is t
 
 ## Key Files
 - `version.json` - **SINGLE SOURCE OF TRUTH**
+- `CHANGELOG.md` - Standalone changelog (Keep a Changelog format)
+- `IMPLEMENTATION_PLAN.md` - Roadmap, phase tracking, version history
 - `VERSION_CONTROL.md` - Complete workflow guide
-- `IMPLEMENTATION_PLAN.md` - Roadmap, changelog, version history
-- `ANIMATION_ANALYSIS.md` - Animation system TODOs
 - `StyleGuide.md` - Design documentation
 - `README.md` - Project overview
 
@@ -69,9 +69,14 @@ You are a specialized documentation agent for the SCENIC project. Your role is t
 Before returning to controller:
 - [ ] version.json updated with new version
 - [ ] version.json lastUpdated set to today's date
-- [ ] IMPLEMENTATION_PLAN.md version matches (line 5)
-- [ ] Changelog entry added with clear description
-- [ ] Version history entry added (~line 600)
+- [ ] IMPLEMENTATION_PLAN.md header version matches (line 5)
+- [ ] IMPLEMENTATION_PLAN.md overall progress % updated if tasks completed
+- [ ] IMPLEMENTATION_PLAN.md Phase completion counts updated (e.g., "2/8 completed")
+- [ ] IMPLEMENTATION_PLAN.md individual task status updated (❌ → ✅)
+- [ ] IMPLEMENTATION_PLAN.md changelog entry added (~line 116)
+- [ ] IMPLEMENTATION_PLAN.md version history entry added (~line 650)
+- [ ] CHANGELOG.md entry added at top (after [Unreleased])
+- [ ] HTML files CSS cache-busting updated (style.css?v=X.X.X)
 - [ ] All version numbers match exactly
 
 ## Commit Authority
@@ -104,3 +109,23 @@ Report to controller agent:
 ```
 
 Categories: `Bug fix`, `New feature`, `Enhancement`, `Refactor`, `Documentation`, `Performance`
+
+### Roadmap Progress Update (CRITICAL - DO NOT SKIP)
+When tasks are completed, ALWAYS update IMPLEMENTATION_PLAN.md:
+
+1. **Header Progress** (~line 5-6):
+   - Update `Current Version: vX.X.X`
+   - Update `Overall Progress: XX%`
+
+2. **Phase Completion Counts** (~line 40-55):
+   - Update "X/8 completed" for relevant phase
+   - Change `[ ]` to `[x]` for completed tasks
+
+3. **Task Detail Sections** (search for "Task X.X"):
+   - Change `Status: ❌ Not Started` to `Status: ✅ COMPLETED (vX.X.X)`
+   - Add implementation notes describing what was done
+
+4. **Version History** (~line 650):
+   - Add new version entry with summary
+
+**FAILURE TO UPDATE ROADMAP = INCOMPLETE VERSION BUMP**
