@@ -38,16 +38,9 @@ Version management:
 - Updates `.version-number` elements
 - Stores in `window.SCENIC_VERSION`
 
-### `scripts/svg-to-lottie.js`
-Animation generation:
-- SVG path interpolation engine
-- Generates 10 frames between keyframes at 30 FPS
-- Uses @xmldom/xmldom for DOM manipulation
-- Known issues documented in ANIMATION_ANALYSIS.md
-
 ## Technical Stack
 - **Runtime:** Node.js
-- **Dependencies:** @xmldom/xmldom, Playwright
+- **Dependencies:** Playwright (for testing)
 - **No bundler** - Direct file serving
 - **ES6+ syntax** - Modern JavaScript
 
@@ -57,7 +50,7 @@ Animation generation:
 - Node.js scripting and tooling
 - NPM package integration
 - SVG/Canvas manipulation
-- Animation systems (Lottie, GSAP, Framer Motion)
+- CSS animations and transitions
 - Performance optimization
 - Modern build tools (Vite, esbuild, Turbopack)
 - Testing (Jest, Playwright, Vitest)
@@ -71,9 +64,8 @@ Animation generation:
 ## Key Files
 - `scripts/main.js` - Core website functionality
 - `scripts/version-loader.js` - Version management
-- `scripts/svg-to-lottie.js` - Animation generation
+- `scripts/masonry-init.js` - Portfolio grid initialization
 - `package.json` - Dependencies
-- `ANIMATION_ANALYSIS.md` - Animation issues/TODOs
 
 ## Commit Authority
 **EDIT ONLY** - Can edit JS files but CANNOT commit.
@@ -169,14 +161,6 @@ test('service card hover effect', async ({ page }) => {
   await expect(card).toHaveCSS('transform', 'matrix(1.02, 0, 0, 1.02, 0, -4)');
 });
 ```
-
-## Animation Considerations
-- Current animation system has known path interpolation issues
-- See ANIMATION_ANALYSIS.md for TODO list
-- Prefer CSS transitions for simple effects
-- Use Lottie for complex multi-step animations
-
----
 
 ## Masonry.js Expert Knowledge
 

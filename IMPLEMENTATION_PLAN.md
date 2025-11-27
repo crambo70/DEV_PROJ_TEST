@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** November 27, 2025
-> **Current Version:** v2.1.6
+> **Current Version:** v2.1.7
 > **Overall Progress:** 98% → Target: 100%
 
 ---
@@ -31,10 +31,9 @@
 - [x] Task 1.5: Fix Service Card Mobile Behavior - ✅ COMPLETE
 - [x] Task 1.6: Remove dev-debug from Production - ✅ COMPLETE
 
-### **Phase 2: Enhanced Features** (3/7 completed - 43%)
+### **Phase 2: Enhanced Features** (3/6 completed - 50%)
 - [x] Task 2.1: Create "Work" Portfolio Page - ✅ COMPLETE
 - [ ] Task 2.2: Create "Get in Touch" Contact Page
-- [ ] Task 2.3: Implement Lottie Animations for Service Icons
 - [x] Task 2.4: Implement Footer Geometric Background - ✅ COMPLETE
 - [ ] Task 2.5: Add Smooth Scroll Navigation
 - [x] Task 2.6: Redesign & Populate Team Section - ✅ COMPLETE
@@ -67,7 +66,6 @@
 **Next Up:**
 - Build Get in Touch page (Phase 2, Task 2.2) with contact form
 - Populate portfolio with real images (Phase 2, Task 2.7)
-- Implement Lottie animations for service icons (Phase 2, Task 2.3)
 
 ---
 
@@ -171,7 +169,7 @@
 **⚠️ Needs Content:**
 - Portfolio images (placeholders present)
 - Team photos (using single placeholder)
-- Service icons (ready for Lottie animations)
+- Service icons (using static PNG placeholders)
 
 **❌ Missing Pages:**
 - Work page (portfolio showcase)
@@ -333,37 +331,6 @@
 - **Mobile Impact:** High - critical user action
 - **Dependencies:** Backend integration decision
 - **Status:** ❌ Not Started
-
-#### **Task 2.3: Implement Lottie Animations for Service Icons** ⏳ IN PROGRESS
-- **Files:** `scripts/svg-to-lottie.js` (new), `animations/` (new), `test-animation.html` (new), `package.json`
-- **Complexity:** HIGH
-- **Action:**
-  - ✅ Built custom SVG keyframe interpolation system using Node.js
-  - ✅ Implemented 10-frame interpolation between keyframes for smooth animations
-  - ✅ Created test animation for IDEATE/DESIGN service icon (23 frames total)
-  - ✅ Resolved complex path interpolation issues (notepad holes, pencil shape preservation)
-  - ✅ Fixed element z-ordering to ensure proper rendering (eraser visibility)
-  - ✅ Implemented custom animations: pencil rolling movement, light beam growth
-  - ⏳ Need to create animations for remaining 4 service icons (EVENTS, BUILD, LOGISTICS, ON-SITE)
-  - ⏳ Convert SVG frame sequences to true Lottie JSON format
-  - ⏳ Integrate lottie-player library into index.html
-  - ⏳ Implement play-on-hover for desktop, play-on-scroll for mobile
-- **Mobile Impact:** Medium - visual enhancement, bandwidth consideration
-- **Dependencies:** Complete keyframe SVGs for all 5 service icons
-- **Status:** ⏳ **IN PROGRESS** (Nov 20, 2025)
-- **Implementation Notes:**
-  - **Custom Interpolation Engine:** Built `scripts/svg-to-lottie.js` to generate smooth frame transitions
-  - **Technology Stack:** Node.js, @xmldom/xmldom for SVG parsing, Playwright for testing
-  - **Frame Generation:** 10 interpolated frames between each keyframe pair (configurable)
-  - **Animation Quality:** 30fps, smooth path morphing, preserved colors and shapes
-  - **Technical Challenges Solved:**
-    - SVG path coordinate interpolation with compact notation (e.g., `0-.76`)
-    - xmldom setAttribute truncation for long paths (>200 chars) - used post-serialization fix
-    - Element z-ordering issues - moved cls-1 elements to render on top
-    - Complex shape preservation (notepad holes, pencil eraser)
-  - **Test Framework:** Created `test-animation.html` with frame scrubber, play/pause controls, variable speed
-  - **Output:** 23 frames per animation (3 keyframes + 20 interpolated), ~290KB per animation
-  - **Next Steps:** Create keyframe SVGs for remaining icons, finalize Lottie JSON conversion
 
 #### **Task 2.4: Implement Footer Geometric Background** ✅ COMPLETED
 - **Files:** `index.html`, `styles/style.css`, `reference_images/RED_CTA_GEOMETRIC_ELEMENT_BLUE_FOOTER.png`
@@ -617,8 +584,6 @@
 
 ### **Future Optimizations:**
 - Convert geometric tiles to WebP with responsive srcset
-- Implement Lottie animations for service icons (Task 2.3)
-- Add CSS custom properties for color/spacing variables
 - Consider CSS module splitting for larger codebase
 
 ---
@@ -648,9 +613,10 @@
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.1.6` (as of Nov 27, 2025)
+**Current Version:** `v2.1.7` (as of Nov 27, 2025)
 
 **Version History:**
+- v2.1.7 - Removed Lottie animation task planning (Task 2.3), cleaned @xmldom/xmldom dependency, removed animation placeholder comments
 - v2.1.6 - Favicon support, Apple touch icon, Schema.org JSON-LD, Playwright E2E test suite (48 tests)
 - v2.1.5 - CSS custom properties (design tokens), CHANGELOG.md, organized media queries
 - v2.1.4 - SEO meta tags, Open Graph, Twitter Cards, extracted Masonry script, portfolio alt text

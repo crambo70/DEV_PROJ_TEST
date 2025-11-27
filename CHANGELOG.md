@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.1.7] - 2025-11-27
+### Removed
+- Removed Lottie animation task planning (Task 2.3 from IMPLEMENTATION_PLAN.md)
+- Cleaned @xmldom/xmldom dependency reference from package.json
+- Removed 5 animation placeholder comments from index.html
+
 ## [2.1.6] - 2025-11-27
 ### Added
 - Favicon support with SVG primary and PNG fallbacks
