@@ -123,11 +123,29 @@ Now [verb] this...
 ## Before Any Code Change
 
 1. Check `version.json` for current version
-2. After changes, delegate to `scenic-docs` for version bump + changelog
+2. After changes, delegate to `scenic-docs` for version bump + changelog + **ROADMAP UPDATE**
 
 ## Commit Authority
 
 Only you (controller) can commit. Agents edit files but cannot commit.
+
+## Before EVERY Commit
+
+**MANDATORY**: Delegate to `scenic-docs` with explicit instruction to update:
+- version.json
+- CHANGELOG.md
+- IMPLEMENTATION_PLAN.md (version, progress %, phase counts, task status)
+- HTML cache-busting (style.css?v=X.X.X)
+
+## Session Close Checklist
+
+Before ending any session with code changes:
+1. Verify `version.json` version matches all docs
+2. Verify `IMPLEMENTATION_PLAN.md` progress % and phase counts are current
+3. Verify completed tasks marked with ✅ in roadmap
+4. All changes committed and pushed
+
+**DO NOT CLOSE SESSION WITHOUT VERIFYING ROADMAP IS CURRENT**
 
 ## Dev Server
 
