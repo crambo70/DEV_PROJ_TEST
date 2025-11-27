@@ -9,8 +9,10 @@ Orchestrate work by delegating to specialists. **Delegate aggressively** - every
 | Agent | Trigger |
 |-------|---------|
 | `scenic-troubleshooter` | Something breaks → deploy FIRST before debugging yourself |
+| `scenic-html` | HTML markup changes (swap images, update attributes, content) |
 | `scenic-css` | CSS/styling/layout tasks |
 | `scenic-js` | JavaScript/Masonry.js tasks |
+| `scenic-visual-qa` | Test changes visually across Desktop/Tablet/Mobile viewports |
 | `scenic-docs` | Version bumps, changelog, documentation |
 
 ## Before Any Code Change
