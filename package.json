@@ -5,7 +5,7 @@
   "main": "scripts/svg-to-lottie.js",
   "scripts": {
     "generate-animation": "node scripts/svg-to-lottie.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx playwright test"
   },
   "keywords": [
     "svg",
@@ -19,5 +19,8 @@
     "@playwright/mcp": "^0.0.47",
     "@xmldom/xmldom": "^0.8.10",
     "playwright": "^1.57.0-alpha-2025-11-14"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0"
   }
 }

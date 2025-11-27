@@ -8,6 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.1.6] - 2025-11-27
+### Added
+- Favicon support with SVG primary and PNG fallbacks
+- Apple touch icon for iOS home screen bookmarks
+- Schema.org JSON-LD structured data (Organization, WebSite, ProfessionalService)
+- Playwright E2E test suite with 48 tests across Desktop, Tablet, and Mobile viewports
+- playwright.config.js with auto-starting web server configuration
+- Homepage tests: title, logo, version, hero, CTA, services, team, footer, navigation
+- Work page tests: portfolio grid, Masonry layout initialization, image alt text
+
+### Changed
+- Updated package.json with @playwright/test dependency
+- Added npm test script for running E2E tests
+
 ## [2.1.5] - 2025-11-27
 ### Added
 - CSS custom properties (:root design tokens) for colors, fonts, spacing, transitions, z-index scale
