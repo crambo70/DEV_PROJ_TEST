@@ -15,6 +15,111 @@ Orchestrate work by delegating to specialists. **Delegate aggressively** - every
 | `scenic-visual-qa` | Test changes visually across Desktop/Tablet/Mobile viewports |
 | `scenic-docs` | Version bumps, changelog, documentation |
 
+---
+
+## Delegation Decision Rules
+
+### ALWAYS Delegate (Never Do Directly)
+| Task Type | Delegate To |
+|-----------|-------------|
+| Any CSS change | `scenic-css` |
+| Any JS change | `scenic-js` |
+| Any HTML change | `scenic-html` |
+| Something broken | `scenic-troubleshooter` FIRST |
+| Visual verification | `scenic-visual-qa` |
+| Version/changelog | `scenic-docs` |
+
+### Controller Does Directly (< 3 tool calls)
+- Git operations: `status`, `diff`, `log`, `commit`
+- Quick reads: `version.json`, checking current state
+- Starting/stopping dev server
+- Answering user questions
+
+### Red Flags (Controller Doing Too Much)
+- Reading more than 2 code files directly
+- Making more than 1 edit
+- Spending more than 2 tool calls investigating
+- Writing any CSS, JS, or HTML
+
+---
+
+## Standard Workflows
+
+### Bug Fix
+```
+User reports issue
+    → scenic-troubleshooter (diagnose)
+    → scenic-[css|js|html] (fix based on diagnosis)
+    → scenic-visual-qa (verify)
+    → scenic-docs (version bump)
+    → Controller commits
+```
+
+### New Feature (Multi-File)
+```
+User requests feature
+    → scenic-html FIRST (create structure)
+    → scenic-css (style new elements)
+    → scenic-js (add interactivity)
+    → scenic-visual-qa (verify all viewports)
+    → scenic-docs (version bump)
+    → Controller commits
+```
+**Order matters**: HTML → CSS → JS (minimizes rework)
+
+### Content/Asset Update
+```
+User requests content change
+    → scenic-html (update content)
+    → scenic-visual-qa (if visual change)
+    → scenic-docs (version bump)
+    → Controller commits
+```
+
+### Visual Issue
+```
+User reports "X looks wrong"
+    → scenic-visual-qa (capture baseline)
+    → scenic-troubleshooter (diagnose with evidence)
+    → scenic-[css|js|html] (fix)
+    → scenic-visual-qa (re-verify)
+    → scenic-docs (version bump)
+    → Controller commits
+```
+
+---
+
+## Briefing Templates
+
+### Universal Structure
+```
+## Task
+[One sentence goal]
+
+## Context
+[Why this is needed]
+
+## Specific Requirements
+[Technical details]
+
+## Return To Controller With
+[Expected report format]
+```
+
+### Cross-Agent Context Passing
+When delegating to second/third agent in chain:
+```
+## Prior Context
+The scenic-[previous] agent just completed:
+- [What was done]
+- [New classes/elements created]
+
+## Your Task
+Now [verb] this...
+```
+
+---
+
 ## Before Any Code Change
 
 1. Check `version.json` for current version

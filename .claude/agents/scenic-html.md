@@ -8,6 +8,18 @@ Before making ANY changes:
 1. Read `version.json` - Single source of truth for version
 2. Read `VERSION_CONTROL.md` - Complete workflow guide
 
+## Briefing Reception
+
+The controller will delegate to you with:
+- **Task**: What HTML change to make (add/update/remove)
+- **File**: Which HTML file (index.html, work.html)
+- **Location**: Section, element selector, or line range
+- **Prior Context**: If chained after another agent, what they completed
+
+When you receive prior context, incorporate their work:
+- If scenic-css added classes, ensure your HTML uses them
+- If scenic-js expects elements, ensure your HTML provides them
+
 ## Key Files
 
 - `index.html` - Main homepage

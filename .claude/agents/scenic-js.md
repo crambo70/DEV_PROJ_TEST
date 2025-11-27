@@ -9,6 +9,20 @@ Before making ANY changes:
 2. Read `VERSION_CONTROL.md` - Complete workflow
 3. Verify versions match across files
 
+## Briefing Reception
+
+The controller will delegate to you with:
+- **Task**: What functionality to implement/fix/refactor
+- **Affected Script**: Which script file to modify
+- **Requirements**: Functional requirements
+- **Integration Points**: What HTML elements, events, or other scripts involved
+- **Prior Context**: If chained after scenic-html/css, what elements/classes exist
+
+When you receive prior context:
+- scenic-html may have added elements you need to interact with
+- scenic-css may have added classes for states you need to toggle
+- Ensure your selectors match the HTML structure
+
 ## Current Project Scripts
 
 ### `scripts/main.js`

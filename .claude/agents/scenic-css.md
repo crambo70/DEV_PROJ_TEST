@@ -9,6 +9,20 @@ Before making ANY changes:
 2. Read `VERSION_CONTROL.md` - Complete workflow guide
 3. Verify `IMPLEMENTATION_PLAN.md` version matches `version.json`
 
+## Briefing Reception
+
+The controller will delegate to you with:
+- **Task**: What styling change to make (fix/add/update)
+- **Affected Elements**: CSS selectors involved
+- **Current Issue**: What's visually wrong
+- **Desired Outcome**: Specific visual result (dimensions, colors, spacing)
+- **Breakpoint Scope**: Desktop/Tablet/Mobile/All
+- **Prior Context**: If chained after scenic-html, what classes/elements were added
+
+When you receive prior context from scenic-html:
+- Style the new classes/elements they created
+- Ensure responsive behavior at all breakpoints
+
 ## Design System Reference
 
 ### Colors (memorize these)
