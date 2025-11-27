@@ -8,6 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.1.8] - 2025-11-27
+### Added
+- Enhanced mobile menu with slide-in animation from left (Task 3.4)
+- Mobile menu overlay backdrop with semi-transparent dark background
+- Overlay click handler to close mobile menu
+- Escape key handler to close mobile menu
+- Smooth 350ms ease-out slide animation for menu open/close
+- prefers-reduced-motion support for menu animations
+
+### Changed
+- Mobile navigation now slides in from left edge instead of dropdown from top
+- Mobile menu positioned as fixed full-height sidebar (280px width, 80% max-width)
+- Improved mobile menu UX with multiple close methods (overlay, escape, nav link)
+- Enhanced accessibility with proper aria-hidden states on overlay
+
 ## [2.1.7] - 2025-11-27
 ### Removed
 - Removed Lottie animation task planning (Task 2.3 from IMPLEMENTATION_PLAN.md)
