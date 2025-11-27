@@ -2,7 +2,7 @@
 
 A modern, responsive website for SCENIC Inc., an event services company specializing in event design, production, fabrication, logistics, and on-site management.
 
-**Current Version:** v2.1.1
+**Current Version:** v2.1.3 (see [version.json](version.json) for authoritative version)
 
 ---
 

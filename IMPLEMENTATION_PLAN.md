@@ -75,6 +75,7 @@
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-11-27 | **v2.1.4:** Added SEO meta description and keywords tags to index.html and work.html, Added Open Graph meta tags for improved social media sharing, Added Twitter Card meta tags for Twitter/X sharing previews, Extracted Masonry.js initialization to external script (scripts/masonry-init.js), Updated 19 portfolio image alt attributes with descriptive accessibility text, Fixed README.md version reference (was 2.1.1, now correctly references version.json) | SEO, social sharing, accessibility improvements |
 | 2025-11-27 | **v2.1.3:** Created specialized Claude Code agents (CSS, Docs, JS/Masonry), updated portfolio with 19 placeholder images, fixed homepage CSS Grid layout (grid-auto-rows: auto, justify-self: stretch), added cache-busting to CSS links, cleaned up obsolete animation files | Agent architecture, portfolio update, layout fixes |
 | 2025-11-19 | **v2.1.2:** Implemented centralized version management system with version.json and auto-loader script | Version consistency across all pages |
 | 2025-11-10 | Initial plan created | Established roadmap |
