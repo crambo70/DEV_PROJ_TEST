@@ -8,6 +8,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.2.2] - 2025-11-28
+### Changed
+- Reverted enhanced mobile menu (v2.1.8) - simplified back to basic dropdown
+- Removed slide-in animation, overlay backdrop, and escape key handler
+- Mobile menu now appears as simple dropdown below header
+- Active nav state changed from red to navy blue with underline (matches reference design)
+- Removed HOME nav link (logo serves as home link per reference design)
+- Consistent navigation across all pages: WORK, GET IN TOUCH, EVENT SERVICES
+- Swapped team photo from `random_headshot.png` to `crew_photo_placeholder.png` on contact page
+
+### Fixed
+- Made 2x2 geometric grid square using `aspect-ratio: 1` on `.contact-geo-2x2`
+- Removed header shadow on contact page (`.contact-page .header { box-shadow: none; }`)
+- Fixed grid alignment with `padding-top: 11.5rem` on `.contact-geo-column`
+- Fixed footer text centering when collapsed on smaller screens
+- Removed `padding-right: 8em` and added `text-align: center` to footer columns
+
+### Added
+- YAML frontmatter to all 6 custom agent files (`.claude/agents/`)
+- Agents now properly appear in `/agents` command
+
+### Removed
+- Mobile menu overlay element from HTML (index.html, contact.html)
+- Overlay-related CSS (.mobile-menu-overlay styles)
+- Overlay-related JavaScript (click/escape handlers)
+
 ## [2.2.1] - 2025-11-28
 ### Changed
 - Contact page responsive layout restructure

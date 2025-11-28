@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** November 28, 2025
-> **Current Version:** v2.2.1
+> **Current Version:** v2.2.2
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -43,7 +43,7 @@
 - [ ] Task 3.1: Advanced Performance Optimization
 - [ ] Task 3.2: Add Page Transitions
 - [x] Task 3.3: Micro-interactions & Polish - ✅ COMPLETE
-- [x] Task 3.4: Enhanced Mobile Menu - ✅ COMPLETE
+- [x] Task 3.4: Enhanced Mobile Menu - ✅ REVERTED (v2.2.2 simplified to dropdown)
 - [x] Task 3.5: SEO & Meta Tags - ✅ COMPLETE
 - [ ] Task 3.6: Analytics & Tracking
 - [ ] Task 3.7: Progressive Web App (PWA)
@@ -76,6 +76,7 @@
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-11-28 | **v2.2.2:** Reverted enhanced mobile menu (v2.1.8) - simplified to basic dropdown, removed overlay/slide-in animation, changed active nav state from red to navy blue with underline, removed HOME nav link (logo serves as home), consistent nav across all pages | Navigation simplification, UX alignment with reference design |
 | 2025-11-28 | **v2.2.1:** Contact page responsive layout restructure - Left geometric column changed from 2 stacked blocks to 2x2 grid with whitespace cells (new classes: .contact-geo-2x2, .contact-geo-cell, .contact-geo-empty), Removed dynamic viewport height (min-height: calc(100vh - 200px)), Fixed team photo height to 400px, Tablet (≤1024px): Changed to flexbox column layout with form first then geo + contact info below, Mobile (≤768px): Form first, contact info below, geometric decorations hidden | Contact page responsive improvements |
 | 2025-11-28 | **v2.2.0:** Created "Get in Touch" contact page (Task 2.2) - 3-column desktop layout with geometric blocks, contact info with SVG icons, REQUEST A QUOTE form with all fields (name, email, phone, date, service checkboxes, textarea), navy SEND button with yellow chevron, responsive tablet/mobile layouts, updated navigation links across all pages | Major feature - Contact page complete |
 | 2025-11-27 | **v2.1.9:** Added subtle scroll animations for service cards (Task 3.3), `enable-animations` class toggle on body for easy enable/disable, IntersectionObserver-based animation triggers, Respects `prefers-reduced-motion` accessibility preference | Micro-interactions, polish, accessibility |
@@ -486,22 +487,20 @@
 - **Mobile Impact:** Medium - delight factor, improved visual polish
 - **Status:** ✅ Complete
 
-#### **Task 3.4: Enhanced Mobile Menu** ✅ COMPLETED
+#### **Task 3.4: Enhanced Mobile Menu** ⚠️ REVERTED
 - **Files:** `index.html`, `styles/style.css`, `scripts/main.js`
 - **Complexity:** MEDIUM
-- **Completed:** v2.1.8 (November 27, 2025)
-- **Implementation:**
-  - ✅ Added slide-in animation from left (translateX -100% → 0)
-  - ✅ Added semi-transparent dark overlay backdrop (rgba(0,0,0,0.5))
-  - ✅ Close on overlay click
-  - ✅ Close on Escape key press
-  - ✅ Close on nav link click (existing functionality maintained)
-  - ✅ Smooth 350ms ease-out transition
-  - ✅ prefers-reduced-motion support
-  - ✅ Proper ARIA states (aria-hidden on overlay)
-  - ✅ Hamburger X-icon animation preserved
-- **Mobile Impact:** Medium - enhanced UX for frequent mobile interaction
-- **Status:** ✅ Complete
+- **History:**
+  - v2.1.8 (Nov 27): Added slide-in animation, overlay backdrop, escape key handler
+  - v2.2.2 (Nov 28): **REVERTED** - User preferred simplified dropdown menu
+- **Current Implementation (v2.2.2):**
+  - Simple dropdown menu appears below header on mobile
+  - Hamburger transforms to X when open
+  - Close on nav link click
+  - No overlay, no slide-in animation
+  - Active nav state: navy blue text with underline
+- **Mobile Impact:** Medium - simplified UX matching reference design
+- **Status:** ⚠️ Reverted to simple dropdown
 
 #### **Task 3.5: SEO & Meta Tags** ✅ COMPLETED
 - **Files:** `index.html`, `work.html`
@@ -638,9 +637,10 @@
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.2.1` (as of Nov 28, 2025)
+**Current Version:** `v2.2.2` (as of Nov 28, 2025)
 
 **Version History:**
+- v2.2.2 - Reverted enhanced mobile menu to simple dropdown, navy blue active nav state with underline, consistent nav across pages
 - v2.2.1 - Contact page responsive layout restructure (2x2 grid, fixed heights, tablet/mobile reordering)
 - v2.2.0 - Created "Get in Touch" contact page (Task 2.2)
 - v2.1.9 - Subtle scroll animations for service cards, IntersectionObserver triggers, enable-animations toggle

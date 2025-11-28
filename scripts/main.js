@@ -4,44 +4,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hamburger Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navList = document.querySelector('.nav-list');
-    const mobileOverlay = document.querySelector('.mobile-menu-overlay');
 
     // Function to close the mobile menu
     function closeMobileMenu() {
-        if (navList && hamburger && mobileOverlay) {
+        if (navList && hamburger) {
             navList.classList.remove('nav-active');
             hamburger.classList.remove('hamburger-active');
             hamburger.setAttribute('aria-expanded', 'false');
-            mobileOverlay.classList.remove('overlay-active');
-            mobileOverlay.setAttribute('aria-hidden', 'true');
         }
     }
 
-    if (hamburger && navList && mobileOverlay) {
+    if (hamburger && navList) {
         // Toggle menu on hamburger click
         hamburger.addEventListener('click', function() {
             const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
             hamburger.setAttribute('aria-expanded', !isExpanded);
             navList.classList.toggle('nav-active');
             hamburger.classList.toggle('hamburger-active');
-            mobileOverlay.classList.toggle('overlay-active');
-            mobileOverlay.setAttribute('aria-hidden', isExpanded);
         });
-
-        // Close menu when clicking overlay
-        mobileOverlay.addEventListener('click', closeMobileMenu);
 
         // Close menu when clicking on a nav link (mobile)
         const navLinks = document.querySelectorAll('.nav-list a');
         navLinks.forEach(link => {
             link.addEventListener('click', closeMobileMenu);
-        });
-
-        // Close menu when pressing Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && navList.classList.contains('nav-active')) {
-                closeMobileMenu();
-            }
         });
     }
     
