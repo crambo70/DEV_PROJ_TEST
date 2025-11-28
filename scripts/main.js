@@ -211,5 +211,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ========================================
+    // Scroll Animations (Task 3.3)
+    // ========================================
+
+    // Only run if animations are enabled and user doesn't prefer reduced motion
+    const animationsEnabled = document.body.classList.contains('enable-animations');
+    const prefersReducedMotionAnim = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (animationsEnabled && !prefersReducedMotionAnim) {
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+        if (animateElements.length > 0) {
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        // Once animated, stop observing
+                        animationObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -50px 0px', // Trigger slightly before fully in view
+                threshold: 0.1
+            });
+
+            animateElements.forEach(el => animationObserver.observe(el));
+        }
+    }
+
     console.log('SCENIC website loaded successfully!');
 });

@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.1.9] - 2025-11-27
+### Added
+- Subtle scroll animations for service cards (Task 3.3)
+- `enable-animations` class toggle on body for easy enable/disable
+- IntersectionObserver-based animation triggers
+- Respects `prefers-reduced-motion` accessibility preference
+
 ## [2.1.8] - 2025-11-27
 ### Added
 - Enhanced mobile menu with slide-in animation from left (Task 3.4)

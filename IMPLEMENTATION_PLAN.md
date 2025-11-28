@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** November 27, 2025
-> **Current Version:** v2.1.8
+> **Current Version:** v2.1.9
 > **Overall Progress:** 99% → Target: 100%
 
 ---
@@ -39,10 +39,10 @@
 - [x] Task 2.6: Redesign & Populate Team Section - ✅ COMPLETE
 - [ ] Task 2.7: Portfolio Grid Real Images
 
-### **Phase 3: Polish & Optimization** (3/8 completed - 37.5%)
+### **Phase 3: Polish & Optimization** (4/8 completed - 50%)
 - [ ] Task 3.1: Advanced Performance Optimization
 - [ ] Task 3.2: Add Page Transitions
-- [ ] Task 3.3: Micro-interactions & Polish
+- [x] Task 3.3: Micro-interactions & Polish - ✅ COMPLETE
 - [x] Task 3.4: Enhanced Mobile Menu - ✅ COMPLETE
 - [x] Task 3.5: SEO & Meta Tags - ✅ COMPLETE
 - [ ] Task 3.6: Analytics & Tracking
@@ -73,6 +73,9 @@
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-11-27 | **v2.1.9:** Added subtle scroll animations for service cards (Task 3.3), `enable-animations` class toggle on body for easy enable/disable, IntersectionObserver-based animation triggers, Respects `prefers-reduced-motion` accessibility preference | Micro-interactions, polish, accessibility |
+| 2025-11-27 | **v2.1.8:** Enhanced mobile menu with slide-in animation from left, Mobile menu overlay backdrop with semi-transparent dark background, Overlay click handler to close mobile menu, Escape key handler to close mobile menu, Smooth 350ms ease-out slide animation for menu open/close, prefers-reduced-motion support for menu animations | Mobile UX enhancement |
+| 2025-11-27 | **v2.1.7:** Removed Lottie animation task planning (Task 2.3 from IMPLEMENTATION_PLAN.md), Cleaned @xmldom/xmldom dependency reference from package.json, Removed 5 animation placeholder comments from index.html | Code cleanup |
 | 2025-11-27 | **v2.1.6:** Added favicon support with SVG primary and PNG fallbacks, Apple touch icon for iOS home screen bookmarks, Schema.org JSON-LD structured data (Organization, WebSite, ProfessionalService), Playwright E2E test suite with 48 tests across Desktop, Tablet, and Mobile viewports, playwright.config.js with auto-starting web server configuration, Homepage tests (title, logo, version, hero, CTA, services, team, footer, navigation), Work page tests (portfolio grid, Masonry layout initialization, image alt text), Updated package.json with @playwright/test dependency, Added npm test script for running E2E tests | SEO, testing infrastructure, quality assurance |
 | 2025-11-27 | **v2.1.5:** Added CSS custom properties (:root design tokens) for colors, fonts, spacing, transitions, z-index scale, Standalone CHANGELOG.md with complete version history (49 versions documented), Clear section headers for media query organization, Replaced 69 hardcoded color values with CSS custom properties, Replaced 18 font-family declarations with var(--font-family-primary), Consolidated redundant responsive CSS rules, Removed duplicate .logo class definition, Removed duplicate .geometric-background class definition, ~40 lines of redundant CSS code removed | CSS architecture improvements, maintainability |
 | 2025-11-27 | **v2.1.4:** Added SEO meta description and keywords tags to index.html and work.html, Added Open Graph meta tags for improved social media sharing, Added Twitter Card meta tags for Twitter/X sharing previews, Extracted Masonry.js initialization to external script (scripts/masonry-init.js), Updated 19 portfolio image alt attributes with descriptive accessibility text, Fixed README.md version reference (was 2.1.1, now correctly references version.json) | SEO, social sharing, accessibility improvements |
@@ -452,18 +455,21 @@
 - **Dependencies:** Multi-page navigation
 - **Status:** ❌ Not Started
 
-#### **Task 3.3: Micro-interactions & Polish**
+#### **Task 3.3: Micro-interactions & Polish** ✅ COMPLETED
 - **Files:** `scripts/main.js`, `styles/style.css`
 - **Complexity:** MEDIUM
-- **Action:**
-  - Add subtle entrance animations (fade-in on scroll)
-  - Enhance button hover/tap states
-  - Add loading states for async content
-  - Improve CTA button interactions
-  - Add parallax effect to hero (desktop only)
-- **Mobile Impact:** Low-Medium - delight factor
-- **Dependencies:** None
-- **Status:** ❌ Not Started
+- **Completed:** v2.1.9 (November 27, 2025)
+- **Implementation:**
+  - ✅ Added subtle scroll animations (fade-in + translateY) to service cards
+  - ✅ IntersectionObserver-based animation triggers
+  - ✅ `enable-animations` class toggle on body for easy enable/disable
+  - ✅ Respects `prefers-reduced-motion` accessibility preference
+  - ✅ CSS animation definitions with 0.6s ease-out transitions
+  - ✅ Applied `animate-on-scroll` class to 5 service cards
+  - ⏩ Deferred: Loading states for async content (no async content currently)
+  - ⏩ Deferred: Parallax effect to hero (future enhancement)
+- **Mobile Impact:** Medium - delight factor, improved visual polish
+- **Status:** ✅ Complete
 
 #### **Task 3.4: Enhanced Mobile Menu** ✅ COMPLETED
 - **Files:** `index.html`, `styles/style.css`, `scripts/main.js`
@@ -617,9 +623,11 @@
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.1.7` (as of Nov 27, 2025)
+**Current Version:** `v2.1.9` (as of Nov 27, 2025)
 
 **Version History:**
+- v2.1.9 - Subtle scroll animations for service cards, IntersectionObserver triggers, enable-animations toggle
+- v2.1.8 - Enhanced mobile menu with slide-in animation and overlay backdrop
 - v2.1.7 - Removed Lottie animation task planning (Task 2.3), cleaned @xmldom/xmldom dependency, removed animation placeholder comments
 - v2.1.6 - Favicon support, Apple touch icon, Schema.org JSON-LD, Playwright E2E test suite (48 tests)
 - v2.1.5 - CSS custom properties (design tokens), CHANGELOG.md, organized media queries
