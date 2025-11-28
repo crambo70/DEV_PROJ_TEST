@@ -8,6 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.2.1] - 2025-11-28
+### Changed
+- Contact page responsive layout restructure
+- Left geometric column changed from 2 stacked blocks to 2x2 grid with whitespace cells
+- New classes: .contact-geo-2x2, .contact-geo-cell, .contact-geo-empty
+- Removed dynamic viewport height (min-height: calc(100vh - 200px))
+- Fixed team photo height to 400px for consistent layout
+- Tablet (≤1024px): Changed to flexbox column layout, reordered form first then geo + contact info below
+- Mobile (≤768px): Form displays first, contact info below, geometric decorations hidden
+- Fixed content height no longer fills viewport for better mobile experience
+
 ## [2.1.9] - 2025-11-27
 ### Added
 - Subtle scroll animations for service cards (Task 3.3)
