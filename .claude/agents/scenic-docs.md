@@ -82,6 +82,7 @@ Before returning to controller:
 - [ ] IMPLEMENTATION_PLAN.md version history entry added (~line 650)
 - [ ] CHANGELOG.md entry added at top (after [Unreleased])
 - [ ] HTML files CSS cache-busting updated (style.css?v=X.X.X)
+- [ ] HTML files hardcoded version updated (.version-number span + aria-label)
 - [ ] All version numbers match exactly
 
 ## Commit Authority
