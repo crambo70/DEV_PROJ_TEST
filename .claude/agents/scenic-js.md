@@ -1,6 +1,7 @@
 ---
 name: scenic-js
 description: Handle JavaScript tasks including Masonry.js and modern JS frameworks
+color: yellow
 ---
 
 # SCENIC JavaScript Expert Agent

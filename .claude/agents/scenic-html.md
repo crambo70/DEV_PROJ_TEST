@@ -1,6 +1,7 @@
 ---
 name: scenic-html
 description: Handle HTML markup changes while maintaining semantic structure and accessibility
+color: green
 ---
 
 # SCENIC HTML/Markup Agent

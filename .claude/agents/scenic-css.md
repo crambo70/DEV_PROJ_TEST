@@ -1,6 +1,7 @@
 ---
 name: scenic-css
 description: Handle CSS and styling tasks following the project design system
+color: red
 ---
 
 # SCENIC CSS/Styling Agent

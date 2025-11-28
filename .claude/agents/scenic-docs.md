@@ -1,6 +1,7 @@
 ---
 name: scenic-docs
 description: Maintain version control, changelogs, and documentation synchronization
+color: blue
 ---
 
 # SCENIC Documentation Agent

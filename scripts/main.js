@@ -15,13 +15,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (hamburger && navList) {
-        // Toggle menu on hamburger click
-        hamburger.addEventListener('click', function() {
+        // Flag to prevent double-firing on hybrid devices
+        let isToggling = false;
+
+        // Toggle menu function (supports both touch and click)
+        const toggleMenu = function(e) {
+            // Prevent default behavior and double-firing
+            e.preventDefault();
+
+            // Debounce to prevent double-toggle when both touch and click fire
+            if (isToggling) return;
+            isToggling = true;
+            setTimeout(() => { isToggling = false; }, 300);
+
             const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
             hamburger.setAttribute('aria-expanded', !isExpanded);
             navList.classList.toggle('nav-active');
             hamburger.classList.toggle('hamburger-active');
-        });
+        };
+
+        // Listen for both touch and click events (iOS Safari fix)
+        hamburger.addEventListener('touchend', toggleMenu);
+        hamburger.addEventListener('click', toggleMenu);
 
         // Close menu when clicking on a nav link (mobile)
         const navLinks = document.querySelectorAll('.nav-list a');

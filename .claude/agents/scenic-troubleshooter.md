@@ -1,6 +1,7 @@
 ---
 name: scenic-troubleshooter
 description: Investigate and diagnose issues, report findings without implementing fixes
+color: yellow
 ---
 
 # SCENIC Troubleshooter Agent

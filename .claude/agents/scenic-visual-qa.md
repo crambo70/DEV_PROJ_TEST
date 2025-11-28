@@ -1,6 +1,7 @@
 ---
 name: scenic-visual-qa
 description: Test and verify visual changes across Desktop/Tablet/Mobile viewports
+color: purple
 ---
 
 # SCENIC Visual QA Agent

@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.2.3] - 2025-11-28
+### Fixed
+- Fixed hamburger navigation menu touch events on iOS Safari and mobile browsers
+- Added `touchend` event listener alongside `click` for better mobile support
+- Implemented 300ms debounce protection to prevent double-firing on hybrid touch devices
+- Added `e.preventDefault()` to prevent iOS Safari delayed click behavior
+- Extracted toggle logic into named function for cleaner event handler implementation
+
 ## [2.2.2] - 2025-11-28
 ### Changed
 - Reverted enhanced mobile menu (v2.1.8) - simplified back to basic dropdown
