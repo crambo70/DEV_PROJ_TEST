@@ -1,6 +1,6 @@
 # DEV_PROJ_TEST Style Guide
 
-*Last Updated: November 8, 2025*
+*Last Updated: November 28, 2025*
 
 ## Color Palette
 
@@ -54,7 +54,8 @@
   - Uses `.portfolio--full-page` modifier class
 
 **Get in Touch Page (contact.html):**
-- Contact form section (TBD)
+- Contact section - 3-column layout with geometric decoration + form + team photo
+- Form section - REQUEST A QUOTE with service checkboxes
 
 #### **HTML Structure Pattern**
 
@@ -81,11 +82,28 @@
 </div>
 ```
 
-**Get in Touch Page Structure:**
+**Get in Touch Page Structure (contact.html):**
 ```html
-<div class="main-container">
+<div class="main-container contact-page">
   <header class="header">...</header>
-  <section class="contact-section">...</section>
+  <main class="contact-main">
+    <div class="contact-layout">
+      <div class="contact-geo-column">
+        <!-- 2x2 geometric grid with SVG patterns -->
+      </div>
+      <div class="contact-center">
+        <div class="contact-info">
+          <!-- Email and phone with SVG icons -->
+        </div>
+        <form class="contact-form">
+          <!-- Name, email, phone, date, service checkboxes, message -->
+        </form>
+      </div>
+      <div class="contact-right-column">
+        <!-- Geometric blocks + team photo with duotone -->
+      </div>
+    </div>
+  </main>
   <section class="cta-section">...</section>
   <footer class="footer">...</footer>
 </div>
@@ -126,6 +144,18 @@
 4. **Work-Specific** - Portfolio modifier (`.portfolio--full-page`)
 5. **Contact-Specific** - Contact form section
 6. **Responsive** - Media queries at end of file
+
+**Contact Page Classes:**
+- `.contact-page` - Body modifier for contact-specific styles
+- `.contact-main` - Main content wrapper
+- `.contact-layout` - 3-column CSS Grid container (geo column, center form, right photo)
+- `.contact-geo-column` - Left geometric decoration column
+- `.contact-geo-2x2` - 2x2 grid for geometric cells with SVG patterns
+- `.contact-center` - Center column with contact info and form
+- `.contact-info` - Email/phone display section with SVG icons
+- `.contact-form` - REQUEST A QUOTE form container
+- `.contact-right-column` - Right column with geometric blocks and team photo
+- `.contact-team-photo` - Team photo with CSS duotone filter effect
 
 **Benefits:**
 - Changes to shared components (header, CTA, footer) automatically apply to all pages
@@ -337,3 +367,4 @@
 - **Nov 8, 2025**: Navigation typography adjustment - Reduced menu text size by 50% (from 18px to 9px) for better proportion balance
 - **Nov 9, 2025**: Development debug system - Added comprehensive bounding box visualization with color-coded HTML element identification
 - **Nov 11, 2025**: Multi-page HTML framework architecture - Documented shared components strategy and single stylesheet approach with BEM modifiers for maintaining consistency across Home, Work, and Contact pages
+- **Nov 28, 2025**: Added contact.html page structure documentation, contact page CSS classes reference
