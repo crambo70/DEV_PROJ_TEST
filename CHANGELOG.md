@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.3.0] - 2025-12-11
+### Added
+- Dynamic portfolio caption overlay system on Work page
+- Hover overlays display event title (white) and location (teal) on semi-transparent purple background
+- Caption data loaded from simple text file (`images/portfolio/captions.txt`) for easy maintenance
+- New `scripts/portfolio-captions.js` for async caption loading with graceful error handling
+- Responsive overlay text sizing across Desktop/Tablet/Mobile viewports
+
+### Changed
+- Portfolio items now include overlay markup with `data-image` attributes
+- Added portfolio overlay CSS styles to `styles/style.css`
+
 ## [2.2.4] - 2025-11-28
 ### Changed
 - Restructured README.md with professional tone, accurate file tree, comprehensive sections

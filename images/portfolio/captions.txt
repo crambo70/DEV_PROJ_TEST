@@ -1,0 +1,19 @@
+placeholder_png_1.png|LOREM SUMMIT|CONFERENCE
+placeholder_png_2.png|IPSUM TECH|EXPO CENTER
+placeholder_png_3.png|MCAFEE FOCUS|CONVENTION
+placeholder_png_4.png|DOLOR LAUNCH|PRODUCT REVEAL
+placeholder_png_5.png|SIT AMET GALA|GRAND BALLROOM
+placeholder_png_6.png|CONSECTETUR|TRADE SHOW
+placeholder_png_7.png|ADIPISCING BRAND|ACTIVATION
+placeholder_png_8.png|ELIT AWARDS|CEREMONY
+placeholder_png_9.png|TEMPOR CORP|MEETING
+placeholder_png_10.png|INCIDIDUNT|POP-UP EXPERIENCE
+placeholder_png_11.png|LABORE LOUNGE|NETWORKING EVENT
+placeholder_png_12.png|MAGNA PRESS|MEDIA BRIEFING
+placeholder_png_13.png|ALIQUA EXHIBIT|SHOWCASE
+placeholder_png_14.png|VENIAM IMMERSIVE|INSTALLATION
+placeholder_png_15.png|NOSTRUD RETREAT|OUTDOOR VENUE
+placeholder_png_16.png|EXERCITATION|TECH DEMO
+placeholder_png_17.png|ULLAMCO VIP|HOSPITALITY SUITE
+placeholder_png_18.png|DUIS THEMED|EVENT EXPERIENCE
+placeholder_png_19.png|EXCEPTEUR|MULTI-LEVEL EXHIBIT

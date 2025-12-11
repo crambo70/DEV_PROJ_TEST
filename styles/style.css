@@ -789,6 +789,51 @@ body {
     grid-row: span 1;
 }
 
+/* Portfolio Overlay */
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(96, 0, 64, 0.85); /* Purple/Maroon with 85% opacity */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-caption-h1 {
+    font-family: var(--font-family-primary);
+    font-size: 1.5rem; /* 24px */
+    font-weight: bold;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.portfolio-caption-h2 {
+    font-family: var(--font-family-primary);
+    font-size: 1rem; /* 16px */
+    font-weight: normal;
+    color: #00bcd4; /* Teal/cyan color */
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0;
+    text-align: center;
+    padding: 0 1rem;
+}
+
 /* Hover effect */
 .portfolio-item:hover {
     transform: translateY(-2px);
@@ -1519,6 +1564,15 @@ body {
     .header {
         padding: 1rem;
     }
+
+    /* Portfolio overlay - Mobile */
+    .portfolio-caption-h1 {
+        font-size: 1rem; /* 16px for mobile */
+    }
+
+    .portfolio-caption-h2 {
+        font-size: 0.75rem; /* 12px for mobile */
+    }
 }
 
 /* ============================================
@@ -1686,6 +1740,15 @@ body {
     .portfolio-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 12px;
+    }
+
+    /* Portfolio overlay - Tablet */
+    .portfolio-caption-h1 {
+        font-size: 1.25rem; /* 20px for tablet */
+    }
+
+    .portfolio-caption-h2 {
+        font-size: 0.875rem; /* 14px for tablet */
     }
 }
 
