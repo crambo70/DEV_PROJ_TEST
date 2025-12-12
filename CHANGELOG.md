@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.3.1] - 2025-12-12
+### Changed
+- Refined hero section geometric pattern layout and positioning
+- Redistributed pattern blocks B-F for improved visual balance
+- Simplified transformation classes for cleaner markup
+
 ## [2.3.0] - 2025-12-11
 ### Added
 - Dynamic portfolio caption overlay system on Work page

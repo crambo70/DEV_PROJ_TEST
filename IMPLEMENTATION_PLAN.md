@@ -1,8 +1,8 @@
 # SCENIC Website - Mobile-First Implementation Plan
 
 > **Living Document** - Updated as we progress and priorities evolve
-> **Last Updated:** November 28, 2025
-> **Current Version:** v2.2.4
+> **Last Updated:** December 12, 2025
+> **Current Version:** v2.3.1
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,8 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-12-12 | **v2.3.1:** Refined hero section geometric pattern layout and positioning - Redistributed pattern blocks B-F for improved visual balance, simplified transformation classes for cleaner markup | Enhancement |
+| 2025-12-11 | **v2.3.0:** Dynamic portfolio caption overlay system on Work page - Hover overlays display event title (white) and location (teal) on semi-transparent purple background, caption data loaded from simple text file (images/portfolio/captions.txt), new scripts/portfolio-captions.js for async caption loading with graceful error handling, responsive overlay text sizing across Desktop/Tablet/Mobile viewports | Major feature |
 | 2025-11-28 | **v2.2.4:** Documentation overhaul - Restructured README.md with professional tone, accurate project structure, and comprehensive sections. Softened aggressive warnings in VERSION_CONTROL.md. Fixed inaccuracies in IMPLEMENTATION_PLAN.md (contact page status). Added contact.html documentation to StyleGuide.md. | Documentation |
 | 2025-11-28 | **v2.2.3:** Fixed hamburger navigation menu touch events on iOS Safari - Added touchend event listener alongside click, implemented 300ms debounce protection to prevent double-firing on hybrid devices, added e.preventDefault() to prevent iOS delayed click behavior | Bug fix - Mobile menu now responsive on actual iPhone devices |
 | 2025-11-28 | **v2.2.2:** Reverted enhanced mobile menu (v2.1.8) - simplified to basic dropdown, removed overlay/slide-in animation, changed active nav state from red to navy blue with underline, removed HOME nav link (logo serves as home), consistent nav across all pages | Navigation simplification, UX alignment with reference design |
@@ -640,9 +642,11 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.2.4` (as of Nov 28, 2025)
+**Current Version:** `v2.3.1` (as of Dec 12, 2025)
 
 **Version History:**
+- v2.3.1 - Refined hero section geometric pattern layout and positioning
+- v2.3.0 - Dynamic portfolio caption overlay system on Work page
 - v2.2.4 - Documentation overhaul: README restructure, VERSION_CONTROL tone softening, StyleGuide contact page docs
 - v2.2.3 - Fixed hamburger navigation menu touch events on iOS Safari (touchend + debounce)
 - v2.2.2 - Reverted enhanced mobile menu to simple dropdown, navy blue active nav state with underline, consistent nav across pages
