@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.6.3] - 2025-12-12
+### Fixed
+- Fixed vertical gap in geometric pattern during viewport resize
+- Removed conflicting `aspect-ratio` constraints from `.geo-grid` and `.geo-tile` CSS classes
+- Eliminated subpixel rounding errors in CSS Grid layout caused by conflicting aspect-ratio + fixed height + responsive width
+- Pattern now displays seamlessly at all viewport sizes without gaps from centerline to right side
+
 ## [2.6.2] - 2025-12-12
 ### Changed
 - Adjusted hero logo vertical positioning on mobile viewport (≤768px)
