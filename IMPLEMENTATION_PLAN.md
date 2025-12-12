@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** December 12, 2025
-> **Current Version:** v2.3.2
+> **Current Version:** v2.4.0
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -643,7 +643,7 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.3.2` (as of Dec 12, 2025)
+**Current Version:** `v2.4.0` (as of Dec 12, 2025)
 
 **Version History:**
 - v2.3.2 - Fixed 9 Pattern_Blocks image filename case sensitivity errors causing 404s on GitHub Pages
