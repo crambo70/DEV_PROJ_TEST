@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.6.6] - 2025-12-12
+### Fixed
+- Fixed header navigation alignment issue after logo removal
+- Changed `.header-container` from `justify-content: space-between` to `justify-content: flex-start`
+- Navigation now correctly left-aligns when only one visible flex child remains
+- Applies consistently across all breakpoints (desktop, tablet, mobile)
+
 ## [2.6.5] - 2025-12-12
 ### Removed
 - Removed "SCENIC" text from header logo area on all pages (index.html, contact.html, work.html)

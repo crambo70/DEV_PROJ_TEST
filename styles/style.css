@@ -337,7 +337,7 @@ body {
 
 .header-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     max-width: 2240px; /* Match main container width */
     margin: 0 auto;
