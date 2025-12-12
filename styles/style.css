@@ -443,6 +443,106 @@ body {
     text-decoration-thickness: 1px; /* Thin line */
 }
 
+/* =================================================================== */
+/* DROPDOWN SUBNAV STYLES                                              */
+/* Desktop hover-based dropdown for EVENT SERVICES navigation          */
+/* =================================================================== */
+
+/* Parent list item with dropdown */
+.has-dropdown {
+    position: relative;
+}
+
+/* Dropdown container */
+.subnav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--color-gray-medium);
+    border-radius: var(--border-radius-sm);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    z-index: var(--z-index-dropdown);
+
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+
+    /* Smooth transition */
+    transition: opacity var(--transition-normal),
+                visibility var(--transition-normal),
+                transform var(--transition-normal);
+}
+
+/* Show dropdown on hover */
+.has-dropdown:hover .subnav-dropdown,
+.has-dropdown:focus-within .subnav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Subnav list */
+.subnav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Subnav links */
+.subnav-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-family-primary);
+    font-size: 10px;
+    color: var(--color-gray-dark);
+    text-decoration: none;
+    transition: background-color var(--transition-fast),
+                color var(--transition-fast);
+    white-space: nowrap;
+}
+
+/* Subnav link hover state */
+.subnav-link:hover,
+.subnav-link:focus {
+    background-color: var(--color-off-white);
+    color: var(--color-primary-blue);
+}
+
+/* Touch feedback for subnav links */
+.subnav-link:active {
+    background-color: var(--color-gray-medium);
+    transform: scale(0.98);
+}
+
+/* Dropdown arrow indicator (optional visual cue) */
+.has-dropdown > a::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+    transition: transform var(--transition-fast);
+}
+
+/* Rotate arrow when dropdown is open */
+.has-dropdown:hover > a::after,
+.has-dropdown:focus-within > a::after {
+    transform: rotate(180deg);
+}
+
+/* =================================================================== */
+/* END DROPDOWN SUBNAV STYLES                                          */
+/* =================================================================== */
+
 /* Hamburger Menu - Hidden on desktop */
 .hamburger {
     display: none;
@@ -1423,7 +1523,41 @@ body {
     .nav-list.nav-active {
         display: flex;
     }
-    
+
+    /* Mobile dropdown behavior - integrated into hamburger menu */
+    .has-dropdown {
+        position: relative;
+        width: 100%;
+    }
+
+    .subnav-dropdown {
+        position: static;
+        box-shadow: none;
+        border: none;
+        margin-top: 0;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background-color: transparent;
+    }
+
+    .subnav-list {
+        padding-left: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .subnav-link {
+        font-size: 8px;
+        padding: 0.5rem 0.75rem;
+        color: var(--color-gray-dark);
+    }
+
+    /* Remove dropdown arrow on mobile */
+    .has-dropdown > a::after {
+        display: none;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -1593,6 +1727,16 @@ body {
     /* Navigation font size for tablet */
     .nav-list a {
         font-size: 10px; /* Tablet size - proportionally between desktop 11px and mobile 9px */
+    }
+
+    /* Tablet dropdown behavior - keep desktop hover behavior */
+    .subnav-link {
+        font-size: 9px; /* Slightly smaller for tablet */
+        padding: 0.65rem 1.15rem;
+    }
+
+    .subnav-dropdown {
+        min-width: 180px; /* Slightly narrower on tablet */
     }
 
     /* Text sizing for tablet */

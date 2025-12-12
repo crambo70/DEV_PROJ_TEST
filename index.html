@@ -25,7 +25,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/scenic-logo-mobile.png">
 
     <link rel="stylesheet" href="https://use.typekit.net/bft8hhx.css">
-    <link rel="stylesheet" href="styles/style.css?v=2.4.1">
+    <link rel="stylesheet" href="styles/style.css?v=2.5.0">
 
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -108,7 +108,17 @@
                     <li><a href="index.html" class="active">HOME</a></li>
                     <li><a href="work.html">WORK</a></li>
                     <li><a href="contact.html">GET IN TOUCH</a></li>
-                    <li><a href="#events">EVENT SERVICES</a></li>
+                    <li class="has-dropdown">
+                        <a href="#events" aria-haspopup="true" aria-expanded="false">EVENT SERVICES</a>
+                        <div class="subnav-dropdown" aria-label="Event Services submenu">
+                            <ul class="subnav-list">
+                                <li><a href="#scenic-rentals" class="subnav-link">SCENIC RENTALS</a></li>
+                                <li><a href="#drape-rentals" class="subnav-link">DRAPE RENTALS</a></li>
+                                <li><a href="#pipe-parts" class="subnav-link">PIPE PARTS</a></li>
+                                <li><a href="#fabrication" class="subnav-link">AND FABRICATION</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
                 <!-- Hamburger menu for mobile -->
                 <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -435,7 +445,7 @@
 
     </div> <!-- End main-container -->
 
-    <script src="scripts/version-loader.js?v=2.4.1"></script>
-    <script src="scripts/main.js?v=2.4.1"></script>
+    <script src="scripts/version-loader.js?v=2.5.0"></script>
+    <script src="scripts/main.js?v=2.5.0"></script>
 </body>
 </html>

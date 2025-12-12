@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** December 12, 2025
-> **Current Version:** v2.4.1
+> **Current Version:** v2.5.0
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-12-12 | **v2.5.0:** Added EVENT SERVICES dropdown navigation with 4 sub-links (SCENIC RENTALS, DRAPE RENTALS, PIPE PARTS, AND FABRICATION) - Desktop/tablet hover behavior with animations, mobile hamburger integration, keyboard navigation (Arrow/Home/End/ESC), aria-expanded accessibility | New feature |
 | 2025-12-12 | **v2.4.1:** Added HOME navigation link as first menu item across all pages (index.html, work.html, contact.html) with proper active state styling based on current page | Enhancement |
 | 2025-12-12 | **v2.4.0:** Asset standardization complete - Renamed 47 assets (44 images, 2 directories, 1 text file) to enforce lowercase-with-hyphens naming convention, updated 105+ code references across HTML/CSS/JavaScript files, standardized Pattern Block SVG directory and filenames, renamed logo files, portfolio images with zero-padded numbering, service placeholders, and reference directory | Major refactor |
 | 2025-12-12 | **v2.3.2:** Fixed 9 Pattern_Blocks image filename case sensitivity errors causing 404s on GitHub Pages - Changed lowercase "pattern_block_" to uppercase "pattern_Block_" to match actual filenames in images/Pattern_Blocks/ directory (index.html: 5 fixes, contact.html: 3 fixes, work.html: 1 fix) | Bug fix |
@@ -645,9 +646,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.4.1` (as of Dec 12, 2025)
+**Current Version:** `v2.5.0` (as of Dec 12, 2025)
 
 **Version History:**
+- v2.5.0 - EVENT SERVICES dropdown navigation with 4 sub-links, hover animations, mobile integration, keyboard navigation, accessibility
 - v2.4.1 - Added HOME navigation link to all pages with proper active state styling
 - v2.4.0 - Asset standardization: renamed 47 assets to lowercase-with-hyphens convention, updated 105+ code references
 - v2.3.2 - Fixed 9 Pattern_Blocks image filename case sensitivity errors causing 404s on GitHub Pages

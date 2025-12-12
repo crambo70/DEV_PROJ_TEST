@@ -108,6 +108,93 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
+    // EVENT SERVICES Dropdown Navigation
+    // ========================================
+
+    const dropdownParent = document.querySelector('.has-dropdown');
+    const dropdownLink = dropdownParent ? dropdownParent.querySelector('a[aria-haspopup="true"]') : null;
+    const dropdownMenu = dropdownParent ? dropdownParent.querySelector('.subnav-dropdown') : null;
+
+    if (dropdownParent && dropdownLink && dropdownMenu) {
+        // Desktop: Sync aria-expanded with hover state for accessibility
+        dropdownParent.addEventListener('mouseenter', function() {
+            if (dropdownLink && window.innerWidth > 768) {
+                dropdownLink.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        dropdownParent.addEventListener('mouseleave', function() {
+            if (dropdownLink && window.innerWidth > 768) {
+                dropdownLink.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Focus management: Set aria-expanded when dropdown link is focused
+        dropdownLink.addEventListener('focus', function() {
+            if (window.innerWidth > 768) {
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        // Mobile: aria-expanded matches hamburger menu state
+        // On mobile, dropdown is always visible when nav is open
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                setTimeout(function() {
+                    const isNavActive = navList && navList.classList.contains('nav-active');
+                    if (dropdownLink) {
+                        dropdownLink.setAttribute('aria-expanded', isNavActive ? 'true' : 'false');
+                    }
+                }, 50);
+            });
+        }
+
+        // Keyboard: ESC key closes dropdown on desktop
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' || e.key === 'Esc') {
+                if (window.innerWidth > 768 && dropdownLink.getAttribute('aria-expanded') === 'true') {
+                    dropdownLink.setAttribute('aria-expanded', 'false');
+                    dropdownLink.focus(); // Return focus to trigger
+                }
+            }
+        });
+
+        // Keyboard: Arrow key navigation within dropdown
+        const subnavLinks = dropdownMenu.querySelectorAll('.subnav-link');
+
+        subnavLinks.forEach((link, index) => {
+            link.addEventListener('keydown', function(e) {
+                let targetIndex = -1;
+
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    targetIndex = index < subnavLinks.length - 1 ? index + 1 : 0;
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    targetIndex = index > 0 ? index - 1 : subnavLinks.length - 1;
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    targetIndex = 0;
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    targetIndex = subnavLinks.length - 1;
+                }
+
+                if (targetIndex !== -1) {
+                    subnavLinks[targetIndex].focus();
+                }
+            });
+        });
+
+        // Close hamburger menu when clicking subnav link (mobile)
+        subnavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+        });
+    }
+
+    // ========================================
     // Smooth Scroll Navigation (Task 2.5)
     // ========================================
 

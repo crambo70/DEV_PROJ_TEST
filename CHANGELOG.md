@@ -8,6 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.5.0] - 2025-12-12
+### Added
+- Event Services dropdown navigation menu with 4 sub-links (SCENIC RENTALS, DRAPE RENTALS, PIPE PARTS, AND FABRICATION)
+- Dropdown hover behavior with smooth animations on desktop and tablet viewports
+- Mobile hamburger menu integration for dropdown navigation
+- Keyboard navigation support (Arrow keys, Home, End, ESC) for dropdown menu
+- Aria-expanded accessibility attributes for screen reader support
+- Chevron indicator on EVENT SERVICES link to signal dropdown functionality
+
+### Changed
+- EVENT SERVICES navigation link now triggers dropdown submenu instead of direct navigation
+- Navigation structure enhanced with nested submenu HTML across all 3 pages (index.html, contact.html, work.html)
+
 ## [2.4.1] - 2025-12-12
 ### Added
 - Added HOME navigation link as first menu item across all pages (index.html, work.html, contact.html)
