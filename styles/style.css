@@ -724,7 +724,7 @@ body {
     .hero-content {
         padding: 1rem; /* Less padding on mobile for more logo space */
         align-items: flex-start; /* Change from center to top alignment */
-        padding-top: 3rem; /* Push logo down ~20% from top (3rem out of ~250px total height) */
+        padding-top: 2.25rem; /* Push logo down ~14% from top (2.25rem = 36px out of 250px mobile hero height) */
     }
 
     .hero-logo {

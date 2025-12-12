@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.6.4] - 2025-12-12
+### Changed
+- Adjusted mobile hero logo vertical positioning for improved visual balance
+- Reduced `padding-top` from `3rem` to `2.25rem` at mobile breakpoint (≤768px)
+- Logo now positioned at 14.4% from top (previously 19.2%), moving it 5% higher on mobile viewports
+- Desktop and tablet positioning remain unchanged (centered)
+
 ## [2.6.3] - 2025-12-12
 ### Fixed
 - Fixed vertical gap in geometric pattern during viewport resize
