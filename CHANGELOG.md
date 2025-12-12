@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.3.2] - 2025-12-12
+### Fixed
+- Fixed 9 Pattern_Blocks image filename case sensitivity errors causing 404s on GitHub Pages
+- Changed lowercase "pattern_block_" to uppercase "pattern_Block_" to match actual filenames in images/Pattern_Blocks/
+- Affected files: index.html (5 fixes), contact.html (3 fixes), work.html (1 fix)
+
 ## [2.3.1] - 2025-12-12
 ### Changed
 - Refined hero section geometric pattern layout and positioning

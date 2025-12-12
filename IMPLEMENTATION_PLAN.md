@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** December 12, 2025
-> **Current Version:** v2.3.1
+> **Current Version:** v2.3.2
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-12-12 | **v2.3.2:** Fixed 9 Pattern_Blocks image filename case sensitivity errors causing 404s on GitHub Pages - Changed lowercase "pattern_block_" to uppercase "pattern_Block_" to match actual filenames in images/Pattern_Blocks/ directory (index.html: 5 fixes, contact.html: 3 fixes, work.html: 1 fix) | Bug fix |
 | 2025-12-12 | **v2.3.1:** Refined hero section geometric pattern layout and positioning - Redistributed pattern blocks B-F for improved visual balance, simplified transformation classes for cleaner markup | Enhancement |
 | 2025-12-11 | **v2.3.0:** Dynamic portfolio caption overlay system on Work page - Hover overlays display event title (white) and location (teal) on semi-transparent purple background, caption data loaded from simple text file (images/portfolio/captions.txt), new scripts/portfolio-captions.js for async caption loading with graceful error handling, responsive overlay text sizing across Desktop/Tablet/Mobile viewports | Major feature |
 | 2025-11-28 | **v2.2.4:** Documentation overhaul - Restructured README.md with professional tone, accurate project structure, and comprehensive sections. Softened aggressive warnings in VERSION_CONTROL.md. Fixed inaccuracies in IMPLEMENTATION_PLAN.md (contact page status). Added contact.html documentation to StyleGuide.md. | Documentation |
@@ -642,9 +643,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.3.1` (as of Dec 12, 2025)
+**Current Version:** `v2.3.2` (as of Dec 12, 2025)
 
 **Version History:**
+- v2.3.2 - Fixed 9 Pattern_Blocks image filename case sensitivity errors causing 404s on GitHub Pages
 - v2.3.1 - Refined hero section geometric pattern layout and positioning
 - v2.3.0 - Dynamic portfolio caption overlay system on Work page
 - v2.2.4 - Documentation overhaul: README restructure, VERSION_CONTROL tone softening, StyleGuide contact page docs
