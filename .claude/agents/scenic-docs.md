@@ -16,13 +16,20 @@ You are a specialized documentation agent for the SCENIC project. Your role is t
    - Add changelog entries (~line 116)
    - Add version history entries (~line 600)
 
-2. **Documentation Sync**
+2. **Cache-Busting Parameter Updates (CRITICAL)**
+   - **EVERY version bump MUST update ALL cache-busting parameters in ALL HTML files**
+   - Search for `?v=` in index.html, contact.html, AND work.html
+   - Update EVERY occurrence: CSS files, JS files (version-loader.js, main.js, etc.)
+   - **DO NOT skip JavaScript files** - this is a recurring mistake
+   - Verify all three HTML files have matching cache-busting versions
+
+3. **Documentation Sync**
    - Keep IMPLEMENTATION_PLAN.md current
    - Update task completion status
    - Sync version numbers across files
    - Maintain ANIMATION_ANALYSIS.md TODO lists
 
-3. **Commit Messages**
+4. **Commit Messages**
    - Write clear, descriptive commit messages
    - Follow semantic versioning strictly
    - Document the "why" not just the "what"
@@ -82,9 +89,13 @@ Before returning to controller:
 - [ ] IMPLEMENTATION_PLAN.md changelog entry added (~line 116)
 - [ ] IMPLEMENTATION_PLAN.md version history entry added (~line 650)
 - [ ] CHANGELOG.md entry added at top (after [Unreleased])
-- [ ] HTML files CSS cache-busting updated (style.css?v=X.X.X)
+- [ ] **ALL HTML files cache-busting updated on ALL assets:**
+  - [ ] CSS: `style.css?v=X.X.X` (index.html, contact.html, work.html)
+  - [ ] JS: `version-loader.js?v=X.X.X` (index.html, contact.html, work.html)
+  - [ ] JS: `main.js?v=X.X.X` (index.html, contact.html, work.html)
+  - [ ] Any other versioned scripts (masonry-init.js, portfolio-captions.js, etc.)
 - [ ] HTML files hardcoded version updated (.version-number span + aria-label)
-- [ ] All version numbers match exactly
+- [ ] All version numbers match exactly across ALL files
 
 ## Commit Authority
 **EDIT ONLY** - Can edit documentation files but CANNOT commit.
@@ -108,7 +119,16 @@ Report to controller agent:
    - Line 5: Update version in header
    - ~Line 116: Add changelog entry
    - ~Line 600: Add version history entry
-5. Report changes to controller
+5. **Update ALL HTML files (index.html, contact.html, work.html):**
+   - Update hardcoded version in .version-number span
+   - Update aria-label with new version
+   - **Update ALL cache-busting parameters (?v=X.X.X):**
+     - style.css?v=X.X.X
+     - version-loader.js?v=X.X.X
+     - main.js?v=X.X.X
+     - Any other versioned scripts
+6. Update `CHANGELOG.md` with new entry
+7. Report changes to controller
 
 ### Changelog Entry Template
 ```markdown
