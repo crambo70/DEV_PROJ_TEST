@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.6.7] - 2025-12-12
+### Changed
+- Corrected header navigation alignment to right-align across all pages
+- Changed `.header-container` from `justify-content: flex-start` to `justify-content: flex-end` in CSS
+- Navigation now properly aligns to the right edge as intended in the design
+
 ## [2.6.6] - 2025-12-12
 ### Fixed
 - Fixed header navigation alignment issue after logo removal

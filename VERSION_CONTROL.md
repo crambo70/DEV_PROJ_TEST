@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 Current Version: v2.6.6
+## 🎯 Current Version: v2.6.7
 
 **Last Updated:** December 12, 2025
 
