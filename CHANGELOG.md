@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.4.1] - 2025-12-12
+### Added
+- Added HOME navigation link as first menu item across all pages (index.html, work.html, contact.html)
+- Implemented proper active state styling for HOME link based on current page
+
 ## [2.4.0] - 2025-12-12
 ### Changed
 - **Asset Standardization:** Renamed 47 assets (44 images, 2 directories, 1 text file) to enforce lowercase-with-hyphens naming convention across entire project
