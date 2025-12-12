@@ -8,6 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.4.0] - 2025-12-12
+### Changed
+- **Asset Standardization:** Renamed 47 assets (44 images, 2 directories, 1 text file) to enforce lowercase-with-hyphens naming convention across entire project
+- Updated 105+ code references across HTML, CSS, and JavaScript files to reflect new asset paths
+- Standardized Pattern Block SVG directory (`Pattern_Blocks` → `pattern-blocks`) and filenames
+- Renamed logo files (`Scenic_Inc_*.svg` → `scenic-inc-*.svg`)
+- Renamed portfolio images with zero-padded numbering (`placeholder_png_X.png` → `portfolio-placeholder-0X.png`)
+- Renamed service placeholder images with `service-` prefix for better organization
+- Renamed reference directory (`reference_images` → `reference-images`)
+- Established foundation for maintainable asset management and consistent naming standards
+
 ## [2.3.2] - 2025-12-12
 ### Fixed
 - Fixed 9 Pattern_Blocks image filename case sensitivity errors causing 404s on GitHub Pages
