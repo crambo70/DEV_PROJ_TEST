@@ -8,6 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.6.0] - 2025-12-12
+### Changed
+- Hero section redesign: removed CTA box ("IMAGINE WHAT WE CAN CREATE" button) from hero
+- Added large white SCENIC logo (scenic-inc-white.svg) centered over pattern blocks
+- Logo responsive sizing: Desktop 70%, Tablet 80%, Mobile 90%
+- Header redesign: replaced blue logo SVG with "SCENIC" text (navy, bold, uppercase)
+- Flexbox centering applied to .hero-content for improved layout
+
+### Removed
+- CTA button HTML structure and call-to-action from hero section
+- Deprecated .cta-button CSS class and related styles (~50 lines)
+- Deprecated .scenic-logo-img CSS class from header
+- scenic-inc-blue.svg logo image removed from header
+
 ## [2.5.0] - 2025-12-12
 ### Added
 - Event Services dropdown navigation menu with 4 sub-links (SCENIC RENTALS, DRAPE RENTALS, PIPE PARTS, AND FABRICATION)
