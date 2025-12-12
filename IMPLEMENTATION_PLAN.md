@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** December 12, 2025
-> **Current Version:** v2.6.4
+> **Current Version:** v2.6.5
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-12-12 | **v2.6.5:** Header logo cleanup - Removed "SCENIC" text from header logo area on all pages, hidden empty .logo div container with display: none, removed unused .logo h1 CSS styles across all breakpoints (~30 lines), cleaned up leftover scenic-inc-blue.svg images on work.html and contact.html | Code cleanup |
 | 2025-12-12 | **v2.6.4:** Adjusted mobile hero logo positioning - Reduced `padding-top` from `3rem` to `2.25rem` at mobile breakpoint (≤768px), moved logo from 19.2% to 14.4% from top (additional 5% up), improved visual balance, desktop and tablet positioning unchanged | Enhancement |
 | 2025-12-12 | **v2.6.3:** Fixed vertical gap in geometric pattern during viewport resize - Removed conflicting `aspect-ratio: 6/2` from `.geo-grid` (line 625) and `aspect-ratio: 1/1` from `.geo-tile` (line 637), eliminated subpixel rounding errors in CSS Grid layout, pattern now displays seamlessly at all viewport sizes | Bug fix |
 | 2025-12-12 | **v2.6.2:** Adjusted hero logo vertical positioning on mobile viewport (≤768px) - Added `align-items: flex-start` to `.hero-content` at mobile breakpoint, added `padding-top: 3rem` to position logo approximately 20% down from top, improved visual balance on mobile, desktop and tablet positioning remain centered | Enhancement |
@@ -651,9 +652,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.6.4` (as of Dec 12, 2025)
+**Current Version:** `v2.6.5` (as of Dec 12, 2025)
 
 **Version History:**
+- v2.6.5 - Header logo cleanup: removed "SCENIC" text from header, hidden empty .logo div, removed unused .logo h1 CSS styles (~30 lines), cleaned up leftover blue logo images
 - v2.6.4 - Mobile hero logo positioning adjustment: reduced padding-top from 3rem to 2.25rem, logo moved from 19.2% to 14.4% from top (5% higher)
 - v2.6.3 - Fixed geometric pattern gap during resize: removed conflicting aspect-ratio constraints from .geo-grid and .geo-tile, eliminated subpixel rounding errors
 - v2.6.2 - Adjusted hero logo vertical positioning on mobile: align-items flex-start, padding-top 3rem, improved visual balance at mobile viewport

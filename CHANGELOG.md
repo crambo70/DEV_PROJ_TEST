@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.6.5] - 2025-12-12
+### Removed
+- Removed "SCENIC" text from header logo area on all pages (index.html, contact.html, work.html)
+- Hidden empty `.logo` div container with `display: none` in CSS
+- Removed unused `.logo h1` CSS styles across all breakpoints (base, tablet, mobile) - approximately 30 lines
+- Cleaned up leftover scenic-inc-blue.svg logo images from work.html and contact.html
+
 ## [2.6.4] - 2025-12-12
 ### Changed
 - Adjusted mobile hero logo vertical positioning for improved visual balance
