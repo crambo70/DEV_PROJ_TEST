@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 Current Version: v2.6.8
+## 🎯 Current Version: v2.7.0
 
 **Last Updated:** December 12, 2025
 
@@ -41,7 +41,7 @@
 
 ### After Completing Changes:
 
-5. **Update Version Number (3 locations)**
+5. **Update Version Number (2 locations only)**
 
    **Location 1 (PRIMARY):** `version.json` - **Single source of truth**
    ```json
@@ -56,9 +56,9 @@
    > **Current Version:** vX.X.X
    ```
 
-   **Location 3:** All HTML pages will automatically update via `scripts/version-loader.js`
+   **HTML pages auto-update:** All HTML pages automatically display the version via `scripts/version-loader.js`
    - The script reads from `version.json` and updates the version indicator on page load
-   - No manual HTML updates needed!
+   - **No manual HTML edits required** - version.json is the only source to update!
 
 6. **Add Changelog Entry**
 
@@ -121,7 +121,8 @@ v2.1.1
 
 ### Best Practices:
 - Always read IMPLEMENTATION_PLAN.md first
-- Update version in version.json AND IMPLEMENTATION_PLAN.md
+- Update version in version.json AND IMPLEMENTATION_PLAN.md (these 2 only!)
+- **Never manually edit version numbers in HTML files** - they auto-update via JavaScript
 - Write clear, descriptive changelog entries
 - Follow semantic versioning strictly
 - Ask user if unsure about version increment
@@ -181,13 +182,14 @@ Before you commit/push changes:
 
 - [ ] Read IMPLEMENTATION_PLAN.md current version
 - [ ] Determined correct version increment (patch/minor/major)
-- [ ] Updated version in `index.html` (line ~32-34)
+- [ ] Updated version in `version.json` (PRIMARY source of truth)
 - [ ] Updated version in `IMPLEMENTATION_PLAN.md` (line ~5)
 - [ ] Added changelog entry in IMPLEMENTATION_PLAN.md (~line 112)
 - [ ] Added version history entry in IMPLEMENTATION_PLAN.md (~line 600)
 - [ ] Changelog entry is clear and descriptive
-- [ ] Both version numbers match exactly
+- [ ] All version numbers match exactly
 - [ ] Tested changes work as expected
+- [ ] HTML files will auto-update via version-loader.js (no manual edit needed)
 
 ---
 

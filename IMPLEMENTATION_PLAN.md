@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** December 12, 2025
-> **Current Version:** v2.6.8
+> **Current Version:** v2.7.0
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -102,6 +102,7 @@ Following these practices maintains project consistency.
 | 2025-11-27 | **v2.1.3:** Created specialized Claude Code agents (CSS, Docs, JS/Masonry), updated portfolio with 19 placeholder images, fixed homepage CSS Grid layout (grid-auto-rows: auto, justify-self: stretch), added cache-busting to CSS links, cleaned up obsolete animation files | Agent architecture, portfolio update, layout fixes |
 | 2025-11-19 | **v2.1.2:** Implemented centralized version management system with version.json and auto-loader script | Version consistency across all pages |
 | 2025-11-10 | Initial plan created | Established roadmap |
+| 2025-12-12 | **v2.7.0:** Removed hardcoded version numbers from all HTML files - version indicator now uses "..." loading state, version.json is single source of truth, updated VERSION_CONTROL.md docs | Technical improvement |
 | 2025-11-10 | Task 1.1 skipped - images are placeholders for SVGs with animations | Avoiding optimization of temporary assets |
 | 2025-11-10 | Started Task 1.2: Implement Lazy Loading | Performance improvement in progress |
 | 2025-11-10 | **Completed Task 1.2:** Added lazy loading to 6 images (5 service icons + footer logo), added font-display: swap for DIN 2014 | Improved initial page load performance |
@@ -655,9 +656,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.6.8` (as of Dec 12, 2025)
+**Current Version:** `v2.7.0` (as of Dec 12, 2025)
 
 **Version History:**
+- v2.7.0 - Removed hardcoded version numbers from HTML files: version indicator shows "..." until JavaScript loads, aria-label changed to "Site version" (dynamic), version.json is single source of truth
 - v2.6.8 - Fixed hardcoded fallback version numbers in all HTML files: updated aria-label and span from "2.4.1" to "2.6.8", resolves GitHub Pages displaying outdated version before version-loader.js runs
 - v2.6.7 - Corrected header navigation alignment to right-align: changed .header-container from flex-start to flex-end, navigation now properly aligns to the right edge
 - v2.6.6 - Fixed header navigation alignment: changed .header-container from justify-content: space-between to flex-start, navigation now correctly left-aligns after logo removal

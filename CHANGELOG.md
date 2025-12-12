@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.7.0] - 2025-12-12
+### Changed
+- Removed hardcoded version numbers from all HTML files (index.html, work.html, contact.html)
+- Version indicator now displays "..." as loading state until JavaScript populates from version.json
+- Changed aria-label from "Site version 2.6.8" to "Site version" for dynamic content
+- version.json is now the single source of truth for version numbers (no manual HTML updates needed)
+- Updated VERSION_CONTROL.md documentation to clarify that only 2 files need manual version updates (version.json and IMPLEMENTATION_PLAN.md)
+- Added best practice guidance: "Never manually edit version numbers in HTML files"
+
 ## [2.6.8] - 2025-12-12
 ### Fixed
 - Fixed hardcoded fallback version numbers in all HTML files (index.html, work.html, contact.html)
