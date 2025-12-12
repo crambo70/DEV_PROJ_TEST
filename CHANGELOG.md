@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.6.8] - 2025-12-12
+### Fixed
+- Fixed hardcoded fallback version numbers in all HTML files (index.html, work.html, contact.html)
+- Updated aria-label and span content from "2.4.1" to "2.6.8" for accurate pre-JavaScript display
+- Resolves GitHub Pages displaying outdated version number before version-loader.js executes
+
 ## [2.6.7] - 2025-12-12
 ### Changed
 - Corrected header navigation alignment to right-align across all pages

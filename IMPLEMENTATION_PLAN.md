@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** December 12, 2025
-> **Current Version:** v2.6.7
+> **Current Version:** v2.6.8
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-12-12 | **v2.6.8:** Fixed hardcoded fallback version numbers in all HTML files - Updated aria-label and span content from "2.4.1" to "2.6.8" in index.html, work.html, and contact.html for accurate pre-JavaScript display, resolves GitHub Pages displaying outdated version number before version-loader.js executes | Bug fix |
 | 2025-12-12 | **v2.6.7:** Corrected header navigation alignment to right-align - Changed `.header-container` from `justify-content: flex-start` to `justify-content: flex-end`, navigation now properly aligns to the right edge as intended in the design | Bug fix |
 | 2025-12-12 | **v2.6.6:** Fixed header navigation alignment - Changed `.header-container` from `justify-content: space-between` to `justify-content: flex-start`, navigation now correctly left-aligns after logo removal, applies consistently across all breakpoints | Bug fix |
 | 2025-12-12 | **v2.6.5:** Header logo cleanup - Removed "SCENIC" text from header logo area on all pages, hidden empty .logo div container with display: none, removed unused .logo h1 CSS styles across all breakpoints (~30 lines), cleaned up leftover scenic-inc-blue.svg images on work.html and contact.html | Code cleanup |
@@ -654,9 +655,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.6.7` (as of Dec 12, 2025)
+**Current Version:** `v2.6.8` (as of Dec 12, 2025)
 
 **Version History:**
+- v2.6.8 - Fixed hardcoded fallback version numbers in all HTML files: updated aria-label and span from "2.4.1" to "2.6.8", resolves GitHub Pages displaying outdated version before version-loader.js runs
 - v2.6.7 - Corrected header navigation alignment to right-align: changed .header-container from flex-start to flex-end, navigation now properly aligns to the right edge
 - v2.6.6 - Fixed header navigation alignment: changed .header-container from justify-content: space-between to flex-start, navigation now correctly left-aligns after logo removal
 - v2.6.5 - Header logo cleanup: removed "SCENIC" text from header, hidden empty .logo div, removed unused .logo h1 CSS styles (~30 lines), cleaned up leftover blue logo images
