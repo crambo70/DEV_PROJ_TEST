@@ -6,7 +6,7 @@
 
 (function() {
     // Load version data and update the page
-    fetch('/version.json')
+    fetch('./version.json')
         .then(response => response.json())
         .then(data => {
             // Update version indicator if it exists

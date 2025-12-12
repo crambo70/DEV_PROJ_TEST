@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.7.1] - 2025-12-12
+### Fixed
+- Fixed version.json fetch path in version-loader.js to work on GitHub Pages subdirectories
+- Changed from absolute path (`/version.json`) to relative path (`./version.json`)
+- Resolves issue where version number wasn't displaying on GitHub Pages deployment
+- Now works correctly on both localhost and GitHub Pages subdirectories (e.g., username.github.io/project)
+
 ## [2.7.0] - 2025-12-12
 ### Changed
 - Removed hardcoded version numbers from all HTML files (index.html, work.html, contact.html)
