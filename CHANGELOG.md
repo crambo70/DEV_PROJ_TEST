@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.6.1] - 2025-12-12
+### Fixed
+- Fixed hero logo extending beyond geometric pattern bounds with max-height constraints (300px desktop, 220px tablet, 180px mobile)
+- Fixed hero logo not staying centered on geometric pattern during window resize
+- Added responsive padding to hero-content for edge protection (2rem desktop, 1.5rem tablet, 1rem mobile)
+- Adjusted logo sizing for optimal containment within pattern (60% desktop, 65% tablet, 75% mobile, max-width 1200px)
+- Changed hero-content to absolute positioning with top: 0, left: 0 to track geometric background
+
 ## [2.6.0] - 2025-12-12
 ### Changed
 - Hero section redesign: removed CTA box ("IMAGINE WHAT WE CAN CREATE" button) from hero

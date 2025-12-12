@@ -673,19 +673,23 @@ body {
 
 /* Ensure hero content stays above geometric background */
 .hero-content {
-    position: relative;
+    position: absolute; /* Changed from relative to absolute for explicit centering */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 10; /* Higher than geometric background */
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    padding: 2rem; /* Add padding to prevent logo from touching edges */
 }
 
 /* Hero Logo - Large white SCENIC logo centered over pattern blocks */
 .hero-logo {
-    width: 70%; /* Desktop: 70% of hero width */
-    max-width: 1400px; /* Prevent excessive size on ultra-wide screens */
+    width: 60%; /* Desktop: Reduced from 70% to 60% for better containment */
+    max-width: 1200px; /* Reduced from 1400px - prevents logo from extending beyond pattern */
+    max-height: 300px; /* New constraint: limits vertical size to stay within pattern bounds */
     height: auto; /* Maintain SVG aspect ratio */
     object-fit: contain;
     z-index: 10; /* Above geometric background */
@@ -699,8 +703,13 @@ body {
         height: 300px; /* Proportionally smaller for tablets */
     }
 
+    .hero-content {
+        padding: 1.5rem; /* Slightly less padding on tablet */
+    }
+
     .hero-logo {
-        width: 80%; /* Slightly larger on tablet to maintain prominence */
+        width: 65%; /* Reduced from 80% for better containment on tablet */
+        max-height: 220px; /* Tablet max-height constraint to stay within 300px pattern */
     }
 }
 
@@ -714,8 +723,13 @@ body {
         font-size: 8px;
     }
 
+    .hero-content {
+        padding: 1rem; /* Less padding on mobile for more logo space */
+    }
+
     .hero-logo {
-        width: 90%; /* Nearly full width on mobile for maximum impact */
+        width: 75%; /* Reduced from 90% for better containment on mobile */
+        max-height: 180px; /* Mobile max-height constraint to stay within 250px pattern */
     }
 }
 
