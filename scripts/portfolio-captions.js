@@ -60,7 +60,7 @@
      */
     async function loadCaptions() {
         try {
-            const response = await fetch('images/portfolio/captions.txt');
+            const response = await fetch('images/portfolio/portfolio-captions.txt');
 
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
