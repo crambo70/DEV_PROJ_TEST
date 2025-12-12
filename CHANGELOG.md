@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.6.2] - 2025-12-12
+### Changed
+- Adjusted hero logo vertical positioning on mobile viewport (≤768px)
+- Added `align-items: flex-start` to `.hero-content` at mobile breakpoint
+- Added `padding-top: 3rem` to position logo approximately 20% down from top
+- Improved visual balance and prevents logo from being too centered on mobile
+- Desktop and tablet positioning remain unchanged (centered)
+
 ## [2.6.1] - 2025-12-12
 ### Fixed
 - Fixed hero logo extending beyond geometric pattern bounds with max-height constraints (300px desktop, 220px tablet, 180px mobile)

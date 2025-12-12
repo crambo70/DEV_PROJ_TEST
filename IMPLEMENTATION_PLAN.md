@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** December 12, 2025
-> **Current Version:** v2.6.1
+> **Current Version:** v2.6.2
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-12-12 | **v2.6.2:** Adjusted hero logo vertical positioning on mobile viewport (≤768px) - Added `align-items: flex-start` to `.hero-content` at mobile breakpoint, added `padding-top: 3rem` to position logo approximately 20% down from top, improved visual balance on mobile, desktop and tablet positioning remain centered | Enhancement |
 | 2025-12-12 | **v2.6.1:** Fixed hero logo extending beyond geometric pattern bounds - Added max-height constraints at all breakpoints (300px/220px/180px), fixed logo centering on geometric pattern during window resize with absolute positioning, added responsive padding to hero-content for edge protection (2rem/1.5rem/1rem), adjusted logo sizing for optimal containment (60%/65%/75%, max-width 1200px) | Bug fix |
 | 2025-12-12 | **v2.6.0:** Hero section redesign - Removed CTA box from hero ("IMAGINE WHAT WE CAN CREATE" button), added large white SCENIC logo (scenic-inc-white.svg) centered over pattern blocks with responsive sizing (70%/80%/90%), replaced header blue logo with "SCENIC" text (navy bold uppercase), deprecated .cta-button and .scenic-logo-img CSS classes (~50 lines) | Major redesign |
 | 2025-12-12 | **v2.5.0:** Added EVENT SERVICES dropdown navigation with 4 sub-links (SCENIC RENTALS, DRAPE RENTALS, PIPE PARTS, AND FABRICATION) - Desktop/tablet hover behavior with animations, mobile hamburger integration, keyboard navigation (Arrow/Home/End/ESC), aria-expanded accessibility | New feature |
@@ -648,9 +649,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.6.1` (as of Dec 12, 2025)
+**Current Version:** `v2.6.2` (as of Dec 12, 2025)
 
 **Version History:**
+- v2.6.2 - Adjusted hero logo vertical positioning on mobile: align-items flex-start, padding-top 3rem, improved visual balance at mobile viewport
 - v2.6.1 - Fixed hero logo sizing and centering: max-height constraints, absolute positioning for centering, responsive padding, adjusted widths for optimal containment
 - v2.6.0 - Hero section redesign: removed CTA box, added large white SCENIC logo centered over pattern blocks, replaced header blue logo with "SCENIC" text, deprecated CTA button CSS
 - v2.5.0 - EVENT SERVICES dropdown navigation with 4 sub-links, hover animations, mobile integration, keyboard navigation, accessibility
