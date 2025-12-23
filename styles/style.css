@@ -1296,7 +1296,7 @@ body {
 
 /* Services Section */
 .services {
-    padding: 4rem 2rem 10rem 2rem; /* Extra bottom padding for tooltips */
+    padding: 1rem 0.5rem 2.5rem 0.5rem; /* 75% reduced padding (was 2rem 1rem 5rem 1rem) */
     background-color: var(--color-white); /* Clean white background - changed from off-white */
 }
 
@@ -1307,7 +1307,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 0; /* Zero gap for tighter appearance */
     align-items: start;
-    padding-bottom: 3rem; /* Extra padding for pop-below callouts */
+    padding-bottom: 0.4rem; /* 75% reduced (was 0.85rem) */
 }
 
 .service-card {
@@ -1320,7 +1320,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 220px;
-    margin-bottom: 2rem; /* Extra space for the pop-below callout */
+    margin-bottom: 0.25rem; /* 75% reduced (was 0.5625rem) */
 }
 
 .service-card:hover {
@@ -1333,7 +1333,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 0.5rem 0.5rem 0.5rem; /* Minimal padding for larger icons */
+    padding: 0.14rem 0.07rem 0.07rem 0.07rem; /* 75% reduced (was 0.28rem 0.14rem 0.14rem 0.14rem) */
     background-color: var(--color-white);
 }
 
@@ -1355,6 +1355,20 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* Lottie animation container styling */
+.lottie-animation {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lottie-animation svg {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .service-icon:hover {
     transform: scale(1.1); /* Icon animation on hover */
 }
@@ -1365,7 +1379,7 @@ body {
 
 /* Bottom area for service title */
 .service-text-area {
-    padding: 0.5rem 1rem 1.5rem 1rem; /* Reduced padding */
+    padding: 0.07rem 0.14rem 0.2rem 0.14rem; /* 75% reduced (was 0.14rem 0.28rem 0.425rem 0.28rem) */
     background-color: var(--color-white);
 }
 
@@ -1554,7 +1568,7 @@ body {
     .service-card {
         height: auto;
         min-height: 180px; /* Much shorter to show multiple cards */
-        margin-bottom: 1rem; /* Normal spacing since callout is now inline */
+        margin-bottom: 0.14rem; /* 75% reduced (was 0.28rem) */
         position: relative; /* Enable z-index stacking */
         z-index: 1; /* Base z-index */
     }
@@ -1573,7 +1587,7 @@ body {
 
     /* Reduce icon area padding on mobile */
     .service-icon-area {
-        padding: 0.5rem 0.5rem 0.25rem 0.5rem; /* Minimal white space above icons */
+        padding: 0.07rem 0.07rem 0.035rem 0.07rem; /* 75% reduced (was 0.14rem 0.14rem 0.07rem 0.14rem) */
     }
 
     /* Mobile tooltip styles */
@@ -1713,7 +1727,7 @@ body {
 
     /* Adjust service card spacing for tablet */
     .service-card {
-        margin-bottom: 1rem; /* Normal spacing with inline callout */
+        margin-bottom: 0.14rem; /* 75% reduced (was 0.28rem) */
         height: auto;
         min-height: 280px;
         position: relative; /* Enable z-index stacking */
@@ -1740,7 +1754,7 @@ body {
 
     /* Reduce icon area padding on tablet */
     .service-icon-area {
-        padding: 1.2rem 0.8rem 0.5rem 0.8rem; /* Less white space above icons */
+        padding: 0.17rem 0.11rem 0.07rem 0.11rem; /* 75% reduced (was 0.3375rem 0.225rem 0.14rem 0.225rem) */
     }
 
     /* Team Section Tablet */

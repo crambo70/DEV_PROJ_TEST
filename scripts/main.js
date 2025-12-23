@@ -328,5 +328,57 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // ========================================
+    // Lottie Service Icon Animations
+    // ========================================
+
+    // Initialize Lottie animations for service icons
+    function initServiceLottieAnimations() {
+        // Check if Lottie library is loaded
+        if (typeof lottie === 'undefined') {
+            console.warn('Lottie library not loaded - skipping animation initialization');
+            return;
+        }
+
+        // Helper function to initialize a single hover-triggered Lottie animation
+        function initHoverLottie(containerId, jsonPath, label) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const anim = lottie.loadAnimation({
+                container: container,
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: jsonPath
+            });
+
+            // Go to first frame and stop
+            anim.goToAndStop(0, true);
+
+            // On mouse enter: play once from beginning
+            container.addEventListener('mouseenter', () => {
+                anim.goToAndPlay(0, true);
+            });
+
+            // On mouse leave: reset to first frame
+            container.addEventListener('mouseleave', () => {
+                anim.goToAndStop(0, true);
+            });
+
+            console.log(`${label} Lottie animation initialized (hover to play)`);
+        }
+
+        // Initialize all service icon animations
+        initHoverLottie('lottie-ideate', 'lottie-blocks/JSON Files/Design_Ideation_Solo_opt.json', 'IDEATE/DESIGN');
+        initHoverLottie('lottie-events', 'lottie-blocks/JSON Files/Events_Solo_opt.json', 'EVENT SERVICES');
+        initHoverLottie('lottie-build', 'lottie-blocks/JSON Files/Build_Solo_opt.json', 'BUILD');
+        initHoverLottie('lottie-logistics', 'lottie-blocks/JSON Files/Logistics_Solo_opt.json', 'LOGISTICS');
+        initHoverLottie('lottie-onsite', 'lottie-blocks/JSON Files/On-Site_Solo_opt.json', 'ON-SITE');
+    }
+
+    // Initialize Lottie animations
+    initServiceLottieAnimations();
+
     console.log('SCENIC website loaded successfully!');
 });

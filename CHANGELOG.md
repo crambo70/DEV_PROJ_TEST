@@ -8,6 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.8.0] - 2025-12-23
+### Added
+- Lottie animations for all 5 service cards with hover-triggered play-once behavior
+  - IDEATE/DESIGN → Design_Ideation_Solo_opt.json
+  - EVENT SERVICES → Events_Solo_opt.json
+  - BUILD → Build_Solo_opt.json
+  - LOGISTICS → Logistics_Solo_opt.json
+  - ON-SITE → On-Site_Solo_opt.json
+- Lottie library v5.12.2 via CDN in index.html for lightweight animation playback
+- `.lottie-animation` CSS styling with responsive sizing (max-width/height constraints)
+- `initServiceLottieAnimations()` function in main.js with hover event handlers (play on mouseenter, reset on mouseleave)
+- `prefers-reduced-motion` media query support to respect user accessibility preferences
+- Replaced all 5 service card `<img>` placeholders with `<div id="lottie-*">` containers for dynamic Lottie rendering
+
+### Changed
+- Significantly reduced service card spacing for more compact layout (~75% reduction in vertical spacing)
+
 ## [2.7.1] - 2025-12-12
 ### Fixed
 - Fixed version.json fetch path in version-loader.js to work on GitHub Pages subdirectories
