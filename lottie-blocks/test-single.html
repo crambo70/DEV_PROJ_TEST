@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottie Single Animation Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            padding: 20px;
+        }
+        h1 { text-align: center; margin-bottom: 20px; }
+        .selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        select, label {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            background: #16213e;
+            color: #fff;
+            border: 1px solid #0f4c75;
+            margin: 5px;
+        }
+        .options {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .options label {
+            cursor: pointer;
+            display: inline-block;
+        }
+        .options input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .animation-container {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            background: #0f0f23;
+            border-radius: 12px;
+        }
+        .info {
+            text-align: center;
+            margin-top: 15px;
+            color: #888;
+        }
+        .timer {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 24px;
+            font-family: monospace;
+            color: #4ecdc4;
+        }
+        .direction {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Single Animation Test</h1>
+
+    <div class="selector">
+        <select id="animation-select" onchange="loadSelected()">
+            <option value="">-- Select an animation --</option>
+            <option value="Block A_opt.json" selected>Block A (15.52s)</option>
+            <option value="Block B_opt.json">Block B (15.52s)</option>
+            <option value="Block C_opt.json">Block C (15.52s)</option>
+            <option value="Block D_opt.json">Block D (15.52s)</option>
+            <option value="Block E_opt.json">Block E (15.52s)</option>
+            <option value="Block F_opt.json">Block F (15.52s)</option>
+            <option value="Build_Solo_opt.json">Build Solo (5.03s)</option>
+            <option value="Design_Ideation_Solo_opt.json">Design Ideation Solo (4.03s)</option>
+            <option value="Events_Solo_opt.json">Events Solo (5.17s)</option>
+            <option value="Logistics_Solo_opt.json">Logistics Solo (5.17s)</option>
+            <option value="On-Site_Solo_opt.json">On-Site Solo (5.17s)</option>
+        </select>
+    </div>
+
+    <div class="options">
+        <label>
+            <input type="checkbox" id="pingpong-mode" checked onchange="loadSelected()">
+            Ping-Pong Mode (play forward then backward)
+        </label>
+    </div>
+
+    <div class="timer" id="timer">0.00s</div>
+    <div class="direction" id="direction">Direction: --</div>
+    <div class="animation-container" id="anim-container"></div>
+    <div class="info" id="info">Select an animation above</div>
+
+    <script>
+        let currentAnim = null;
+        let startTime = null;
+        let timerInterval = null;
+        let playingForward = true;
+
+        function loadSelected() {
+            const select = document.getElementById('animation-select');
+            const file = select.value;
+            const container = document.getElementById('anim-container');
+            const info = document.getElementById('info');
+            const pingpong = document.getElementById('pingpong-mode').checked;
+
+            // Clear previous
+            if (currentAnim) {
+                currentAnim.destroy();
+                currentAnim = null;
+            }
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            container.innerHTML = '';
+            playingForward = true;
+
+            if (!file) {
+                info.textContent = 'Select an animation above';
+                document.getElementById('timer').textContent = '0.00s';
+                document.getElementById('direction').textContent = 'Direction: --';
+                return;
+            }
+
+            info.textContent = `Loading ${file}...`;
+            startTime = Date.now();
+            updateDirection();
+
+            timerInterval = setInterval(() => {
+                const elapsed = (Date.now() - startTime) / 1000;
+                document.getElementById('timer').textContent = elapsed.toFixed(2) + 's';
+            }, 50);
+
+            currentAnim = lottie.loadAnimation({
+                container: container,
+                renderer: 'svg',
+                loop: !pingpong,  // If pingpong, we handle looping manually
+                autoplay: true,
+                path: `JSON Files/${file}`
+            });
+
+            currentAnim.addEventListener('DOMLoaded', () => {
+                info.textContent = `Playing: ${file} ${pingpong ? '(Ping-Pong)' : '(Normal Loop)'}`;
+            });
+
+            currentAnim.addEventListener('complete', () => {
+                if (pingpong) {
+                    // Reverse direction
+                    playingForward = !playingForward;
+                    currentAnim.setDirection(playingForward ? 1 : -1);
+                    currentAnim.play();
+                    updateDirection();
+
+                    const elapsed = (Date.now() - startTime) / 1000;
+                    console.log(`Direction changed at ${elapsed.toFixed(2)}s - now playing ${playingForward ? 'forward' : 'backward'}`);
+                }
+            });
+
+            currentAnim.addEventListener('loopComplete', () => {
+                if (!pingpong) {
+                    const elapsed = (Date.now() - startTime) / 1000;
+                    info.textContent = `LOOP at ${elapsed.toFixed(2)}s - ${file}`;
+                }
+            });
+
+            currentAnim.addEventListener('error', (e) => {
+                info.textContent = `ERROR: ${e}`;
+            });
+        }
+
+        function updateDirection() {
+            document.getElementById('direction').textContent =
+                `Direction: ${playingForward ? '▶ Forward' : '◀ Backward'}`;
+        }
+
+        // Auto-load Block A on page load
+        window.onload = () => {
+            loadSelected();
+        };
+    </script>
+</body>
+</html>
