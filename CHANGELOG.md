@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.9.0] - 2025-12-24
+### Changed
+- Service cards redesigned with flexbox row layout and overlapping design
+- Card and icon area backgrounds changed to transparent for cleaner visual hierarchy
+- Service icons enlarged by 25% across all breakpoints (Desktop: 200px, Tablet: 181px, Mobile: 144px)
+- Service title text reduced for better proportions (Desktop: 12px, Tablet: 11px, Mobile: 10px)
+- Mobile layout changed from 2-per-row grid to natural wrap with consistent overlap (-50px negative margins)
+- Service cards now overlap using -50px negative left margins for modern layered aesthetic
+- Fixed mobile overlap selector from :nth-child(2n) to :not(:first-child) for consistent behavior
+
 ## [2.8.1] - 2025-12-24
 ### Added
 - Inline SVG placeholders for instant icon rendering before Lottie animations load

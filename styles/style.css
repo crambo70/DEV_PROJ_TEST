@@ -1303,15 +1303,15 @@ body {
 .services-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0; /* Zero gap for tighter appearance */
+    display: flex; /* Changed from grid to flexbox for single row layout */
+    justify-content: center; /* Center the row with flexible edge whitespace */
+    gap: 0; /* Zero gap for compact layout */
     align-items: start;
     padding-bottom: 0.4rem; /* 75% reduced (was 0.85rem) */
 }
 
 .service-card {
-    background-color: var(--color-white);
+    background-color: transparent;
     border-radius: 8px;
     text-align: center;
     transition: transform 0.3s ease;
@@ -1319,8 +1319,8 @@ body {
     overflow: visible; /* Allow the callout to extend below */
     display: flex;
     flex-direction: column;
-    min-height: 220px;
-    margin-bottom: 0.25rem; /* 75% reduced (was 0.5625rem) */
+    min-height: auto; /* Changed from 220px to auto for compact layout */
+    margin-bottom: 0; /* Zero gap between cards */
 }
 
 .service-card:hover {
@@ -1333,13 +1333,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.14rem 0.07rem 0.07rem 0.07rem; /* 75% reduced (was 0.28rem 0.14rem 0.14rem 0.14rem) */
-    background-color: var(--color-white);
+    padding: 0; /* Removed all padding for compact layout */
+    background-color: transparent;
 }
 
 .service-icon {
-    width: 240px; /* Much larger for desktop - fills space better */
-    height: 240px;
+    width: 200px; /* Increased by 25% from 160px for better visibility */
+    height: 200px;
     background-color: transparent;
     border-radius: 8px;
     display: flex;
@@ -1389,13 +1389,13 @@ body {
 
 /* Bottom area for service title */
 .service-text-area {
-    padding: 0.07rem 0.14rem 0.2rem 0.14rem; /* 75% reduced (was 0.14rem 0.28rem 0.425rem 0.28rem) */
-    background-color: var(--color-white);
+    padding: 0.25rem 0.5rem; /* Minimal padding for compact layout */
+    background-color: transparent;
 }
 
 .service-title {
     font-family: var(--font-family-primary);
-    font-size: 14px; /* Much smaller text - matching reference */
+    font-size: 12px;
     color: var(--color-primary-blue); /* Navy Blue */
     margin: 0;
     font-weight: normal; /* Less bold for cleaner look */
@@ -1568,20 +1568,35 @@ body {
     }
 
     /* .cta-button removed (no longer used in hero) */
-    
+
     .services-container {
-        grid-template-columns: 1fr;
-        gap: 0; /* Zero gap for mobile too */
+        flex-direction: row; /* 2-per-row layout on mobile */
+        flex-wrap: wrap; /* Allow wrapping to multiple rows */
+        justify-content: center; /* Center the cards */
+        gap: 0; /* Zero gap - using negative margin for overlap */
     }
 
-    /* Mobile service cards with auto height for inline content */
+    /* Mobile service cards with 2-per-row overlapping layout */
     .service-card {
         height: auto;
-        min-height: 180px; /* Much shorter to show multiple cards */
-        margin-bottom: 0.14rem; /* 75% reduced (was 0.28rem) */
+        min-height: auto; /* Auto height for compact layout */
+        margin-bottom: 0.5rem; /* Small vertical spacing between rows */
         position: relative; /* Enable z-index stacking */
         z-index: 1; /* Base z-index */
+        width: auto; /* Auto width for flexbox */
     }
+
+    /* Overlapping effect on mobile - all cards except first overlap the previous */
+    .service-card:not(:first-child) {
+        margin-left: -50px; /* Overlap for cards 2-5 */
+    }
+
+    /* Progressive z-index for mobile overlap */
+    .service-card:nth-child(1) { z-index: 1; }
+    .service-card:nth-child(2) { z-index: 2; }
+    .service-card:nth-child(3) { z-index: 3; }
+    .service-card:nth-child(4) { z-index: 4; }
+    .service-card:nth-child(5) { z-index: 5; }
 
     /* Elevate expanded card on mobile (for consistency) */
     .service-card:hover,
@@ -1597,7 +1612,7 @@ body {
 
     /* Reduce icon area padding on mobile */
     .service-icon-area {
-        padding: 0.07rem 0.07rem 0.035rem 0.07rem; /* 75% reduced (was 0.14rem 0.14rem 0.07rem 0.14rem) */
+        padding: 0; /* No padding for compact layout */
     }
 
     /* Mobile tooltip styles */
@@ -1628,13 +1643,13 @@ body {
 
     /* Text sizing for mobile */
     .service-title {
-        font-size: 11px; /* Mobile size - smallest */
+        font-size: 10px;
     }
 
-    /* Service icon sizing for mobile */
+    /* Service icon sizing for mobile - reduced for 2-per-row layout */
     .service-icon {
-        width: 200px; /* Much larger for mobile - fills width better */
-        height: 200px;
+        width: 144px; /* Increased by 25% from 115px for better visibility */
+        height: 144px;
     }
 
     .team-title {
@@ -1721,13 +1736,13 @@ body {
 
     /* Text sizing for tablet */
     .service-title {
-        font-size: 12px; /* Tablet size - smaller */
+        font-size: 11px;
     }
 
     /* Service icon sizing for tablet */
     .service-icon {
-        width: 220px; /* Much larger for tablet - fills space better */
-        height: 220px;
+        width: 181px; /* Increased by 25% from 145px for better visibility */
+        height: 181px;
     }
 
     /* Reduce services section padding on tablet */
@@ -1735,14 +1750,34 @@ body {
         padding: 3rem 1.5rem; /* Less padding on tablet */
     }
 
+    /* Tablet services container - single row with overlap */
+    .services-container {
+        flex-direction: row; /* Horizontal layout on tablet */
+        flex-wrap: nowrap; /* All 5 cards in single row */
+        justify-content: center; /* Center the row */
+        gap: 0; /* Zero gap - using negative margin for overlap */
+    }
+
     /* Adjust service card spacing for tablet */
     .service-card {
-        margin-bottom: 0.14rem; /* 75% reduced (was 0.28rem) */
+        margin-bottom: 0; /* Zero gap between cards */
         height: auto;
-        min-height: 280px;
+        min-height: auto; /* Auto height for compact layout */
         position: relative; /* Enable z-index stacking */
         z-index: 1; /* Base z-index */
     }
+
+    /* Overlapping effect on tablet - all cards except first */
+    .service-card:not(:first-child) {
+        margin-left: -50px; /* Increased overlap to match desktop */
+    }
+
+    /* Progressive z-index for tablet overlap */
+    .service-card:nth-child(1) { z-index: 1; }
+    .service-card:nth-child(2) { z-index: 2; }
+    .service-card:nth-child(3) { z-index: 3; }
+    .service-card:nth-child(4) { z-index: 4; }
+    .service-card:nth-child(5) { z-index: 5; }
 
     /* Elevate expanded card above adjacent cards on tablet */
     .service-card:hover,
@@ -1764,7 +1799,7 @@ body {
 
     /* Reduce icon area padding on tablet */
     .service-icon-area {
-        padding: 0.17rem 0.11rem 0.07rem 0.11rem; /* 75% reduced (was 0.3375rem 0.225rem 0.14rem 0.225rem) */
+        padding: 0; /* No padding for compact layout */
     }
 
     /* Team Section Tablet */
@@ -1845,20 +1880,9 @@ body {
     }
 
     .services-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Center the last card if it's alone in its row (5th card) */
-    .services-container .service-card:last-child:nth-child(odd) {
-        grid-column: 1 / -1; /* Span both columns */
-        justify-self: center; /* Center within the span */
-        width: calc(50% + 1.5rem); /* Wider to compensate for no overlay margins (50% + 2×0.75rem) */
-    }
-
-    /* Remove horizontal margins on overlay for centered last card */
-    .services-container .service-card:last-child:nth-child(odd) .service-hover-overlay {
-        margin-left: 0;
-        margin-right: 0;
+        flex-direction: row; /* Horizontal layout on tablet */
+        flex-wrap: wrap; /* Allow wrapping to 2 rows if needed */
+        justify-content: center; /* Center cards */
     }
 
     .portfolio-grid {
@@ -1881,7 +1905,9 @@ body {
    ============================================ */
 @media (min-width: 1025px) {
     .services-container {
-        grid-template-columns: repeat(5, 1fr);
+        flex-direction: row; /* Ensure horizontal layout on desktop */
+        flex-wrap: nowrap; /* All 5 cards in single row, no wrapping */
+        justify-content: center; /* Center the row with flexible edge whitespace */
     }
 
     /* Service card positioning for z-index stacking */
@@ -1889,6 +1915,18 @@ body {
         position: relative;
         z-index: 1;
     }
+
+    /* Overlapping effect - negative left margin on all cards except first */
+    .service-card:not(:first-child) {
+        margin-left: -50px;
+    }
+
+    /* Progressive z-index so later cards stack on top of earlier ones */
+    .service-card:nth-child(1) { z-index: 1; }
+    .service-card:nth-child(2) { z-index: 2; }
+    .service-card:nth-child(3) { z-index: 3; }
+    .service-card:nth-child(4) { z-index: 4; }
+    .service-card:nth-child(5) { z-index: 5; }
 
     /* Elevate expanded card above adjacent cards on desktop */
     .service-card:hover,

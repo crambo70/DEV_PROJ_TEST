@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** December 24, 2025
-> **Current Version:** v2.8.1
+> **Current Version:** v2.9.0
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-12-24 | **v2.9.0:** Service cards redesigned with flexbox row layout and overlapping design - Card and icon area backgrounds changed to transparent, service icons enlarged by 25% across all breakpoints (Desktop: 200px, Tablet: 181px, Mobile: 144px), service title text reduced for better proportions (12px/11px/10px), mobile layout changed from 2-per-row grid to natural wrap with consistent -50px overlap, fixed mobile overlap selector from :nth-child(2n) to :not(:first-child) | Major layout enhancement |
 | 2025-12-24 | **v2.8.1:** Added inline SVG placeholders for instant icon rendering before Lottie animations load, Added tap-to-play support for mobile/touch devices (click event handlers on Lottie containers), Improved progressive loading experience (static SVG → animated Lottie), Enhanced mobile interaction - animations now play on tap for touch devices | Performance + Mobile enhancement |
 | 2025-12-23 | **v2.8.0:** Added Lottie animations for all 5 service cards with hover-triggered play-once behavior (IDEATE/DESIGN, EVENT SERVICES, BUILD, LOGISTICS, ON-SITE) - Replaced all static placeholder images with dynamic Lottie animations, added Lottie library v5.12.2 via CDN, implemented `.lottie-animation` CSS styling with responsive sizing and accessibility support, created `initServiceLottieAnimations()` function in main.js with hover event handlers (play on mouseenter, reset on mouseleave) and `prefers-reduced-motion` support, significantly reduced service card spacing for more compact layout (~75% vertical spacing reduction) | New feature |
 | 2025-12-12 | **v2.7.1:** Fixed version.json fetch path in version-loader.js - Changed from absolute path (`/version.json`) to relative path (`./version.json`) to work on GitHub Pages subdirectories, resolves version number not displaying on GitHub Pages deployment, works on both localhost and GitHub Pages subdirectories | Bug fix |
@@ -659,9 +660,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.8.1` (as of Dec 24, 2025)
+**Current Version:** `v2.9.0` (as of Dec 24, 2025)
 
 **Version History:**
+- v2.9.0 - Service card layout overhaul: Redesigned service cards with flexbox row layout and overlapping design (-50px negative margins), transparent backgrounds for cleaner visual hierarchy, icons enlarged by 25% (Desktop: 200px, Tablet: 181px, Mobile: 144px), reduced title text sizing (12px/11px/10px), mobile layout changed from 2-per-row grid to natural wrap with consistent overlap, fixed mobile overlap selector from :nth-child(2n) to :not(:first-child)
 - v2.8.1 - Performance and mobile enhancement: Added inline SVG placeholders for instant icon rendering before Lottie loads, added tap-to-play support for mobile/touch devices, improved progressive loading (static SVG → animated Lottie)
 - v2.8.0 - Added Lottie animations for all 5 service cards with hover-triggered play-once behavior: IDEATE/DESIGN, EVENT SERVICES, BUILD, LOGISTICS, ON-SITE cards now use Lottie library v5.12.2 with hover event handlers (play on mouseenter, reset on mouseleave), accessibility support via prefers-reduced-motion, significantly reduced service card spacing for more compact layout
 - v2.7.1 - Fixed version.json fetch path in version-loader.js: changed from absolute path (/version.json) to relative path (./version.json), resolves version number not displaying on GitHub Pages subdirectories, works on both localhost and GitHub Pages
