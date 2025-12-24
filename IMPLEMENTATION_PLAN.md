@@ -1,8 +1,8 @@
 # SCENIC Website - Mobile-First Implementation Plan
 
 > **Living Document** - Updated as we progress and priorities evolve
-> **Last Updated:** December 23, 2025
-> **Current Version:** v2.8.0
+> **Last Updated:** December 24, 2025
+> **Current Version:** v2.8.1
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2025-12-24 | **v2.8.1:** Added inline SVG placeholders for instant icon rendering before Lottie animations load, Added tap-to-play support for mobile/touch devices (click event handlers on Lottie containers), Improved progressive loading experience (static SVG → animated Lottie), Enhanced mobile interaction - animations now play on tap for touch devices | Performance + Mobile enhancement |
 | 2025-12-23 | **v2.8.0:** Added Lottie animations for all 5 service cards with hover-triggered play-once behavior (IDEATE/DESIGN, EVENT SERVICES, BUILD, LOGISTICS, ON-SITE) - Replaced all static placeholder images with dynamic Lottie animations, added Lottie library v5.12.2 via CDN, implemented `.lottie-animation` CSS styling with responsive sizing and accessibility support, created `initServiceLottieAnimations()` function in main.js with hover event handlers (play on mouseenter, reset on mouseleave) and `prefers-reduced-motion` support, significantly reduced service card spacing for more compact layout (~75% vertical spacing reduction) | New feature |
 | 2025-12-12 | **v2.7.1:** Fixed version.json fetch path in version-loader.js - Changed from absolute path (`/version.json`) to relative path (`./version.json`) to work on GitHub Pages subdirectories, resolves version number not displaying on GitHub Pages deployment, works on both localhost and GitHub Pages subdirectories | Bug fix |
 | 2025-12-12 | **v2.6.8:** Fixed hardcoded fallback version numbers in all HTML files - Updated aria-label and span content from "2.4.1" to "2.6.8" in index.html, work.html, and contact.html for accurate pre-JavaScript display, resolves GitHub Pages displaying outdated version number before version-loader.js executes | Bug fix |
@@ -658,9 +659,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.8.0` (as of Dec 23, 2025)
+**Current Version:** `v2.8.1` (as of Dec 24, 2025)
 
 **Version History:**
+- v2.8.1 - Performance and mobile enhancement: Added inline SVG placeholders for instant icon rendering before Lottie loads, added tap-to-play support for mobile/touch devices, improved progressive loading (static SVG → animated Lottie)
 - v2.8.0 - Added Lottie animations for all 5 service cards with hover-triggered play-once behavior: IDEATE/DESIGN, EVENT SERVICES, BUILD, LOGISTICS, ON-SITE cards now use Lottie library v5.12.2 with hover event handlers (play on mouseenter, reset on mouseleave), accessibility support via prefers-reduced-motion, significantly reduced service card spacing for more compact layout
 - v2.7.1 - Fixed version.json fetch path in version-loader.js: changed from absolute path (/version.json) to relative path (./version.json), resolves version number not displaying on GitHub Pages subdirectories, works on both localhost and GitHub Pages
 - v2.7.0 - Removed hardcoded version numbers from HTML files: version indicator shows "..." until JavaScript loads, aria-label changed to "Site version" (dynamic), version.json is single source of truth

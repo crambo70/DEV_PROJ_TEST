@@ -345,6 +345,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById(containerId);
             if (!container) return;
 
+            // Find and store reference to placeholder SVG
+            const placeholder = container.querySelector('.lottie-placeholder-svg');
+            let isPlaying = false;
+
             const anim = lottie.loadAnimation({
                 container: container,
                 renderer: 'svg',
@@ -353,20 +357,49 @@ document.addEventListener('DOMContentLoaded', function() {
                 path: jsonPath
             });
 
+            // Hide placeholder when Lottie animation is loaded
+            anim.addEventListener('DOMLoaded', () => {
+                if (placeholder) {
+                    placeholder.style.display = 'none';
+                }
+            });
+
             // Go to first frame and stop
             anim.goToAndStop(0, true);
 
-            // On mouse enter: play once from beginning
+            // Track when animation completes
+            anim.addEventListener('complete', () => {
+                isPlaying = false;
+            });
+
+            // Desktop: mouse events
             container.addEventListener('mouseenter', () => {
                 anim.goToAndPlay(0, true);
+                isPlaying = true;
             });
 
-            // On mouse leave: reset to first frame
             container.addEventListener('mouseleave', () => {
                 anim.goToAndStop(0, true);
+                isPlaying = false;
             });
 
-            console.log(`${label} Lottie animation initialized (hover to play)`);
+            // Mobile: tap to play
+            container.addEventListener('touchstart', (e) => {
+                if (!isPlaying) {
+                    anim.goToAndPlay(0, true);
+                    isPlaying = true;
+                }
+            }, { passive: true });
+
+            // Reset when tapping outside
+            document.addEventListener('touchstart', (e) => {
+                if (!container.contains(e.target)) {
+                    anim.goToAndStop(0, true);
+                    isPlaying = false;
+                }
+            }, { passive: true });
+
+            console.log(`${label} Lottie animation initialized (hover/tap to play)`);
         }
 
         // Initialize all service icon animations

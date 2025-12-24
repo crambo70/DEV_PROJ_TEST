@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.8.1] - 2025-12-24
+### Added
+- Inline SVG placeholders for instant icon rendering before Lottie animations load
+- Tap-to-play support for mobile/touch devices (click event handlers on Lottie containers)
+
+### Changed
+- Improved progressive loading experience (static SVG → animated Lottie)
+- Enhanced mobile interaction - animations now play on tap for touch devices
+
 ## [2.8.0] - 2025-12-23
 ### Added
 - Lottie animations for all 5 service cards with hover-triggered play-once behavior
