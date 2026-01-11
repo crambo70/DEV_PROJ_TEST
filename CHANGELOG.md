@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.9.1] - 2026-01-11
+### Changed
+- Updated Events service card animation to revised version (Events_Solo_REV.json)
+
 ## [2.9.0] - 2025-12-24
 ### Changed
 - Service cards redesigned with flexbox row layout and overlapping design

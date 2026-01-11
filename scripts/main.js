@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Initialize all service icon animations
         initHoverLottie('lottie-ideate', 'lottie-blocks/JSON Files/Design_Ideation_Solo_opt.json', 'IDEATE/DESIGN');
-        initHoverLottie('lottie-events', 'lottie-blocks/JSON Files/Events_Solo_opt.json', 'EVENT SERVICES');
+        initHoverLottie('lottie-events', 'lottie-blocks/JSON Files/Events_Solo_REV.json', 'EVENT SERVICES');
         initHoverLottie('lottie-build', 'lottie-blocks/JSON Files/Build_Solo_opt.json', 'BUILD');
         initHoverLottie('lottie-logistics', 'lottie-blocks/JSON Files/Logistics_Solo_opt.json', 'LOGISTICS');
         initHoverLottie('lottie-onsite', 'lottie-blocks/JSON Files/On-Site_Solo_opt.json', 'ON-SITE');
