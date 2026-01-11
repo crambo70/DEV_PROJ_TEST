@@ -759,10 +759,10 @@ body {
     border-radius: 220px 220px 0 0; /* Top half circle */
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Push content to bottom for zero clearance */
+    justify-content: flex-start; /* Changed from flex-end to allow absolute positioning */
     align-items: center;
     text-align: center;
-    padding: 1rem 1.5rem 0 1.5rem; /* Zero bottom padding for perfect arc-to-photo alignment */
+    padding: 0; /* Removed padding to allow precise positioning */
     position: relative;
     z-index: 2;
     overflow: hidden; /* Clip any content extending beyond arc */
@@ -773,9 +773,14 @@ body {
     font-size: 14px;
     font-weight: bold;
     color: var(--color-white);
-    margin: 0 0 0.25rem 0;
+    margin: 0;
     letter-spacing: 0.5px;
     line-height: 1; /* Tight line height to eliminate extra space */
+    position: absolute;
+    top: 50%; /* Position at mid-height */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    width: 90%; /* Prevent text from touching edges */
 }
 
 .member-arc .member-title {
@@ -786,6 +791,11 @@ body {
     opacity: 0.95;
     letter-spacing: 0.3px;
     line-height: 1; /* Tight line height to eliminate extra space */
+    position: absolute;
+    top: 80%; /* Position at 4/5 down from top */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally */
+    width: 90%; /* Prevent text from touching edges */
 }
 
 /* Arc Colors */
@@ -1228,18 +1238,22 @@ body {
     .member-arc {
         width: 180px;
         height: 90px;
-        padding: 0.8rem 1rem 0 1rem; /* Zero bottom padding for perfect alignment */
-        justify-content: flex-end; /* Push content to bottom */
+        padding: 0; /* Removed padding for absolute positioning */
+        justify-content: flex-start; /* Changed to allow absolute positioning */
     }
 
     .member-arc .member-name {
         font-size: 12px;
         line-height: 1; /* Tight line height */
+        top: 50%; /* Position at mid-height */
+        transform: translate(-50%, -50%); /* Re-center at mobile size */
     }
 
     .member-arc .member-title {
         font-size: 10px;
         line-height: 1; /* Tight line height */
+        top: 80%; /* Position at 4/5 down from top */
+        transform: translate(-50%, -50%); /* Re-center at mobile size */
     }
 
     .member-photo {
@@ -1822,18 +1836,22 @@ body {
     .member-arc {
         width: 200px;
         height: 100px;
-        padding: 1rem 1.5rem 0 1.5rem; /* Zero bottom padding for perfect alignment */
-        justify-content: flex-end; /* Push content to bottom */
+        padding: 0; /* Removed padding for absolute positioning */
+        justify-content: flex-start; /* Changed to allow absolute positioning */
     }
 
     .member-arc .member-name {
         font-size: 13px;
         line-height: 1; /* Tight line height */
+        top: 50%; /* Position at mid-height */
+        transform: translate(-50%, -50%); /* Re-center at tablet size */
     }
 
     .member-arc .member-title {
         font-size: 10.5px;
         line-height: 1; /* Tight line height */
+        top: 80%; /* Position at 4/5 down from top */
+        transform: translate(-50%, -50%); /* Re-center at tablet size */
     }
 
     .member-photo {
