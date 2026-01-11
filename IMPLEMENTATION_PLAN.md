@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 11, 2026
-> **Current Version:** v2.9.3
+> **Current Version:** v2.10.0
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-11 | **v2.10.0:** Update Creative Team section with new personnel: Chris Hammer (Managing Director), Santina Rohner-Moran (Production Manager), Sean Key Ketter (Technical Director), Cole Frizzo (Asst. Technical Director), and Cameron Moredock (Integrated Technology) | Changed |
 | 2025-12-24 | **v2.9.0:** Service cards redesigned with flexbox row layout and overlapping design - Card and icon area backgrounds changed to transparent, service icons enlarged by 25% across all breakpoints (Desktop: 200px, Tablet: 181px, Mobile: 144px), service title text reduced for better proportions (12px/11px/10px), mobile layout changed from 2-per-row grid to natural wrap with consistent -50px overlap, fixed mobile overlap selector from :nth-child(2n) to :not(:first-child) | Major layout enhancement |
 | 2025-12-24 | **v2.8.1:** Added inline SVG placeholders for instant icon rendering before Lottie animations load, Added tap-to-play support for mobile/touch devices (click event handlers on Lottie containers), Improved progressive loading experience (static SVG → animated Lottie), Enhanced mobile interaction - animations now play on tap for touch devices | Performance + Mobile enhancement |
 | 2025-12-23 | **v2.8.0:** Added Lottie animations for all 5 service cards with hover-triggered play-once behavior (IDEATE/DESIGN, EVENT SERVICES, BUILD, LOGISTICS, ON-SITE) - Replaced all static placeholder images with dynamic Lottie animations, added Lottie library v5.12.2 via CDN, implemented `.lottie-animation` CSS styling with responsive sizing and accessibility support, created `initServiceLottieAnimations()` function in main.js with hover event handlers (play on mouseenter, reset on mouseleave) and `prefers-reduced-motion` support, significantly reduced service card spacing for more compact layout (~75% vertical spacing reduction) | New feature |
@@ -663,9 +664,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.9.3` (as of Jan 11, 2026)
+**Current Version:** `v2.10.0` (as of Jan 11, 2026)
 
 **Version History:**
+- v2.10.0 - Updated Creative Team section with new personnel: Chris Hammer (Managing Director), Santina Rohner-Moran (Production Manager), Sean Key Ketter (Technical Director), Cole Frizzo (Asst. Technical Director), and Cameron Moredock (Integrated Technology)
 - v2.9.3 - Updated Lottie animations for IDEATE/DESIGN, LOGISTICS, and ON-SITE service cards
 - v2.9.2 - Updated Build service card animation to revised version (removed embedded text)
 - v2.9.1 - Updated Events service card animation to revised version (Events_Solo_REV.json)
