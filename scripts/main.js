@@ -63,6 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     img.src = img.dataset.src;
                     img.classList.remove('lazy');
                     img.classList.add('loaded');
+
+                    // Add 'loaded' class to parent portfolio item for fade-in effect
+                    const portfolioItem = img.closest('.portfolio-item');
+                    if (portfolioItem) {
+                        portfolioItem.classList.add('loaded');
+                    }
+
                     // Stop observing this image
                     observer.unobserve(img);
                 }
@@ -83,6 +90,13 @@ document.addEventListener('DOMContentLoaded', function() {
         lazyImages.forEach(img => {
             img.src = img.dataset.src;
             img.classList.remove('lazy');
+            img.classList.add('loaded');
+
+            // Add 'loaded' class to parent portfolio item
+            const portfolioItem = img.closest('.portfolio-item');
+            if (portfolioItem) {
+                portfolioItem.classList.add('loaded');
+            }
         });
     }
 

@@ -130,27 +130,27 @@
             <div class="footer-geo-grid">
                 <!-- Column 1: Navy with teal arcs upper left -->
                 <div class="footer-geo-tile" data-tile="1">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block C.svg" alt="Geometric Background Element" class="footer-geo-image rotate-180">
+                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block_C.svg" alt="Geometric Background Element" class="footer-geo-image rotate-180">
                 </div>
                 <!-- Column 2: Black with red dots/yellow blocks -->
                 <div class="footer-geo-tile" data-tile="2">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_block A.svg" alt="Geometric Background Element" class="footer-geo-image">
+                    <img src="images/Pattern_Blocks/Scenic_website_pattern_block_A.svg" alt="Geometric Background Element" class="footer-geo-image">
                 </div>
                 <!-- Column 3: Navy/teal diagonal stripes -->
                 <div class="footer-geo-tile" data-tile="3">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block E.svg" alt="Geometric Background Element" class="footer-geo-image">
+                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block_E.svg" alt="Geometric Background Element" class="footer-geo-image">
                 </div>
                 <!-- Column 4: Yellow with purple/maroon shapes -->
                 <div class="footer-geo-tile" data-tile="4">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block D.svg" alt="Geometric Background Element" class="footer-geo-image">
+                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block_D.svg" alt="Geometric Background Element" class="footer-geo-image">
                 </div>
                 <!-- Column 5: Black with colorful arcs -->
                 <div class="footer-geo-tile" data-tile="5">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block C.svg" alt="Geometric Background Element" class="footer-geo-image rotate-180">
+                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block_C.svg" alt="Geometric Background Element" class="footer-geo-image rotate-180">
                 </div>
                 <!-- Column 6: Navy with teal arcs upper right (mirror of Column 1) -->
                 <div class="footer-geo-tile" data-tile="6">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block C.svg" alt="Geometric Background Element" class="footer-geo-image flip-horizontal">
+                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block_C.svg" alt="Geometric Background Element" class="footer-geo-image flip-horizontal">
                 </div>
             </div>
         </div>
@@ -199,22 +199,36 @@
     <!-- imagesLoaded Library (ensures images are loaded before Masonry calculates) -->
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 
-    <!-- Initialize Masonry -->
+    <!-- Initialize Masonry with Progressive Loading -->
     <script>
-        // Initialize Masonry after ALL images are loaded
         var grid = document.querySelector('.portfolio-grid');
-        var msnry;
 
-        // Wait for images to load before initializing
-        imagesLoaded(grid, function() {
-            msnry = new Masonry(grid, {
-                itemSelector: '.portfolio-item',
-                percentPosition: false,
-                gutter: 16,
-                resize: true,
-                initLayout: true,
-                transitionDuration: 0 // Disable animations for better resize performance
-            });
+        // Initialize Masonry IMMEDIATELY (don't wait for images)
+        var msnry = new Masonry(grid, {
+            itemSelector: '.portfolio-item',
+            percentPosition: false,
+            gutter: 16,
+            resize: true,
+            initLayout: true,
+            transitionDuration: 0 // Disable animations during loading
+        });
+
+        // Progressive layout updates as each image loads
+        imagesLoaded(grid).on('progress', function(instance, image) {
+            // Recalculate layout after each image loads
+            msnry.layout();
+
+            // Add 'loaded' class to portfolio item for fade-in effect
+            var portfolioItem = image.img.closest('.portfolio-item');
+            if (portfolioItem) {
+                portfolioItem.classList.add('loaded');
+            }
+        });
+
+        // Enable smooth transitions after all images loaded
+        imagesLoaded(grid).on('done', function() {
+            msnry.options.transitionDuration = '0.3s';
+            console.log('All portfolio images loaded');
         });
 
         // Recalculate layout on window resize

@@ -690,10 +690,26 @@ body {
 }
 
 .portfolio-item {
-    background-color: #F1F1F4;
+    background: linear-gradient(135deg,
+        rgba(238, 61, 51, 0.1) 0%,
+        rgba(0, 48, 140, 0.1) 100%);
     overflow: hidden;
     position: relative;
     border: none;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Only hide portfolio items on HOME page (with lazy loading) */
+.portfolio-item:has(img.lazy) {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.portfolio-item.loaded {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .portfolio-item img {
@@ -701,6 +717,17 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Only fade in images on HOME page with lazy loading */
+.portfolio-item img.lazy {
+    opacity: 0;
+}
+
+.portfolio-item img.lazy.loaded {
+    opacity: 1;
 }
 
 .portfolio-item.large {
