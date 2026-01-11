@@ -60,3 +60,10 @@ Thumbs.db
 # Build directories
 dist/
 build/
+# Test artifacts
+.playwright-mcp/
+test-results/
+
+# Test artifacts
+.playwright-mcp/
+test-results/

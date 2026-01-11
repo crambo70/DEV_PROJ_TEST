@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCENIC - Our Work</title>
+    <meta name="description" content="Explore SCENIC's portfolio of extraordinary event experiences, corporate activations, trade show exhibits, and experiential installations.">
+    <meta name="keywords" content="event portfolio, corporate events, trade show design, experiential marketing, event gallery">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Our Work - SCENIC">
+    <meta property="og:description" content="Explore SCENIC's portfolio of extraordinary event experiences and experiential installations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scenic.com/work">
+    <meta property="og:image" content="images/scenic-inc-blue.svg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Work - SCENIC">
+    <meta name="twitter:description" content="Explore SCENIC's portfolio of extraordinary event experiences and experiential installations.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/scenic-inc-blue.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/scenic-logo-mobile.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/scenic-logo-mobile.png">
+
     <link rel="stylesheet" href="https://use.typekit.net/bft8hhx.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css?v=2.9.0">
 </head>
 <body class="work-page">
     <!-- Skip to main content link for screen readers and keyboard users -->
@@ -16,28 +36,27 @@
         <header class="header" role="banner">
         <div class="header-container">
             <div class="logo">
-                <h1>SCENIC</h1>
-                <!-- Responsive SCENIC logo with optimized sizes -->
-                <img
-                    src="images/scenic-logo-desktop.png"
-                    srcset="images/scenic-logo-mobile.png 400w,
-                            images/scenic-logo-tablet.png 768w,
-                            images/scenic-logo-desktop.png 1024w"
-                    sizes="(max-width: 768px) 52px,
-                           (max-width: 1024px) 61px,
-                           93px"
-                    alt="SCENIC - Event Services Company"
-                    class="scenic-logo-img">
             </div>
-            <div class="version-indicator" aria-label="Site version 2.1.1">
+            <div class="version-indicator" aria-label="Site version">
                 <span class="version-label" aria-hidden="true">v</span>
-                <span class="version-number">2.1.1</span>
+                <span class="version-number">...</span>
             </div>
             <nav class="nav" role="navigation" aria-label="Main navigation">
                 <ul class="nav-list">
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="#contact">GET IN TOUCH</a></li>
-                    <li><a href="index.html#events">EVENT SERVICES</a></li>
+                    <li><a href="work.html" class="active">WORK</a></li>
+                    <li><a href="contact.html">GET IN TOUCH</a></li>
+                    <li class="has-dropdown">
+                        <a href="index.html#events" aria-haspopup="true" aria-expanded="false">EVENT SERVICES</a>
+                        <div class="subnav-dropdown" aria-label="Event Services submenu">
+                            <ul class="subnav-list">
+                                <li><a href="#scenic-rentals" class="subnav-link">SCENIC RENTALS</a></li>
+                                <li><a href="#drape-rentals" class="subnav-link">DRAPE RENTALS</a></li>
+                                <li><a href="#pipe-parts" class="subnav-link">PIPE PARTS</a></li>
+                                <li><a href="#fabrication" class="subnav-link">AND FABRICATION</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
                 <!-- Hamburger menu for mobile -->
                 <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -53,61 +72,138 @@
     <main class="portfolio-main" id="main-content">
         <section class="portfolio-gallery" aria-label="Portfolio of our work">
             <div class="portfolio-grid">
-                <!-- Portfolio items will be added here -->
-                <!-- Template for adding new images:
-                <div class="portfolio-item">
-                    <img src="images/portfolio/YOUR-IMAGE.jpg" alt="Project description" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-01.png">
+                    <img src="images/portfolio/portfolio-placeholder-01.png" alt="Corporate conference stage design with LED backdrop" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                -->
-
-                <!-- Placeholder items for testing -->
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/300?random=1" alt="Project 1" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-02.png">
+                    <img src="images/portfolio/portfolio-placeholder-02.png" alt="Trade show booth exhibit with interactive displays" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/500?random=2" alt="Project 2" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-03.png">
+                    <img src="images/portfolio/portfolio-placeholder-03.png" alt="Outdoor festival event setup with branded signage" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/400?random=3" alt="Project 3" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-04.png">
+                    <img src="images/portfolio/portfolio-placeholder-04.png" alt="Product launch event with dramatic lighting" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/350?random=4" alt="Project 4" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-05.png">
+                    <img src="images/portfolio/portfolio-placeholder-05.png" alt="Gala dinner venue with elegant table arrangements" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/450?random=5" alt="Project 5" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-06.png">
+                    <img src="images/portfolio/portfolio-placeholder-06.png" alt="Convention center installation with custom graphics" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/300?random=6" alt="Project 6" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-07.png">
+                    <img src="images/portfolio/portfolio-placeholder-07.png" alt="Brand activation booth with experiential elements" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/500?random=7" alt="Project 7" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-08.png">
+                    <img src="images/portfolio/portfolio-placeholder-08.png" alt="Award ceremony stage with scenic backdrop" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/350?random=8" alt="Project 8" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-09.png">
+                    <img src="images/portfolio/portfolio-placeholder-09.png" alt="Corporate meeting room transformation" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/400?random=9" alt="Project 9" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-10.png">
+                    <img src="images/portfolio/portfolio-placeholder-10.png" alt="Pop-up retail experience with branded environment" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/450?random=10" alt="Project 10" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-11.png">
+                    <img src="images/portfolio/portfolio-placeholder-11.png" alt="Networking event lounge with custom furniture" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/300?random=11" alt="Project 11" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-12.png">
+                    <img src="images/portfolio/portfolio-placeholder-12.png" alt="Press conference setup with media wall" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/500?random=12" alt="Project 12" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-13.png">
+                    <img src="images/portfolio/portfolio-placeholder-13.png" alt="Exhibition stand with product showcases" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/350?random=13" alt="Project 13" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-14.png">
+                    <img src="images/portfolio/portfolio-placeholder-14.png" alt="Immersive brand experience installation" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/400?random=14" alt="Project 14" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-15.png">
+                    <img src="images/portfolio/portfolio-placeholder-15.png" alt="Outdoor corporate retreat setup" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/450?random=15" alt="Project 15" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-16.png">
+                    <img src="images/portfolio/portfolio-placeholder-16.png" alt="Tech conference demo area design" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://picsum.photos/400/300?random=16" alt="Project 16" loading="lazy">
+                <div class="portfolio-item" data-image="portfolio-placeholder-17.png">
+                    <img src="images/portfolio/portfolio-placeholder-17.png" alt="VIP hospitality suite arrangement" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-image="portfolio-placeholder-18.png">
+                    <img src="images/portfolio/portfolio-placeholder-18.png" alt="Themed event environment with props" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-image="portfolio-placeholder-19.png">
+                    <img src="images/portfolio/portfolio-placeholder-19.png" alt="Multi-level exhibit structure with wayfinding" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-caption-h1"></h3>
+                        <h4 class="portfolio-caption-h2"></h4>
+                    </div>
                 </div>
             </div>
         </section>
@@ -130,33 +226,33 @@
             <div class="footer-geo-grid">
                 <!-- Column 1: Navy with teal arcs upper left -->
                 <div class="footer-geo-tile" data-tile="1">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block_C.svg" alt="Geometric Background Element" class="footer-geo-image rotate-180">
+                    <img src="images/pattern-blocks/scenic-pattern-block-c.svg" alt="Geometric Background Element" class="footer-geo-image rotate-180">
                 </div>
                 <!-- Column 2: Black with red dots/yellow blocks -->
                 <div class="footer-geo-tile" data-tile="2">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_block_A.svg" alt="Geometric Background Element" class="footer-geo-image">
+                    <img src="images/pattern-blocks/scenic-pattern-block-a.svg" alt="Geometric Background Element" class="footer-geo-image">
                 </div>
                 <!-- Column 3: Navy/teal diagonal stripes -->
                 <div class="footer-geo-tile" data-tile="3">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block_E.svg" alt="Geometric Background Element" class="footer-geo-image">
+                    <img src="images/pattern-blocks/scenic-pattern-block-e.svg" alt="Geometric Background Element" class="footer-geo-image">
                 </div>
                 <!-- Column 4: Yellow with purple/maroon shapes -->
                 <div class="footer-geo-tile" data-tile="4">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block_D.svg" alt="Geometric Background Element" class="footer-geo-image">
+                    <img src="images/pattern-blocks/scenic-pattern-block-d.svg" alt="Geometric Background Element" class="footer-geo-image">
                 </div>
                 <!-- Column 5: Black with colorful arcs -->
                 <div class="footer-geo-tile" data-tile="5">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block_C.svg" alt="Geometric Background Element" class="footer-geo-image rotate-180">
+                    <img src="images/pattern-blocks/scenic-pattern-block-c.svg" alt="Geometric Background Element" class="footer-geo-image rotate-180">
                 </div>
                 <!-- Column 6: Navy with teal arcs upper right (mirror of Column 1) -->
                 <div class="footer-geo-tile" data-tile="6">
-                    <img src="images/Pattern_Blocks/Scenic_website_pattern_Block_C.svg" alt="Geometric Background Element" class="footer-geo-image flip-horizontal">
+                    <img src="images/pattern-blocks/scenic-pattern-block-c.svg" alt="Geometric Background Element" class="footer-geo-image flip-horizontal">
                 </div>
             </div>
         </div>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="images/small_scenic_logo_footer.png" alt="SCENIC INC Logo" class="footer-logo-img">
+                <img src="images/small-scenic-logo-footer.png" alt="SCENIC INC Logo" class="footer-logo-img">
             </div>
             <div class="footer-info-columns">
                 <div class="footer-column">
@@ -199,51 +295,13 @@
     <!-- imagesLoaded Library (ensures images are loaded before Masonry calculates) -->
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 
-    <!-- Initialize Masonry with Progressive Loading -->
-    <script>
-        var grid = document.querySelector('.portfolio-grid');
+    <!-- Initialize Masonry -->
+    <script src="scripts/masonry-init.js"></script>
 
-        // Initialize Masonry IMMEDIATELY (don't wait for images)
-        var msnry = new Masonry(grid, {
-            itemSelector: '.portfolio-item',
-            percentPosition: false,
-            gutter: 16,
-            resize: true,
-            initLayout: true,
-            transitionDuration: 0 // Disable animations during loading
-        });
+    <!-- Portfolio Captions Loader -->
+    <script src="scripts/portfolio-captions.js"></script>
 
-        // Progressive layout updates as each image loads
-        imagesLoaded(grid).on('progress', function(instance, image) {
-            // Recalculate layout after each image loads
-            msnry.layout();
-
-            // Add 'loaded' class to portfolio item for fade-in effect
-            var portfolioItem = image.img.closest('.portfolio-item');
-            if (portfolioItem) {
-                portfolioItem.classList.add('loaded');
-            }
-        });
-
-        // Enable smooth transitions after all images loaded
-        imagesLoaded(grid).on('done', function() {
-            msnry.options.transitionDuration = '0.3s';
-            console.log('All portfolio images loaded');
-        });
-
-        // Recalculate layout on window resize
-        var resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                if (msnry) {
-                    msnry.layout();
-                }
-            }, 250);
-        });
-    </script>
-
-    <script src="scripts/version-loader.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/version-loader.js?v=2.9.0"></script>
+    <script src="scripts/main.js?v=2.9.0"></script>
 </body>
 </html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottie Animation Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #eee;
+        }
+        .debug-panel {
+            background: #0f0f23;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .debug-panel h3 {
+            margin-bottom: 8px;
+            color: #4ecdc4;
+        }
+        #debug-log {
+            max-height: 100px;
+            overflow-y: auto;
+            color: #888;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .animation-card {
+            background: #16213e;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .animation-card.has-error {
+            border: 2px solid #e74c3c;
+        }
+        .animation-container {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #0f0f23;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .animation-name {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #a0a0a0;
+        }
+        .animation-info {
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background: #0f4c75;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        button:hover {
+            background: #1b6ca8;
+        }
+        .global-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .global-controls button {
+            margin: 0 5px;
+            background: #2d3a4a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lottie Animation Test</h1>
+
+    <div class="debug-panel">
+        <h3>Debug Log</h3>
+        <div id="debug-log"></div>
+    </div>
+
+    <div class="global-controls">
+        <button onclick="playAll()">Play All</button>
+        <button onclick="pauseAll()">Pause All</button>
+        <button onclick="restartAll()">Restart All</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <script>
+        const debugLog = document.getElementById('debug-log');
+        function log(msg) {
+            const time = new Date().toLocaleTimeString();
+            debugLog.innerHTML = `[${time}] ${msg}<br>` + debugLog.innerHTML;
+            console.log(msg);
+        }
+
+        const animations = [
+            { file: 'Block A_opt.json', duration: '15.62s' },
+            { file: 'Block B_opt.json', duration: '15.62s' },
+            { file: 'Block C_opt.json', duration: '15.62s' },
+            { file: 'Block D_opt.json', duration: '15.62s' },
+            { file: 'Block E_opt.json', duration: '15.62s' },
+            { file: 'Block F_opt.json', duration: '15.62s' },
+            { file: 'Build_Solo_opt.json', duration: '5.03s' },
+            { file: 'Design_Ideation_Solo_opt.json', duration: '4.03s' },
+            { file: 'Events_Solo_opt.json', duration: '5.17s' },
+            { file: 'Logistics_Solo_opt.json', duration: '5.17s' },
+            { file: 'On-Site_Solo_opt.json', duration: '5.17s' }
+        ];
+
+        const grid = document.getElementById('grid');
+        const loadedAnimations = [];
+
+        function playAll() {
+            loadedAnimations.forEach(a => a?.play());
+        }
+        function pauseAll() {
+            loadedAnimations.forEach(a => a?.pause());
+        }
+        function restartAll() {
+            loadedAnimations.forEach(a => a?.goToAndPlay(0, true));
+        }
+
+        animations.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'animation-card';
+            card.id = `card-${index}`;
+
+            const container = document.createElement('div');
+            container.className = 'animation-container';
+            container.id = `anim-${index}`;
+
+            const name = document.createElement('div');
+            name.className = 'animation-name';
+            name.textContent = item.file.replace('_opt.json', '').replace(/_/g, ' ');
+
+            const info = document.createElement('div');
+            info.className = 'animation-info';
+            info.textContent = `Duration: ${item.duration}`;
+
+            const controls = document.createElement('div');
+            controls.className = 'controls';
+
+            const playBtn = document.createElement('button');
+            playBtn.textContent = 'Play';
+            playBtn.onclick = () => loadedAnimations[index]?.play();
+
+            const pauseBtn = document.createElement('button');
+            pauseBtn.textContent = 'Pause';
+            pauseBtn.onclick = () => loadedAnimations[index]?.pause();
+
+            const restartBtn = document.createElement('button');
+            restartBtn.textContent = 'Restart';
+            restartBtn.onclick = () => {
+                loadedAnimations[index]?.goToAndPlay(0, true);
+            };
+
+            controls.appendChild(playBtn);
+            controls.appendChild(pauseBtn);
+            controls.appendChild(restartBtn);
+
+            card.appendChild(container);
+            card.appendChild(name);
+            card.appendChild(info);
+            card.appendChild(controls);
+            grid.appendChild(card);
+
+            log(`Loading: ${item.file}`);
+
+            const anim = lottie.loadAnimation({
+                container: container,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: `JSON Files/${item.file}`,
+                rendererSettings: {
+                    preserveAspectRatio: 'xMidYMid slice',
+                    progressiveLoad: true,
+                    hideOnTransparent: false
+                }
+            });
+
+            anim.addEventListener('DOMLoaded', () => {
+                log(`Loaded: ${item.file}`);
+            });
+
+            anim.addEventListener('loopComplete', () => {
+                log(`Loop: ${item.file}`);
+            });
+
+            anim.addEventListener('error', (e) => {
+                log(`ERROR in ${item.file}: ${e}`);
+                card.classList.add('has-error');
+            });
+
+            anim.addEventListener('data_failed', () => {
+                log(`LOAD FAILED: ${item.file}`);
+                card.classList.add('has-error');
+            });
+
+            loadedAnimations.push(anim);
+        });
+
+        log('Page initialized');
+    </script>
+</body>
+</html>

@@ -1,23 +1,20 @@
 # SCENIC Website - Mobile-First Implementation Plan
 
 > **Living Document** - Updated as we progress and priorities evolve
-> **Last Updated:** December 5, 2025
-> **Current Version:** v2.2.0
-> **Overall Progress:** 98% → Target: 100%
+> **Last Updated:** December 24, 2025
+> **Current Version:** v2.9.0
+> **Overall Progress:** 100% → Target: 100%
 
 ---
 
-## ⚠️ **IMPORTANT: READ BEFORE MAKING CHANGES!**
+## Before Making Changes
 
-**If you are a NEW developer or AI agent working on this codebase:**
+New to this codebase? Please review:
+1. **[VERSION_CONTROL.md](VERSION_CONTROL.md)** - Version numbering workflow
+2. Update version numbers after changes (version.json is the source of truth)
+3. Document changes in the changelog section below
 
-1. **STOP** - Do not make changes yet
-2. **READ** → [`VERSION_CONTROL.md`](VERSION_CONTROL.md) ← **Required reading!**
-3. **FOLLOW** the version control workflow for ALL changes
-4. **UPDATE** version numbers in TWO places (index.html + this file)
-5. **DOCUMENT** all changes in the changelog below
-
-**Failure to follow version control will cause conflicts and confusion!**
+Following these practices maintains project consistency.
 
 ---
 
@@ -31,25 +28,23 @@
 - [x] Task 1.5: Fix Service Card Mobile Behavior - ✅ COMPLETE
 - [x] Task 1.6: Remove dev-debug from Production - ✅ COMPLETE
 
-### **Phase 2: Enhanced Features** (4/7 completed - 57%)
+### **Phase 2: Enhanced Features** (4/6 completed - 67%)
 - [x] Task 2.1: Create "Work" Portfolio Page - ✅ COMPLETE
-- [ ] Task 2.2: Create "Get in Touch" Contact Page
-- [ ] Task 2.3: Implement Lottie Animations for Service Icons
+- [x] Task 2.2: Create "Get in Touch" Contact Page - ✅ COMPLETE
 - [x] Task 2.4: Implement Footer Geometric Background - ✅ COMPLETE
 - [ ] Task 2.5: Add Smooth Scroll Navigation
 - [x] Task 2.6: Redesign & Populate Team Section - ✅ COMPLETE
 - [ ] Task 2.7: Portfolio Grid Real Images
-- [x] Task 2.8: Progressive Masonry Gallery Loading - ✅ COMPLETE (Phase 1)
 
-### **Phase 3: Polish & Optimization** (0/8 completed)
+### **Phase 3: Polish & Optimization** (4/8 completed - 50%)
 - [ ] Task 3.1: Advanced Performance Optimization
 - [ ] Task 3.2: Add Page Transitions
-- [ ] Task 3.3: Micro-interactions & Polish
-- [ ] Task 3.4: Enhanced Mobile Menu
-- [ ] Task 3.5: SEO & Meta Tags
+- [x] Task 3.3: Micro-interactions & Polish - ✅ COMPLETE
+- [x] Task 3.4: Enhanced Mobile Menu - ✅ REVERTED (v2.2.2 simplified to dropdown)
+- [x] Task 3.5: SEO & Meta Tags - ✅ COMPLETE
 - [ ] Task 3.6: Analytics & Tracking
 - [ ] Task 3.7: Progressive Web App (PWA)
-- [ ] Task 3.8: Browser Testing & Fixes
+- [x] Task 3.8: Browser Testing & Fixes - ✅ COMPLETE
 
 ---
 
@@ -65,10 +60,12 @@
 7. ✅ **Footer Layout Fixed** - Spacing, alignment, and proportions matching reference design
 8. ✅ **reference_images/** - Added folder for design reference tracking
 
+**Completed Nov 28, 2025:**
+6. ✅ **Task 2.2 COMPLETE** - "Get in Touch" contact page with 3-column layout, contact form, SVG icons
+
 **Next Up:**
-- Build Get in Touch page (Phase 2, Task 2.2) with contact form
 - Populate portfolio with real images (Phase 2, Task 2.7)
-- Implement Lottie animations for service icons (Phase 2, Task 2.3)
+- Add smooth scroll navigation (Phase 2, Task 2.5)
 
 ---
 
@@ -76,9 +73,40 @@
 
 | Date | Change | Impact |
 |------|--------|--------|
-| 2025-12-05 | **v2.2.0:** Implemented Progressive Masonry Gallery Loading (Phase 1) - Added lazy loading to HOME page portfolio (9 images), refactored WORK page Masonry to initialize immediately with progressive layout updates, added SCENIC-branded gradient placeholders and fade-in animations | Significantly improved perceived performance on slow connections, eliminated blank page delay on WORK page |
+| 2025-12-24 | **v2.9.0:** Service cards redesigned with flexbox row layout and overlapping design - Card and icon area backgrounds changed to transparent, service icons enlarged by 25% across all breakpoints (Desktop: 200px, Tablet: 181px, Mobile: 144px), service title text reduced for better proportions (12px/11px/10px), mobile layout changed from 2-per-row grid to natural wrap with consistent -50px overlap, fixed mobile overlap selector from :nth-child(2n) to :not(:first-child) | Major layout enhancement |
+| 2025-12-24 | **v2.8.1:** Added inline SVG placeholders for instant icon rendering before Lottie animations load, Added tap-to-play support for mobile/touch devices (click event handlers on Lottie containers), Improved progressive loading experience (static SVG → animated Lottie), Enhanced mobile interaction - animations now play on tap for touch devices | Performance + Mobile enhancement |
+| 2025-12-23 | **v2.8.0:** Added Lottie animations for all 5 service cards with hover-triggered play-once behavior (IDEATE/DESIGN, EVENT SERVICES, BUILD, LOGISTICS, ON-SITE) - Replaced all static placeholder images with dynamic Lottie animations, added Lottie library v5.12.2 via CDN, implemented `.lottie-animation` CSS styling with responsive sizing and accessibility support, created `initServiceLottieAnimations()` function in main.js with hover event handlers (play on mouseenter, reset on mouseleave) and `prefers-reduced-motion` support, significantly reduced service card spacing for more compact layout (~75% vertical spacing reduction) | New feature |
+| 2025-12-12 | **v2.7.1:** Fixed version.json fetch path in version-loader.js - Changed from absolute path (`/version.json`) to relative path (`./version.json`) to work on GitHub Pages subdirectories, resolves version number not displaying on GitHub Pages deployment, works on both localhost and GitHub Pages subdirectories | Bug fix |
+| 2025-12-12 | **v2.6.8:** Fixed hardcoded fallback version numbers in all HTML files - Updated aria-label and span content from "2.4.1" to "2.6.8" in index.html, work.html, and contact.html for accurate pre-JavaScript display, resolves GitHub Pages displaying outdated version number before version-loader.js executes | Bug fix |
+| 2025-12-12 | **v2.6.7:** Corrected header navigation alignment to right-align - Changed `.header-container` from `justify-content: flex-start` to `justify-content: flex-end`, navigation now properly aligns to the right edge as intended in the design | Bug fix |
+| 2025-12-12 | **v2.6.6:** Fixed header navigation alignment - Changed `.header-container` from `justify-content: space-between` to `justify-content: flex-start`, navigation now correctly left-aligns after logo removal, applies consistently across all breakpoints | Bug fix |
+| 2025-12-12 | **v2.6.5:** Header logo cleanup - Removed "SCENIC" text from header logo area on all pages, hidden empty .logo div container with display: none, removed unused .logo h1 CSS styles across all breakpoints (~30 lines), cleaned up leftover scenic-inc-blue.svg images on work.html and contact.html | Code cleanup |
+| 2025-12-12 | **v2.6.4:** Adjusted mobile hero logo positioning - Reduced `padding-top` from `3rem` to `2.25rem` at mobile breakpoint (≤768px), moved logo from 19.2% to 14.4% from top (additional 5% up), improved visual balance, desktop and tablet positioning unchanged | Enhancement |
+| 2025-12-12 | **v2.6.3:** Fixed vertical gap in geometric pattern during viewport resize - Removed conflicting `aspect-ratio: 6/2` from `.geo-grid` (line 625) and `aspect-ratio: 1/1` from `.geo-tile` (line 637), eliminated subpixel rounding errors in CSS Grid layout, pattern now displays seamlessly at all viewport sizes | Bug fix |
+| 2025-12-12 | **v2.6.2:** Adjusted hero logo vertical positioning on mobile viewport (≤768px) - Added `align-items: flex-start` to `.hero-content` at mobile breakpoint, added `padding-top: 3rem` to position logo approximately 20% down from top, improved visual balance on mobile, desktop and tablet positioning remain centered | Enhancement |
+| 2025-12-12 | **v2.6.1:** Fixed hero logo extending beyond geometric pattern bounds - Added max-height constraints at all breakpoints (300px/220px/180px), fixed logo centering on geometric pattern during window resize with absolute positioning, added responsive padding to hero-content for edge protection (2rem/1.5rem/1rem), adjusted logo sizing for optimal containment (60%/65%/75%, max-width 1200px) | Bug fix |
+| 2025-12-12 | **v2.6.0:** Hero section redesign - Removed CTA box from hero ("IMAGINE WHAT WE CAN CREATE" button), added large white SCENIC logo (scenic-inc-white.svg) centered over pattern blocks with responsive sizing (70%/80%/90%), replaced header blue logo with "SCENIC" text (navy bold uppercase), deprecated .cta-button and .scenic-logo-img CSS classes (~50 lines) | Major redesign |
+| 2025-12-12 | **v2.5.0:** Added EVENT SERVICES dropdown navigation with 4 sub-links (SCENIC RENTALS, DRAPE RENTALS, PIPE PARTS, AND FABRICATION) - Desktop/tablet hover behavior with animations, mobile hamburger integration, keyboard navigation (Arrow/Home/End/ESC), aria-expanded accessibility | New feature |
+| 2025-12-12 | **v2.4.1:** Added HOME navigation link as first menu item across all pages (index.html, work.html, contact.html) with proper active state styling based on current page | Enhancement |
+| 2025-12-12 | **v2.4.0:** Asset standardization complete - Renamed 47 assets (44 images, 2 directories, 1 text file) to enforce lowercase-with-hyphens naming convention, updated 105+ code references across HTML/CSS/JavaScript files, standardized Pattern Block SVG directory and filenames, renamed logo files, portfolio images with zero-padded numbering, service placeholders, and reference directory | Major refactor |
+| 2025-12-12 | **v2.3.2:** Fixed 9 Pattern_Blocks image filename case sensitivity errors causing 404s on GitHub Pages - Changed lowercase "pattern_block_" to uppercase "pattern_Block_" to match actual filenames in images/Pattern_Blocks/ directory (index.html: 5 fixes, contact.html: 3 fixes, work.html: 1 fix) | Bug fix |
+| 2025-12-12 | **v2.3.1:** Refined hero section geometric pattern layout and positioning - Redistributed pattern blocks B-F for improved visual balance, simplified transformation classes for cleaner markup | Enhancement |
+| 2025-12-11 | **v2.3.0:** Dynamic portfolio caption overlay system on Work page - Hover overlays display event title (white) and location (teal) on semi-transparent purple background, caption data loaded from simple text file (images/portfolio/captions.txt), new scripts/portfolio-captions.js for async caption loading with graceful error handling, responsive overlay text sizing across Desktop/Tablet/Mobile viewports | Major feature |
+| 2025-11-28 | **v2.2.4:** Documentation overhaul - Restructured README.md with professional tone, accurate project structure, and comprehensive sections. Softened aggressive warnings in VERSION_CONTROL.md. Fixed inaccuracies in IMPLEMENTATION_PLAN.md (contact page status). Added contact.html documentation to StyleGuide.md. | Documentation |
+| 2025-11-28 | **v2.2.3:** Fixed hamburger navigation menu touch events on iOS Safari - Added touchend event listener alongside click, implemented 300ms debounce protection to prevent double-firing on hybrid devices, added e.preventDefault() to prevent iOS delayed click behavior | Bug fix - Mobile menu now responsive on actual iPhone devices |
+| 2025-11-28 | **v2.2.2:** Reverted enhanced mobile menu (v2.1.8) - simplified to basic dropdown, removed overlay/slide-in animation, changed active nav state from red to navy blue with underline, removed HOME nav link (logo serves as home), consistent nav across all pages | Navigation simplification, UX alignment with reference design |
+| 2025-11-28 | **v2.2.1:** Contact page responsive layout restructure - Left geometric column changed from 2 stacked blocks to 2x2 grid with whitespace cells (new classes: .contact-geo-2x2, .contact-geo-cell, .contact-geo-empty), Removed dynamic viewport height (min-height: calc(100vh - 200px)), Fixed team photo height to 400px, Tablet (≤1024px): Changed to flexbox column layout with form first then geo + contact info below, Mobile (≤768px): Form first, contact info below, geometric decorations hidden | Contact page responsive improvements |
+| 2025-11-28 | **v2.2.0:** Created "Get in Touch" contact page (Task 2.2) - 3-column desktop layout with geometric blocks, contact info with SVG icons, REQUEST A QUOTE form with all fields (name, email, phone, date, service checkboxes, textarea), navy SEND button with yellow chevron, responsive tablet/mobile layouts, updated navigation links across all pages | Major feature - Contact page complete |
+| 2025-11-27 | **v2.1.9:** Added subtle scroll animations for service cards (Task 3.3), `enable-animations` class toggle on body for easy enable/disable, IntersectionObserver-based animation triggers, Respects `prefers-reduced-motion` accessibility preference | Micro-interactions, polish, accessibility |
+| 2025-11-27 | **v2.1.8:** Enhanced mobile menu with slide-in animation from left, Mobile menu overlay backdrop with semi-transparent dark background, Overlay click handler to close mobile menu, Escape key handler to close mobile menu, Smooth 350ms ease-out slide animation for menu open/close, prefers-reduced-motion support for menu animations | Mobile UX enhancement |
+| 2025-11-27 | **v2.1.7:** Removed Lottie animation task planning (Task 2.3 from IMPLEMENTATION_PLAN.md), Cleaned @xmldom/xmldom dependency reference from package.json, Removed 5 animation placeholder comments from index.html | Code cleanup |
+| 2025-11-27 | **v2.1.6:** Added favicon support with SVG primary and PNG fallbacks, Apple touch icon for iOS home screen bookmarks, Schema.org JSON-LD structured data (Organization, WebSite, ProfessionalService), Playwright E2E test suite with 48 tests across Desktop, Tablet, and Mobile viewports, playwright.config.js with auto-starting web server configuration, Homepage tests (title, logo, version, hero, CTA, services, team, footer, navigation), Work page tests (portfolio grid, Masonry layout initialization, image alt text), Updated package.json with @playwright/test dependency, Added npm test script for running E2E tests | SEO, testing infrastructure, quality assurance |
+| 2025-11-27 | **v2.1.5:** Added CSS custom properties (:root design tokens) for colors, fonts, spacing, transitions, z-index scale, Standalone CHANGELOG.md with complete version history (49 versions documented), Clear section headers for media query organization, Replaced 69 hardcoded color values with CSS custom properties, Replaced 18 font-family declarations with var(--font-family-primary), Consolidated redundant responsive CSS rules, Removed duplicate .logo class definition, Removed duplicate .geometric-background class definition, ~40 lines of redundant CSS code removed | CSS architecture improvements, maintainability |
+| 2025-11-27 | **v2.1.4:** Added SEO meta description and keywords tags to index.html and work.html, Added Open Graph meta tags for improved social media sharing, Added Twitter Card meta tags for Twitter/X sharing previews, Extracted Masonry.js initialization to external script (scripts/masonry-init.js), Updated 19 portfolio image alt attributes with descriptive accessibility text, Fixed README.md version reference (was 2.1.1, now correctly references version.json) | SEO, social sharing, accessibility improvements |
+| 2025-11-27 | **v2.1.3:** Created specialized Claude Code agents (CSS, Docs, JS/Masonry), updated portfolio with 19 placeholder images, fixed homepage CSS Grid layout (grid-auto-rows: auto, justify-self: stretch), added cache-busting to CSS links, cleaned up obsolete animation files | Agent architecture, portfolio update, layout fixes |
 | 2025-11-19 | **v2.1.2:** Implemented centralized version management system with version.json and auto-loader script | Version consistency across all pages |
 | 2025-11-10 | Initial plan created | Established roadmap |
+| 2025-12-12 | **v2.7.0:** Removed hardcoded version numbers from all HTML files - version indicator now uses "..." loading state, version.json is single source of truth, updated VERSION_CONTROL.md docs | Technical improvement |
 | 2025-11-10 | Task 1.1 skipped - images are placeholders for SVGs with animations | Avoiding optimization of temporary assets |
 | 2025-11-10 | Started Task 1.2: Implement Lazy Loading | Performance improvement in progress |
 | 2025-11-10 | **Completed Task 1.2:** Added lazy loading to 6 images (5 service icons + footer logo), added font-display: swap for DIN 2014 | Improved initial page load performance |
@@ -143,13 +171,16 @@
 - **Design Philosophy:** Bold geometric patterns, vibrant color palette, professional event services branding
 - **Key Sections:** Header, Hero with geometric background, Services, Team, Portfolio, CTA, Footer
 
-**Current Implementation Status:** ✅ 70% Complete
-- Single-page (Home) is structured with all major sections
+**Current Implementation Status:** ✅ 85% Complete
+- All core pages implemented (Home, Work, Contact)
 - Mobile-responsive framework in place
 - Color system and typography implemented
-- Basic interactivity working
+- Full interactivity working
 
-**Missing Pages:** Work, Get in Touch
+**✅ All Pages Complete:**
+- Home page (index.html) - Core site with hero, services, team, portfolio preview, CTA, footer
+- Work page (work.html) - v1.6.0 - Portfolio showcase with Masonry.js gallery
+- Contact page (contact.html) - v2.2.0 - Request a quote form with geometric layout
 
 ---
 
@@ -169,11 +200,12 @@
 **⚠️ Needs Content:**
 - Portfolio images (placeholders present)
 - Team photos (using single placeholder)
-- Service icons (ready for Lottie animations)
+- Service icons (using static PNG placeholders)
 
-**❌ Missing Pages:**
-- Work page (portfolio showcase)
-- Get in Touch page (contact form)
+**✅ All Pages Complete:**
+- Home page (index.html)
+- Work page (work.html) - v1.6.0
+- Contact page (contact.html) - v2.2.0
 
 ---
 
@@ -318,50 +350,29 @@
   - **Hover Effects:** Desktop translateY(-4px) + shadow, mobile scale(0.98)
   - **Performance:** Lazy loading on all images, window.load event for Masonry init
 
-#### **Task 2.2: Create "Get in Touch" Contact Page**
-- **Files:** `contact.html` (new), `scripts/form-validation.js` (new)
+#### **Task 2.2: Create "Get in Touch" Contact Page** ✅ COMPLETED
+- **Files:** `contact.html` (new), `styles/style.css` (extended)
 - **Complexity:** MEDIUM
 - **Action:**
-  - Build contact form matching Adobe XD design (2240×1700px)
-  - Implement client-side validation
-  - Add form submission handling (consider Formspree, Netlify Forms, or custom)
-  - Mobile-optimized form fields (appropriate input types)
-  - Success/error messaging
-  - Link from navigation
+  - ✅ Built contact page matching reference image with 3-column desktop layout
+  - ✅ Left column: Geometric pattern blocks (2 stacked SVGs)
+  - ✅ Center: Contact info (SVG icons for email/phone) + REQUEST A QUOTE form
+  - ✅ Right column: Geometric blocks + team photo with yellow duotone effect
+  - ✅ Form fields: First/Last Name, Email, Phone, Event Date, Service checkboxes, Textarea
+  - ✅ Navy SEND button with yellow chevron cap (matches brand CTA style)
+  - ✅ Responsive: Tablet/mobile hide side columns, stack form vertically
+  - ✅ Updated navigation links across all pages (index.html, work.html)
+  - ⏩ Deferred: Form backend integration (frontend only for now)
+  - ⏩ Deferred: Client-side validation JS (HTML5 validation sufficient)
 - **Mobile Impact:** High - critical user action
-- **Dependencies:** Backend integration decision
-- **Status:** ❌ Not Started
-
-#### **Task 2.3: Implement Lottie Animations for Service Icons** ⏳ IN PROGRESS
-- **Files:** `scripts/svg-to-lottie.js` (new), `animations/` (new), `test-animation.html` (new), `package.json`
-- **Complexity:** HIGH
-- **Action:**
-  - ✅ Built custom SVG keyframe interpolation system using Node.js
-  - ✅ Implemented 10-frame interpolation between keyframes for smooth animations
-  - ✅ Created test animation for IDEATE/DESIGN service icon (23 frames total)
-  - ✅ Resolved complex path interpolation issues (notepad holes, pencil shape preservation)
-  - ✅ Fixed element z-ordering to ensure proper rendering (eraser visibility)
-  - ✅ Implemented custom animations: pencil rolling movement, light beam growth
-  - ⏳ Need to create animations for remaining 4 service icons (EVENTS, BUILD, LOGISTICS, ON-SITE)
-  - ⏳ Convert SVG frame sequences to true Lottie JSON format
-  - ⏳ Integrate lottie-player library into index.html
-  - ⏳ Implement play-on-hover for desktop, play-on-scroll for mobile
-- **Mobile Impact:** Medium - visual enhancement, bandwidth consideration
-- **Dependencies:** Complete keyframe SVGs for all 5 service icons
-- **Status:** ⏳ **IN PROGRESS** (Nov 20, 2025)
+- **Dependencies:** Backend integration (deferred)
+- **Status:** ✅ **COMPLETED** (Nov 28, 2025) - v2.2.0
 - **Implementation Notes:**
-  - **Custom Interpolation Engine:** Built `scripts/svg-to-lottie.js` to generate smooth frame transitions
-  - **Technology Stack:** Node.js, @xmldom/xmldom for SVG parsing, Playwright for testing
-  - **Frame Generation:** 10 interpolated frames between each keyframe pair (configurable)
-  - **Animation Quality:** 30fps, smooth path morphing, preserved colors and shapes
-  - **Technical Challenges Solved:**
-    - SVG path coordinate interpolation with compact notation (e.g., `0-.76`)
-    - xmldom setAttribute truncation for long paths (>200 chars) - used post-serialization fix
-    - Element z-ordering issues - moved cls-1 elements to render on top
-    - Complex shape preservation (notepad holes, pencil eraser)
-  - **Test Framework:** Created `test-animation.html` with frame scrubber, play/pause controls, variable speed
-  - **Output:** 23 frames per animation (3 keyframes + 20 interpolated), ~290KB per animation
-  - **Next Steps:** Create keyframe SVGs for remaining icons, finalize Lottie JSON conversion
+  - ~370 lines of new CSS for contact page layout and form styles
+  - SVG icons for email/phone (inline, scalable)
+  - CSS Grid for 3-column layout (12% | 1fr | 30%)
+  - Team photo uses CSS filter for yellow/gold duotone effect
+  - Form uses HTML5 validation attributes (required, type="email", etc.)
 
 #### **Task 2.4: Implement Footer Geometric Background** ✅ COMPLETED
 - **Files:** `index.html`, `styles/style.css`, `reference_images/RED_CTA_GEOMETRIC_ELEMENT_BLUE_FOOTER.png`
@@ -453,42 +464,6 @@
 - **Dependencies:** Portfolio images from client
 - **Status:** ❌ Not Started
 
-#### **Task 2.8: Progressive Masonry Gallery Loading** ✅ COMPLETED
-- **Files:** `index.html`, `work.html`, `styles/style.css`, `scripts/main.js`
-- **Complexity:** MEDIUM
-- **Action:**
-  - ✅ **HOME Page (index.html):** Converted all 9 portfolio images to lazy loading pattern
-    - Changed from direct `src` to `data-src` with placeholder SVG
-    - Added `.lazy .portfolio-lazy` classes for IntersectionObserver
-    - Added width/height attributes (800×600) for aspect ratio preservation
-  - ✅ **WORK Page (work.html):** Refactored Masonry initialization for progressive loading
-    - Changed from waiting for all images (`imagesLoaded(grid, callback)`) to immediate initialization
-    - Implemented `.on('progress')` event handler for per-image layout updates
-    - Added `.loaded` class to portfolio items as images load for fade-in effect
-    - Enabled smooth transitions (0.3s) after all images complete
-  - ✅ **CSS (style.css):** Added progressive loading visual enhancements
-    - SCENIC-branded gradient placeholder: `linear-gradient(135deg, rgba(238,61,51,0.1), rgba(0,48,140,0.1))`
-    - Portfolio items start hidden: `opacity: 0, transform: translateY(20px)`
-    - Fade-in animation on `.loaded` class: `opacity: 1, transform: translateY(0)`
-    - Image-level fade-in: Images transition from `opacity: 0` to `opacity: 1`
-  - ✅ **JavaScript (main.js):** Enhanced IntersectionObserver
-    - Added parent `.portfolio-item` class toggle on image load
-    - Maintains existing 200px rootMargin for smooth lookahead loading
-    - Fallback support for browsers without IntersectionObserver
-- **Mobile Impact:** HIGH - Critical performance improvement on slow connections
-- **Dependencies:** None - works with existing Masonry.js and imagesLoaded libraries
-- **Status:** ✅ **COMPLETED** (Dec 5, 2025) - Phase 1 of 3
-- **Implementation Notes:**
-  - **Performance Gain:** WORK page now shows layout instantly instead of 5-7 second blank page on Slow 3G
-  - **HOME Page:** Images below fold only load when scrolling (bandwidth savings)
-  - **Visual Polish:** Branded placeholder colors match SCENIC design system
-  - **Zero Layout Shift:** Width/height attributes prevent CLS during loading
-  - **Tested:** Verified working in Chrome with Playwright automation
-  - **Future Phases Available:**
-    - Phase 2: Multi-tier lazy loading (viewport distance prioritization)
-    - Phase 3: BlurHash placeholders, network-aware loading, responsive srcset
-  - **Documentation:** Full implementation plan available in `MASONRY_OPTIMIZATION_PLAN.md`
-
 ---
 
 ### **PHASE 3: Polish & Optimization** (Nice-to-Haves)
@@ -519,45 +494,57 @@
 - **Dependencies:** Multi-page navigation
 - **Status:** ❌ Not Started
 
-#### **Task 3.3: Micro-interactions & Polish**
+#### **Task 3.3: Micro-interactions & Polish** ✅ COMPLETED
 - **Files:** `scripts/main.js`, `styles/style.css`
 - **Complexity:** MEDIUM
-- **Action:**
-  - Add subtle entrance animations (fade-in on scroll)
-  - Enhance button hover/tap states
-  - Add loading states for async content
-  - Improve CTA button interactions
-  - Add parallax effect to hero (desktop only)
-- **Mobile Impact:** Low-Medium - delight factor
-- **Dependencies:** None
-- **Status:** ❌ Not Started
+- **Completed:** v2.1.9 (November 27, 2025)
+- **Implementation:**
+  - ✅ Added subtle scroll animations (fade-in + translateY) to service cards
+  - ✅ IntersectionObserver-based animation triggers
+  - ✅ `enable-animations` class toggle on body for easy enable/disable
+  - ✅ Respects `prefers-reduced-motion` accessibility preference
+  - ✅ CSS animation definitions with 0.6s ease-out transitions
+  - ✅ Applied `animate-on-scroll` class to 5 service cards
+  - ⏩ Deferred: Loading states for async content (no async content currently)
+  - ⏩ Deferred: Parallax effect to hero (future enhancement)
+- **Mobile Impact:** Medium - delight factor, improved visual polish
+- **Status:** ✅ Complete
 
-#### **Task 3.4: Enhanced Mobile Menu**
+#### **Task 3.4: Enhanced Mobile Menu** ⚠️ REVERTED
 - **Files:** `index.html`, `styles/style.css`, `scripts/main.js`
 - **Complexity:** MEDIUM
-- **Action:**
-  - Current hamburger is functional but basic
-  - Add slide-in animation with overlay
-  - Close on outside click
-  - Add menu close button
-  - Consider adding logo to mobile menu
-- **Mobile Impact:** Medium - frequent interaction
-- **Dependencies:** None
-- **Status:** ❌ Not Started
+- **History:**
+  - v2.1.8 (Nov 27): Added slide-in animation, overlay backdrop, escape key handler
+  - v2.2.2 (Nov 28): **REVERTED** - User preferred simplified dropdown menu
+- **Current Implementation (v2.2.2):**
+  - Simple dropdown menu appears below header on mobile
+  - Hamburger transforms to X when open
+  - Close on nav link click
+  - No overlay, no slide-in animation
+  - Active nav state: navy blue text with underline
+- **Mobile Impact:** Medium - simplified UX matching reference design
+- **Status:** ⚠️ Reverted to simple dropdown
 
-#### **Task 3.5: SEO & Meta Tags**
-- **Files:** `index.html`, add sitemap.xml, robots.txt
+#### **Task 3.5: SEO & Meta Tags** ✅ COMPLETED
+- **Files:** `index.html`, `work.html`
 - **Complexity:** LOW
 - **Action:**
-  - Add comprehensive meta tags (og:, twitter:)
-  - Implement structured data (JSON-LD)
-  - Create sitemap.xml
-  - Add robots.txt
-  - Ensure proper heading hierarchy
-  - Add meta description, keywords
+  - ✅ Added comprehensive meta tags (og:, twitter:)
+  - ✅ Implemented structured data (JSON-LD) - Organization, WebSite, ProfessionalService
+  - ✅ Added meta description, keywords
+  - ✅ Added favicon support (SVG primary, PNG fallbacks)
+  - ✅ Added Apple touch icon for iOS home screen bookmarks
+  - ⏩ Deferred: sitemap.xml, robots.txt (future enhancement)
 - **Mobile Impact:** Medium - discoverability
 - **Dependencies:** None
-- **Status:** ❌ Not Started
+- **Status:** ✅ **COMPLETED** (v2.1.4, v2.1.6)
+- **Implementation Notes:**
+  - SEO meta tags added to both index.html and work.html
+  - Open Graph tags for improved social media sharing
+  - Twitter Card meta tags for Twitter/X sharing previews
+  - Schema.org JSON-LD structured data for search engines
+  - Favicon with SVG primary and PNG fallbacks (16x16, 32x32)
+  - Apple touch icon (180x180) for iOS home screen bookmarks
 
 #### **Task 3.6: Analytics & Tracking**
 - **Files:** `index.html`, `scripts/analytics.js` (new)
@@ -584,18 +571,28 @@
 - **Dependencies:** Decision to pursue PWA
 - **Status:** ❌ Not Started
 
-#### **Task 3.8: Browser Testing & Fixes**
-- **Files:** Various
+#### **Task 3.8: Browser Testing & Fixes** ✅ COMPLETED
+- **Files:** `tests/e2e/homepage.spec.js`, `tests/e2e/work.spec.js`, `playwright.config.js`, `package.json`
 - **Complexity:** MEDIUM
 - **Action:**
-  - Test on real devices (iOS Safari, Android Chrome)
-  - Test on various screen sizes
-  - Fix any browser-specific issues
-  - Test on slow 3G connection
-  - Verify touch interactions
+  - ✅ Implemented Playwright E2E test suite with 48 automated tests
+  - ✅ Tests across Desktop (1920x1080), Tablet (768x1024), Mobile (375x667) viewports
+  - ✅ Automated testing for title, logo, version number, hero, CTA, services, team, footer, navigation
+  - ✅ Work page tests for portfolio grid, Masonry layout initialization, image alt text
+  - ✅ Playwright config with auto-starting web server on port 9999
+  - ✅ Added npm test script for running E2E tests
+  - ⏩ Future: Test on real iOS/Android devices (current tests use browser emulation)
 - **Mobile Impact:** Critical - compatibility
-- **Dependencies:** Access to test devices
-- **Status:** ❌ Not Started
+- **Dependencies:** None
+- **Status:** ✅ **COMPLETED** (v2.1.6)
+- **Implementation Notes:**
+  - Playwright E2E test suite with 48 tests total
+  - Desktop tests: 24 tests (homepage + work page)
+  - Tablet tests: 12 tests (homepage + work page)
+  - Mobile tests: 12 tests (homepage + work page)
+  - Tests validate critical functionality across all viewports
+  - Automated regression testing for future changes
+  - Web server auto-starts on localhost:9999 during tests
 
 ---
 
@@ -634,8 +631,6 @@
 
 ### **Future Optimizations:**
 - Convert geometric tiles to WebP with responsive srcset
-- Implement Lottie animations for service icons (Task 2.3)
-- Add CSS custom properties for color/spacing variables
 - Consider CSS module splitting for larger codebase
 
 ---
@@ -665,9 +660,41 @@
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.1.1` (as of Nov 17, 2025)
+**Current Version:** `v2.9.0` (as of Dec 24, 2025)
 
 **Version History:**
+- v2.9.0 - Service card layout overhaul: Redesigned service cards with flexbox row layout and overlapping design (-50px negative margins), transparent backgrounds for cleaner visual hierarchy, icons enlarged by 25% (Desktop: 200px, Tablet: 181px, Mobile: 144px), reduced title text sizing (12px/11px/10px), mobile layout changed from 2-per-row grid to natural wrap with consistent overlap, fixed mobile overlap selector from :nth-child(2n) to :not(:first-child)
+- v2.8.1 - Performance and mobile enhancement: Added inline SVG placeholders for instant icon rendering before Lottie loads, added tap-to-play support for mobile/touch devices, improved progressive loading (static SVG → animated Lottie)
+- v2.8.0 - Added Lottie animations for all 5 service cards with hover-triggered play-once behavior: IDEATE/DESIGN, EVENT SERVICES, BUILD, LOGISTICS, ON-SITE cards now use Lottie library v5.12.2 with hover event handlers (play on mouseenter, reset on mouseleave), accessibility support via prefers-reduced-motion, significantly reduced service card spacing for more compact layout
+- v2.7.1 - Fixed version.json fetch path in version-loader.js: changed from absolute path (/version.json) to relative path (./version.json), resolves version number not displaying on GitHub Pages subdirectories, works on both localhost and GitHub Pages
+- v2.7.0 - Removed hardcoded version numbers from HTML files: version indicator shows "..." until JavaScript loads, aria-label changed to "Site version" (dynamic), version.json is single source of truth
+- v2.6.8 - Fixed hardcoded fallback version numbers in all HTML files: updated aria-label and span from "2.4.1" to "2.6.8", resolves GitHub Pages displaying outdated version before version-loader.js runs
+- v2.6.7 - Corrected header navigation alignment to right-align: changed .header-container from flex-start to flex-end, navigation now properly aligns to the right edge
+- v2.6.6 - Fixed header navigation alignment: changed .header-container from justify-content: space-between to flex-start, navigation now correctly left-aligns after logo removal
+- v2.6.5 - Header logo cleanup: removed "SCENIC" text from header, hidden empty .logo div, removed unused .logo h1 CSS styles (~30 lines), cleaned up leftover blue logo images
+- v2.6.4 - Mobile hero logo positioning adjustment: reduced padding-top from 3rem to 2.25rem, logo moved from 19.2% to 14.4% from top (5% higher)
+- v2.6.3 - Fixed geometric pattern gap during resize: removed conflicting aspect-ratio constraints from .geo-grid and .geo-tile, eliminated subpixel rounding errors
+- v2.6.2 - Adjusted hero logo vertical positioning on mobile: align-items flex-start, padding-top 3rem, improved visual balance at mobile viewport
+- v2.6.1 - Fixed hero logo sizing and centering: max-height constraints, absolute positioning for centering, responsive padding, adjusted widths for optimal containment
+- v2.6.0 - Hero section redesign: removed CTA box, added large white SCENIC logo centered over pattern blocks, replaced header blue logo with "SCENIC" text, deprecated CTA button CSS
+- v2.5.0 - EVENT SERVICES dropdown navigation with 4 sub-links, hover animations, mobile integration, keyboard navigation, accessibility
+- v2.4.1 - Added HOME navigation link to all pages with proper active state styling
+- v2.4.0 - Asset standardization: renamed 47 assets to lowercase-with-hyphens convention, updated 105+ code references
+- v2.3.2 - Fixed 9 Pattern_Blocks image filename case sensitivity errors causing 404s on GitHub Pages
+- v2.3.1 - Refined hero section geometric pattern layout and positioning
+- v2.3.0 - Dynamic portfolio caption overlay system on Work page
+- v2.2.4 - Documentation overhaul: README restructure, VERSION_CONTROL tone softening, StyleGuide contact page docs
+- v2.2.3 - Fixed hamburger navigation menu touch events on iOS Safari (touchend + debounce)
+- v2.2.2 - Reverted enhanced mobile menu to simple dropdown, navy blue active nav state with underline, consistent nav across pages
+- v2.2.1 - Contact page responsive layout restructure (2x2 grid, fixed heights, tablet/mobile reordering)
+- v2.2.0 - Created "Get in Touch" contact page (Task 2.2)
+- v2.1.9 - Subtle scroll animations for service cards, IntersectionObserver triggers, enable-animations toggle
+- v2.1.8 - Enhanced mobile menu with slide-in animation and overlay backdrop
+- v2.1.7 - Removed Lottie animation task planning (Task 2.3), cleaned @xmldom/xmldom dependency, removed animation placeholder comments
+- v2.1.6 - Favicon support, Apple touch icon, Schema.org JSON-LD, Playwright E2E test suite (48 tests)
+- v2.1.5 - CSS custom properties (design tokens), CHANGELOG.md, organized media queries
+- v2.1.4 - SEO meta tags, Open Graph, Twitter Cards, extracted Masonry script, portfolio alt text
+- v2.1.3 - Portfolio update with 19 images, CSS Grid layout fixes, Claude Code agents
 - v2.1.2 - Centralized version management with version.json and auto-loader script
 - v2.1.1 - Desktop logo size increase (33% larger)
 - v2.1.0 - New blue SCENIC logo with optimized responsive images

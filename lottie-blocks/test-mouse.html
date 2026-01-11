@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottie Mouse Control Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        h1 { text-align: center; margin-bottom: 10px; }
+        .instructions {
+            text-align: center;
+            color: #888;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .options {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .options label {
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 8px;
+            background: #16213e;
+            color: #fff;
+            border: 1px solid #0f4c75;
+            margin: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .options input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 24px;
+            color: #4ecdc4;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 12px;
+        }
+        .animation-container {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            background: #0f0f23;
+            border-radius: 12px;
+        }
+        .scrub-track {
+            width: 80%;
+            max-width: 600px;
+            height: 8px;
+            background: #16213e;
+            border-radius: 4px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .scrub-progress {
+            height: 100%;
+            background: #4ecdc4;
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.05s ease-out;
+        }
+        .scrub-handle {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            left: 0%;
+            transition: left 0.05s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mouse-Controlled Animation</h1>
+    <p class="instructions">Move your mouse left/right anywhere on the page to scrub through the animation</p>
+
+    <div class="options">
+        <label>
+            <input type="checkbox" id="flip-horizontal" onchange="updateFlip()">
+            Flip Horizontal (vertical axis)
+        </label>
+        <label>
+            <input type="checkbox" id="flip-vertical" onchange="updateFlip()">
+            Flip Vertical (horizontal axis)
+        </label>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-value" id="mouse-x">0</div>
+            <div class="stat-label">Mouse X</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value" id="progress">0%</div>
+            <div class="stat-label">Progress</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value" id="frame">0</div>
+            <div class="stat-label">Frame</div>
+        </div>
+    </div>
+
+    <div class="scrub-track">
+        <div class="scrub-progress" id="scrub-progress"></div>
+        <div class="scrub-handle" id="scrub-handle"></div>
+    </div>
+
+    <div class="animation-container" id="anim-container"></div>
+
+    <script>
+        const container = document.getElementById('anim-container');
+        const mouseXDisplay = document.getElementById('mouse-x');
+        const progressDisplay = document.getElementById('progress');
+        const frameDisplay = document.getElementById('frame');
+        const scrubProgress = document.getElementById('scrub-progress');
+        const scrubHandle = document.getElementById('scrub-handle');
+
+        // Load animation
+        const anim = lottie.loadAnimation({
+            container: container,
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            path: 'JSON Files/Block A_opt.json'
+        });
+
+        let totalFrames = 0;
+
+        anim.addEventListener('DOMLoaded', () => {
+            totalFrames = anim.totalFrames;
+            console.log(`Animation loaded: ${totalFrames} frames`);
+        });
+
+        // Track mouse movement
+        document.addEventListener('mousemove', (e) => {
+            const windowWidth = window.innerWidth;
+            const mouseX = e.clientX;
+
+            // Calculate progress (0 to 1) based on mouse X position
+            // Left edge = 0%, Right edge = 100%
+            const progress = mouseX / windowWidth;
+
+            // Calculate frame number
+            const frame = progress * totalFrames;
+
+            // Go to that frame
+            anim.goToAndStop(frame, true);
+
+            // Update displays
+            mouseXDisplay.textContent = mouseX;
+            progressDisplay.textContent = Math.round(progress * 100) + '%';
+            frameDisplay.textContent = Math.round(frame);
+
+            // Update scrub bar
+            scrubProgress.style.width = (progress * 100) + '%';
+            scrubHandle.style.left = (progress * 100) + '%';
+        });
+
+        function updateFlip() {
+            const flipH = document.getElementById('flip-horizontal').checked;
+            const flipV = document.getElementById('flip-vertical').checked;
+
+            const scaleX = flipH ? -1 : 1;
+            const scaleY = flipV ? -1 : 1;
+
+            container.style.transform = `scale(${scaleX}, ${scaleY})`;
+        }
+    </script>
+</body>
+</html>

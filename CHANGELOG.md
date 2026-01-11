@@ -1,0 +1,635 @@
+# Changelog
+
+All notable changes to the SCENIC project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+<!-- Future changes go here -->
+
+## [2.9.0] - 2025-12-24
+### Changed
+- Service cards redesigned with flexbox row layout and overlapping design
+- Card and icon area backgrounds changed to transparent for cleaner visual hierarchy
+- Service icons enlarged by 25% across all breakpoints (Desktop: 200px, Tablet: 181px, Mobile: 144px)
+- Service title text reduced for better proportions (Desktop: 12px, Tablet: 11px, Mobile: 10px)
+- Mobile layout changed from 2-per-row grid to natural wrap with consistent overlap (-50px negative margins)
+- Service cards now overlap using -50px negative left margins for modern layered aesthetic
+- Fixed mobile overlap selector from :nth-child(2n) to :not(:first-child) for consistent behavior
+
+## [2.8.1] - 2025-12-24
+### Added
+- Inline SVG placeholders for instant icon rendering before Lottie animations load
+- Tap-to-play support for mobile/touch devices (click event handlers on Lottie containers)
+
+### Changed
+- Improved progressive loading experience (static SVG → animated Lottie)
+- Enhanced mobile interaction - animations now play on tap for touch devices
+
+## [2.8.0] - 2025-12-23
+### Added
+- Lottie animations for all 5 service cards with hover-triggered play-once behavior
+  - IDEATE/DESIGN → Design_Ideation_Solo_opt.json
+  - EVENT SERVICES → Events_Solo_opt.json
+  - BUILD → Build_Solo_opt.json
+  - LOGISTICS → Logistics_Solo_opt.json
+  - ON-SITE → On-Site_Solo_opt.json
+- Lottie library v5.12.2 via CDN in index.html for lightweight animation playback
+- `.lottie-animation` CSS styling with responsive sizing (max-width/height constraints)
+- `initServiceLottieAnimations()` function in main.js with hover event handlers (play on mouseenter, reset on mouseleave)
+- `prefers-reduced-motion` media query support to respect user accessibility preferences
+- Replaced all 5 service card `<img>` placeholders with `<div id="lottie-*">` containers for dynamic Lottie rendering
+
+### Changed
+- Significantly reduced service card spacing for more compact layout (~75% reduction in vertical spacing)
+
+## [2.7.1] - 2025-12-12
+### Fixed
+- Fixed version.json fetch path in version-loader.js to work on GitHub Pages subdirectories
+- Changed from absolute path (`/version.json`) to relative path (`./version.json`)
+- Resolves issue where version number wasn't displaying on GitHub Pages deployment
+- Now works correctly on both localhost and GitHub Pages subdirectories (e.g., username.github.io/project)
+
+## [2.7.0] - 2025-12-12
+### Changed
+- Removed hardcoded version numbers from all HTML files (index.html, work.html, contact.html)
+- Version indicator now displays "..." as loading state until JavaScript populates from version.json
+- Changed aria-label from "Site version 2.6.8" to "Site version" for dynamic content
+- version.json is now the single source of truth for version numbers (no manual HTML updates needed)
+- Updated VERSION_CONTROL.md documentation to clarify that only 2 files need manual version updates (version.json and IMPLEMENTATION_PLAN.md)
+- Added best practice guidance: "Never manually edit version numbers in HTML files"
+
+## [2.6.8] - 2025-12-12
+### Fixed
+- Fixed hardcoded fallback version numbers in all HTML files (index.html, work.html, contact.html)
+- Updated aria-label and span content from "2.4.1" to "2.6.8" for accurate pre-JavaScript display
+- Resolves GitHub Pages displaying outdated version number before version-loader.js executes
+
+## [2.6.7] - 2025-12-12
+### Changed
+- Corrected header navigation alignment to right-align across all pages
+- Changed `.header-container` from `justify-content: flex-start` to `justify-content: flex-end` in CSS
+- Navigation now properly aligns to the right edge as intended in the design
+
+## [2.6.6] - 2025-12-12
+### Fixed
+- Fixed header navigation alignment issue after logo removal
+- Changed `.header-container` from `justify-content: space-between` to `justify-content: flex-start`
+- Navigation now correctly left-aligns when only one visible flex child remains
+- Applies consistently across all breakpoints (desktop, tablet, mobile)
+
+## [2.6.5] - 2025-12-12
+### Removed
+- Removed "SCENIC" text from header logo area on all pages (index.html, contact.html, work.html)
+- Hidden empty `.logo` div container with `display: none` in CSS
+- Removed unused `.logo h1` CSS styles across all breakpoints (base, tablet, mobile) - approximately 30 lines
+- Cleaned up leftover scenic-inc-blue.svg logo images from work.html and contact.html
+
+## [2.6.4] - 2025-12-12
+### Changed
+- Adjusted mobile hero logo vertical positioning for improved visual balance
+- Reduced `padding-top` from `3rem` to `2.25rem` at mobile breakpoint (≤768px)
+- Logo now positioned at 14.4% from top (previously 19.2%), moving it 5% higher on mobile viewports
+- Desktop and tablet positioning remain unchanged (centered)
+
+## [2.6.3] - 2025-12-12
+### Fixed
+- Fixed vertical gap in geometric pattern during viewport resize
+- Removed conflicting `aspect-ratio` constraints from `.geo-grid` and `.geo-tile` CSS classes
+- Eliminated subpixel rounding errors in CSS Grid layout caused by conflicting aspect-ratio + fixed height + responsive width
+- Pattern now displays seamlessly at all viewport sizes without gaps from centerline to right side
+
+## [2.6.2] - 2025-12-12
+### Changed
+- Adjusted hero logo vertical positioning on mobile viewport (≤768px)
+- Added `align-items: flex-start` to `.hero-content` at mobile breakpoint
+- Added `padding-top: 3rem` to position logo approximately 20% down from top
+- Improved visual balance and prevents logo from being too centered on mobile
+- Desktop and tablet positioning remain unchanged (centered)
+
+## [2.6.1] - 2025-12-12
+### Fixed
+- Fixed hero logo extending beyond geometric pattern bounds with max-height constraints (300px desktop, 220px tablet, 180px mobile)
+- Fixed hero logo not staying centered on geometric pattern during window resize
+- Added responsive padding to hero-content for edge protection (2rem desktop, 1.5rem tablet, 1rem mobile)
+- Adjusted logo sizing for optimal containment within pattern (60% desktop, 65% tablet, 75% mobile, max-width 1200px)
+- Changed hero-content to absolute positioning with top: 0, left: 0 to track geometric background
+
+## [2.6.0] - 2025-12-12
+### Changed
+- Hero section redesign: removed CTA box ("IMAGINE WHAT WE CAN CREATE" button) from hero
+- Added large white SCENIC logo (scenic-inc-white.svg) centered over pattern blocks
+- Logo responsive sizing: Desktop 70%, Tablet 80%, Mobile 90%
+- Header redesign: replaced blue logo SVG with "SCENIC" text (navy, bold, uppercase)
+- Flexbox centering applied to .hero-content for improved layout
+
+### Removed
+- CTA button HTML structure and call-to-action from hero section
+- Deprecated .cta-button CSS class and related styles (~50 lines)
+- Deprecated .scenic-logo-img CSS class from header
+- scenic-inc-blue.svg logo image removed from header
+
+## [2.5.0] - 2025-12-12
+### Added
+- Event Services dropdown navigation menu with 4 sub-links (SCENIC RENTALS, DRAPE RENTALS, PIPE PARTS, AND FABRICATION)
+- Dropdown hover behavior with smooth animations on desktop and tablet viewports
+- Mobile hamburger menu integration for dropdown navigation
+- Keyboard navigation support (Arrow keys, Home, End, ESC) for dropdown menu
+- Aria-expanded accessibility attributes for screen reader support
+- Chevron indicator on EVENT SERVICES link to signal dropdown functionality
+
+### Changed
+- EVENT SERVICES navigation link now triggers dropdown submenu instead of direct navigation
+- Navigation structure enhanced with nested submenu HTML across all 3 pages (index.html, contact.html, work.html)
+
+## [2.4.1] - 2025-12-12
+### Added
+- Added HOME navigation link as first menu item across all pages (index.html, work.html, contact.html)
+- Implemented proper active state styling for HOME link based on current page
+
+## [2.4.0] - 2025-12-12
+### Changed
+- **Asset Standardization:** Renamed 47 assets (44 images, 2 directories, 1 text file) to enforce lowercase-with-hyphens naming convention across entire project
+- Updated 105+ code references across HTML, CSS, and JavaScript files to reflect new asset paths
+- Standardized Pattern Block SVG directory (`Pattern_Blocks` → `pattern-blocks`) and filenames
+- Renamed logo files (`Scenic_Inc_*.svg` → `scenic-inc-*.svg`)
+- Renamed portfolio images with zero-padded numbering (`placeholder_png_X.png` → `portfolio-placeholder-0X.png`)
+- Renamed service placeholder images with `service-` prefix for better organization
+- Renamed reference directory (`reference_images` → `reference-images`)
+- Established foundation for maintainable asset management and consistent naming standards
+
+## [2.3.2] - 2025-12-12
+### Fixed
+- Fixed 9 Pattern_Blocks image filename case sensitivity errors causing 404s on GitHub Pages
+- Changed lowercase "pattern_block_" to uppercase "pattern_Block_" to match actual filenames in images/Pattern_Blocks/
+- Affected files: index.html (5 fixes), contact.html (3 fixes), work.html (1 fix)
+
+## [2.3.1] - 2025-12-12
+### Changed
+- Refined hero section geometric pattern layout and positioning
+- Redistributed pattern blocks B-F for improved visual balance
+- Simplified transformation classes for cleaner markup
+
+## [2.3.0] - 2025-12-11
+### Added
+- Dynamic portfolio caption overlay system on Work page
+- Hover overlays display event title (white) and location (teal) on semi-transparent purple background
+- Caption data loaded from simple text file (`images/portfolio/captions.txt`) for easy maintenance
+- New `scripts/portfolio-captions.js` for async caption loading with graceful error handling
+- Responsive overlay text sizing across Desktop/Tablet/Mobile viewports
+
+### Changed
+- Portfolio items now include overlay markup with `data-image` attributes
+- Added portfolio overlay CSS styles to `styles/style.css`
+
+## [2.2.4] - 2025-11-28
+### Changed
+- Restructured README.md with professional tone, accurate file tree, comprehensive sections
+- Softened aggressive warnings in VERSION_CONTROL.md while preserving workflow rules
+- Updated IMPLEMENTATION_PLAN.md with accurate page completion status (contact.html exists)
+- Added contact.html page structure documentation to StyleGuide.md
+
+### Fixed
+- README.md version reference now points to version.json (not hardcoded)
+- IMPLEMENTATION_PLAN.md "Missing Pages" section corrected (all pages complete)
+- VERSION_CONTROL.md current version updated from v2.1.1 to v2.2.3
+- Overall project progress updated from 70% to 85%
+
+## [2.2.3] - 2025-11-28
+### Fixed
+- Fixed hamburger navigation menu touch events on iOS Safari and mobile browsers
+- Added `touchend` event listener alongside `click` for better mobile support
+- Implemented 300ms debounce protection to prevent double-firing on hybrid touch devices
+- Added `e.preventDefault()` to prevent iOS Safari delayed click behavior
+- Extracted toggle logic into named function for cleaner event handler implementation
+
+## [2.2.2] - 2025-11-28
+### Changed
+- Reverted enhanced mobile menu (v2.1.8) - simplified back to basic dropdown
+- Removed slide-in animation, overlay backdrop, and escape key handler
+- Mobile menu now appears as simple dropdown below header
+- Active nav state changed from red to navy blue with underline (matches reference design)
+- Removed HOME nav link (logo serves as home link per reference design)
+- Consistent navigation across all pages: WORK, GET IN TOUCH, EVENT SERVICES
+- Swapped team photo from `random_headshot.png` to `crew_photo_placeholder.png` on contact page
+
+### Fixed
+- Made 2x2 geometric grid square using `aspect-ratio: 1` on `.contact-geo-2x2`
+- Removed header shadow on contact page (`.contact-page .header { box-shadow: none; }`)
+- Fixed grid alignment with `padding-top: 11.5rem` on `.contact-geo-column`
+- Fixed footer text centering when collapsed on smaller screens
+- Removed `padding-right: 8em` and added `text-align: center` to footer columns
+
+### Added
+- YAML frontmatter to all 6 custom agent files (`.claude/agents/`)
+- Agents now properly appear in `/agents` command
+
+### Removed
+- Mobile menu overlay element from HTML (index.html, contact.html)
+- Overlay-related CSS (.mobile-menu-overlay styles)
+- Overlay-related JavaScript (click/escape handlers)
+
+## [2.2.1] - 2025-11-28
+### Changed
+- Contact page responsive layout restructure
+- Left geometric column changed from 2 stacked blocks to 2x2 grid with whitespace cells
+- New classes: .contact-geo-2x2, .contact-geo-cell, .contact-geo-empty
+- Removed dynamic viewport height (min-height: calc(100vh - 200px))
+- Fixed team photo height to 400px for consistent layout
+- Tablet (≤1024px): Changed to flexbox column layout, reordered form first then geo + contact info below
+- Mobile (≤768px): Form displays first, contact info below, geometric decorations hidden
+- Fixed content height no longer fills viewport for better mobile experience
+
+## [2.1.9] - 2025-11-27
+### Added
+- Subtle scroll animations for service cards (Task 3.3)
+- `enable-animations` class toggle on body for easy enable/disable
+- IntersectionObserver-based animation triggers
+- Respects `prefers-reduced-motion` accessibility preference
+
+## [2.1.8] - 2025-11-27
+### Added
+- Enhanced mobile menu with slide-in animation from left (Task 3.4)
+- Mobile menu overlay backdrop with semi-transparent dark background
+- Overlay click handler to close mobile menu
+- Escape key handler to close mobile menu
+- Smooth 350ms ease-out slide animation for menu open/close
+- prefers-reduced-motion support for menu animations
+
+### Changed
+- Mobile navigation now slides in from left edge instead of dropdown from top
+- Mobile menu positioned as fixed full-height sidebar (280px width, 80% max-width)
+- Improved mobile menu UX with multiple close methods (overlay, escape, nav link)
+- Enhanced accessibility with proper aria-hidden states on overlay
+
+## [2.1.7] - 2025-11-27
+### Removed
+- Removed Lottie animation task planning (Task 2.3 from IMPLEMENTATION_PLAN.md)
+- Cleaned @xmldom/xmldom dependency reference from package.json
+- Removed 5 animation placeholder comments from index.html
+
+## [2.1.6] - 2025-11-27
+### Added
+- Favicon support with SVG primary and PNG fallbacks
+- Apple touch icon for iOS home screen bookmarks
+- Schema.org JSON-LD structured data (Organization, WebSite, ProfessionalService)
+- Playwright E2E test suite with 48 tests across Desktop, Tablet, and Mobile viewports
+- playwright.config.js with auto-starting web server configuration
+- Homepage tests: title, logo, version, hero, CTA, services, team, footer, navigation
+- Work page tests: portfolio grid, Masonry layout initialization, image alt text
+
+### Changed
+- Updated package.json with @playwright/test dependency
+- Added npm test script for running E2E tests
+
+## [2.1.5] - 2025-11-27
+### Added
+- CSS custom properties (:root design tokens) for colors, fonts, spacing, transitions, z-index scale
+- Standalone CHANGELOG.md with complete version history (49 versions documented)
+- Clear section headers for media query organization
+
+### Changed
+- Replaced 69 hardcoded color values with CSS custom properties
+- Replaced 18 font-family declarations with var(--font-family-primary)
+- Consolidated redundant responsive CSS rules
+- Improved media query organization with breakpoint section headers
+
+### Removed
+- Duplicate .logo class definition
+- Duplicate .geometric-background class definition
+- ~40 lines of redundant CSS code
+
+## [2.1.4] - 2025-11-27
+### Added
+- SEO meta description and keywords tags to index.html and work.html
+- Open Graph meta tags for improved social media sharing
+- Twitter Card meta tags for Twitter/X sharing previews
+
+### Changed
+- Extracted Masonry.js initialization to external script (scripts/masonry-init.js)
+- Updated 19 portfolio image alt attributes with descriptive accessibility text
+- Fixed README.md version reference to point to version.json
+
+## [2.1.3] - 2025-11-27
+### Added
+- Created specialized Claude Code agents (CSS, Docs, JS/Masonry)
+- Added cache-busting to CSS links
+
+### Changed
+- Updated portfolio with 19 placeholder images
+
+### Fixed
+- Fixed homepage CSS Grid layout (grid-auto-rows: auto, justify-self: stretch)
+- Cleaned up obsolete animation files
+
+## [2.1.2] - 2025-11-19
+### Added
+- Implemented centralized version management system with version.json
+- Created auto-loader script for version consistency across all pages
+
+## [2.1.1] - 2025-11-17
+### Changed
+- Desktop logo size increased 33% (70px to 93px height) for better prominence and balance with navigation
+
+## [2.1.0] - 2025-11-17
+### Added
+- New SCENIC blue logo implemented with responsive srcset
+- Created 3 optimized logo versions: desktop (4.7K), tablet (5.0K), mobile (3.6K)
+
+### Changed
+- 85% size reduction from 32K source logo file
+
+## [2.0.0] - 2025-11-17
+### Changed
+- **MAJOR REDESIGN:** Service card tooltips completely redesigned
+  - Removed chevron indicators
+  - Changed from inline navy overlays to minimal gray tooltips positioned below cards
+  - Added upward-pointing arrows to tooltips
+  - Short text only (removed "Learn More")
+  - Working on all viewports
+- Service icons significantly enlarged:
+  - Desktop: 161px to 240px (+49%)
+  - Tablet: 138px to 220px (+59%)
+  - Mobile: 113px to 200px (+77%)
+  - Reduced padding to minimize whitespace
+
+### Added
+- Portfolio grid fully populated with 9 placeholder images
+- 4-column masonry layout with variable heights (large/medium/small items)
+- Responsive grid (4/3/2 columns)
+
+## [1.7.0] - 2025-11-17
+### Changed
+- Replaced all PNG pattern blocks with SVG files
+- Using 4 base SVGs (A, C, D, E) with CSS transforms (rotate, flip) for all 6 pattern variations
+
+### Removed
+- PNG pattern block files
+
+## [1.6.1] - 2025-11-12
+### Fixed
+- Fixed Masonry.js layout issues
+- Added imagesLoaded library
+- Added resize handler
+- Corrected CSS calc() widths
+
+## [1.6.0] - 2025-11-11
+### Added
+- WORK page implementation with Masonry.js portfolio gallery
+- 4 columns desktop, 3 tablet, 2 mobile responsive layout
+- Shared header/footer/CTA sections from HOME page
+- 16 placeholder images using Lorem Picsum for testing
+- Linked from main navigation (index.html to work.html)
+
+## [1.5.9] - 2025-11-11
+### Changed
+- Footer logo CSS updates: increased height (40px to 65px)
+- Removed white filter for color logo
+
+## [1.5.8] - 2025-11-11
+### Changed
+- Footer refinements: new logo image
+- Spacing adjustment (5rem gap)
+- Typography updates (1rem titles, normal weight)
+- Gray text color (#C7C9D4)
+
+## [1.5.7] - 2025-11-11
+### Fixed
+- Comprehensive footer layout fixes
+- 40px logo height
+- 5rem padding
+- 2.5rem column gap
+- Center alignment
+
+## [1.5.6] - 2025-11-11
+### Fixed
+- Fixed responsive nav font sizes (desktop 11px, tablet 10px, mobile 9px)
+- Added tablet header padding
+
+## [1.5.5] - 2025-11-11
+### Changed
+- Header padding increased (2rem to 5rem)
+- Nav font reduced (18px to 11px)
+
+## [1.5.4] - 2025-11-11
+### Changed
+- SCENIC logo height reduced (74px to 70px desktop, proportional tablet/mobile)
+
+## [1.5.3] - 2025-11-11
+### Changed
+- Manual CTA fine-tuning (35px title, 45px button, normal weight, uppercase)
+
+## [1.5.2] - 2025-11-11
+### Changed
+- Reduced title and button by 45% per user request
+
+## [1.5.1] - 2025-11-11
+### Fixed
+- CORRECTED CTA proportions (3.5rem padding, 1.5rem gap, 60px button) - more compact
+- Reference matched
+
+## [1.5.0] - 2025-11-11
+### Changed
+- Major CTA proportion adjustments (6rem padding, 1.5rem gap, 58px button)
+- NOTE: Corrected in v1.5.1 - this was wrong direction
+
+## [1.4.8] - 2025-11-11
+### Fixed
+- Fixed chevron centering (6px)
+- Ensured responsive consistency across all viewports
+
+## [1.4.7] - 2025-11-11
+### Changed
+- Fine-tuned yellow cap (58px) and chevron centering (padding-bottom: 6px)
+
+## [1.4.6] - 2025-11-11
+### Changed
+- Refined CTA button proportions (70px height, bold text, 2.5rem arrow, proper semicircle)
+
+## [1.4.5] - 2025-11-11
+### Fixed
+- Fixed CTA button with yellow semicircle right edge (white + yellow sections)
+
+## [1.4.4] - 2025-11-11
+### Changed
+- Replaced SVG logo with PNG
+- Updated address to 1001 Canal Blvd
+- Refined footer text (0.75rem)
+
+## [1.4.3] - 2025-11-11
+### Changed
+- Refined footer SVG logo proportions and positioning
+
+## [1.4.2] - 2025-11-11
+### Added
+- Created inline SVG for footer SCENIC logo (white elements)
+
+## [1.4.1] - 2025-11-11
+### Fixed
+- Fixed CTA button (REQUEST A QUOTE with yellow semicircle arrow)
+- Completed footer contact info
+
+## [1.4.0] - 2025-11-11
+### Added
+- Implemented footer geometric strip with 6-column grid using existing images
+- Task 2.4 complete
+
+## [1.3.2] - 2025-11-11
+### Fixed
+- Removed negative margin from .member-photo (-20px to 0)
+- Fixed overlap, perfect alignment
+
+## [1.3.1] - 2025-11-11
+### Fixed
+- Fixed arc-to-photo alignment by removing bottom padding from .member-arc (0.5rem to 0)
+- Seamless arc/photo connection
+
+## [1.3.0] - 2025-11-10
+### Changed
+- Updated IMPLEMENTATION_PLAN.md with all v1.2.0-1.2.9 work
+- Marked Task 2.6 complete
+
+## [1.2.9] - 2025-11-10
+### Changed
+- Removed gap: 1.5rem between cards
+- Changed to gap: 0 on all breakpoints
+- Cards sit directly adjacent
+
+## [1.2.8] - 2025-11-10
+### Fixed
+- Changed arc from justify-content: center to flex-end - THE ROOT CAUSE FIX
+- Pushed text to bottom, seamless connection
+
+## [1.2.7] - 2025-11-10
+### Fixed
+- Added line-height: 1 to arc text
+- Increased overlap to -20px
+- Added overflow: hidden
+- Fixed text spacing creating gap
+
+## [1.2.6] - 2025-11-10
+### Fixed
+- Removed arc bottom padding for zero clearance
+- Eliminated padding gap
+
+## [1.2.5] - 2025-11-10
+### Fixed
+- Fixed gray color (#C7C9D4)
+- Increased margin to -20px
+- calc() for gradient positioning
+- Correct gray, better overlap
+
+## [1.2.4] - 2025-11-10
+### Fixed
+- Increased negative margin to -15px for zero clearance between arc and photo
+- Reduced gap
+
+## [1.2.3] - 2025-11-10
+### Fixed
+- Moved gray background (#C7C9D4) to start below arcs using linear gradient
+- Arcs on white, photos on gray
+
+## [1.2.2] - 2025-11-10
+### Fixed
+- Added missing random_headshot.png placeholder image to repository
+- Fixed broken image icons
+
+## [1.2.1] - 2025-11-10
+### Fixed
+- Fixed photo shape from oval to pill/capsule (border-radius: 0 0 110px 110px)
+- Correct vertical pill shape
+
+## [1.2.0] - 2025-11-10
+### Changed
+- **MAJOR:** Complete team section redesign
+- CSS arcs, pill-shaped photos, color overlays
+- Title below cards
+- Matching Adobe XD design
+
+## [1.1.2] - 2025-11-10
+### Changed
+- Header max-width adjustments
+
+## [1.1.1] - 2025-11-10
+### Changed
+- Desktop styling unification
+
+## [1.1.0] - 2025-11-10
+### Changed
+- Tablet centering improvements
+
+## [1.0.9] - 2025-11-10
+### Fixed
+- z-index fixes for service cards
+
+## [1.0.8] - 2025-11-10
+### Changed
+- Service card overlay spacing adjustments
+
+## [1.0.7] - 2025-11-10
+### Added
+- **PHASE 1 COMPLETE** (100% of active tasks)
+- Critical foundation established - ready for Phase 2
+
+## [1.0.6] - 2025-11-10
+### Added
+- **Task 1.4 COMPLETE:** Mobile touch optimization
+- All tap targets now 44×44px minimum
+- Added :active states
+- Prevented double-tap zoom
+- Added haptic feedback
+- Meets WCAG 2.5.5
+- Native app-like touch experience
+
+## [1.0.5] - 2025-11-10
+### Added
+- **Task 1.3 COMPLETE:** Full accessibility foundation
+- Skip-to-content link
+- ARIA labels for all interactive elements
+- Enhanced focus states
+- Verified alt text and color contrast
+- WCAG AA compliant
+- Keyboard/screen reader accessible
+
+### Added
+- **Task 1.5 COMPLETE:** Fixed service card mobile behavior
+- Smooth animations with max-height transitions
+- Touch-friendly expansion
+- Chevron indicators
+- Significantly improved mobile UX
+
+### Added
+- **Task 1.6 COMPLETE:** Removed dev-debug class from body tag
+- Clean production-ready markup
+
+### Added
+- **Task 1.2 COMPLETE:** Lazy loading implementation
+- Added lazy loading to 6 images (5 service icons + footer logo)
+- Added font-display: swap for DIN 2014
+- Improved initial page load performance
+
+### Changed
+- Task 1.1 skipped - images are placeholders for SVGs with animations
+- Avoiding optimization of temporary assets
+
+### Added
+- Initial IMPLEMENTATION_PLAN.md created
+- Established project roadmap
+
+---
+
+## Version History Format
+
+### Version Numbering (Semantic Versioning)
+- **MAJOR.MINOR.PATCH** (e.g., 2.1.4)
+- **PATCH** (x.x.1): Bug fixes, minor tweaks, small adjustments
+- **MINOR** (x.1.0): New features, enhancements, non-breaking changes
+- **MAJOR** (2.0.0): Breaking changes, major redesigns, significant architectural changes
+
+### Change Categories
+- **Added**: New features
+- **Changed**: Changes in existing functionality
+- **Fixed**: Bug fixes
+- **Removed**: Removed features
+- **Security**: Security updates (if applicable)

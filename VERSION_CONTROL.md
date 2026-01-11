@@ -1,33 +1,32 @@
 # VERSION CONTROL & COORDINATION GUIDE
 
-> **⚠️ REQUIRED READING FOR ALL DEVELOPERS/AGENTS**
-> **Read this FIRST before making ANY code changes!**
+> This guide explains our version control workflow. Following these practices helps maintain consistency across the codebase.
 
 ---
 
-## **🎯 CURRENT VERSION: v2.1.1**
+## 🎯 Current Version: v2.7.1
 
-**Last Updated:** November 17, 2025, 3:05 PM PST
+**Last Updated:** December 12, 2025
 
 ---
 
-## **📋 MANDATORY WORKFLOW - FOLLOW EVERY TIME**
+## 📋 Version Update Workflow
 
-### **BEFORE Making Any Changes:**
+### Before Making Any Changes:
 
-1. **CHECK CURRENT VERSION**
+1. **Check Current Version**
    - Open `version.json` - **This is the single source of truth for version number**
    - Note the current version number
    - Open `IMPLEMENTATION_PLAN.md` and read the last 5 changelog entries to understand recent changes
 
-2. **VERIFY VERSION CONSISTENCY**
+2. **Verify Version Consistency**
    - Check that `version.json` exists and is valid JSON
    - Ensure `IMPLEMENTATION_PLAN.md` version matches `version.json`
-   - If they don't match, DO NOT PROCEED - ask user for clarification
+   - If they don't match, ask user for clarification before proceeding
 
-### **WHILE Making Changes:**
+### While Making Changes:
 
-3. **DETERMINE VERSION INCREMENT**
+3. **Determine Version Increment**
    - **Patch (X.X.+1)**: Bug fixes, typos, minor CSS tweaks, small adjustments
      - Example: Fixing a broken link, adjusting padding by 5px
    - **Minor (X.+1.0)**: New features, new sections, asset additions, enhancements
@@ -35,14 +34,14 @@
    - **Major (+1.0.0)**: Breaking changes, major redesigns, architectural changes
      - Example: Complete redesign of service cards, new grid system
 
-4. **TRACK YOUR WORK**
+4. **Track Your Work**
    - Keep notes of what you're changing
    - Note file paths and line numbers
    - Document the "why" not just the "what"
 
-### **AFTER Completing Changes:**
+### After Completing Changes:
 
-5. **UPDATE VERSION NUMBER (3 locations)**
+5. **Update Version Number (2 locations only)**
 
    **Location 1 (PRIMARY):** `version.json` - **Single source of truth**
    ```json
@@ -57,11 +56,11 @@
    > **Current Version:** vX.X.X
    ```
 
-   **Location 3:** All HTML pages will automatically update via `scripts/version-loader.js`
+   **HTML pages auto-update:** All HTML pages automatically display the version via `scripts/version-loader.js`
    - The script reads from `version.json` and updates the version indicator on page load
-   - No manual HTML updates needed!
+   - **No manual HTML edits required** - version.json is the only source to update!
 
-6. **ADD CHANGELOG ENTRY**
+6. **Add Changelog Entry**
 
    In `IMPLEMENTATION_PLAN.md` changelog section (around line 112), add:
    ```markdown
@@ -73,7 +72,7 @@
    | 2025-11-17 | **v2.2.0:** Added contact form to Get in Touch page with validation | New feature |
    ```
 
-7. **UPDATE VERSION HISTORY**
+7. **Update Version History**
 
    In `IMPLEMENTATION_PLAN.md` version history section (around line 600), add to top:
    ```markdown
@@ -82,9 +81,9 @@
 
 ---
 
-## **📊 VERSION NUMBER RULES**
+## 📊 Version Number Rules
 
-### **Semantic Versioning (MAJOR.MINOR.PATCH)**
+### Semantic Versioning (MAJOR.MINOR.PATCH)
 
 ```
 v2.1.1
@@ -94,7 +93,7 @@ v2.1.1
 └─────── MAJOR: Breaking changes, redesigns
 ```
 
-### **When to Increment:**
+### When to Increment:
 
 | Change Type | Version Bump | Example |
 |-------------|--------------|---------|
@@ -110,19 +109,20 @@ v2.1.1
 
 ---
 
-## **🚫 COMMON MISTAKES TO AVOID**
+## Common Mistakes to Avoid
 
-### **❌ DON'T:**
-- Make changes without checking current version first
-- Update version in only ONE location (must be both!)
-- Skip the changelog entry
-- Use arbitrary version numbers
-- Revert to old version numbers
-- Make multiple unrelated changes in one version bump
+### What to Avoid:
+- Making changes without checking current version first
+- Updating version in only one location (must update all!)
+- Skipping the changelog entry
+- Using arbitrary version numbers
+- Reverting to old version numbers
+- Making multiple unrelated changes in one version bump
 
-### **✅ DO:**
+### Best Practices:
 - Always read IMPLEMENTATION_PLAN.md first
-- Update version in BOTH index.html AND IMPLEMENTATION_PLAN.md
+- Update version in version.json AND IMPLEMENTATION_PLAN.md (these 2 only!)
+- **Never manually edit version numbers in HTML files** - they auto-update via JavaScript
 - Write clear, descriptive changelog entries
 - Follow semantic versioning strictly
 - Ask user if unsure about version increment
@@ -130,7 +130,7 @@ v2.1.1
 
 ---
 
-## **🔍 HOW TO CHECK IF ANOTHER AGENT MADE CHANGES**
+## 🔍 How to Check if Another Agent Made Changes
 
 Before starting work, verify:
 
@@ -154,7 +154,7 @@ Before starting work, verify:
 
 ---
 
-## **📝 CHANGELOG TEMPLATE**
+## 📝 Changelog Template
 
 ```markdown
 | 2025-MM-DD | **vX.X.X:** [Action verb] [specific change] - [additional context if needed] | [Impact] |
@@ -176,23 +176,24 @@ Before starting work, verify:
 
 ---
 
-## **🎯 QUICK CHECKLIST**
+## 🎯 Quick Checklist
 
 Before you commit/push changes:
 
 - [ ] Read IMPLEMENTATION_PLAN.md current version
 - [ ] Determined correct version increment (patch/minor/major)
-- [ ] Updated version in `index.html` (line ~32-34)
+- [ ] Updated version in `version.json` (PRIMARY source of truth)
 - [ ] Updated version in `IMPLEMENTATION_PLAN.md` (line ~5)
 - [ ] Added changelog entry in IMPLEMENTATION_PLAN.md (~line 112)
 - [ ] Added version history entry in IMPLEMENTATION_PLAN.md (~line 600)
 - [ ] Changelog entry is clear and descriptive
-- [ ] Both version numbers match exactly
+- [ ] All version numbers match exactly
 - [ ] Tested changes work as expected
+- [ ] HTML files will auto-update via version-loader.js (no manual edit needed)
 
 ---
 
-## **💡 PRO TIPS**
+## 💡 Pro Tips
 
 1. **Always increment from current version** - Never skip versions
 2. **One logical change per version** - Don't bundle unrelated changes
@@ -202,7 +203,7 @@ Before you commit/push changes:
 
 ---
 
-## **🆘 WHAT IF I MADE A MISTAKE?**
+## 🆘 What If I Made a Mistake?
 
 ### **Scenario: I forgot to update the version**
 1. Note what changes you made
@@ -227,7 +228,7 @@ Before you commit/push changes:
 
 ---
 
-## **📞 NEED HELP?**
+## 📞 Need Help?
 
 If you're unsure about:
 - Which version increment to use
@@ -235,13 +236,11 @@ If you're unsure about:
 - Whether changes qualify as major/minor/patch
 - Version number conflicts
 
-**→ ASK THE USER BEFORE PROCEEDING**
-
-It's better to ask than to create version chaos!
+When in doubt, ask for clarification.
 
 ---
 
-## **📚 REFERENCE**
+## 📚 Reference
 
 - **Version Source of Truth**: `version.json` - **PRIMARY VERSION CONTROL FILE**
 - **Version Loader Script**: `scripts/version-loader.js` - Automatically updates all pages
@@ -252,10 +251,10 @@ It's better to ask than to create version chaos!
 
 ---
 
-**Last Updated:** November 19, 2025
+**Last Updated:** November 28, 2025
 **Document Version:** 2.0
 **Maintained By:** Project Team
 
 ---
 
-> ⚡ **REMEMBER:** Version control is not optional - it's how we prevent chaos when multiple agents work on the same codebase!
+> Following these practices ensures smooth collaboration and reliable version tracking.
