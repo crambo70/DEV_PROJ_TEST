@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 11, 2026
-> **Current Version:** v2.9.2
+> **Current Version:** v2.9.3
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -114,6 +114,7 @@ Following these practices maintains project consistency.
 | 2025-11-10 | **Completed Task 1.5:** Fixed service card mobile behavior with smooth animations, touch-friendly expansion, and chevron indicators | Significantly improved mobile UX |
 | 2025-11-10 | **Completed Task 1.3:** Full accessibility foundation - skip-to-content, ARIA labels, enhanced focus states, verified alt text and color contrast | WCAG AA compliant, keyboard/screen reader accessible |
 | 2025-11-10 | **Completed Task 1.4:** Mobile touch optimization - all tap targets now 44×44px minimum, added :active states, prevented double-tap zoom, added haptic feedback | Meets WCAG 2.5.5, native app-like touch experience |
+| 2026-01-11 | **v2.9.3:** Updated Lottie animations for IDEATE/DESIGN, LOGISTICS, and ON-SITE service cards | Changed |
 | 2026-01-11 | **v2.9.2:** Updated Build service card animation to revised version (removed embedded text) | Changed |
 | 2025-11-10 | **PHASE 1 COMPLETE (100% of active tasks)** | Critical foundation established - ready for Phase 2 |
 | 2025-11-10 | Fine-tuning: Service card overlay spacing, z-index fixes, tablet centering, desktop styling unification, header max-width (v1.0.5-1.1.2) | Polished UI across all breakpoints |
@@ -662,9 +663,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.9.2` (as of Jan 11, 2026)
+**Current Version:** `v2.9.3` (as of Jan 11, 2026)
 
 **Version History:**
+- v2.9.3 - Updated Lottie animations for IDEATE/DESIGN, LOGISTICS, and ON-SITE service cards
 - v2.9.2 - Updated Build service card animation to revised version (removed embedded text)
 - v2.9.1 - Updated Events service card animation to revised version (Events_Solo_REV.json)
 - v2.9.0 - Service card layout overhaul: Redesigned service cards with flexbox row layout and overlapping design (-50px negative margins), transparent backgrounds for cleaner visual hierarchy, icons enlarged by 25% (Desktop: 200px, Tablet: 181px, Mobile: 144px), reduced title text sizing (12px/11px/10px), mobile layout changed from 2-per-row grid to natural wrap with consistent overlap, fixed mobile overlap selector from :nth-child(2n) to :not(:first-child)
