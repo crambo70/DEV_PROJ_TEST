@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.11.5] - 2026-01-12
+### Fixed
+- Fixed white space gap at bottom of hero section on mobile viewports (320px-768px)
+- Increased `.geometric-background` height from 200px to 300px to match hero container
+- Removed duplicate `.hero` height declaration causing CSS cascade conflicts
+
 ## [2.11.4] - 2026-01-12
 ### Fixed
 - Add fixed height constraints to geometric background container at all breakpoints (Desktop: 400px, Tablet: 300px, Mobile: 200px) to match existing width constraints and prevent layout inconsistencies

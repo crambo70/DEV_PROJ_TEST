@@ -578,12 +578,7 @@ body {
     }
 }
 
-/* Hero Mobile (max-width: 768px) */
-@media (max-width: 768px) {
-    .hero {
-        height: 250px; /* Taller on mobile for better text centering */
-    }
-}
+/* Hero Mobile (max-width: 768px) - Height rule moved to main mobile section (line 1600) */
 
 .geometric-background {
     position: absolute;
@@ -1282,8 +1277,8 @@ body {
     .geometric-background {
         max-width: 600px;
         min-width: 600px; /* Fixed width at mobile - no resize */
-        max-height: 200px;
-        min-height: 200px; /* Fixed height at mobile - no resize */
+        max-height: 300px;
+        min-height: 300px; /* Fixed height at mobile - matches hero container (300px) */
     }
 
     .footer-geometric-background {

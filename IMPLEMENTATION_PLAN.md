@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 12, 2026
-> **Current Version:** v2.11.4
+> **Current Version:** v2.11.5
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -107,6 +107,7 @@ Following these practices maintains project consistency.
 | 2025-11-27 | **v2.1.3:** Created specialized Claude Code agents (CSS, Docs, JS/Masonry), updated portfolio with 19 placeholder images, fixed homepage CSS Grid layout (grid-auto-rows: auto, justify-self: stretch), added cache-busting to CSS links, cleaned up obsolete animation files | Agent architecture, portfolio update, layout fixes |
 | 2025-11-19 | **v2.1.2:** Implemented centralized version management system with version.json and auto-loader script | Version consistency across all pages |
 | 2025-11-10 | Initial plan created | Established roadmap |
+| 2026-01-12 | **v2.11.5:** Fixed white space gap at bottom of hero section on mobile viewports (320px-768px) - Increased `.geometric-background` height from 200px to 300px to match hero container, removed duplicate `.hero` height declaration causing CSS cascade conflicts | Bug fix |
 | 2026-01-12 | **v2.11.3:** Fixed geometric background white gaps with fixed-width containers (1200px desktop, 900px tablet, 600px mobile) across all breakpoints to prevent visual gaps during browser window resizing | Fixed |
 | 2026-01-11 | **v2.11.2:** Adjusted Creative Team member name and title vertical positioning for improved visual hierarchy | Changed |
 | 2025-12-12 | **v2.7.0:** Removed hardcoded version numbers from all HTML files - version indicator now uses "..." loading state, version.json is single source of truth, updated VERSION_CONTROL.md docs | Technical improvement |
@@ -666,9 +667,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.11.4` (as of Jan 12, 2026)
+**Current Version:** `v2.11.5` (as of Jan 12, 2026)
 
 **Version History:**
+- v2.11.5 - Fixed white space gap at bottom of hero section on mobile viewports (320px-768px), increased `.geometric-background` height from 200px to 300px to match hero container, removed duplicate `.hero` height declaration causing CSS cascade conflicts
 - v2.11.4 - Add fixed height constraints to geometric background container at all breakpoints (Desktop: 400px, Tablet: 300px, Mobile: 200px) to match existing width constraints and prevent layout inconsistencies
 - v2.11.3 - Fixed geometric background white gaps with fixed-width containers (1200px desktop, 900px tablet, 600px mobile) across all breakpoints
 - v2.11.2 - Adjusted Creative Team member name and title vertical positioning for improved visual hierarchy
