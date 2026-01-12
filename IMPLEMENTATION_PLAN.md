@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 12, 2026
-> **Current Version:** v2.11.6
+> **Current Version:** v2.11.7
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -112,6 +112,7 @@ Following these practices maintains project consistency.
 | 2026-01-12 | **v2.11.3:** Fixed geometric background white gaps with fixed-width containers (1200px desktop, 900px tablet, 600px mobile) across all breakpoints to prevent visual gaps during browser window resizing | Fixed |
 | 2026-01-11 | **v2.11.2:** Adjusted Creative Team member name and title vertical positioning for improved visual hierarchy | Changed |
 | 2025-12-12 | **v2.7.0:** Removed hardcoded version numbers from all HTML files - version indicator now uses "..." loading state, version.json is single source of truth, updated VERSION_CONTROL.md docs | Technical improvement |
+| 2026-01-12 | **v2.11.7:** Fixed vertical centering of SCENIC logo in hero section at mobile viewport - Logo now centers on 200px geo-grid pattern instead of 300px hero container, set .hero-content height to 200px with flexbox centering at mobile breakpoint | Bug fix |
 | 2025-11-10 | Task 1.1 skipped - images are placeholders for SVGs with animations | Avoiding optimization of temporary assets |
 | 2025-11-10 | Started Task 1.2: Implement Lazy Loading | Performance improvement in progress |
 | 2025-11-10 | **Completed Task 1.2:** Added lazy loading to 6 images (5 service icons + footer logo), added font-display: swap for DIN 2014 | Improved initial page load performance |
@@ -668,9 +669,11 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.11.5` (as of Jan 12, 2026)
+**Current Version:** `v2.11.7` (as of Jan 12, 2026)
 
 **Version History:**
+- v2.11.7 - Fixed vertical centering of SCENIC logo in hero section at mobile viewport - Logo now centers on 200px geo-grid pattern instead of 300px hero container, set .hero-content height to 200px with flexbox centering at mobile breakpoint
+- v2.11.6 - Corrected mobile hero white space fix by applying constraints to `.geo-grid` instead of `.geometric-background` - Added fixed dimensions to `.geo-grid` at mobile breakpoint (200px height, 600px width), reverted `.geometric-background` height to 200px to align with grid constraints
 - v2.11.5 - Fixed white space gap at bottom of hero section on mobile viewports (320px-768px), increased `.geometric-background` height from 200px to 300px to match hero container, removed duplicate `.hero` height declaration causing CSS cascade conflicts
 - v2.11.4 - Add fixed height constraints to geometric background container at all breakpoints (Desktop: 400px, Tablet: 300px, Mobile: 200px) to match existing width constraints and prevent layout inconsistencies
 - v2.11.3 - Fixed geometric background white gaps with fixed-width containers (1200px desktop, 900px tablet, 600px mobile) across all breakpoints

@@ -717,8 +717,10 @@ body {
 
     .hero-content {
         padding: 1rem; /* Less padding on mobile for more logo space */
-        align-items: flex-start; /* Change from center to top alignment */
-        padding-top: 2.25rem; /* Push logo down ~14% from top (2.25rem = 36px out of 250px mobile hero height) */
+        align-items: center; /* Center logo vertically */
+        justify-content: center; /* Center logo horizontally */
+        height: 200px; /* Constrain to geo-grid height (200px) for proper centering on pattern */
+        top: 0; /* Align with geo-grid position */
     }
 
     .hero-logo {

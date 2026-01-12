@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.11.7] - 2026-01-12
+### Fixed
+- Fixed vertical centering of SCENIC logo in hero section at mobile viewport
+- Logo now centers on 200px geo-grid pattern instead of 300px hero container
+- Set .hero-content height to 200px with flexbox centering at mobile breakpoint
+
 ## [2.11.6] - 2026-01-12
 ### Fixed
 - Corrected mobile hero white space fix by applying constraints to `.geo-grid` instead of `.geometric-background`
