@@ -592,6 +592,8 @@ body {
     transform: translateX(-50%);
     max-width: 1200px;
     min-width: 1200px; /* Fixed width at desktop - no resize */
+    max-height: 400px;
+    min-height: 400px; /* Fixed height at desktop - no resize */
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -1280,6 +1282,8 @@ body {
     .geometric-background {
         max-width: 600px;
         min-width: 600px; /* Fixed width at mobile - no resize */
+        max-height: 200px;
+        min-height: 200px; /* Fixed height at mobile - no resize */
     }
 
     .footer-geometric-background {
@@ -1748,6 +1752,8 @@ body {
     .geometric-background {
         max-width: 900px;
         min-width: 900px; /* Fixed width at tablet - no resize */
+        max-height: 300px;
+        min-height: 300px; /* Fixed height at tablet - no resize */
     }
 
     /* Header padding for tablet */

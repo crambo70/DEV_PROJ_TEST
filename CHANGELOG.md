@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.11.4] - 2026-01-12
+### Fixed
+- Add fixed height constraints to geometric background container at all breakpoints (Desktop: 400px, Tablet: 300px, Mobile: 200px) to match existing width constraints and prevent layout inconsistencies
+
 ## [2.11.3] - 2026-01-12
 ### Fixed
 - Geometric background white gaps with fixed-width containers (1200px desktop, 900px tablet, 600px mobile) across all breakpoints to prevent visual gaps during browser window resizing
