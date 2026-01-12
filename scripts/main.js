@@ -427,5 +427,48 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize Lottie animations
     initServiceLottieAnimations();
 
+    // ========================================
+    // Lottie Pattern Block Background Animations
+    // ========================================
+
+    // Initialize pattern block background animations
+    function initPatternBlockAnimations() {
+        // Check if Lottie library is loaded
+        if (typeof lottie === 'undefined') {
+            console.warn('Lottie library not loaded - skipping pattern block animation initialization');
+            return;
+        }
+
+        // Helper function to initialize a single pattern block animation
+        function initPatternLottie(containerId, jsonPath) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            lottie.loadAnimation({
+                container: container,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: jsonPath
+            });
+        }
+
+        // Initialize all pattern blocks
+        let animationCount = 0;
+        document.querySelectorAll('.lottie-pattern').forEach(element => {
+            const pattern = element.getAttribute('data-pattern');
+            if (pattern) {
+                const jsonPath = `images/pattern-blocks/scenic-pattern-block-${pattern}.json`;
+                initPatternLottie(element.id, jsonPath);
+                animationCount++;
+            }
+        });
+
+        console.log(`Initialized ${animationCount} pattern block Lottie animations (autoplay, loop)`);
+    }
+
+    // Initialize pattern block animations
+    initPatternBlockAnimations();
+
     console.log('SCENIC website loaded successfully!');
 });
