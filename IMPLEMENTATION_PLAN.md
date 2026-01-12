@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 12, 2026
-> **Current Version:** v2.11.7
+> **Current Version:** v2.11.8
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-12 | **v2.11.8:** Updated footer geometric pattern to match hero section size at all viewports - Desktop: 150px → 400px height, 1200px width (matches hero), Tablet: Added 300px height, 900px width constraints (matches hero), Mobile: 100px → 200px height, 600px width (matches hero), Adjusted footer content padding for taller geometric strip | Enhancement |
 | 2026-01-11 | **v2.10.0:** Update Creative Team section with new personnel: Chris Hammer (Managing Director), Santina Rohner-Moran (Production Manager), Sean Key Ketter (Technical Director), Cole Frizzo (Asst. Technical Director), and Cameron Moredock (Integrated Technology) | Changed |
 | 2025-12-24 | **v2.9.0:** Service cards redesigned with flexbox row layout and overlapping design - Card and icon area backgrounds changed to transparent, service icons enlarged by 25% across all breakpoints (Desktop: 200px, Tablet: 181px, Mobile: 144px), service title text reduced for better proportions (12px/11px/10px), mobile layout changed from 2-per-row grid to natural wrap with consistent -50px overlap, fixed mobile overlap selector from :nth-child(2n) to :not(:first-child) | Major layout enhancement |
 | 2025-12-24 | **v2.8.1:** Added inline SVG placeholders for instant icon rendering before Lottie animations load, Added tap-to-play support for mobile/touch devices (click event handlers on Lottie containers), Improved progressive loading experience (static SVG → animated Lottie), Enhanced mobile interaction - animations now play on tap for touch devices | Performance + Mobile enhancement |
@@ -669,9 +670,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.11.7` (as of Jan 12, 2026)
+**Current Version:** `v2.11.8` (as of Jan 12, 2026)
 
 **Version History:**
+- v2.11.8 - Updated footer geometric pattern to match hero section size at all viewports - Desktop: 150px → 400px height, 1200px width (matches hero), Tablet: Added 300px height, 900px width constraints (matches hero), Mobile: 100px → 200px height, 600px width (matches hero), adjusted footer content padding for taller geometric strip
 - v2.11.7 - Fixed vertical centering of SCENIC logo in hero section at mobile viewport - Logo now centers on 200px geo-grid pattern instead of 300px hero container, set .hero-content height to 200px with flexbox centering at mobile breakpoint
 - v2.11.6 - Corrected mobile hero white space fix by applying constraints to `.geo-grid` instead of `.geometric-background` - Added fixed dimensions to `.geo-grid` at mobile breakpoint (200px height, 600px width), reverted `.geometric-background` height to 200px to align with grid constraints
 - v2.11.5 - Fixed white space gap at bottom of hero section on mobile viewports (320px-768px), increased `.geometric-background` height from 200px to 300px to match hero container, removed duplicate `.hero` height declaration causing CSS cascade conflicts

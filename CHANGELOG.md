@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.11.8] - 2026-01-12
+### Changed
+- Updated footer geometric pattern to match hero section size at all viewports
+- Desktop: 150px → 400px height, 1200px width (matches hero)
+- Tablet: Added 300px height, 900px width constraints (matches hero)
+- Mobile: 100px → 200px height, 600px width (matches hero)
+- Adjusted footer content padding for taller geometric strip
+
 ## [2.11.7] - 2026-01-12
 ### Fixed
 - Fixed vertical centering of SCENIC logo in hero section at mobile viewport
