@@ -705,7 +705,10 @@ body {
 /* Geo Grid Mobile (max-width: 768px) */
 @media (max-width: 768px) {
     .geo-grid {
-        height: 250px; /* Match hero height for proper alignment */
+        max-height: 200px;
+        min-height: 200px; /* Fixed height at mobile - prevents white space gaps */
+        max-width: 600px;
+        min-width: 600px; /* Fixed width at mobile - matches geometric-background container */
     }
 
     .geo-tile {
@@ -1277,8 +1280,8 @@ body {
     .geometric-background {
         max-width: 600px;
         min-width: 600px; /* Fixed width at mobile - no resize */
-        max-height: 300px;
-        min-height: 300px; /* Fixed height at mobile - matches hero container (300px) */
+        max-height: 200px;
+        min-height: 200px; /* Fixed height at mobile - matches geo-grid (200px) */
     }
 
     .footer-geometric-background {

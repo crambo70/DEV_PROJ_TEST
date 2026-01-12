@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.11.6] - 2026-01-12
+### Fixed
+- Corrected mobile hero white space fix by applying constraints to `.geo-grid` instead of `.geometric-background`
+- Added fixed dimensions to `.geo-grid` at mobile breakpoint (200px height, 600px width)
+- Reverted `.geometric-background` height to 200px to align with grid constraints
+
 ## [2.11.5] - 2026-01-12
 ### Fixed
 - Fixed white space gap at bottom of hero section on mobile viewports (320px-768px)
