@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.11.2] - 2026-01-11
+### Fixed
+- White horizontal gaps between geometric pattern rows caused by inline SVG baseline alignment in Lottie containers
+
 ## [2.11.1] - 2026-01-11
 ### Changed
 - Pattern block animations now use ping-pong (forward/backward) looping to eliminate abrupt resets

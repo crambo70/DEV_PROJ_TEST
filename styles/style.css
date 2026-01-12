@@ -632,6 +632,11 @@ body {
     z-index: 1; /* Behind the hero content */
 }
 
+/* Fix SVG baseline alignment in Lottie pattern containers */
+.lottie-pattern svg {
+    display: block; /* Removes inline baseline space below SVG */
+}
+
 /* Transform classes for geo tile images */
 .geo-tile-image.flipped-vertical {
     transform: scaleY(-1); /* Flip vertically */
