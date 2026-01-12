@@ -444,12 +444,26 @@ document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById(containerId);
             if (!container) return;
 
-            lottie.loadAnimation({
+            // Random speed between 0.8 and 1.2 (±20% variation)
+            const speed = 0.8 + (Math.random() * 0.4);
+
+            const animation = lottie.loadAnimation({
                 container: container,
                 renderer: 'svg',
-                loop: true,
+                loop: false,  // We'll handle looping manually for ping-pong effect
                 autoplay: true,
                 path: jsonPath
+            });
+
+            // Set random speed for this animation
+            animation.setSpeed(speed);
+
+            // Ping-pong looping: play forward, then backward, continuously
+            let direction = 1; // 1 = forward, -1 = backward
+            animation.addEventListener('complete', function() {
+                direction = direction * -1;
+                animation.setDirection(direction);
+                animation.play();
             });
         }
 
@@ -464,7 +478,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        console.log(`Initialized ${animationCount} pattern block Lottie animations (autoplay, loop)`);
+        console.log(`Initialized ${animationCount} pattern block Lottie animations (ping-pong loop, variable speeds)`);
     }
 
     // Initialize pattern block animations

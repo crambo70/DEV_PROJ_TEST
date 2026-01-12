@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.11.1] - 2026-01-11
+### Changed
+- Pattern block animations now use ping-pong (forward/backward) looping to eliminate abrupt resets
+- Each pattern block animation plays at slightly different speeds (±20% variation) for more natural, organic movement
+
 ## [2.11.0] - 2026-01-11
 ### Added
 - Animated pattern block backgrounds - Replaced 18 static SVG pattern blocks with auto-playing Lottie animations across hero and footer geometric grids

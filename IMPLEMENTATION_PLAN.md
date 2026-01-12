@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 11, 2026
-> **Current Version:** v2.11.0
+> **Current Version:** v2.11.1
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -107,7 +107,7 @@ Following these practices maintains project consistency.
 | 2025-11-27 | **v2.1.3:** Created specialized Claude Code agents (CSS, Docs, JS/Masonry), updated portfolio with 19 placeholder images, fixed homepage CSS Grid layout (grid-auto-rows: auto, justify-self: stretch), added cache-busting to CSS links, cleaned up obsolete animation files | Agent architecture, portfolio update, layout fixes |
 | 2025-11-19 | **v2.1.2:** Implemented centralized version management system with version.json and auto-loader script | Version consistency across all pages |
 | 2025-11-10 | Initial plan created | Established roadmap |
-| 2026-01-11 | **v2.11.0:** Adjusted Creative Team member name and title vertical positioning for improved visual hierarchy | Changed |
+| 2026-01-11 | **v2.11.1:** Adjusted Creative Team member name and title vertical positioning for improved visual hierarchy | Changed |
 | 2025-12-12 | **v2.7.0:** Removed hardcoded version numbers from all HTML files - version indicator now uses "..." loading state, version.json is single source of truth, updated VERSION_CONTROL.md docs | Technical improvement |
 | 2025-11-10 | Task 1.1 skipped - images are placeholders for SVGs with animations | Avoiding optimization of temporary assets |
 | 2025-11-10 | Started Task 1.2: Implement Lazy Loading | Performance improvement in progress |
@@ -665,10 +665,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.11.0` (as of Jan 11, 2026)
+**Current Version:** `v2.11.1` (as of Jan 11, 2026)
 
 **Version History:**
-- v2.11.0 - Adjusted Creative Team member name and title vertical positioning for improved visual hierarchy
+- v2.11.1 - Adjusted Creative Team member name and title vertical positioning for improved visual hierarchy
 - v2.10.0 - Updated Creative Team section with new personnel: Chris Hammer (Managing Director), Santina Rohner-Moran (Production Manager), Sean Key Ketter (Technical Director), Cole Frizzo (Asst. Technical Director), and Cameron Moredock (Integrated Technology)
 - v2.9.3 - Updated Lottie animations for IDEATE/DESIGN, LOGISTICS, and ON-SITE service cards
 - v2.9.2 - Updated Build service card animation to revised version (removed embedded text)
