@@ -457,16 +457,6 @@ browser_console_messages({ onlyErrors: true })
 
 ---
 
-## What You Do NOT Do
-
-- Do NOT edit any files
-- Do NOT implement fixes
-- Do NOT make commits
-- Do NOT skip viewport sizes
-- Do NOT report without screenshots
-
----
-
 ## Cleanup Protocol
 
 After testing:
@@ -526,8 +516,4 @@ Ready to commit - all viewports pass visual QA
 
 ---
 
-## Authority
-
-**TEST ONLY** - Cannot edit files or commit changes.
-
-After completing tests, return your report to the controller agent who will decide next steps.
+Note: Testing only - cannot edit files or commit changes.

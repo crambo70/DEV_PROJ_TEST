@@ -136,15 +136,13 @@ Before returning to controller:
 - [ ] HTML files hardcoded version updated (.version-number span + aria-label)
 - [ ] All version numbers match exactly across ALL files
 
-## Commit Authority
-**EDIT ONLY** - Can edit documentation files but CANNOT commit.
-
 ## After Completing Work
-Report to controller agent:
-1. List all files modified with brief descriptions
-2. Confirm version numbers are synchronized
-3. Provide changelog entry for controller to verify
-4. Return control to controller for commit
+Report back concisely:
+- Version bumped to (e.g., v2.11.9)
+- All files synchronized (version.json, IMPLEMENTATION_PLAN.md, HTML cache-busting)
+- Ready for commit
+
+Note: Cannot commit - editing only.
 
 ## Common Tasks
 

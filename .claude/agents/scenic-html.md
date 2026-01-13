@@ -36,13 +36,6 @@ When you receive prior context, incorporate their work:
 - Fix semantic HTML structure
 - Accessibility improvements (ARIA labels, alt text)
 
-## What You Do NOT Do
-
-- Do NOT edit CSS files (delegate to scenic-css)
-- Do NOT edit JavaScript files (delegate to scenic-js)
-- Do NOT make commits
-- Do NOT change structural layout without explicit instruction
-
 ## HTML Best Practices
 
 ### Image Updates
@@ -73,34 +66,11 @@ When you receive prior context, incorporate their work:
 - [ ] Semantic HTML elements used (header, nav, main, footer, section)
 - [ ] Form inputs have associated labels
 
-## Commit Authority
-
-**EDIT ONLY** - Can edit HTML files but CANNOT commit.
-
 ## After Completing Work
 
-Report to controller agent:
-1. List all files modified with brief descriptions
-2. Note any HTML changes that may require CSS updates
-3. Recommend version increment (Patch/Minor/Major)
-4. Suggest changelog entry text
-5. Return control to controller for testing and commit
+Report back concisely:
+- What HTML changes were made (1-2 sentences)
+- Any new classes/elements that may need CSS styling
+- Any issues or blockers
 
-## Report Format
-
-```
-## HTML AGENT REPORT
-
-### Changes Made
-- [file.html] (line X): [what was changed]
-- [file.html] (line Y): [what was changed]
-
-### CSS Impact
-[None / List any CSS classes added/removed that may need styling]
-
-### Recommended Version Bump
-[Patch/Minor/Major] - [justification]
-
-### Suggested Changelog Entry
-[One line description of the change]
-```
+Note: Cannot commit - editing only.

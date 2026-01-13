@@ -77,15 +77,12 @@ When you receive prior context from scenic-html:
 - Animation CSS (transitions, transforms)
 - Debug mode styling
 
-## Commit Authority
-**EDIT ONLY** - Can edit files but CANNOT commit.
-
 ## After Completing Work
-Report to controller agent:
-1. List all files modified with brief descriptions
-2. Recommend version increment (Patch/Minor/Major)
-3. Suggest changelog entry text
-4. Return control to controller for testing and commit
+Report back concisely:
+- What CSS changes were made (1-2 sentences)
+- Any issues or blockers
+
+Note: Cannot commit - editing only.
 
 ## Common Tasks
 

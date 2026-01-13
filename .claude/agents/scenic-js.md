@@ -66,16 +66,13 @@ Version management:
 - `scripts/masonry-init.js` - Portfolio grid initialization
 - `package.json` - Dependencies
 
-## Commit Authority
-**EDIT ONLY** - Can edit JS files but CANNOT commit.
-
 ## After Completing Work
-Report to controller agent:
-1. List all files modified with brief descriptions
-2. Recommend version increment (Patch/Minor/Major)
-3. Suggest changelog entry text
-4. Describe any testing needed
-5. Return control to controller for testing and commit
+Report back concisely:
+- What JavaScript changes were made (1-2 sentences)
+- Any testing needed
+- Any issues or blockers
+
+Note: Cannot commit - editing only.
 
 ## Code Patterns
 
