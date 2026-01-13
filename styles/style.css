@@ -1242,15 +1242,17 @@ body {
     .team-section {
         background: linear-gradient(to bottom,
             transparent 0%,
-            transparent calc(4rem + 90px),
-            var(--color-gray-medium) calc(4rem + 90px),
+            transparent calc(20px + 90px),
+            var(--color-gray-medium) calc(20px + 90px),
             var(--color-gray-medium) 100%); /* Light Gray starts below mobile arcs */
+        padding: 20px 2rem; /* Aggressive cut from 4rem to 20px */
     }
 
     .team-members {
         flex-direction: column;
         align-items: center;
         gap: 0; /* No gap on mobile either */
+        margin-bottom: 16px; /* Aggressive cut from 3rem (48px) to 16px */
     }
 
     .team-member-card {
@@ -1313,8 +1315,8 @@ body {
         flex-direction: column;
         gap: 2rem;
         align-items: center;
-        padding-top: 15rem;
-        padding-bottom: 5rem;
+        padding-top: 60px; /* Aggressive cut from 240px (15rem) to 60px */
+        padding-bottom: 30px; /* Aggressive cut from 80px (5rem) to 30px */
     }
 
     .footer-logo {
@@ -1622,7 +1624,7 @@ body {
     }
     
     .hero {
-        height: 300px;
+        height: 200px;
     }
 
     /* .cta-button removed (no longer used in hero) */
@@ -1706,8 +1708,8 @@ body {
 
     /* Service icon sizing for mobile - reduced for 2-per-row layout */
     .service-icon {
-        width: 144px; /* Increased by 25% from 115px for better visibility */
-        height: 144px;
+        width: 108px; /* Aggressive cut from 144px */
+        height: 108px;
     }
 
     .team-title {
@@ -1727,7 +1729,7 @@ body {
     }
 
     .cta-section {
-        padding: 2.5rem 1.5rem; /* Compact padding for mobile */
+        padding: 24px 1.5rem; /* Aggressive vertical cut to 24px */
     }
 
     .cta-container {
@@ -1755,7 +1757,7 @@ body {
     }
 
     .header {
-        padding: 1rem;
+        padding: 8px;
     }
 
     /* Portfolio overlay - Mobile */

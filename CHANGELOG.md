@@ -8,6 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.12.0] - 2026-01-12
+### Changed
+- **Mobile UX Enhancement:** Aggressive mobile spacing optimization on viewports ≤375px
+- Reduced footer padding-top from 240px to 60px (saved 180px vertical space)
+- Reduced footer padding-bottom from 80px to 30px (saved 50px)
+- Reduced team section padding from 64px to 20px (saved 44px)
+- Reduced team member margin-bottom from 48px to 16px (saved 32px)
+- Reduced hero height from 300px to 200px (saved 100px)
+- Reduced CTA section padding from 40px to 24px (saved 16px)
+- Reduced service icon size from 144px to 108px (saved ~36px per icon)
+- Reduced header padding from 16px to 8px (saved 8px)
+- **Total vertical scroll reduction:** ~450-480px on mobile devices
+- Maintains touch target sizes, readability, and layout integrity across all mobile viewports
+
 ## [2.11.9] - 2026-01-12
 ### Changed
 - Reduced portfolio section padding from 4rem 2rem to 1rem for tighter layout

@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 12, 2026
-> **Current Version:** v2.11.9
+> **Current Version:** v2.12.0
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-12 | **v2.12.0:** Aggressive mobile spacing optimization - Saved ~450-480px vertical scroll on mobile (≤375px) with 8 spacing cuts: Footer padding-top 240px→60px (saved 180px), footer padding-bottom 80px→30px (saved 50px), team section padding 64px→20px (saved 44px), team members margin-bottom 48px→16px (saved 32px), hero height 300px→200px (saved 100px), CTA padding 40px→24px (saved 16px), service icons 144px→108px (saved ~36px each), header padding 16px→8px (saved 8px) - Maintains touch targets, readability, layout integrity | Mobile UX enhancement |
 | 2026-01-12 | **v2.11.9:** Portfolio and footer layout improvements - Reduced portfolio section padding from 4rem 2rem to 1rem for tighter layout, changed footer-geo-grid height from 400px to 200px, set footer-content padding-top to 15rem, set footer-content padding-bottom to 5rem, set footer-column padding-right to 5em, added footer-logo margin-left 3rem on desktop, 0 on mobile (responsive) | Enhancement |
 | 2026-01-12 | **v2.11.8:** Updated footer geometric pattern to match hero section size at all viewports - Desktop: 150px → 400px height, 1200px width (matches hero), Tablet: Added 300px height, 900px width constraints (matches hero), Mobile: 100px → 200px height, 600px width (matches hero), Adjusted footer content padding for taller geometric strip | Enhancement |
 | 2026-01-11 | **v2.10.0:** Update Creative Team section with new personnel: Chris Hammer (Managing Director), Santina Rohner-Moran (Production Manager), Sean Key Ketter (Technical Director), Cole Frizzo (Asst. Technical Director), and Cameron Moredock (Integrated Technology) | Changed |
@@ -671,9 +672,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.11.9` (as of Jan 12, 2026)
+**Current Version:** `v2.12.0` (as of Jan 12, 2026)
 
 **Version History:**
+- v2.12.0 - Aggressive mobile spacing optimization - Saved ~450-480px vertical scroll on mobile (≤375px) with 8 spacing cuts: Footer padding-top 240px→60px (saved 180px), footer padding-bottom 80px→30px (saved 50px), team section padding 64px→20px (saved 44px), team members margin-bottom 48px→16px (saved 32px), hero height 300px→200px (saved 100px), CTA padding 40px→24px (saved 16px), service icons 144px→108px (saved ~36px each), header padding 16px→8px (saved 8px)
 - v2.11.9 - Portfolio and footer layout improvements: Reduced portfolio section padding from 4rem 2rem to 1rem for tighter layout, changed footer-geo-grid height from 400px to 200px, set footer-content padding-top to 15rem, set footer-content padding-bottom to 5rem, set footer-column padding-right to 5em, added footer-logo margin-left 3rem on desktop, 0 on mobile (responsive)
 - v2.11.8 - Updated footer geometric pattern to match hero section size at all viewports - Desktop: 150px → 400px height, 1200px width (matches hero), Tablet: Added 300px height, 900px width constraints (matches hero), Mobile: 100px → 200px height, 600px width (matches hero), adjusted footer content padding for taller geometric strip
 - v2.11.7 - Fixed vertical centering of SCENIC logo in hero section at mobile viewport - Logo now centers on 200px geo-grid pattern instead of 300px hero container, set .hero-content height to 200px with flexbox centering at mobile breakpoint
