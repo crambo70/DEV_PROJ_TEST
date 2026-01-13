@@ -24,25 +24,13 @@ When you receive prior context from scenic-html:
 
 ## Design System Reference
 
-### Colors (memorize these)
-| Color | Hex | Usage |
-|-------|-----|-------|
-| White | #FFFFFF | Header bg, overlays |
-| Red | #EE3D33 | Accent, CTA |
-| Navy Blue | #00308C | Primary brand |
-| Light Blue | #12AEE7 | Secondary accent |
-| Teal/Mint | #34CBC2 | Accent |
-| Yellow/Gold | #FAC813 | Highlight |
-| Purple/Maroon | #600040 | Accent |
-| Light Gray | #C7C9D4 | Borders, subtle bg |
-| Off-White | #F1F1F4 | Cards, bg variations |
+When you need color codes, typography specs, or design system details, reference:
+`StyleGuide.md`
 
-### Typography
-- **Font:** DIN 2014 (via Adobe Typekit)
-- **Large:** 48px (headlines)
-- **Medium:** 24px (section headers)
-- **Small:** 18px (body text)
-- **Extra Small:** 9px (navigation)
+Quick reference:
+- **Primary brand colors**: Navy Blue (#00308C), Red (#EE3D33)
+- **Font**: DIN 2014 (via Adobe Typekit)
+- **For full palette and specs**: Read StyleGuide.md
 
 ### Breakpoints
 ```css
