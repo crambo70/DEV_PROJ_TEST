@@ -1242,48 +1242,53 @@ body {
     .team-section {
         background: linear-gradient(to bottom,
             transparent 0%,
-            transparent calc(20px + 90px),
-            var(--color-gray-medium) calc(20px + 90px),
-            var(--color-gray-medium) 100%); /* Light Gray starts below mobile arcs */
+            transparent calc(20px + 60px),
+            var(--color-gray-medium) calc(20px + 60px),
+            var(--color-gray-medium) 100%); /* Light Gray starts below mobile arcs (60px height) */
         padding: 20px 2rem; /* Aggressive cut from 4rem to 20px */
     }
 
     .team-members {
-        flex-direction: column;
-        align-items: center;
-        gap: 0; /* No gap on mobile either */
+        flex-direction: row; /* Horizontal row for 2-3 across */
+        align-items: flex-start;
+        justify-content: center;
+        gap: 1rem; /* Small gap between cards */
         margin-bottom: 16px; /* Aggressive cut from 3rem (48px) to 16px */
+        flex-wrap: wrap; /* Allow wrapping if needed */
     }
 
     .team-member-card {
-        width: 180px; /* Smaller on mobile */
+        width: 120px; /* Reduced from 180px for 2-3 across layout */
     }
 
     .member-arc {
-        width: 180px;
-        height: 90px;
+        width: 120px;
+        height: 60px; /* Half of width for semicircle */
         padding: 0; /* Removed padding for absolute positioning */
         justify-content: flex-start; /* Changed to allow absolute positioning */
+        border-radius: 120px 120px 0 0; /* Match new width */
     }
 
     .member-arc .member-name {
-        font-size: 12px;
+        font-size: 12px; /* Increased from 10px for better readability */
+        font-weight: 700; /* Added weight for clarity */
         line-height: 1; /* Tight line height */
         top: 50%; /* Position at mid-height */
         transform: translate(-50%, -50%); /* Re-center at mobile size */
     }
 
     .member-arc .member-title {
-        font-size: 10px;
+        font-size: 10px; /* Increased from 8px for better readability */
+        font-weight: 500; /* Added weight for clarity */
         line-height: 1; /* Tight line height */
         top: 80%; /* Position at 4/5 down from top */
         transform: translate(-50%, -50%); /* Re-center at mobile size */
     }
 
     .member-photo {
-        width: 180px;
-        height: 240px; /* Proportional */
-        border-radius: 0 0 90px 90px; /* Pill shape for mobile */
+        width: 120px;
+        height: 160px; /* Proportional - reduced from 240px */
+        border-radius: 0 0 60px 60px; /* Pill shape for mobile - half of width */
         margin-top: 0; /* No margin - arc and photo edges align perfectly */
     }
 
@@ -1630,33 +1635,32 @@ body {
     /* .cta-button removed (no longer used in hero) */
 
     .services-container {
-        flex-direction: row; /* 2-per-row layout on mobile */
-        flex-wrap: wrap; /* Allow wrapping to multiple rows */
-        justify-content: center; /* Center the cards */
-        gap: 0; /* Zero gap - using negative margin for overlap */
+        flex-direction: column; /* Vertical stack on mobile */
+        flex-wrap: nowrap; /* No wrapping needed */
+        justify-content: flex-start; /* Align to top */
+        gap: 1.5rem; /* Vertical spacing between cards */
+        padding: 0 1rem; /* Add horizontal padding for breathing room */
+        width: 100%; /* Full width container */
     }
 
-    /* Mobile service cards with 2-per-row overlapping layout */
+    /* Mobile service cards - full width, no overlap */
     .service-card {
         height: auto;
         min-height: auto; /* Auto height for compact layout */
-        margin-bottom: 0.5rem; /* Small vertical spacing between rows */
+        margin-bottom: 0; /* No margin - using gap */
         position: relative; /* Enable z-index stacking */
         z-index: 1; /* Base z-index */
-        width: auto; /* Auto width for flexbox */
+        width: 100%; /* Full width on mobile */
+        max-width: 100%; /* Ensure full width */
+        margin-left: 0; /* No overlap on mobile */
     }
 
-    /* Overlapping effect on mobile - all cards except first overlap the previous */
-    .service-card:not(:first-child) {
-        margin-left: -50px; /* Overlap for cards 2-5 */
-    }
-
-    /* Progressive z-index for mobile overlap */
+    /* Remove overlapping effect on mobile - all cards same z-index */
     .service-card:nth-child(1) { z-index: 1; }
-    .service-card:nth-child(2) { z-index: 2; }
-    .service-card:nth-child(3) { z-index: 3; }
-    .service-card:nth-child(4) { z-index: 4; }
-    .service-card:nth-child(5) { z-index: 5; }
+    .service-card:nth-child(2) { z-index: 1; }
+    .service-card:nth-child(3) { z-index: 1; }
+    .service-card:nth-child(4) { z-index: 1; }
+    .service-card:nth-child(5) { z-index: 1; }
 
     /* Elevate expanded card on mobile (for consistency) */
     .service-card:hover,
@@ -1703,13 +1707,20 @@ body {
 
     /* Text sizing for mobile */
     .service-title {
-        font-size: 10px;
+        font-size: 14px; /* Increased from 10px for better readability */
+        font-weight: 600; /* Added weight for visibility */
     }
 
-    /* Service icon sizing for mobile - reduced for 2-per-row layout */
+    /* Service text area spacing for mobile - prevent text overlap */
+    .service-text-area {
+        padding: 0.75rem 0.5rem; /* Increased vertical padding from 0.25rem */
+        min-height: 44px; /* Minimum touch target height */
+    }
+
+    /* Service icon sizing for mobile - larger for full-width layout */
     .service-icon {
-        width: 108px; /* Aggressive cut from 144px */
-        height: 108px;
+        width: 140px; /* Increased from 108px for better visibility at full width */
+        height: 140px;
     }
 
     .team-title {

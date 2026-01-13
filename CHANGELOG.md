@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.12.1] - 2026-01-12
+### Fixed
+- **Service Cards Mobile Layout:** Restructured to full viewport width vertical stack with 1.5rem gap (eliminated overlap and hit box collisions)
+- **Service Card Typography:** Increased heading font size 10px → 14px, added font-weight: 600, proper padding and 44px min-height for better readability
+- **Service Card Icons:** Increased size 108px → 140px for better visibility
+- **Team Member Cards Mobile Layout:** Reduced card width 180px → 120px to fit 2-3 across, changed to row layout with 1rem gap
+- **Team Member Typography:** Increased name size 10px → 12px (font-weight: 700), title size 8px → 10px (font-weight: 500)
+- **Overall Impact:** Improved mobile UX with better spacing, readability, and touch target accuracy
+
 ## [2.12.0] - 2026-01-12
 ### Changed
 - **Mobile UX Enhancement:** Aggressive mobile spacing optimization on viewports ≤375px

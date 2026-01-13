@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 12, 2026
-> **Current Version:** v2.12.0
+> **Current Version:** v2.12.1
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-12 | **v2.12.1:** Mobile layout and typography fixes based on user testing - Service cards: Restructured to full viewport width vertical stack with 1.5rem gap (eliminated overlap and hit box collisions), increased heading font size 10px→14px with font-weight 600 and 44px min-height, increased icon size 108px→140px - Team member cards: Reduced width 180px→120px to fit 2-3 across in row layout with 1rem gap, increased name size 10px→12px (font-weight 700), title size 8px→10px (font-weight 500) | Bug fix, Mobile UX improvement |
 | 2026-01-12 | **v2.12.0:** Aggressive mobile spacing optimization - Saved ~450-480px vertical scroll on mobile (≤375px) with 8 spacing cuts: Footer padding-top 240px→60px (saved 180px), footer padding-bottom 80px→30px (saved 50px), team section padding 64px→20px (saved 44px), team members margin-bottom 48px→16px (saved 32px), hero height 300px→200px (saved 100px), CTA padding 40px→24px (saved 16px), service icons 144px→108px (saved ~36px each), header padding 16px→8px (saved 8px) - Maintains touch targets, readability, layout integrity | Mobile UX enhancement |
 | 2026-01-12 | **v2.11.9:** Portfolio and footer layout improvements - Reduced portfolio section padding from 4rem 2rem to 1rem for tighter layout, changed footer-geo-grid height from 400px to 200px, set footer-content padding-top to 15rem, set footer-content padding-bottom to 5rem, set footer-column padding-right to 5em, added footer-logo margin-left 3rem on desktop, 0 on mobile (responsive) | Enhancement |
 | 2026-01-12 | **v2.11.8:** Updated footer geometric pattern to match hero section size at all viewports - Desktop: 150px → 400px height, 1200px width (matches hero), Tablet: Added 300px height, 900px width constraints (matches hero), Mobile: 100px → 200px height, 600px width (matches hero), Adjusted footer content padding for taller geometric strip | Enhancement |
