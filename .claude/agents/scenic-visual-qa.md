@@ -230,9 +230,44 @@ When controller indicates baseline is needed (e.g., for visual issues):
 
 ### Phase 1: Environment Setup
 
-1. Start dev server: `python3 -m http.server 9999`
-2. Navigate to the page: `browser_navigate({ url: "http://localhost:9999" })`
-3. Take initial snapshot: `browser_snapshot()`
+**CRITICAL EFFICIENCY RULES:**
+- **Always check if Chromium is installed** before attempting browser operations
+- **Always check if dev server is running** before starting a new one
+
+```bash
+# 1. Check if Chromium is installed (only install if needed)
+# First try to use browser_navigate - if it fails, then install
+browser_navigate({ url: "http://localhost:9999" })
+# If above fails with "browser not installed", then:
+browser_install()
+browser_navigate({ url: "http://localhost:9999" })
+
+# 2. Check if dev server is already running before starting
+# Use: curl -s -o /dev/null -w "%{http_code}" http://localhost:9999
+# If returns 200, server is running - do NOT start another
+# If returns 000 or error, server is not running - start it
+```
+
+**Efficient setup sequence:**
+
+1. **Check dev server status first:**
+   ```bash
+   Bash: curl -s -o /dev/null -w "%{http_code}" http://localhost:9999
+   ```
+   - If returns `200`: Server running, skip to step 2
+   - If returns `000` or error: Start server with `python3 -m http.server 9999` in background
+
+2. **Try to navigate (tests if browser installed):**
+   ```javascript
+   browser_navigate({ url: "http://localhost:9999" })
+   ```
+   - If succeeds: Browser installed, continue
+   - If fails with "not installed": Run `browser_install()` then retry navigate
+
+3. **Take initial snapshot:**
+   ```javascript
+   browser_snapshot()
+   ```
 
 ### Phase 2: Viewport Testing
 
@@ -387,8 +422,21 @@ browser_take_screenshot({ filename: "after-scroll.png" })
 ## Troubleshooting
 
 ### Browser Not Installed
+**EFFICIENCY RULE**: Only install if navigation fails. Do NOT preemptively install.
+
 ```javascript
-browser_install()  // Install the configured browser
+// WRONG: Don't do this unconditionally
+browser_install()  // Wastes time if already installed
+
+// RIGHT: Try navigation first, install only if needed
+try {
+  browser_navigate({ url: "http://localhost:9999" })
+} catch (error) {
+  if (error.includes("not installed")) {
+    browser_install()  // Only install when needed
+    browser_navigate({ url: "http://localhost:9999" })
+  }
+}
 ```
 
 ### Element Not Found
