@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.12.3] - 2026-01-12
+### Fixed
+- **Service Cards Mobile Centering (USER SPOTTED):** Added CSS rule to center last service card when alone on row using `:last-child:nth-child(odd)` with `margin-left: auto; margin-right: auto;` - now matches team member centering behavior
+- **Services Section Mobile Padding:** Increased top/bottom padding from 0px to 32px for better breathing room
+- **Team Section Mobile Padding:** Increased all-sides padding from 20px to 32px to reduce cramped appearance
+- **Portfolio Section Padding:** Increased top/bottom padding from 16px to 32px across all viewports for better visual hierarchy
+- **Overall Impact:** Improved mobile visual consistency with proper centering and uniform spacing
+
 ## [2.12.2] - 2026-01-12
 ### Fixed
 - **Service Cards Mobile Layout:** Changed from vertical stack to 2-column grid layout (2 cards per row) using calc(50% - 0.5rem) width with flex-wrap

@@ -887,7 +887,7 @@ body {
 /* Portfolio Section */
 .portfolio {
     background-color: var(--color-white);
-    padding: 1rem;
+    padding: 2rem 1rem; /* Increased from 1rem to 2rem for better breathing room */
 }
 
 .portfolio-container {
@@ -1242,10 +1242,10 @@ body {
     .team-section {
         background: linear-gradient(to bottom,
             transparent 0%,
-            transparent calc(20px + 70px),
-            var(--color-gray-medium) calc(20px + 70px),
+            transparent calc(32px + 70px),
+            var(--color-gray-medium) calc(32px + 70px),
             var(--color-gray-medium) 100%); /* Light Gray starts below mobile arcs (70px height) */
-        padding: 20px 2rem; /* Aggressive cut from 4rem to 20px */
+        padding: 2rem 2rem; /* Increased from 20px to 32px for better breathing room */
     }
 
     .team-members {
@@ -1371,6 +1371,7 @@ body {
 .services {
     padding: 1rem 0.5rem 2.5rem 0.5rem; /* 75% reduced padding (was 2rem 1rem 5rem 1rem) */
     background-color: var(--color-white); /* Clean white background - changed from off-white */
+    position: relative; /* Required for absolute positioned heading */
 }
 
 .services-container {
@@ -1381,6 +1382,7 @@ body {
     gap: 0; /* Zero gap for compact layout */
     align-items: start;
     padding-bottom: 0.4rem; /* 75% reduced (was 0.85rem) */
+    padding-top: 3rem; /* Space for "Our Services" heading */
 }
 
 .service-card {
@@ -1663,6 +1665,12 @@ body {
         margin-left: 0; /* No overlap on mobile */
     }
 
+    /* Center last service card when alone on row */
+    .service-card:last-child:nth-child(odd) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     /* Remove overlapping effect on mobile - all cards same z-index */
     .service-card:nth-child(1) { z-index: 1; }
     .service-card:nth-child(2) { z-index: 1; }
@@ -1679,7 +1687,7 @@ body {
 
     /* Reduce services section padding on mobile */
     .services {
-        padding: 0rem 0.5rem; /* No top padding - services start immediately after hero */
+        padding: 2rem 0.5rem; /* 32px top/bottom padding for breathing room */
     }
 
     /* Reduce icon area padding on mobile */
