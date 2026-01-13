@@ -887,7 +887,7 @@ body {
 /* Portfolio Section */
 .portfolio {
     background-color: var(--color-white);
-    padding: 4rem 2rem;
+    padding: 1rem;
 }
 
 .portfolio-container {
@@ -1110,9 +1110,9 @@ body {
 .footer-geo-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
-    height: 400px; /* Match hero grid height (was 150px) */
+    height: 200px; /* Set to match tile height */
     width: 100%;
-    max-height: 400px; /* Match hero constraints */
+    max-height: 200px; /* Match hero constraints */
 }
 
 .footer-geo-tile {
@@ -1146,8 +1146,13 @@ body {
     align-items: center; /* Center logo and columns vertically */
     max-width: 2240px; /* Match header max-width */
     margin: 0 auto;
-    padding: calc(400px + 1.5rem) 5rem 1.5rem 5rem; /* Updated from 150px to 400px to match hero */
+    padding-top: 15rem;
+    padding-bottom: 5rem;
     gap: 5rem; /* Reduced gap between logo and columns */
+}
+
+.footer-logo {
+    margin-left: 3rem; /* Move logo to the right */
 }
 
 .footer-logo-img {
@@ -1173,7 +1178,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    padding-right: 8em;
+    padding-right: 5em;
 }
 
 .footer-column-title {
@@ -1308,7 +1313,12 @@ body {
         flex-direction: column;
         gap: 2rem;
         align-items: center;
-        padding: calc(200px + 1.5rem) 1.5rem 1.5rem 1.5rem; /* Updated from 100px to 200px to match hero */
+        padding-top: 15rem;
+        padding-bottom: 5rem;
+    }
+
+    .footer-logo {
+        margin-left: 0; /* Remove desktop offset when footer stacks */
     }
 
     .footer-info-columns {
@@ -1785,7 +1795,8 @@ body {
     }
 
     .footer-content {
-        padding: calc(300px + 1.5rem) 3rem 1.5rem 3rem; /* Match geometric strip height and horizontal padding */
+        padding-top: 15rem;
+        padding-bottom: 5rem;
     }
 
     /* Header padding for tablet */

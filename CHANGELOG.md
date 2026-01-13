@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.11.9] - 2026-01-12
+### Changed
+- Reduced portfolio section padding from 4rem 2rem to 1rem for tighter layout
+- Updated footer geometric pattern height from 400px to 200px for better balance
+- Adjusted footer content padding (15rem top, 5rem bottom)
+- Set footer column spacing to 5em right padding
+- Added responsive footer logo positioning (3rem left margin on desktop, centered on mobile)
+
 ## [2.11.8] - 2026-01-12
 ### Changed
 - Updated footer geometric pattern to match hero section size at all viewports
