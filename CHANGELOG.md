@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.12.2] - 2026-01-12
+### Fixed
+- **Service Cards Mobile Layout:** Changed from vertical stack to 2-column grid layout (2 cards per row) using calc(50% - 0.5rem) width with flex-wrap
+- **Team Member Arc Typography:** Increased arc height 60px → 70px (16.7% increase), adjusted line-height 1 → 1.2 for better text breathing room
+- **Footer Logo Position:** Moved SCENIC logo above geometric grid pattern (order: -1) to eliminate visual overlap and improve hierarchy
+
 ## [2.12.1] - 2026-01-12
 ### Fixed
 - **Service Cards Mobile Layout:** Restructured to full viewport width vertical stack with 1.5rem gap (eliminated overlap and hit box collisions)

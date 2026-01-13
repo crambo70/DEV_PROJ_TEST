@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 12, 2026
-> **Current Version:** v2.12.1
+> **Current Version:** v2.12.2
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -111,6 +111,7 @@ Following these practices maintains project consistency.
 | 2025-11-27 | **v2.1.3:** Created specialized Claude Code agents (CSS, Docs, JS/Masonry), updated portfolio with 19 placeholder images, fixed homepage CSS Grid layout (grid-auto-rows: auto, justify-self: stretch), added cache-busting to CSS links, cleaned up obsolete animation files | Agent architecture, portfolio update, layout fixes |
 | 2025-11-19 | **v2.1.2:** Implemented centralized version management system with version.json and auto-loader script | Version consistency across all pages |
 | 2025-11-10 | Initial plan created | Established roadmap |
+| 2026-01-12 | **v2.12.2:** Mobile layout refinements based on real device testing - Service cards changed to 2-column grid layout (2 cards per row), team member arc text spacing improved (arc height 60px → 70px, line-height 1 → 1.2), footer logo repositioned above geometric pattern for cleaner hierarchy | Bug fix |
 | 2026-01-12 | **v2.11.6:** Corrected mobile hero white space fix by applying constraints to `.geo-grid` instead of `.geometric-background` - Added fixed dimensions to `.geo-grid` at mobile breakpoint (200px height, 600px width), reverted `.geometric-background` height to 200px to align with grid constraints | Bug fix |
 | 2026-01-12 | **v2.11.5:** Fixed white space gap at bottom of hero section on mobile viewports (320px-768px) - Increased `.geometric-background` height from 200px to 300px to match hero container, removed duplicate `.hero` height declaration causing CSS cascade conflicts | Bug fix |
 | 2026-01-12 | **v2.11.3:** Fixed geometric background white gaps with fixed-width containers (1200px desktop, 900px tablet, 600px mobile) across all breakpoints to prevent visual gaps during browser window resizing | Fixed |
@@ -673,9 +674,11 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.12.0` (as of Jan 12, 2026)
+**Current Version:** `v2.12.2` (as of Jan 12, 2026)
 
 **Version History:**
+- v2.12.2 - Mobile layout refinements based on real device testing - Service cards changed from vertical stack to 2-column grid layout (2 cards per row using calc(50% - 0.5rem) width with flex-wrap), team member arc text spacing improved (arc height 60px → 70px, line-height 1 → 1.2 for better breathing room), footer logo repositioned above geometric pattern (order: -1) for cleaner visual hierarchy
+- v2.12.1 - Service cards mobile UX fixes - Restructured to full viewport width vertical stack with 1.5rem gap (eliminated overlap and hit box collisions), increased heading font size 10px → 14px with font-weight: 600, increased icons 108px → 140px, team cards reduced to 120px width for 2-3 across layout, improved typography sizing
 - v2.12.0 - Aggressive mobile spacing optimization - Saved ~450-480px vertical scroll on mobile (≤375px) with 8 spacing cuts: Footer padding-top 240px→60px (saved 180px), footer padding-bottom 80px→30px (saved 50px), team section padding 64px→20px (saved 44px), team members margin-bottom 48px→16px (saved 32px), hero height 300px→200px (saved 100px), CTA padding 40px→24px (saved 16px), service icons 144px→108px (saved ~36px each), header padding 16px→8px (saved 8px)
 - v2.11.9 - Portfolio and footer layout improvements: Reduced portfolio section padding from 4rem 2rem to 1rem for tighter layout, changed footer-geo-grid height from 400px to 200px, set footer-content padding-top to 15rem, set footer-content padding-bottom to 5rem, set footer-column padding-right to 5em, added footer-logo margin-left 3rem on desktop, 0 on mobile (responsive)
 - v2.11.8 - Updated footer geometric pattern to match hero section size at all viewports - Desktop: 150px → 400px height, 1200px width (matches hero), Tablet: Added 300px height, 900px width constraints (matches hero), Mobile: 100px → 200px height, 600px width (matches hero), adjusted footer content padding for taller geometric strip

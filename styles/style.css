@@ -1242,9 +1242,9 @@ body {
     .team-section {
         background: linear-gradient(to bottom,
             transparent 0%,
-            transparent calc(20px + 60px),
-            var(--color-gray-medium) calc(20px + 60px),
-            var(--color-gray-medium) 100%); /* Light Gray starts below mobile arcs (60px height) */
+            transparent calc(20px + 70px),
+            var(--color-gray-medium) calc(20px + 70px),
+            var(--color-gray-medium) 100%); /* Light Gray starts below mobile arcs (70px height) */
         padding: 20px 2rem; /* Aggressive cut from 4rem to 20px */
     }
 
@@ -1263,7 +1263,7 @@ body {
 
     .member-arc {
         width: 120px;
-        height: 60px; /* Half of width for semicircle */
+        height: 70px; /* Increased from 60px for more breathing room */
         padding: 0; /* Removed padding for absolute positioning */
         justify-content: flex-start; /* Changed to allow absolute positioning */
         border-radius: 120px 120px 0 0; /* Match new width */
@@ -1272,16 +1272,16 @@ body {
     .member-arc .member-name {
         font-size: 12px; /* Increased from 10px for better readability */
         font-weight: 700; /* Added weight for clarity */
-        line-height: 1; /* Tight line height */
-        top: 50%; /* Position at mid-height */
+        line-height: 1.2; /* Increased from 1 for more breathing room */
+        top: 45%; /* Adjusted from 50% to account for taller arc */
         transform: translate(-50%, -50%); /* Re-center at mobile size */
     }
 
     .member-arc .member-title {
         font-size: 10px; /* Increased from 8px for better readability */
         font-weight: 500; /* Added weight for clarity */
-        line-height: 1; /* Tight line height */
-        top: 80%; /* Position at 4/5 down from top */
+        line-height: 1.2; /* Increased from 1 for more breathing room */
+        top: 75%; /* Adjusted from 80% to account for taller arc */
         transform: translate(-50%, -50%); /* Re-center at mobile size */
     }
 
@@ -1309,6 +1309,11 @@ body {
         max-height: 200px;
         min-height: 200px; /* Fixed height at mobile - matches hero (was 100px) */
         height: 200px;
+        position: relative; /* Change from absolute to relative for mobile */
+        top: auto; /* Reset top positioning */
+        left: auto; /* Reset left positioning */
+        transform: none; /* Remove centering transform */
+        margin: 0 auto; /* Center horizontally */
     }
 
     .footer-geo-grid {
@@ -1320,12 +1325,15 @@ body {
         flex-direction: column;
         gap: 2rem;
         align-items: center;
-        padding-top: 60px; /* Aggressive cut from 240px (15rem) to 60px */
+        padding-top: 0; /* Remove top padding - logo will sit above geometric grid */
         padding-bottom: 30px; /* Aggressive cut from 80px (5rem) to 30px */
     }
 
     .footer-logo {
         margin-left: 0; /* Remove desktop offset when footer stacks */
+        order: -1; /* Move logo above geometric grid */
+        padding-top: 2rem; /* Add space above logo */
+        padding-bottom: 1rem; /* Add space below logo before grid */
     }
 
     .footer-info-columns {
@@ -1635,23 +1643,23 @@ body {
     /* .cta-button removed (no longer used in hero) */
 
     .services-container {
-        flex-direction: column; /* Vertical stack on mobile */
-        flex-wrap: nowrap; /* No wrapping needed */
-        justify-content: flex-start; /* Align to top */
-        gap: 1.5rem; /* Vertical spacing between cards */
+        flex-direction: row; /* Horizontal layout for 2 per row */
+        flex-wrap: wrap; /* Allow wrapping to create rows */
+        justify-content: space-between; /* Space between 2 cards per row */
+        gap: 1rem; /* Spacing between cards */
         padding: 0 1rem; /* Add horizontal padding for breathing room */
         width: 100%; /* Full width container */
     }
 
-    /* Mobile service cards - full width, no overlap */
+    /* Mobile service cards - 2 per row layout */
     .service-card {
         height: auto;
         min-height: auto; /* Auto height for compact layout */
         margin-bottom: 0; /* No margin - using gap */
         position: relative; /* Enable z-index stacking */
         z-index: 1; /* Base z-index */
-        width: 100%; /* Full width on mobile */
-        max-width: 100%; /* Ensure full width */
+        width: calc(50% - 0.5rem); /* 50% width minus half gap for 2 per row */
+        max-width: calc(50% - 0.5rem); /* Ensure 2 per row */
         margin-left: 0; /* No overlap on mobile */
     }
 
