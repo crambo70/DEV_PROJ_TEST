@@ -1,8 +1,8 @@
 # SCENIC Website - Mobile-First Implementation Plan
 
 > **Living Document** - Updated as we progress and priorities evolve
-> **Last Updated:** January 12, 2026
-> **Current Version:** v2.12.4
+> **Last Updated:** January 16, 2026
+> **Current Version:** v2.12.6
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,8 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-16 | **v2.12.6:** Footer geometric grid comprehensive fix - (1) Z-index stacking: Added `position: absolute; top: 0; left: 0; z-index: 1;` to `.footer-geo-grid` (lines 1116-1119), (2) SVG vertical centering: Added `object-position: top;` to `.footer-geo-image` and `object-fit: none; object-position: top left;` to `.footer-geo-image svg` (lines 1133, 1137-1140) to fix Lottie centering creating ~20-30px gap, (3) Grid height consistency: Mobile 200px→100px (lines 1319-1321, 1326-1327), Tablet 200px→150px (lines 1822-1824, 1829-1830), Desktop 200px unchanged - footer now displays consistent visual hierarchy across all viewports | Bug fix |
+| 2026-01-15 | **v2.12.5:** Footer geometric grid z-index and height fix - (1) Added `position: absolute; top: 0; left: 0; z-index: 1;` to `.footer-geo-grid` (lines 1116-1119) fixing SCENIC logo floating on top of pattern on Tablet/Mobile, (2) Reduced tablet `.footer-geo-grid` height/max-height from 300px to 200px (lines 1823-1824) - ROOT CAUSE of blue gap, grid now 200px like desktop for visual consistency across all viewports | Bug fix |
 | 2026-01-12 | **v2.12.1:** Mobile layout and typography fixes based on user testing - Service cards: Restructured to full viewport width vertical stack with 1.5rem gap (eliminated overlap and hit box collisions), increased heading font size 10px→14px with font-weight 600 and 44px min-height, increased icon size 108px→140px - Team member cards: Reduced width 180px→120px to fit 2-3 across in row layout with 1rem gap, increased name size 10px→12px (font-weight 700), title size 8px→10px (font-weight 500) | Bug fix, Mobile UX improvement |
 | 2026-01-12 | **v2.12.0:** Aggressive mobile spacing optimization - Saved ~450-480px vertical scroll on mobile (≤375px) with 8 spacing cuts: Footer padding-top 240px→60px (saved 180px), footer padding-bottom 80px→30px (saved 50px), team section padding 64px→20px (saved 44px), team members margin-bottom 48px→16px (saved 32px), hero height 300px→200px (saved 100px), CTA padding 40px→24px (saved 16px), service icons 144px→108px (saved ~36px each), header padding 16px→8px (saved 8px) - Maintains touch targets, readability, layout integrity | Mobile UX enhancement |
 | 2026-01-12 | **v2.11.9:** Portfolio and footer layout improvements - Reduced portfolio section padding from 4rem 2rem to 1rem for tighter layout, changed footer-geo-grid height from 400px to 200px, set footer-content padding-top to 15rem, set footer-content padding-bottom to 5rem, set footer-column padding-right to 5em, added footer-logo margin-left 3rem on desktop, 0 on mobile (responsive) | Enhancement |
@@ -676,9 +678,11 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.12.4` (as of Jan 12, 2026)
+**Current Version:** `v2.12.6` (as of Jan 16, 2026)
 
 **Version History:**
+- v2.12.6 - Footer geometric grid comprehensive fix (all viewports) - Three critical fixes: (1) Z-index stacking - Added `position: absolute; top: 0; left: 0; z-index: 1;` to `.footer-geo-grid` (lines 1116-1119) fixing logo overlap, (2) SVG vertical centering - Added `object-position: top;` to `.footer-geo-image` and `object-fit: none; object-position: top left;` to `.footer-geo-image svg` (lines 1133, 1137-1140) to fix Lottie's `preserveAspectRatio="xMidYMid meet"` centering creating ~20-30px gap, (3) Grid height consistency - Mobile 200px→100px (lines 1319-1321, 1326-1327), Tablet 200px→150px (lines 1822-1824, 1829-1830), Desktop 200px unchanged - Footer displays consistent visual hierarchy across all viewports with pattern starting immediately at top edge, proper z-index layering, no gaps or overlaps
+- v2.12.5 - Footer geometric grid z-index and tablet height fix - (1) Added `position: absolute; top: 0; left: 0; z-index: 1;` to `.footer-geo-grid` (lines 1116-1119) fixing z-index stacking issue where SCENIC logo was floating on top of geometric pattern on Tablet/Mobile viewports, (2) Reduced `.footer-geo-grid` height and max-height from 300px to 200px in tablet media query (lines 1823-1824) - this was ROOT CAUSE of large blue gap, grid now 200px tall like desktop for visual consistency - Footer displays consistently across all viewports with pattern starting at top, proper layering, no gaps
 - v2.12.4 - Footer geometric grid positioning fix - Removed `position: relative` override on mobile that pushed grid into document flow, added explicit `top: 0` on tablet to ensure top-edge positioning, grid now uses `position: absolute; top: 0` consistently across all viewports (Desktop, Tablet, Mobile) for uniform visual behavior
 - v2.12.3 - Mobile visual consistency fixes (USER SPOTTED) - Service cards now center when alone on row using `:last-child:nth-child(odd)` with `margin-left: auto; margin-right: auto;` (matches team member centering behavior), increased services section padding 0px → 32px top/bottom, team section padding 20px → 32px all sides, portfolio section padding 16px → 32px top/bottom across all viewports for improved breathing room and visual hierarchy
 - v2.12.2 - Mobile layout refinements based on real device testing - Service cards changed from vertical stack to 2-column grid layout (2 cards per row using calc(50% - 0.5rem) width with flex-wrap), team member arc text spacing improved (arc height 60px → 70px, line-height 1 → 1.2 for better breathing room), footer logo repositioned above geometric pattern (order: -1) for cleaner visual hierarchy

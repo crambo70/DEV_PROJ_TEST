@@ -8,6 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.12.6] - 2026-01-16
+### Fixed
+- **Footer Geometric Grid Comprehensive Fix (All Viewports):** Three critical fixes for consistent footer geometric grid display across Desktop, Tablet, and Mobile:
+  1. **Z-Index Stacking Fix:** Added `position: absolute; top: 0; left: 0; z-index: 1;` to `.footer-geo-grid` (lines 1116-1119) - SCENIC logo was overlapping geometric pattern on Tablet/Mobile, now properly layered below the grid
+  2. **SVG Vertical Centering Fix:** Fixed Lottie's `preserveAspectRatio="xMidYMid meet"` centering issue by adding `object-position: top;` to `.footer-geo-image` (line 1133) and `object-fit: none; object-position: top left;` to `.footer-geo-image svg` (lines 1137-1140) - eliminated ~20-30px gap at top of geometric pattern
+  3. **Grid Height Consistency Fix:** Matched grid heights to design system across all viewports - Mobile: 200px → 100px (lines 1319-1321, 1326-1327), Tablet: 200px → 150px (lines 1822-1824, 1829-1830), Desktop: 200px (unchanged) - footer now displays consistent visual hierarchy
+- **Overall Impact:** Footer geometric grid now starts immediately at top edge with proper z-index layering, no gaps or overlaps, consistent heights across all viewports matching design system
+
+## [2.12.5] - 2026-01-15
+### Fixed
+- **Footer Geometric Grid Z-Index Stacking (Tablet + Mobile):** Added `position: absolute; top: 0; left: 0; z-index: 1;` to `.footer-geo-grid` (lines 1116-1119) - SCENIC logo was floating on top of geometric pattern, now properly layered below the grid for correct visual hierarchy
+- **Footer Geometric Grid Height (Tablet):** Reduced `.footer-geo-grid` height and max-height from `300px` to `200px` in tablet media query (lines 1823-1824) - this was the ROOT CAUSE of the large blue gap, tablet grid is now 200px tall like desktop for visual consistency
+- **Overall Impact:** Footer now displays consistently across Desktop, Tablet, and Mobile - geometric pattern starts immediately at top of footer with proper z-index layering, no gaps or overlaps
+
 ## [2.12.4] - 2026-01-12
 ### Fixed
 - **Footer Geometric Grid Positioning:** Removed `position: relative` override on mobile that pushed grid into document flow, added explicit `top: 0` on tablet to ensure top-edge positioning - grid now uses `position: absolute; top: 0` consistently across all viewports (Desktop, Tablet, Mobile)
