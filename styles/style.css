@@ -1280,7 +1280,7 @@ body {
     }
 
     .member-arc .member-name {
-        font-size: 12px; /* Increased from 10px for better readability */
+        font-size: 10px; /* Reduced for mobile viewport (375px) */
         font-weight: 700; /* Added weight for clarity */
         line-height: 1.2; /* Increased from 1 for more breathing room */
         top: 45%; /* Adjusted from 50% to account for taller arc */
@@ -1288,7 +1288,7 @@ body {
     }
 
     .member-arc .member-title {
-        font-size: 10px; /* Increased from 8px for better readability */
+        font-size: 8px; /* Reduced for mobile viewport (375px) */
         font-weight: 500; /* Added weight for clarity */
         line-height: 1.2; /* Increased from 1 for more breathing room */
         top: 75%; /* Adjusted from 80% to account for taller arc */

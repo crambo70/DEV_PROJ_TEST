@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 16, 2026
-> **Current Version:** v2.12.7
+> **Current Version:** v2.12.8
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-16 | **v2.12.8:** Reduced mobile team member card font sizes for improved text density - `.member-name` reduced from 12px to 10px (line 1283), `.member-title` reduced from 10px to 8px (line 1291) - team member cards now display more compact typography appropriate for mobile viewport (375px) | Enhancement |
 | 2026-01-16 | **v2.12.6:** Footer geometric grid comprehensive fix - (1) Z-index stacking: Added `position: absolute; top: 0; left: 0; z-index: 1;` to `.footer-geo-grid` (lines 1116-1119), (2) SVG vertical centering: Added `object-position: top;` to `.footer-geo-image` and `object-fit: none; object-position: top left;` to `.footer-geo-image svg` (lines 1133, 1137-1140) to fix Lottie centering creating ~20-30px gap, (3) Grid height consistency: Mobile 200px→100px (lines 1319-1321, 1326-1327), Tablet 200px→150px (lines 1822-1824, 1829-1830), Desktop 200px unchanged - footer now displays consistent visual hierarchy across all viewports | Bug fix |
 | 2026-01-15 | **v2.12.5:** Footer geometric grid z-index and height fix - (1) Added `position: absolute; top: 0; left: 0; z-index: 1;` to `.footer-geo-grid` (lines 1116-1119) fixing SCENIC logo floating on top of pattern on Tablet/Mobile, (2) Reduced tablet `.footer-geo-grid` height/max-height from 300px to 200px (lines 1823-1824) - ROOT CAUSE of blue gap, grid now 200px like desktop for visual consistency across all viewports | Bug fix |
 | 2026-01-12 | **v2.12.1:** Mobile layout and typography fixes based on user testing - Service cards: Restructured to full viewport width vertical stack with 1.5rem gap (eliminated overlap and hit box collisions), increased heading font size 10px→14px with font-weight 600 and 44px min-height, increased icon size 108px→140px - Team member cards: Reduced width 180px→120px to fit 2-3 across in row layout with 1rem gap, increased name size 10px→12px (font-weight 700), title size 8px→10px (font-weight 500) | Bug fix, Mobile UX improvement |
