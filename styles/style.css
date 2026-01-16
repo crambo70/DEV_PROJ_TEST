@@ -1331,13 +1331,12 @@ body {
         flex-direction: column;
         gap: 2rem;
         align-items: center;
-        padding-top: 0; /* Remove top padding - logo will sit above geometric grid */
+        padding-top: 8rem; /* 128px - position content below 100px geo-grid with spacing */
         padding-bottom: 30px; /* Aggressive cut from 80px (5rem) to 30px */
     }
 
     .footer-logo {
         margin-left: 0; /* Remove desktop offset when footer stacks */
-        order: -1; /* Move logo above geometric grid */
         padding-top: 2rem; /* Add space above logo */
         padding-bottom: 1rem; /* Add space below logo before grid */
     }

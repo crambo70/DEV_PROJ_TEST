@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.12.7] - 2026-01-16
+### Fixed
+- **Mobile Footer Layout:** Fixed SCENIC logo overlapping footer geometric grid on mobile viewport (375px) by adding `padding-top: 8rem` to `.footer-content` (line 1334) to position content below 100px geo-grid, and removing `order: -1` from `.footer-logo` (line 1340) that was causing incorrect stacking order - footer now displays proper vertical hierarchy with logo appearing below geometric pattern
+
 ## [2.12.6] - 2026-01-16
 ### Fixed
 - **Footer Geometric Grid Comprehensive Fix (All Viewports):** Three critical fixes for consistent footer geometric grid display across Desktop, Tablet, and Mobile:
