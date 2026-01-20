@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.13.0] - 2026-01-20
+### Changed
+- **Hero Section Geometric Grid Expansion (MAJOR):** Expanded geometric grid from 6x2 to 8x2 (16 tiles total), added far-left and far-right columns, updated container widths across all viewports (Desktop: 1200px → 1600px, Tablet: 900px → 1200px, Mobile: 600px → 800px), fixed dimension locks for both .geometric-background and .geo-grid with matching constraints
+- **Service Cards Layout Overhaul (MAJOR):** Desktop changed from single row to 3-2 stacked layout (3 cards top row, 2 cards bottom row centered), Mobile changed to single vertical column (1 card per row), Desktop icons increased 50% (200px → 300px), Desktop text increased 50% (12px → 18px), Mobile icons increased to 200px (from 140px), Removed all padding from .services and .services-container sections
+- **Navigation Redesign (MAJOR):** Split navigation with HOME, WORK, EVENT SERVICES left-aligned and GET IN TOUCH right-aligned, HTML reordered with GET IN TOUCH moved to last position, GET IN TOUCH styling with 1px border box (--color-primary-blue), Mobile hamburger right-justified, Mobile menu dropdown right-justified with GET IN TOUCH left-aligned (no border)
+- **CTA Section Content:** Changed heading from "Let's Create Something Wonderous" to "Imagine What We Can Create."
+- **Team Section Updates:** Heading changed from "OUR CREATIVE TEAM" to "WE CAN HELP YOU BUILD YOUR PERFECT EVENT", Description updated to "Our team elevates events with custom environments. We specialize in installations for corporate, nonprofit, technology, and retail applications. We build unforgettable experiences so your message can take center stage.", Heading font size reduced for single-line fit (Desktop: 2rem, Tablet: 1.8rem, Mobile: 1.5rem), Sean Key Ketter photo overlay updated to #905fa2 (medium purple)
+
 ## [2.12.8] - 2026-01-16
 ### Fixed
 - **Mobile Team Member Typography:** Reduced font sizes for improved mobile viewport (375px) text density - `.member-name` reduced from 12px to 10px (line 1283), `.member-title` reduced from 10px to 8px (line 1291) - team member cards now display more compact typography appropriate for mobile devices

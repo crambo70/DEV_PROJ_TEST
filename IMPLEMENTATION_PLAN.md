@@ -1,8 +1,8 @@
 # SCENIC Website - Mobile-First Implementation Plan
 
 > **Living Document** - Updated as we progress and priorities evolve
-> **Last Updated:** January 16, 2026
-> **Current Version:** v2.12.8
+> **Last Updated:** January 20, 2026
+> **Current Version:** v2.13.0
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-20 | **v2.13.0:** Major UI refinements - (1) Hero geometric grid expanded 6x2 → 8x2 with new far-left/right columns, container widths increased (Desktop: 1200px → 1600px, Tablet: 900px → 1200px, Mobile: 600px → 800px), (2) Service cards layout overhaul: Desktop 3-2 stacked layout, Mobile single vertical column, Desktop icons +50% (200px → 300px), Desktop text +50% (12px → 18px), Mobile icons increased to 200px, all padding removed, (3) Navigation redesign: Split nav with GET IN TOUCH right-aligned in border box, mobile hamburger right-justified, (4) CTA heading changed to "Imagine What We Can Create.", (5) Team section heading changed to "WE CAN HELP YOU BUILD YOUR PERFECT EVENT" with updated description, reduced heading font sizes for single-line fit, Sean Key Ketter photo overlay updated to #905fa2 | Major enhancement |
 | 2026-01-16 | **v2.12.8:** Reduced mobile team member card font sizes for improved text density - `.member-name` reduced from 12px to 10px (line 1283), `.member-title` reduced from 10px to 8px (line 1291) - team member cards now display more compact typography appropriate for mobile viewport (375px) | Enhancement |
 | 2026-01-16 | **v2.12.7:** Fixed mobile footer layout - Logo overlapping footer geometric grid on mobile viewport (375px) resolved by adding padding-top: 8rem to .footer-content (line 1334) to position content below 100px geo-grid, removed order: -1 from .footer-logo (line 1340) causing incorrect stacking order | Bug fix |
 | 2026-01-16 | **v2.12.6:** Footer geometric grid comprehensive fix - (1) Z-index stacking: Added `position: absolute; top: 0; left: 0; z-index: 1;` to `.footer-geo-grid` (lines 1116-1119), (2) SVG vertical centering: Added `object-position: top;` to `.footer-geo-image` and `object-fit: none; object-position: top left;` to `.footer-geo-image svg` (lines 1133, 1137-1140) to fix Lottie centering creating ~20-30px gap, (3) Grid height consistency: Mobile 200px→100px (lines 1319-1321, 1326-1327), Tablet 200px→150px (lines 1822-1824, 1829-1830), Desktop 200px unchanged - footer now displays consistent visual hierarchy across all viewports | Bug fix |
@@ -680,9 +681,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.12.8` (as of Jan 16, 2026)
+**Current Version:** `v2.13.0` (as of Jan 20, 2026)
 
 **Version History:**
+- v2.13.0 - Major UI refinements across multiple sections (MINOR VERSION): (1) Hero geometric grid expanded 6x2 → 8x2 (16 tiles total) with new far-left and far-right columns, container widths increased (Desktop: 1200px → 1600px, Tablet: 900px → 1200px, Mobile: 600px → 800px), dimension locks fixed for both .geometric-background and .geo-grid, (2) Service cards layout overhaul - Desktop changed to 3-2 stacked layout (3 top, 2 bottom centered), Mobile changed to single vertical column, Desktop icons +50% (200px → 300px), Desktop text +50% (12px → 18px), Mobile icons increased to 200px, all padding removed from .services and .services-container, (3) Navigation redesign - Split nav with HOME/WORK/EVENT SERVICES left-aligned and GET IN TOUCH right-aligned in border box (--color-primary-blue), mobile hamburger right-justified with right-aligned dropdown, (4) CTA heading changed to "Imagine What We Can Create.", (5) Team section heading changed to "WE CAN HELP YOU BUILD YOUR PERFECT EVENT" with new description, heading font sizes reduced for single-line fit (Desktop: 2rem, Tablet: 1.8rem, Mobile: 1.5rem), Sean Key Ketter photo overlay updated to #905fa2 (medium purple)
 - v2.12.8 - Mobile team member typography refinement - Reduced `.member-name` font-size from 12px to 10px (line 1283) and `.member-title` from 10px to 8px (line 1291) for improved text density on mobile viewport (375px) - Team member cards now display more compact typography appropriate for mobile devices
 - v2.12.7 - Mobile footer layout fix - Fixed SCENIC logo overlapping footer geometric grid on mobile viewport (375px) by adding `padding-top: 8rem` to `.footer-content` (line 1334) positioning content below 100px geo-grid, removed `order: -1` from `.footer-logo` (line 1340) causing incorrect stacking order - footer now displays proper vertical hierarchy with logo appearing below geometric pattern
 - v2.12.6 - Footer geometric grid comprehensive fix (all viewports) - Three critical fixes: (1) Z-index stacking - Added `position: absolute; top: 0; left: 0; z-index: 1;` to `.footer-geo-grid` (lines 1116-1119) fixing logo overlap, (2) SVG vertical centering - Added `object-position: top;` to `.footer-geo-image` and `object-fit: none; object-position: top left;` to `.footer-geo-image svg` (lines 1133, 1137-1140) to fix Lottie's `preserveAspectRatio="xMidYMid meet"` centering creating ~20-30px gap, (3) Grid height consistency - Mobile 200px→100px (lines 1319-1321, 1326-1327), Tablet 200px→150px (lines 1822-1824, 1829-1830), Desktop 200px unchanged - Footer displays consistent visual hierarchy across all viewports with pattern starting immediately at top edge, proper z-index layering, no gaps or overlaps

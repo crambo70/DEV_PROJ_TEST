@@ -337,7 +337,7 @@ body {
 
 .header-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     max-width: 2240px; /* Match main container width */
     margin: 0 auto;
@@ -388,12 +388,18 @@ body {
 /* Navigation */
 .nav {
     position: relative; /* Needed for mobile dropdown positioning */
+    flex: 1; /* Allow nav to fill available space so margin-left: auto works */
 }
 
 .nav-list {
     display: flex;
     list-style: none;
     gap: 2rem;
+}
+
+/* Push "GET IN TOUCH" (last item) to the right */
+.nav-list li:last-child {
+    margin-left: auto;
 }
 
 .nav-list a {
@@ -427,6 +433,19 @@ body {
     text-decoration: underline; /* Subtle underline only under text */
     text-underline-offset: 4px; /* Small gap between text and underline */
     text-decoration-thickness: 1px; /* Thin line */
+}
+
+/* GET IN TOUCH - Special border box styling (desktop/tablet only) */
+.nav-list li:last-child a {
+    border: 1px solid var(--color-primary-blue);
+    padding: 0.5rem 1rem; /* More breathing room: 8px 16px */
+    border-radius: 4px;
+}
+
+.nav-list li:last-child a:hover {
+    background-color: var(--color-primary-blue);
+    color: var(--color-white);
+    border-color: var(--color-primary-blue);
 }
 
 /* =================================================================== */
@@ -585,8 +604,8 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 1200px;
-    min-width: 1200px; /* Fixed width at desktop - no resize */
+    max-width: 1600px;
+    min-width: 1600px; /* Fixed width at desktop - proportional to 8 columns (1200 * 8/6 = 1600) */
     max-height: 400px;
     min-height: 400px; /* Fixed height at desktop - no resize */
     width: 100%;
@@ -599,15 +618,18 @@ body {
     justify-content: center;
 }
 
-/* Grid container for geometric tiles - 2 rows x 6 columns, full width */
+/* Grid container for geometric tiles - 2 rows x 8 columns, full width */
 .geo-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 equal columns spanning full width */
+    grid-template-columns: repeat(8, 1fr); /* 8 equal columns spanning full width */
     grid-template-rows: repeat(2, 1fr); /* 2 equal rows */
     gap: 0; /* No gaps between tiles */
-    width: 100%; /* Full width of container (2240px max) */
+    width: 100%; /* Full width of container (1600px max) */
+    max-width: 1600px; /* Match geometric-background */
+    min-width: 1600px; /* Match geometric-background */
     height: 400px; /* Fixed height for the grid */
     max-height: 400px; /* Constrain maximum height to prevent excessive growth at large viewports */
+    min-height: 400px; /* Match geometric-background */
 }
 
 /* Individual grid tile */
@@ -689,7 +711,11 @@ body {
 /* Geo Grid Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
     .geo-grid {
+        max-width: 1200px; /* Match geometric-background at tablet */
+        min-width: 1200px; /* Match geometric-background at tablet */
         height: 300px; /* Proportionally smaller for tablets */
+        max-height: 300px; /* Match geometric-background at tablet */
+        min-height: 300px; /* Match geometric-background at tablet */
     }
 
     .hero-content {
@@ -707,8 +733,8 @@ body {
     .geo-grid {
         max-height: 200px;
         min-height: 200px; /* Fixed height at mobile - prevents white space gaps */
-        max-width: 600px;
-        min-width: 600px; /* Fixed width at mobile - matches geometric-background container */
+        max-width: 800px;
+        min-width: 800px; /* Fixed width at mobile - 8 columns (600px × 8/6) */
     }
 
     .geo-tile {
@@ -809,12 +835,12 @@ body {
     width: 90%; /* Prevent text from touching edges */
 }
 
-/* Arc Colors */
-.arc-purple { background-color: var(--color-purple); } /* Purple/Maroon */
-.arc-teal { background-color: var(--color-accent-teal); } /* Teal */
-.arc-red { background-color: var(--color-accent-red); } /* Red */
-.arc-navy { background-color: var(--color-primary-blue); } /* Navy Blue */
-.arc-lightblue { background-color: var(--color-light-blue); } /* Light Blue */
+/* Arc Colors - Original brand colors */
+.arc-purple { background-color: #600040; } /* Purple */
+.arc-teal { background-color: #34CBC2; } /* Teal */
+.arc-red { background-color: #EE3D33; } /* Red */
+.arc-navy { background-color: #00308C; } /* Navy Blue */
+.arc-lightblue { background-color: #12AEE7; } /* Light Blue */
 
 /* Photo Container (Vertical Pill/Capsule) */
 .member-photo {
@@ -850,7 +876,7 @@ body {
 /* Overlay Colors */
 .overlay-red { background-color: var(--color-accent-red); }
 .overlay-teal { background-color: var(--color-accent-teal); }
-.overlay-purple { background-color: var(--color-purple); }
+.overlay-purple { background-color: #905fa2; } /* Medium purple for Sean Key Ketter */
 .overlay-yellow { background-color: var(--color-accent-yellow); }
 .overlay-lightblue { background-color: var(--color-light-blue); }
 
@@ -864,7 +890,7 @@ body {
 
 .team-title {
     font-family: var(--font-family-primary);
-    font-size: 3rem; /* 48px */
+    font-size: 2rem; /* 32px - reduced for single line fit at desktop */
     font-weight: bold;
     color: var(--color-primary-blue); /* Navy Blue */
     margin-bottom: 1.5rem;
@@ -1109,7 +1135,7 @@ body {
 
 .footer-geo-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
+    grid-template-columns: repeat(8, 1fr); /* 8 equal columns - matches hero grid */
     height: 200px; /* Set to match tile height */
     width: 100%;
     max-height: 200px; /* Match hero constraints */
@@ -1307,15 +1333,15 @@ body {
 
     /* Geometric background fixed width for mobile */
     .geometric-background {
-        max-width: 600px;
-        min-width: 600px; /* Fixed width at mobile - no resize */
+        max-width: 800px;
+        min-width: 800px; /* Fixed width at mobile - 8 columns (600px × 8/6) */
         max-height: 200px;
         min-height: 200px; /* Fixed height at mobile - matches geo-grid (200px) */
     }
 
     .footer-geometric-background {
-        max-width: 600px;
-        min-width: 600px; /* Fixed width at mobile - matches hero */
+        max-width: 800px;
+        min-width: 800px; /* Fixed width at mobile - 8 columns (600px × 8/6) */
         max-height: 100px; /* Match grid */
         min-height: 100px; /* Match grid */
         height: 100px; /* Match grid */
@@ -1374,20 +1400,21 @@ body {
 
 /* Services Section */
 .services {
-    padding: 1rem 0.5rem 2.5rem 0.5rem; /* 75% reduced padding (was 2rem 1rem 5rem 1rem) */
+    padding: 0; /* No padding - whitespace eliminated */
     background-color: var(--color-white); /* Clean white background - changed from off-white */
     position: relative; /* Required for absolute positioned heading */
 }
 
 .services-container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
-    display: flex; /* Changed from grid to flexbox for single row layout */
-    justify-content: center; /* Center the row with flexible edge whitespace */
-    gap: 0; /* Zero gap for compact layout */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for 3-2 stacked layout */
+    justify-content: center; /* Center all cards */
+    gap: 2rem; /* Gap between cards */
     align-items: start;
-    padding-bottom: 0.4rem; /* 75% reduced (was 0.85rem) */
-    padding-top: 3rem; /* Space for "Our Services" heading */
+    padding-bottom: 0; /* No padding - whitespace eliminated */
+    padding-top: 0; /* No padding - whitespace eliminated */
 }
 
 .service-card {
@@ -1401,6 +1428,8 @@ body {
     flex-direction: column;
     min-height: auto; /* Changed from 220px to auto for compact layout */
     margin-bottom: 0; /* Zero gap between cards */
+    flex: 0 1 calc(33.333% - 1.5rem); /* 3 cards per row with gap */
+    max-width: 400px; /* Cap maximum card width */
 }
 
 .service-card:hover {
@@ -1574,11 +1603,22 @@ body {
         font-size: 9px; /* Mobile size - proportionally smaller than desktop 11px */
     }
 
+    /* Remove GET IN TOUCH border box and margin on mobile (dropdown menu context) */
+    .nav-list li:last-child {
+        margin-left: 0; /* Remove right-justification in mobile menu */
+    }
+
+    .nav-list li:last-child a {
+        border: none;
+        padding: 0.7rem 1rem; /* Reset to default nav padding */
+    }
+
     /* Simple mobile navigation menu */
     .nav-list {
         display: none;
         position: absolute;
         top: 100%;
+        left: auto;
         right: 0;
         background-color: var(--color-white);
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -1629,6 +1669,7 @@ body {
 
     .hamburger {
         display: flex;
+        margin-left: auto; /* Push hamburger button to right side */
     }
     
     .hamburger.hamburger-active span:nth-child(1) {
@@ -1650,30 +1691,24 @@ body {
     /* .cta-button removed (no longer used in hero) */
 
     .services-container {
-        flex-direction: row; /* Horizontal layout for 2 per row */
-        flex-wrap: wrap; /* Allow wrapping to create rows */
-        justify-content: space-between; /* Space between 2 cards per row */
-        gap: 1rem; /* Spacing between cards */
+        flex-direction: column; /* Vertical stacking for mobile */
+        flex-wrap: nowrap; /* No wrapping needed */
+        align-items: center; /* Center cards horizontally */
+        gap: 2rem; /* Vertical spacing between cards */
         padding: 0 1rem; /* Add horizontal padding for breathing room */
         width: 100%; /* Full width container */
     }
 
-    /* Mobile service cards - 2 per row layout */
+    /* Mobile service cards - single column layout */
     .service-card {
         height: auto;
         min-height: auto; /* Auto height for compact layout */
         margin-bottom: 0; /* No margin - using gap */
         position: relative; /* Enable z-index stacking */
         z-index: 1; /* Base z-index */
-        width: calc(50% - 0.5rem); /* 50% width minus half gap for 2 per row */
-        max-width: calc(50% - 0.5rem); /* Ensure 2 per row */
+        width: 100%; /* Full width for single column */
+        max-width: 400px; /* Max width to keep cards manageable */
         margin-left: 0; /* No overlap on mobile */
-    }
-
-    /* Center last service card when alone on row */
-    .service-card:last-child:nth-child(odd) {
-        margin-left: auto;
-        margin-right: auto;
     }
 
     /* Remove overlapping effect on mobile - all cards same z-index */
@@ -1692,7 +1727,7 @@ body {
 
     /* Reduce services section padding on mobile */
     .services {
-        padding: 2rem 0.5rem; /* 32px top/bottom padding for breathing room */
+        padding: 0; /* No padding - whitespace eliminated */
     }
 
     /* Reduce icon area padding on mobile */
@@ -1738,14 +1773,14 @@ body {
         min-height: 44px; /* Minimum touch target height */
     }
 
-    /* Service icon sizing for mobile - larger for full-width layout */
+    /* Service icon sizing for mobile - larger for single column layout */
     .service-icon {
-        width: 140px; /* Increased from 108px for better visibility at full width */
-        height: 140px;
+        width: 200px; /* Increased from 140px for better visibility in single column */
+        height: 200px;
     }
 
     .team-title {
-        font-size: 2rem; /* Mobile size - 32px equivalent */
+        font-size: 1.5rem; /* Mobile size - 24px - reduced but allows wrapping for readability */
     }
 
     .team-info-arc .member-name {
@@ -1808,16 +1843,16 @@ body {
 @media (min-width: 769px) and (max-width: 1024px) {
     /* Geometric background fixed width for tablet */
     .geometric-background {
-        max-width: 900px;
-        min-width: 900px; /* Fixed width at tablet - no resize */
+        max-width: 1200px;
+        min-width: 1200px; /* Fixed width at tablet - 8 columns (900px × 8/6) */
         max-height: 300px;
         min-height: 300px; /* Fixed height at tablet - no resize */
     }
 
     /* Footer geometric background - match hero constraints at tablet */
     .footer-geometric-background {
-        max-width: 900px;
-        min-width: 900px; /* Fixed width at tablet - matches hero */
+        max-width: 1200px;
+        min-width: 1200px; /* Fixed width at tablet - 8 columns (900px × 8/6) */
         max-height: 150px; /* Match grid - was 200px */
         min-height: 150px; /* Match grid - was 200px */
         height: 150px; /* Match grid - was 200px */
@@ -1867,7 +1902,7 @@ body {
 
     /* Reduce services section padding on tablet */
     .services {
-        padding: 3rem 1.5rem; /* Less padding on tablet */
+        padding: 0; /* No padding - whitespace eliminated */
     }
 
     /* Tablet services container - single row with overlap */
@@ -1968,7 +2003,7 @@ body {
     }
 
     .team-title {
-        font-size: 2.5rem; /* Tablet size - 40px equivalent */
+        font-size: 1.8rem; /* Tablet size - 28.8px - reduced proportionally */
     }
 
     .team-description {
@@ -2028,10 +2063,18 @@ body {
    RESPONSIVE STYLES - Desktop (min-width: 1025px)
    ============================================ */
 @media (min-width: 1025px) {
-    .services-container {
-        flex-direction: row; /* Ensure horizontal layout on desktop */
-        flex-wrap: nowrap; /* All 5 cards in single row, no wrapping */
-        justify-content: center; /* Center the row with flexible edge whitespace */
+    /* Desktop service cards use 3-2 stacked layout from base styles */
+    /* No overrides needed - flex-wrap: wrap and centering inherited from .services-container */
+
+    /* Desktop service icon sizing - 50% larger than base */
+    .service-icon {
+        width: 300px; /* 50% increase from 200px base */
+        height: 300px;
+    }
+
+    /* Desktop service title sizing - 50% larger than base */
+    .service-title {
+        font-size: 18px; /* 50% increase from 12px base */
     }
 
     /* Service card positioning for z-index stacking */
@@ -2040,19 +2083,7 @@ body {
         z-index: 1;
     }
 
-    /* Overlapping effect - negative left margin on all cards except first */
-    .service-card:not(:first-child) {
-        margin-left: -50px;
-    }
-
-    /* Progressive z-index so later cards stack on top of earlier ones */
-    .service-card:nth-child(1) { z-index: 1; }
-    .service-card:nth-child(2) { z-index: 2; }
-    .service-card:nth-child(3) { z-index: 3; }
-    .service-card:nth-child(4) { z-index: 4; }
-    .service-card:nth-child(5) { z-index: 5; }
-
-    /* Elevate expanded card above adjacent cards on desktop */
+    /* Elevate hovered card above adjacent cards on desktop */
     .service-card:hover,
     .service-card:active,
     .service-card:focus-within {
