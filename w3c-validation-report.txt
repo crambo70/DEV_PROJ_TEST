@@ -1,0 +1,338 @@
+================================================================================
+W3C HTML VALIDATION REPORT
+================================================================================
+
+Page: https://crambo70.github.io/DEV_PROJ_TEST/index.html
+Validator Version: 26.1.20
+Report Generated: 2026-01-20
+
+Summary:
+  - Errors: 85
+  - Warnings: 6
+
+================================================================================
+
+ERRORS BY TYPE:
+================================================================================
+
+1. The “aria-label” attribute must not be specified on any “div” element unless the element has a “role” value other than “caption”, “code”, “deletion”, “emphasis”, “generic”, “insertion”, “paragraph”, “presentation”, “strong”, “subscript”, or “superscript”.
+   Occurrences: 29
+   Lines: 99, 109, 136, 139, 142, 145, 148, 151, 154, 157 ... and 19 more
+   Example (line 99):
+             <div class="version-indicator" aria-label="Site version">
+     ...
+
+2. Element “img” is missing one or more of the following attributes: “src”, “srcset”.
+   Occurrences: 5
+   Lines: 290, 302, 314, 326, 338
+   Example (line 290):
+             <img data-src="images/service-random-headshot.png" alt="Chris Hammer - Managing Director" ...
+
+3. Element “image” is missing required attribute “height”.
+   Occurrences: 4
+   Lines: 216, 232, 248, 264
+   Example (line 216):
+   /clipPath><image xlink:href="data:image/webp;base64,UklGRhwBAABXRUJQVlA4WAoAAAAQAAAAGwAADAAAQUxQSG4A...
+
+4. Element “image” is missing required attribute “width”.
+   Occurrences: 4
+   Lines: 216, 232, 248, 264
+   Example (line 216):
+   /clipPath><image xlink:href="data:image/webp;base64,UklGRhwBAABXRUJQVlA4WAoAAAAQAAAAGwAADAAAQUxQSG4A...
+
+5. Attribute “mask-type” not allowed on element “mask” at this point.
+   Occurrences: 3
+   Lines: 200, 200, 248
+   Example (line 200):
+   ></filter><mask id="__lottie_element_26_2" mask-type="alpha"><g fil...
+
+6. Bad value “393” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 2
+   Lines: 264, 264
+   Example (line 264):
+   y: none;"><g id="393" style="display: none;"><g><pa...
+
+7. Bad value “394” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 2
+   Lines: 264, 264
+   Example (line 264):
+   h></g></g><g id="394" style="display: none;"><g><pa...
+
+8. Bad value “395” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 2
+   Lines: 264, 264
+   Example (line 264):
+   h></g></g><g id="395" style="display: none;"><g><pa...
+
+9. Bad value “81” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 200
+   Example (line 200):
+   ement_26"><g id="81" transform="matrix(0.2238401472568512,-0.1509820967912674,0.1509820967912674,0.2...
+
+10. Bad value “82” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 200
+   Example (line 200):
+   ement_36"><g id="82" transform="matrix(0.8899999856948853,0,0,0.8899999856948853,144.5,142.220001220...
+
+11. Bad value “67” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 200
+   Example (line 200):
+   ment_22)"><g id="67" transform="matrix(1,0,0,1,71.85800170898438,153.822998046875)" opacity="1" styl...
+
+12. Bad value “68” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 200
+   Example (line 200):
+   h></g></g><g id="68" transform="matrix(1,0,0,1,69.947998046875,139.98599243164062)" opacity="1" styl...
+
+13. Bad value “69” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 200
+   Example (line 200):
+   h></g></g><g id="69" transform="matrix(1,0,0,1,69.947998046875,126.86099243164062)" opacity="1" styl...
+
+14. Bad value “70” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 200
+   Example (line 200):
+   h></g></g><g id="70" transform="matrix(1,0,0,1,69.947998046875,111.75498962402344)" opacity="1" styl...
+
+15. Bad value “71” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 200
+   Example (line 200):
+   : block;"><g id="71" transform="matrix(1,0,0,1,98.33999633789062,74.93600463867188)" opacity="1"><g ...
+
+16. Bad value “74” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 200
+   Example (line 200):
+   : block;"><g id="74" transform="matrix(0.5303300619125366,-0.3749999701976776,0.5303300619125366,0.3...
+
+17. Bad value “87” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 200
+   Example (line 200):
+   : block;"><g id="87" transform="matrix(0.5303300619125366,-0.3749999701976776,0.5303300619125366,0.3...
+
+18. Bad value “72” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 200
+   Example (line 200):
+   g></g></g><g id="72" transform="matrix(1,0,0,1,156.52099609375,114.48400115966797)" opacity="1" styl...
+
+19. Bad value “102” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 216
+   Example (line 216):
+   ement_6)"><g id="102" transform="matrix(1,0,0,1,128.31399536132812,221.6389923095703)" opacity="1" s...
+
+20. Bad value “114” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 216
+   Example (line 216):
+   image></g><g id="114" transform="matrix(1,0,0,1,93.17399597167969,155.00399780273438)" opacity="1" s...
+
+21. Bad value “115” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 216
+   Example (line 216):
+   h></g></g><g id="115" transform="matrix(1,0,0,1,91.26300048828125,85.3969955444336)" opacity="1" sty...
+
+22. Bad value “116” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 216
+   Example (line 216):
+   h></g></g><g id="116" transform="matrix(1,0,0,1,90.92399597167969,68.63999938964844)" opacity="1" st...
+
+23. Bad value “117” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 216
+   Example (line 216):
+   h></g></g><g id="117" style="display: none;"><g><pa...
+
+24. Bad value “187” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 232
+   Example (line 232):
+   ment_44)"><g id="187" transform="matrix(1,0,0,1,127.26100158691406,221.625)" opacity="1" style="disp...
+
+25. Bad value “200” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 232
+   Example (line 232):
+   image></g><g id="200" transform="matrix(1,0,0,1,144,144)" opacity="1" style="display: block;"><g opa...
+
+26. Bad value “201” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 232
+   Example (line 232):
+   h></g></g><g id="201" transform="matrix(1,0,0,1,144,144)" opacity="1" style="display: block;"><g opa...
+
+27. Bad value “558” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 248
+   Example (line 248):
+   ement_91"><g id="558" transform="matrix(1,0,0,1,144,144)" opacity="1" style="display: block;"><g opa...
+
+28. Bad value “503” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 248
+   Example (line 248):
+   ment_86)"><g id="503" transform="matrix(1,0,0,1,120.55399322509766,221.625)" opacity="1" style="disp...
+
+29. Bad value “516” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 248
+   Example (line 248):
+   image></g><g id="516" transform="matrix(1,0,0,1,92.63800048828125,148.3520050048828)" opacity="1" st...
+
+30. Bad value “386” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   ent_115)"><g id="386" clip-path="url(#__lottie_element_117)" transform="matrix(1,0,0,1,-248,-101.5)"...
+
+31. Bad value “337” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   : block;"><g id="337" transform="matrix(1,0,0,1,375.22698974609375,324.2449951171875)" opacity="1" s...
+
+32. Bad value “354” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   image></g><g id="354" transform="matrix(1,0,0,1,342.8480224609375,261.4250183105469)" opacity="1" st...
+
+33. Bad value “355” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   h></g></g><g id="355" transform="matrix(1,0,0,1,340.9380187988281,194.9110107421875)" opacity="1" st...
+
+34. Bad value “408” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   h></g></g><g id="408" clip-path="url(#__lottie_element_147)" style="display: none;"><g id=...
+
+35. Bad value “409” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   g></g></g><g id="409" clip-path="url(#__lottie_element_134)" style="display: none;"><g id=...
+
+36. Duplicate ID “393”.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   y: none;"><g id="393" style="display: none;"><g><pa...
+
+37. Duplicate ID “394”.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   h></g></g><g id="394" style="display: none;"><g><pa...
+
+38. Duplicate ID “395”.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   h></g></g><g id="395" style="display: none;"><g><pa...
+
+39. Bad value “383” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   g></g></g><g id="383" clip-path="url(#__lottie_element_124)" transform="matrix(1,0,0,1,0,0)" opacity...
+
+40. Bad value “370” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   : block;"><g id="370" transform="matrix(1,0,0,1,392.44097900390625,227.37001037597656)" opacity="1" ...
+
+41. Bad value “371” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   h></g></g><g id="371" transform="matrix(1,0,0,1,361.8800048828125,215.14498901367188)" opacity="1" s...
+
+42. Bad value “361” for attribute “id” on element “g”: Not a valid XML 1.0 name.
+   Occurrences: 1
+   Lines: 264
+   Example (line 264):
+   g></g></g><g id="361" transform="matrix(1,0,0,1,378.9840087890625,174.6060028076172)" opacity="1" st...
+
+================================================================================
+WARNINGS:
+================================================================================
+
+1. Line 95: The “banner” role is unnecessary for element “header”.
+   >
+        <header class="header" role="banner">
+     ...
+
+2. Line 103: The “navigation” role is unnecessary for element “nav”.
+             <nav class="nav" role="navigation" aria-label="Main navigation">
+     ...
+
+3. Line 264: The first occurrence of ID “393” was here.
+   y: none;"><g id="393" style="display: none;"><g><pa...
+
+4. Line 264: The first occurrence of ID “394” was here.
+   h></g></g><g id="394" style="display: none;"><g><pa...
+
+5. Line 264: The first occurrence of ID “395” was here.
+   h></g></g><g id="395" style="display: none;"><g><pa...
+
+6. Line 396: The “contentinfo” role is unnecessary for element “footer”.
+   d -->
+    <footer class="footer" role="contentinfo">
+     ...
+
+================================================================================
+IMPACT ASSESSMENT NOTES:
+================================================================================
+
+The HTML specialist should review these errors and assess:
+
+1. ARIA attribute errors on <div> elements
+   - Impact: Screen reader accessibility may be degraded
+   - Fix effort: LOW - Add appropriate role attributes or move aria-labels to semantic elements
+   - Performance: NO IMPACT
+   - Behavior: NO IMPACT (most browsers ignore invalid ARIA)
+
+2. Unnecessary role attributes (role="banner" on <header>, role="navigation" on <nav>)
+   - Impact: None (redundant but harmless)
+   - Fix effort: VERY LOW - Simply remove redundant role attributes
+   - Performance: NO IMPACT
+   - Behavior: NO IMPACT
+
+3. Other errors (if any)
+   - Review each group above for specific impact
+
+RECOMMENDATION:
+- Priority 1: Fix ARIA errors affecting accessibility (screen readers)
+- Priority 2: Remove redundant role attributes (code cleanup)
+- Priority 3: Address any remaining errors
+
+Most of these errors have ZERO impact on:
+- Visual appearance
+- User interaction
+- Browser compatibility
+- Page performance
+
+They primarily affect:
+- HTML spec compliance
+- Accessibility for assistive technologies
+- Code quality/best practices
+
+
+================================================================================
+END OF REPORT
+================================================================================
