@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.13.3] - 2026-01-22
+### Changed
+- **Footer Geo-Grid Expansion**: Expanded footer geometric grid from 6 to 8 columns to match hero section grid width
+  - Increased container widths across all viewports (Desktop: 1200px → 1600px, Tablet: 900px → 1200px, Mobile: 600px → 800px)
+  - Added Pattern E (flipped-vertical) and Pattern C tiles to columns 7-8 on all three pages (index.html, work.html, contact.html)
+  - Maintains visual consistency between hero and footer geometric patterns
+  - No gap above footer, proper alignment across Desktop/Tablet/Mobile viewports
+
 ## [2.13.2] - 2026-01-20
 ### Fixed
 - **100% W3C HTML Validation Compliance Achieved:**
