@@ -1136,6 +1136,7 @@ body {
 .footer-geo-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr); /* 8 equal columns - matches hero grid expansion (v2.13.0) */
+    grid-template-rows: 1fr; /* Single explicit row to force square tiles */
     height: 200px; /* Set to match tile height */
     width: 100%;
     max-height: 200px; /* Match hero constraints */

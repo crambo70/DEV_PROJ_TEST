@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.13.4] - 2026-01-22
+### Fixed
+- **Footer Geo-Grid Tile Aspect Ratio**: Fixed footer geometric tiles rendering as rectangles (150x200) instead of squares in Chromium browsers
+  - Added `grid-template-rows: 1fr;` to `.footer-geo-grid` class
+  - Tiles now render as perfect squares: 200x200 (desktop), 100x100 (tablet/mobile)
+  - Verified across all pages and viewports
+
 ## [2.13.3] - 2026-01-22
 ### Changed
 - **Footer Geo-Grid Expansion**: Expanded footer geometric grid from 6 to 8 columns to match hero section grid width
