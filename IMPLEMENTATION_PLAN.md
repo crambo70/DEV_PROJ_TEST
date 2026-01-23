@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 23, 2026
-> **Current Version:** v2.13.6
+> **Current Version:** v2.13.7
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-23 | **v2.13.7:** Contact page geo-tile sizing refinement - Updated all geo-tiles to exact 125px × 125px dimensions (previously 114px), left column maintains 16px gap with 266px container, right column removed all gaps (0px) with edge-to-edge tiles and 375px container, contact photo set to 375px wide to precisely match tile grid above | Enhancement |
 | 2026-01-23 | **v2.13.5:** Contact page animated geo-tiles - Converted all 16 static geo-tile images in contact.html to animated Lottie containers (2 left column, 6 right column, 8 footer), added Lottie library script, preserved all CSS transform classes (rotate-90, rotate-180, flip-horizontal, flipped-vertical), all 16 animations confirmed working with ping-pong loops across Desktop/Tablet/Mobile viewports | Enhancement |
 | 2026-01-20 | **v2.13.2:** 100% W3C HTML validation compliance achieved - Removed hardcoded Lottie SVG placeholders from 5 service icons (eliminated all 47 validation errors), fixed aria-label on geometric tile (added role="img"), fixed 5 team member images with empty src (added transparent GIF placeholders), file size reduced 91% (276KB → 24KB), zero visual changes, validation: 0 errors/0 warnings | Bug fix |
 | 2026-01-20 | **v2.13.1:** W3C HTML validation compliance - Fixed 38 validation errors and 6 warnings across all pages (added role attributes to 29 div elements with aria-labels, added src attributes to 5 lazy-loaded team images, removed redundant role attributes from semantic HTML5 elements) - 47 Lottie SVG errors remain (unfixable library limitation) | Bug fix |
@@ -687,9 +688,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.13.6` (as of Jan 23, 2026)
+**Current Version:** `v2.13.7` (as of Jan 23, 2026)
 
 **Version History:**
+- v2.13.7 - Contact page geo-tile sizing refinement (PATCH VERSION): Updated all geo-tiles to exact 125px × 125px dimensions (previously 114px) - Left column maintains 16px gap with 266px container (2 × 125px + 16px gap), right column removed all gaps (0px) with edge-to-edge tiles and 375px container (3 × 125px), contact photo set to 375px wide to precisely match tile grid above - Updated `.contact-geo-2x2` width to 125px with max-width 266px and gap 16px, `.contact-geo-cell` to 125px × 125px, `.contact-photo-geo` gap to 0 with width/max-width 375px, `.contact-photo-geo-tile` to 125px × 125px, `.contact-team-photo` width/max-width to 375px
 - v2.13.6 - Contact page right column geo-tile sizing fix (PATCH VERSION): Fixed right column geo-tiles rendering as rectangles (127x100) instead of squares - Removed fixed height from .contact-photo-geo, added gap: 16px and max-width: 374px for optimal sizing (3 tiles × 114px + 2 gaps × 16px), added aspect-ratio: 1/1 to .contact-photo-geo-tile, tiles now render as perfect 114x114px squares matching left column exactly
 - v2.13.5 - Contact page animated geo-tiles (PATCH VERSION): Converted all 16 static geo-tile images in contact.html to animated Lottie containers (2 left column, 6 right column, 8 footer), added Lottie library script to contact.html, preserved all CSS transform classes (rotate-90, rotate-180, flip-horizontal, flipped-vertical), all 16 animations confirmed working with ping-pong loops across Desktop/Tablet/Mobile viewports - seamless integration with existing layout and responsive design
 - v2.13.4 - Footer tile aspect ratio fix (PATCH VERSION): Fixed footer geometric tiles rendering as rectangles (150x200) instead of squares in Chromium browsers - Added grid-template-rows: 1fr to .footer-geo-grid class (line 1139 in style.css), tiles now render as perfect squares (200x200 desktop, 100x100 tablet/mobile), verified across all pages and viewports using scenic-visual-qa agent

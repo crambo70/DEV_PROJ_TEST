@@ -2258,14 +2258,14 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    aspect-ratio: 1; /* Force overall grid to be square */
-    width: 100%;
-    gap: 0;
+    width: 125px;
+    max-width: 266px;
+    gap: 16px;
 }
 
 .contact-geo-cell {
-    width: 100%;
-    height: 100%;
+    width: 125px;
+    height: 125px;
     overflow: hidden;
 }
 
@@ -2372,13 +2372,15 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 16px;
-    width: 100%;
-    max-width: 374px;
+    gap: 0;
+    width: 375px;
+    max-width: 375px;
     flex-shrink: 0;
 }
 
 .contact-photo-geo-tile {
+    width: 125px;
+    height: 125px;
     overflow: hidden;
     aspect-ratio: 1 / 1;
 }
@@ -2390,7 +2392,9 @@ body {
 }
 
 .contact-team-photo {
-    height: 400px; /* Fixed height instead of flex: 1 */
+    width: 375px;
+    max-width: 375px;
+    height: 400px;
     position: relative;
     overflow: hidden;
     min-height: 400px;

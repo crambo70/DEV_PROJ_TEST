@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.13.7] - 2026-01-23
+### Changed
+- **Contact Page Geo-Tile Sizing Refinement**: Updated all geo-tiles to exact 125px × 125px dimensions (previously 114px)
+  - Left column: Maintains 16px gap, container is 266px (2 × 125px + 16px gap)
+  - Right column: Removed all gaps (0px), tiles are edge-to-edge, container is 375px (3 × 125px)
+  - Contact photo: Set to 375px wide to precisely match tile grid above
+  - Updated `.contact-geo-2x2`: width to 125px, max-width to 266px, gap to 16px
+  - Updated `.contact-geo-cell`: set to 125px × 125px
+  - Updated `.contact-photo-geo`: gap to 0, width and max-width to 375px
+  - Updated `.contact-photo-geo-tile`: set to 125px × 125px
+  - Updated `.contact-team-photo`: width and max-width to 375px
+
 ## [2.13.6] - 2026-01-23
 ### Fixed
 - **Contact Page Geo-Tile Sizing**: Fixed right column geo-tiles rendering as rectangles (127x100) instead of squares
