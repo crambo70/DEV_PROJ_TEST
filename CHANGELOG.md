@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.13.5] - 2026-01-23
+### Added
+- **Contact Page Animated Geo-Tiles**: Converted all 16 static geo-tile images in contact.html to animated Lottie containers
+  - Added Lottie library script to contact.html
+  - Converted 2 left column geo-tiles to animated Lottie containers
+  - Converted 6 right column geo-tiles to animated Lottie containers
+  - Converted 8 footer geo-tiles to animated Lottie containers
+  - Preserved all CSS transform classes (rotate-90, rotate-180, flip-horizontal, flipped-vertical)
+  - All 16 animations confirmed working with ping-pong loops across Desktop/Tablet/Mobile viewports
+
 ## [2.13.4] - 2026-01-22
 ### Fixed
 - **Footer Geo-Grid Tile Aspect Ratio**: Fixed footer geometric tiles rendering as rectangles (150x200) instead of squares in Chromium browsers

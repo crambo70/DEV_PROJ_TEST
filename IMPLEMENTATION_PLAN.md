@@ -1,8 +1,8 @@
 # SCENIC Website - Mobile-First Implementation Plan
 
 > **Living Document** - Updated as we progress and priorities evolve
-> **Last Updated:** January 22, 2026
-> **Current Version:** v2.13.4
+> **Last Updated:** January 23, 2026
+> **Current Version:** v2.13.5
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -73,6 +73,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-23 | **v2.13.5:** Contact page animated geo-tiles - Converted all 16 static geo-tile images in contact.html to animated Lottie containers (2 left column, 6 right column, 8 footer), added Lottie library script, preserved all CSS transform classes (rotate-90, rotate-180, flip-horizontal, flipped-vertical), all 16 animations confirmed working with ping-pong loops across Desktop/Tablet/Mobile viewports | Enhancement |
 | 2026-01-20 | **v2.13.2:** 100% W3C HTML validation compliance achieved - Removed hardcoded Lottie SVG placeholders from 5 service icons (eliminated all 47 validation errors), fixed aria-label on geometric tile (added role="img"), fixed 5 team member images with empty src (added transparent GIF placeholders), file size reduced 91% (276KB → 24KB), zero visual changes, validation: 0 errors/0 warnings | Bug fix |
 | 2026-01-20 | **v2.13.1:** W3C HTML validation compliance - Fixed 38 validation errors and 6 warnings across all pages (added role attributes to 29 div elements with aria-labels, added src attributes to 5 lazy-loaded team images, removed redundant role attributes from semantic HTML5 elements) - 47 Lottie SVG errors remain (unfixable library limitation) | Bug fix |
 | 2026-01-20 | **v2.13.0:** Major UI refinements - (1) Hero geometric grid expanded 6x2 → 8x2 with new far-left/right columns, container widths increased (Desktop: 1200px → 1600px, Tablet: 900px → 1200px, Mobile: 600px → 800px), (2) Service cards layout overhaul: Desktop 3-2 stacked layout, Mobile single vertical column, Desktop icons +50% (200px → 300px), Desktop text +50% (12px → 18px), Mobile icons increased to 200px, all padding removed, (3) Navigation redesign: Split nav with GET IN TOUCH right-aligned in border box, mobile hamburger right-justified, (4) CTA heading changed to "Imagine What We Can Create.", (5) Team section heading changed to "WE CAN HELP YOU BUILD YOUR PERFECT EVENT" with updated description, reduced heading font sizes for single-line fit, Sean Key Ketter photo overlay updated to #905fa2 | Major enhancement |
@@ -685,9 +686,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.13.4` (as of Jan 22, 2026)
+**Current Version:** `v2.13.5` (as of Jan 23, 2026)
 
 **Version History:**
+- v2.13.5 - Contact page animated geo-tiles (PATCH VERSION): Converted all 16 static geo-tile images in contact.html to animated Lottie containers (2 left column, 6 right column, 8 footer), added Lottie library script to contact.html, preserved all CSS transform classes (rotate-90, rotate-180, flip-horizontal, flipped-vertical), all 16 animations confirmed working with ping-pong loops across Desktop/Tablet/Mobile viewports - seamless integration with existing layout and responsive design
 - v2.13.4 - Footer tile aspect ratio fix (PATCH VERSION): Fixed footer geometric tiles rendering as rectangles (150x200) instead of squares in Chromium browsers - Added grid-template-rows: 1fr to .footer-geo-grid class (line 1139 in style.css), tiles now render as perfect squares (200x200 desktop, 100x100 tablet/mobile), verified across all pages and viewports using scenic-visual-qa agent
 - v2.13.3 - Footer geo-grid expansion (PATCH VERSION): Expanded footer geometric grid from 6 to 8 columns to match hero section grid width - Increased container widths across all viewports (Desktop: 1200px → 1600px, Tablet: 900px → 1200px, Mobile: 600px → 800px), added Pattern E (flipped-vertical) and Pattern C tiles to columns 7-8 on all three pages (index.html, work.html, contact.html), maintains visual consistency between hero and footer geometric patterns, no gap above footer, proper alignment across Desktop/Tablet/Mobile viewports
 - v2.13.2 - 100% W3C HTML validation compliance achieved (PATCH VERSION): Removed hardcoded Lottie SVG placeholders from 5 service icons (eliminated all 47 validation errors), fixed aria-label attribute on geometric pattern tile (added role="img"), fixed 5 team member images with empty src attributes (added transparent GIF placeholders for lazy-loading), file size reduced by 91% (276KB → 24KB), zero visual changes - all Lottie animations preserved and working perfectly, validation: 0 errors, 0 warnings
