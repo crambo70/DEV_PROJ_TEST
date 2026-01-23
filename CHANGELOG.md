@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.13.6] - 2026-01-23
+### Fixed
+- **Contact Page Geo-Tile Sizing**: Fixed right column geo-tiles rendering as rectangles (127x100) instead of squares
+  - Removed fixed `height: 200px` from `.contact-photo-geo`
+  - Added `gap: 16px` to match left column spacing
+  - Added `max-width: 374px` for optimal sizing (3 tiles × 114px + 2 gaps × 16px)
+  - Added `aspect-ratio: 1/1` to `.contact-photo-geo-tile` to force square tiles
+  - Tiles now render as perfect 114x114px squares matching left column exactly
+
 ## [2.13.5] - 2026-01-23
 ### Added
 - **Contact Page Animated Geo-Tiles**: Converted all 16 static geo-tile images in contact.html to animated Lottie containers

@@ -2372,12 +2372,15 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    height: 200px;
+    gap: 16px;
+    width: 100%;
+    max-width: 374px;
     flex-shrink: 0;
 }
 
 .contact-photo-geo-tile {
     overflow: hidden;
+    aspect-ratio: 1 / 1;
 }
 
 .contact-photo-geo-tile img {
