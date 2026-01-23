@@ -2258,9 +2258,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 125px;
-    max-width: 266px;
-    gap: 16px;
+    width: 250px;
+    height: 250px;
+    gap: 0;
 }
 
 .contact-geo-cell {

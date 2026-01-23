@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.13.8] - 2026-01-23
+### Changed
+- **Contact Page Geo-Tile Diagonal Positioning**: Adjusted left column tiles to touch corner-to-corner diagonally
+  - Changed `.contact-geo-2x2` gap from 16px to 0 for edge-to-edge tile positioning
+  - Updated container width from 266px to 250px (125px × 2 with no gap)
+  - Added explicit height: 250px to maintain square container
+  - Tiles now create clean diagonal pattern with corners touching
+
 ## [2.13.7] - 2026-01-23
 ### Changed
 - **Contact Page Geo-Tile Sizing Refinement**: Updated all geo-tiles to exact 125px × 125px dimensions (previously 114px)
