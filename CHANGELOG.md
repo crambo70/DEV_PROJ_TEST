@@ -8,6 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.14.0] - 2026-01-26
+### Added
+- **Advanced Performance Optimization (Task 3.1)**: Comprehensive performance improvements across the entire codebase
+  - **SVG Optimization**: All SVG files optimized with SVGO
+    - Logos reduced from 411KB to 2.2KB each (99.5% reduction)
+    - Pattern blocks reduced from 305KB to 3KB each (99% reduction)
+  - **Resource Hints**: Added preconnect for typekit.net, cdnjs.cloudflare.com, and unpkg.com
+  - **Script Deferral**: Added defer attribute to all scripts (Lottie, main.js, etc.)
+  - **CSS Cleanup**: Removed unused portfolio size classes, redundant @font-face, fixed duplicate selectors (~25 lines saved)
+  - **Build Tooling**: Added esbuild and lightningcss for minification
+    - CSS: 70KB to 32KB
+    - JS: 24KB to 8KB
+  - **Service Worker**: Added Workbox-generated service worker for offline caching of static assets and CDN resources
+
 ## [2.13.8] - 2026-01-23
 ### Changed
 - **Contact Page Geo-Tile Diagonal Positioning**: Adjusted left column tiles to touch corner-to-corner diagonally

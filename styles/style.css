@@ -84,18 +84,9 @@
 }
 
 /* =================================================================== */
-/* FONT LOADING OPTIMIZATION                                          */
-/* Adobe Fonts (Typekit) loaded with swap behavior for performance    */
-/* =================================================================== */
-
-@font-face {
-    font-family: 'din-2014';
-    font-display: swap; /* Show fallback font while custom font loads */
-    src: local('din-2014');
-}
-
-/* =================================================================== */
-/* END FONT LOADING OPTIMIZATION                                      */
+/* FONT LOADING                                                       */
+/* Adobe Fonts (Typekit) handles DIN 2014 loading - no @font-face     */
+/* declaration needed here.                                           */
 /* =================================================================== */
 
 /* =================================================================== */
@@ -256,8 +247,6 @@ button:focus:not(:focus-visible) {
 /* Special container classes */
 .dev-debug .main-container {
     border: 3px solid #FF0000 !important; /* Red border - Main Container (development visibility) */
-}
-.dev-debug .main-container {
     outline: 4px solid #FF0066 !important; /* Hot Pink - Main Container */
 }
 
@@ -943,19 +932,6 @@ body {
     height: auto;
     object-fit: cover;
     display: block;
-}
-
-/* Row span classes - for homepage CSS Grid layout */
-.portfolio-item.large {
-    grid-row: span 2;
-}
-
-.portfolio-item.medium {
-    grid-row: span 1;
-}
-
-.portfolio-item.small {
-    grid-row: span 1;
 }
 
 /* Portfolio Overlay */

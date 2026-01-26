@@ -3,15 +3,24 @@
   "version": "1.0.0",
   "description": "SCENIC Inc corporate website",
   "scripts": {
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "build:css": "lightningcss --minify styles/style.css -o dist/styles/style.css",
+    "build:js": "esbuild scripts/main.js scripts/version-loader.js scripts/masonry-init.js scripts/portfolio-captions.js --minify --outdir=dist/scripts",
+    "build": "mkdir -p dist/styles dist/scripts && npm run build:css && npm run build:js",
+    "build:report": "echo 'Original sizes:' && ls -lh styles/style.css scripts/*.js && echo '' && echo 'Minified sizes:' && ls -lh dist/styles/style.css dist/scripts/*.js 2>/dev/null || echo 'Run npm run build first'",
+    "build:sw": "workbox generateSW workbox-config.js"
   },
   "author": "SCENIC Inc",
   "license": "MIT",
   "dependencies": {
     "@playwright/mcp": "^0.0.47",
-    "playwright": "^1.57.0-alpha-2025-11-14"
+    "playwright": "^1.57.0-alpha-2025-11-14",
+    "workbox-cli": "^7.4.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.57.0"
+    "@playwright/test": "^1.57.0",
+    "esbuild": "^0.27.2",
+    "lightningcss-cli": "^1.31.1",
+    "svgo": "^4.0.0"
   }
 }

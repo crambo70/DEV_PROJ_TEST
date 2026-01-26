@@ -60,10 +60,13 @@ Thumbs.db
 # Build directories
 dist/
 build/
-# Test artifacts
-.playwright-mcp/
-test-results/
 
 # Test artifacts
 .playwright-mcp/
 test-results/
+
+# Service Worker (generated)
+sw.js
+sw.js.map
+workbox-[0-9a-f]*.js
+workbox-[0-9a-f]*.js.map

@@ -24,9 +24,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/scenic-logo-mobile.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/scenic-logo-mobile.png">
 
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://use.typekit.net/bft8hhx.css">
-    <link rel="stylesheet" href="styles/style.css?v=2.13.8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <link rel="stylesheet" href="styles/style.css?v=2.14.0">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body class="contact-page">
     <!-- Skip to main content link for screen readers and keyboard users -->
@@ -302,7 +304,17 @@
 
     </div> <!-- End main-container -->
 
-    <script src="scripts/version-loader.js?v=2.13.8"></script>
-    <script src="scripts/main.js?v=2.13.8"></script>
+    <script defer src="scripts/version-loader.js?v=2.14.0"></script>
+    <script defer src="scripts/main.js?v=2.14.0"></script>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('SW registered'))
+            .catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
 </body>
 </html>
