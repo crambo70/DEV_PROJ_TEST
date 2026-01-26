@@ -484,5 +484,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize pattern block animations
     initPatternBlockAnimations();
 
+    // ========================================
+    // GA4 Event Tracking
+    // ========================================
+
+    // GA4 Event Tracking Helper
+    function trackEvent(eventName, params = {}) {
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, params);
+        }
+    }
+
+    // Track CTA button clicks
+    document.querySelectorAll('.cta-button, .send-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            trackEvent('cta_click', {
+                button_text: btn.textContent.trim(),
+                page_location: window.location.pathname
+            });
+        });
+    });
+
+    // Track navigation clicks
+    document.querySelectorAll('.nav-list a').forEach(link => {
+        link.addEventListener('click', () => {
+            trackEvent('nav_click', {
+                link_text: link.textContent.trim(),
+                link_url: link.href
+            });
+        });
+    });
+
+    // Track contact form submission
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', () => {
+            trackEvent('form_submit', { form_name: 'contact' });
+        });
+    }
+
     console.log('SCENIC website loaded successfully!');
 });

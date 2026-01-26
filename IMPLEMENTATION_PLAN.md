@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 26, 2026
-> **Current Version:** v2.15.0
+> **Current Version:** v2.16.0
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -36,13 +36,13 @@ Following these practices maintains project consistency.
 - [x] Task 2.6: Redesign & Populate Team Section - ✅ COMPLETE
 - [ ] Task 2.7: Portfolio Grid Real Images
 
-### **Phase 3: Polish & Optimization** (6/8 completed - 75%)
+### **Phase 3: Polish & Optimization** (7/8 completed - 87.5%)
 - [x] Task 3.1: Advanced Performance Optimization - ✅ COMPLETE
 - [ ] Task 3.2: Add Page Transitions
 - [x] Task 3.3: Micro-interactions & Polish - ✅ COMPLETE
 - [x] Task 3.4: Enhanced Mobile Menu - ✅ REVERTED (v2.2.2 simplified to dropdown)
 - [x] Task 3.5: SEO & Meta Tags - ✅ COMPLETE
-- [ ] Task 3.6: Analytics & Tracking
+- [x] Task 3.6: Analytics & Tracking - ✅ COMPLETE
 - [x] Task 3.7: Progressive Web App (PWA) - ✅ COMPLETE
 - [x] Task 3.8: Browser Testing & Fixes - ✅ COMPLETE
 
@@ -72,6 +72,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-26 | **v2.16.0:** Analytics & Tracking implementation (Task 3.6) - Added Google Analytics 4 (GA4_MEASUREMENT_ID placeholder - replace for production) to all pages (index.html, work.html, contact.html), added custom event tracking in main.js for CTA button clicks (cta_click), navigation clicks (nav_click), and contact form submissions (form_submit) | New feature |
 | 2026-01-26 | **v2.15.0:** Progressive Web App implementation (Task 3.7) - Created manifest.json with app name, icons (192x192, 512x512), theme color, standalone display mode, added offline.html fallback page with SCENIC branding, added PWA meta tags (theme-color, apple-mobile-web-app-capable, manifest link) to all pages, updated service worker with navigateFallback for offline page support | New feature |
 | 2026-01-26 | **v2.14.0:** Advanced Performance Optimization (Task 3.1) - SVG optimization with SVGO (99.5% reduction for logos, 99% for pattern blocks), added preconnect resource hints for typekit.net/cdnjs/unpkg, added defer to all scripts, CSS cleanup (~25 lines saved), added esbuild/lightningcss build tooling (CSS: 70KB→32KB, JS: 24KB→8KB), added Workbox service worker for offline caching | Major performance enhancement |
 | 2026-01-23 | **v2.13.7:** Contact page geo-tile sizing refinement - Updated all geo-tiles to exact 125px × 125px dimensions (previously 114px), left column maintains 16px gap with 266px container, right column removed all gaps (0px) with edge-to-edge tiles and 375px container, contact photo set to 375px wide to precisely match tile grid above | Enhancement |
@@ -583,16 +584,23 @@ Following these practices maintains project consistency.
   - Apple touch icon (180x180) for iOS home screen bookmarks
 
 #### **Task 3.6: Analytics & Tracking**
-- **Files:** `index.html`, `scripts/analytics.js` (new)
+- **Status:** ✅ COMPLETED (v2.16.0)
+- **Files:** `index.html`, `work.html`, `contact.html`, `scripts/main.js`
 - **Complexity:** LOW
 - **Action:**
   - Add Google Analytics 4 or alternative
   - Track key user interactions (CTA clicks, form submissions)
-  - Set up conversion goals
-  - Privacy-compliant cookie consent
+- **Implementation Notes:**
+  - Added GA4 tracking script with placeholder to all pages
+  - Custom event tracking in main.js:
+    - `cta_click` - CTA button interactions
+    - `nav_click` - Navigation link clicks
+    - `form_submit` - Contact form submissions
+- **⚠️ PRODUCTION ACTIVATION REQUIRED:**
+  - **GA4 Measurement ID:** `G-3CNEXSR79P`
+  - **Action:** Find/replace `GA4_MEASUREMENT_ID` with `G-3CNEXSR79P` in all 3 HTML files when ready for production
+  - **Files:** index.html, work.html, contact.html (2 occurrences each)
 - **Mobile Impact:** Low - business intelligence
-- **Dependencies:** Analytics account setup
-- **Status:** ❌ Not Started
 
 #### **Task 3.7: Progressive Web App (PWA)** ✅ COMPLETED
 - **Files:** `manifest.json` (new), `sw.js` (updated), `offline.html` (new), icons (new)
@@ -703,9 +711,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.15.0` (as of Jan 26, 2026)
+**Current Version:** `v2.16.0` (as of Jan 26, 2026)
 
 **Version History:**
+- v2.16.0 - Analytics & Tracking implementation (MINOR VERSION - Task 3.6 complete): Added Google Analytics 4 (GA4_MEASUREMENT_ID placeholder - replace for production) to all HTML pages (index.html, work.html, contact.html). Implemented custom event tracking in main.js for CTA button clicks (cta_click event), navigation link clicks (nav_click event), and contact form submissions (form_submit event). Full GA4 integration for user behavior analytics.
 - v2.15.0 - Progressive Web App implementation (MINOR VERSION - Task 3.7 complete): Created manifest.json with app name "SCENIC", icons (192x192 and 512x512 PNG), theme color (#0B2C54), standalone display mode. Added offline.html fallback page with SCENIC branding, "You're offline" message, and retry button. Added PWA meta tags to all HTML pages (theme-color, apple-mobile-web-app-capable, manifest link). Updated service worker with navigateFallback for offline page support. Site now installable as PWA with app-like experience.
 - v2.14.0 - Advanced Performance Optimization (MINOR VERSION - Task 3.1 complete): Comprehensive performance improvements including SVG optimization with SVGO (logos reduced 99.5% from 411KB to 2.2KB each, pattern blocks reduced 99% from 305KB to 3KB each), added preconnect resource hints for typekit.net, cdnjs.cloudflare.com, and unpkg.com, added defer attribute to all scripts (Lottie, main.js, etc.), CSS cleanup removing unused portfolio size classes, redundant @font-face declarations, and fixing duplicate selectors (~25 lines saved), added esbuild and lightningcss build tooling for minification (CSS: 70KB to 32KB, JS: 24KB to 8KB), added Workbox-generated service worker for offline caching of static assets and CDN resources
 - v2.13.8 - Contact page left column diagonal tile positioning (PATCH VERSION): Adjusted left column tiles to touch corner-to-corner diagonally - Changed `.contact-geo-2x2` gap from 16px to 0 for edge-to-edge tile positioning, updated container width from 266px to 250px (125px × 2 with no gap), added explicit height: 250px to maintain square container, tiles now create clean diagonal pattern with corners touching

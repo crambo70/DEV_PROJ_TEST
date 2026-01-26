@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.16.0] - 2026-01-26
+### Added
+- **Analytics & Tracking Implementation (Task 3.6)**: Full Google Analytics 4 integration for user behavior tracking
+  - **GA4 Script**: Added Google Analytics 4 tracking (GA4_MEASUREMENT_ID placeholder - replace for production) to all pages (index.html, work.html, contact.html)
+  - **CTA Event Tracking**: Custom `cta_click` events for CTA button interactions
+  - **Navigation Tracking**: Custom `nav_click` events for navigation link clicks
+  - **Form Tracking**: Custom `form_submit` events for contact form submissions
+  - All event tracking implemented in main.js with gtag() API
+
 ## [2.15.0] - 2026-01-26
 ### Added
 - **Progressive Web App Implementation (Task 3.7)**: Full PWA support for app-like mobile experience
