@@ -15,6 +15,7 @@
   "dependencies": {
     "@playwright/mcp": "^0.0.47",
     "playwright": "^1.57.0-alpha-2025-11-14",
+    "sharp": "^0.34.5",
     "workbox-cli": "^7.4.0"
   },
   "devDependencies": {

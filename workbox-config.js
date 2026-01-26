@@ -18,6 +18,9 @@ module.exports = {
     'workbox-*.js.map',
   ],
   swDest: 'sw.js',
+  // Offline fallback for navigation requests
+  navigateFallback: '/offline.html',
+  navigateFallbackDenylist: [/^\/api/, /\.[^/]+$/],
   runtimeCaching: [
     {
       // Cache Adobe Fonts

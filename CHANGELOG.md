@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.15.0] - 2026-01-26
+### Added
+- **Progressive Web App Implementation (Task 3.7)**: Full PWA support for app-like mobile experience
+  - **Web App Manifest**: Created manifest.json with app name "SCENIC", icons, theme color (#0B2C54), standalone display mode
+  - **PWA Icons**: Generated 192x192 and 512x512 PNG icons from SCENIC logo
+  - **Offline Page**: Created offline.html fallback with SCENIC branding, "You're offline" message, and retry button
+  - **PWA Meta Tags**: Added theme-color, apple-mobile-web-app-capable, manifest link to all pages (index.html, work.html, contact.html)
+  - **Service Worker Update**: Added navigateFallback for offline page support
+  - Site now installable as PWA with "Add to Home Screen" functionality
+
 ## [2.14.0] - 2026-01-26
 ### Added
 - **Advanced Performance Optimization (Task 3.1)**: Comprehensive performance improvements across the entire codebase

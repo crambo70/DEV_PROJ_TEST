@@ -2,7 +2,7 @@
 
 > **Living Document** - Updated as we progress and priorities evolve
 > **Last Updated:** January 26, 2026
-> **Current Version:** v2.14.0
+> **Current Version:** v2.15.0
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -28,22 +28,22 @@ Following these practices maintains project consistency.
 - [x] Task 1.5: Fix Service Card Mobile Behavior - ✅ COMPLETE
 - [x] Task 1.6: Remove dev-debug from Production - ✅ COMPLETE
 
-### **Phase 2: Enhanced Features** (4/6 completed - 67%)
+### **Phase 2: Enhanced Features** (5/6 completed - 83%)
 - [x] Task 2.1: Create "Work" Portfolio Page - ✅ COMPLETE
 - [x] Task 2.2: Create "Get in Touch" Contact Page - ✅ COMPLETE
 - [x] Task 2.4: Implement Footer Geometric Background - ✅ COMPLETE
-- [ ] Task 2.5: Add Smooth Scroll Navigation
+- [x] Task 2.5: Add Smooth Scroll Navigation - ✅ COMPLETE (already implemented)
 - [x] Task 2.6: Redesign & Populate Team Section - ✅ COMPLETE
 - [ ] Task 2.7: Portfolio Grid Real Images
 
-### **Phase 3: Polish & Optimization** (5/8 completed - 62.5%)
+### **Phase 3: Polish & Optimization** (6/8 completed - 75%)
 - [x] Task 3.1: Advanced Performance Optimization - ✅ COMPLETE
 - [ ] Task 3.2: Add Page Transitions
 - [x] Task 3.3: Micro-interactions & Polish - ✅ COMPLETE
 - [x] Task 3.4: Enhanced Mobile Menu - ✅ REVERTED (v2.2.2 simplified to dropdown)
 - [x] Task 3.5: SEO & Meta Tags - ✅ COMPLETE
 - [ ] Task 3.6: Analytics & Tracking
-- [ ] Task 3.7: Progressive Web App (PWA)
+- [x] Task 3.7: Progressive Web App (PWA) - ✅ COMPLETE
 - [x] Task 3.8: Browser Testing & Fixes - ✅ COMPLETE
 
 ---
@@ -65,7 +65,6 @@ Following these practices maintains project consistency.
 
 **Next Up:**
 - Populate portfolio with real images (Phase 2, Task 2.7)
-- Add smooth scroll navigation (Phase 2, Task 2.5)
 
 ---
 
@@ -73,6 +72,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-01-26 | **v2.15.0:** Progressive Web App implementation (Task 3.7) - Created manifest.json with app name, icons (192x192, 512x512), theme color, standalone display mode, added offline.html fallback page with SCENIC branding, added PWA meta tags (theme-color, apple-mobile-web-app-capable, manifest link) to all pages, updated service worker with navigateFallback for offline page support | New feature |
 | 2026-01-26 | **v2.14.0:** Advanced Performance Optimization (Task 3.1) - SVG optimization with SVGO (99.5% reduction for logos, 99% for pattern blocks), added preconnect resource hints for typekit.net/cdnjs/unpkg, added defer to all scripts, CSS cleanup (~25 lines saved), added esbuild/lightningcss build tooling (CSS: 70KB→32KB, JS: 24KB→8KB), added Workbox service worker for offline caching | Major performance enhancement |
 | 2026-01-23 | **v2.13.7:** Contact page geo-tile sizing refinement - Updated all geo-tiles to exact 125px × 125px dimensions (previously 114px), left column maintains 16px gap with 266px container, right column removed all gaps (0px) with edge-to-edge tiles and 375px container, contact photo set to 375px wide to precisely match tile grid above | Enhancement |
 | 2026-01-23 | **v2.13.5:** Contact page animated geo-tiles - Converted all 16 static geo-tile images in contact.html to animated Lottie containers (2 left column, 6 right column, 8 footer), added Lottie library script, preserved all CSS transform classes (rotate-90, rotate-180, flip-horizontal, flipped-vertical), all 16 animations confirmed working with ping-pong loops across Desktop/Tablet/Mobile viewports | Enhancement |
@@ -424,17 +424,22 @@ Following these practices maintains project consistency.
   - Layout optimized for proper spacing matching reference design
   - Three-column contact info properly aligned on right side
 
-#### **Task 2.5: Add Smooth Scroll Navigation**
+#### **Task 2.5: Add Smooth Scroll Navigation** ✅ COMPLETED
 - **Files:** `scripts/main.js`
 - **Complexity:** LOW
 - **Action:**
-  - Enhance existing smooth scroll (line 31-34)
-  - Add scroll-spy to highlight active nav section
-  - Smooth transitions between page sections
-  - Account for fixed header offset
+  - ✅ Smooth scroll with header offset (lines 211-247)
+  - ✅ Scroll-spy with IntersectionObserver (lines 249-313)
+  - ✅ Active nav styling in CSS (lines 419-425)
+  - ✅ Respects prefers-reduced-motion preference
 - **Mobile Impact:** Medium - improved UX
 - **Dependencies:** None
-- **Status:** ❌ Not Started
+- **Status:** ✅ **COMPLETED** (already implemented, documented Jan 26, 2026)
+- **Implementation Notes:**
+  - Feature was already fully implemented but not documented in roadmap
+  - Smooth scroll accounts for fixed header offset
+  - IntersectionObserver highlights active section in navigation
+  - Accessibility: respects user preference for reduced motion
 
 #### **Task 2.6: Redesign & Populate Team Section** ✅ COMPLETED
 - **Files:** `index.html` (lines 181-253), `styles/style.css`, `images/random_headshot.png`
@@ -589,18 +594,25 @@ Following these practices maintains project consistency.
 - **Dependencies:** Analytics account setup
 - **Status:** ❌ Not Started
 
-#### **Task 3.7: Progressive Web App (PWA)**
-- **Files:** `manifest.json` (new), `sw.js` (new), icons (new)
+#### **Task 3.7: Progressive Web App (PWA)** ✅ COMPLETED
+- **Files:** `manifest.json` (new), `sw.js` (updated), `offline.html` (new), icons (new)
 - **Complexity:** HIGH
 - **Action:**
-  - Create web app manifest
-  - Add app icons (various sizes)
-  - Implement service worker for caching
-  - Enable "Add to Home Screen"
-  - Offline fallback page
+  - ✅ Create web app manifest with app name, theme color, display mode
+  - ✅ Add app icons (192x192 and 512x512 PNG icons from SCENIC logo)
+  - ✅ Implement service worker for caching (updated existing Workbox SW)
+  - ✅ Enable "Add to Home Screen" via manifest
+  - ✅ Offline fallback page with SCENIC branding
+  - ✅ Added PWA meta tags to all HTML pages (theme-color, apple-mobile-web-app-capable, manifest link)
 - **Mobile Impact:** High - app-like experience
 - **Dependencies:** Decision to pursue PWA
-- **Status:** ❌ Not Started
+- **Status:** ✅ **COMPLETED** (v2.15.0)
+- **Implementation Notes:**
+  - manifest.json: app name "SCENIC", short name "SCENIC", standalone display, #0B2C54 theme/background
+  - Icons: 192x192 and 512x512 PNG icons generated from SCENIC logo
+  - offline.html: Branded fallback page with "You're offline" message and retry button
+  - Service worker updated with navigateFallback for offline page support
+  - All three HTML pages updated with PWA meta tags
 
 #### **Task 3.8: Browser Testing & Fixes** ✅ COMPLETED
 - **Files:** `tests/e2e/homepage.spec.js`, `tests/e2e/work.spec.js`, `playwright.config.js`, `package.json`
@@ -691,9 +703,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.14.0` (as of Jan 26, 2026)
+**Current Version:** `v2.15.0` (as of Jan 26, 2026)
 
 **Version History:**
+- v2.15.0 - Progressive Web App implementation (MINOR VERSION - Task 3.7 complete): Created manifest.json with app name "SCENIC", icons (192x192 and 512x512 PNG), theme color (#0B2C54), standalone display mode. Added offline.html fallback page with SCENIC branding, "You're offline" message, and retry button. Added PWA meta tags to all HTML pages (theme-color, apple-mobile-web-app-capable, manifest link). Updated service worker with navigateFallback for offline page support. Site now installable as PWA with app-like experience.
 - v2.14.0 - Advanced Performance Optimization (MINOR VERSION - Task 3.1 complete): Comprehensive performance improvements including SVG optimization with SVGO (logos reduced 99.5% from 411KB to 2.2KB each, pattern blocks reduced 99% from 305KB to 3KB each), added preconnect resource hints for typekit.net, cdnjs.cloudflare.com, and unpkg.com, added defer attribute to all scripts (Lottie, main.js, etc.), CSS cleanup removing unused portfolio size classes, redundant @font-face declarations, and fixing duplicate selectors (~25 lines saved), added esbuild and lightningcss build tooling for minification (CSS: 70KB to 32KB, JS: 24KB to 8KB), added Workbox-generated service worker for offline caching of static assets and CDN resources
 - v2.13.8 - Contact page left column diagonal tile positioning (PATCH VERSION): Adjusted left column tiles to touch corner-to-corner diagonally - Changed `.contact-geo-2x2` gap from 16px to 0 for edge-to-edge tile positioning, updated container width from 266px to 250px (125px × 2 with no gap), added explicit height: 250px to maintain square container, tiles now create clean diagonal pattern with corners touching
 - v2.13.7 - Contact page geo-tile sizing refinement (PATCH VERSION): Updated all geo-tiles to exact 125px × 125px dimensions (previously 114px) - Left column maintains 16px gap with 266px container (2 × 125px + 16px gap), right column removed all gaps (0px) with edge-to-edge tiles and 375px container (3 × 125px), contact photo set to 375px wide to precisely match tile grid above - Updated `.contact-geo-2x2` width to 125px with max-width 266px and gap 16px, `.contact-geo-cell` to 125px × 125px, `.contact-photo-geo` gap to 0 with width/max-width 375px, `.contact-photo-geo-tile` to 125px × 125px, `.contact-team-photo` width/max-width to 375px
