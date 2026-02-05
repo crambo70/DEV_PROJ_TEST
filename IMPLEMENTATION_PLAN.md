@@ -1,8 +1,8 @@
 # SCENIC Website - Mobile-First Implementation Plan
 
 > **Living Document** - Updated as we progress and priorities evolve
-> **Last Updated:** January 26, 2026
-> **Current Version:** v2.16.0
+> **Last Updated:** February 5, 2026
+> **Current Version:** v2.16.1
 > **Overall Progress:** 100% → Target: 100%
 
 ---
@@ -72,6 +72,7 @@ Following these practices maintains project consistency.
 
 | Date | Change | Impact |
 |------|--------|--------|
+| 2026-02-05 | **v2.16.1:** Fluid service icon sizing with aspect-ratio - Replaced fixed service icon sizing with fluid width + aspect-ratio across all breakpoints (Desktop, Tablet, Mobile), used optimized Lottie file (Design_Ideation_Solo_opt_new.json) with 20% larger content, temporarily pointed all 5 service cards to new Lottie for whitespace evaluation, removed gap/padding from services-container for edge-to-edge card layout, added min-width: 33.333% on desktop to preserve 3-2 grid, updated agent configs with Chrome DevTools MCP integration | Enhancement |
 | 2026-01-26 | **v2.16.0:** Analytics & Tracking implementation (Task 3.6) - Added Google Analytics 4 (GA4_MEASUREMENT_ID placeholder - replace for production) to all pages (index.html, work.html, contact.html), added custom event tracking in main.js for CTA button clicks (cta_click), navigation clicks (nav_click), and contact form submissions (form_submit) | New feature |
 | 2026-01-26 | **v2.15.0:** Progressive Web App implementation (Task 3.7) - Created manifest.json with app name, icons (192x192, 512x512), theme color, standalone display mode, added offline.html fallback page with SCENIC branding, added PWA meta tags (theme-color, apple-mobile-web-app-capable, manifest link) to all pages, updated service worker with navigateFallback for offline page support | New feature |
 | 2026-01-26 | **v2.14.0:** Advanced Performance Optimization (Task 3.1) - SVG optimization with SVGO (99.5% reduction for logos, 99% for pattern blocks), added preconnect resource hints for typekit.net/cdnjs/unpkg, added defer to all scripts, CSS cleanup (~25 lines saved), added esbuild/lightningcss build tooling (CSS: 70KB→32KB, JS: 24KB→8KB), added Workbox service worker for offline caching | Major performance enhancement |
@@ -711,9 +712,10 @@ Following these practices maintains project consistency.
 - `X.1.0` - Minor: New features, enhancements, non-breaking changes
 - `2.0.0` - Major: Breaking changes, major redesigns, significant architectural changes
 
-**Current Version:** `v2.16.0` (as of Jan 26, 2026)
+**Current Version:** `v2.16.1` (as of Feb 5, 2026)
 
 **Version History:**
+- v2.16.1 - Fluid service icon sizing (PATCH VERSION): Replaced fixed service icon sizing with fluid width + aspect-ratio across all breakpoints (Desktop, Tablet, Mobile). Used optimized Lottie file (Design_Ideation_Solo_opt_new.json) with 20% larger content. Temporarily pointed all 5 service cards to new Lottie for whitespace evaluation. Removed gap/padding from services-container for edge-to-edge card layout. Added min-width: 33.333% on desktop to preserve 3-2 grid at large viewports. Updated agent configs with Chrome DevTools MCP integration.
 - v2.16.0 - Analytics & Tracking implementation (MINOR VERSION - Task 3.6 complete): Added Google Analytics 4 (GA4_MEASUREMENT_ID placeholder - replace for production) to all HTML pages (index.html, work.html, contact.html). Implemented custom event tracking in main.js for CTA button clicks (cta_click event), navigation link clicks (nav_click event), and contact form submissions (form_submit event). Full GA4 integration for user behavior analytics.
 - v2.15.0 - Progressive Web App implementation (MINOR VERSION - Task 3.7 complete): Created manifest.json with app name "SCENIC", icons (192x192 and 512x512 PNG), theme color (#0B2C54), standalone display mode. Added offline.html fallback page with SCENIC branding, "You're offline" message, and retry button. Added PWA meta tags to all HTML pages (theme-color, apple-mobile-web-app-capable, manifest link). Updated service worker with navigateFallback for offline page support. Site now installable as PWA with app-like experience.
 - v2.14.0 - Advanced Performance Optimization (MINOR VERSION - Task 3.1 complete): Comprehensive performance improvements including SVG optimization with SVGO (logos reduced 99.5% from 411KB to 2.2KB each, pattern blocks reduced 99% from 305KB to 3KB each), added preconnect resource hints for typekit.net, cdnjs.cloudflare.com, and unpkg.com, added defer attribute to all scripts (Lottie, main.js, etc.), CSS cleanup removing unused portfolio size classes, redundant @font-face declarations, and fixing duplicate selectors (~25 lines saved), added esbuild and lightningcss build tooling for minification (CSS: 70KB to 32KB, JS: 24KB to 8KB), added Workbox-generated service worker for offline caching of static assets and CDN resources

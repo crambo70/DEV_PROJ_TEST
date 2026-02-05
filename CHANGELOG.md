@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.16.1] - 2026-02-05
+### Changed
+- **Fluid Service Icon Sizing**: Replaced fixed service icon sizing with fluid width + aspect-ratio across all breakpoints (Desktop, Tablet, Mobile)
+- **Optimized Lottie Asset**: Used optimized Lottie file (Design_Ideation_Solo_opt_new.json) with 20% larger content
+- **Service Card Layout**: Temporarily pointed all 5 service cards to new Lottie for whitespace evaluation
+- **Edge-to-Edge Cards**: Removed gap/padding from services-container for edge-to-edge card layout
+- **Desktop Grid Preservation**: Added min-width: 33.333% on desktop to preserve 3-2 grid at large viewports
+- **Agent Configs**: Updated agent configurations with Chrome DevTools MCP integration
+
 ## [2.16.0] - 2026-01-26
 ### Added
 - **Analytics & Tracking Implementation (Task 3.6)**: Full Google Analytics 4 integration for user behavior tracking
