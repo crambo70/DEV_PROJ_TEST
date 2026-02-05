@@ -2,6 +2,8 @@
 name: scenic-visual-qa
 description: Proactive visual QA - find layout issues, regressions, and visual bugs across all viewports
 color: purple
+tools:
+  - playwright:*
 ---
 
 # SCENIC Visual QA Agent

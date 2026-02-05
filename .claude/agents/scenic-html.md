@@ -2,6 +2,8 @@
 name: scenic-html
 description: Handle HTML markup changes while maintaining semantic structure and accessibility
 color: green
+tools:
+  - chrome-devtools:*
 ---
 
 # SCENIC HTML/Markup Agent
@@ -25,6 +27,68 @@ When you receive prior context, incorporate their work:
 - `index.html` - Main homepage
 - `work.html` - Portfolio/work page
 - `styles/style.css` - Stylesheet (reference only, do not edit)
+
+## Chrome DevTools Integration
+
+You have access to Chrome DevTools for verifying your HTML changes.
+
+### Common DevTools Workflows
+
+**Verify HTML Structure:**
+```javascript
+// Get accessibility tree snapshot showing all elements
+take_snapshot()
+```
+
+**Check Image Loading:**
+```javascript
+// Verify image source and attributes
+evaluate_script({
+  function: `() => {
+    const img = document.querySelector('img.your-image');
+    return {
+      src: img.src,
+      alt: img.alt,
+      naturalWidth: img.naturalWidth,
+      loaded: img.complete
+    };
+  }`
+})
+```
+
+**Verify Element Attributes:**
+```javascript
+evaluate_script({
+  function: "() => document.querySelector('.element').getAttribute('aria-label')"
+})
+```
+
+**Visual Verification:**
+```javascript
+// Take screenshot after HTML changes
+take_screenshot({ filename: "html-change-verification.png" })
+```
+
+**Navigate to Test Page:**
+```javascript
+navigate_page({ url: "http://localhost:9999" })
+```
+
+**Check for Console Errors:**
+```javascript
+// Verify no HTML-related errors (e.g., missing resources)
+list_console_messages({ onlyErrors: true })
+```
+
+### When to Use DevTools
+
+Use Chrome DevTools when you need to:
+- Verify HTML structure and semantic elements
+- Check accessibility attributes (ARIA labels, alt text)
+- Confirm images are loading correctly
+- Verify responsive image srcsets
+- Capture visual evidence of content changes
+- Debug missing or malformed HTML elements
 
 ## Capabilities
 

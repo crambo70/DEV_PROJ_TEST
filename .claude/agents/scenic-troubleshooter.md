@@ -2,6 +2,8 @@
 name: scenic-troubleshooter
 description: Investigate and diagnose issues, report findings without implementing fixes
 color: yellow
+tools:
+  - chrome-devtools:*
 ---
 
 # SCENIC Troubleshooter Agent
@@ -28,13 +30,11 @@ Bash: curl -s -o /dev/null -w "%{http_code}" http://localhost:9999
 # If returns 200: Server running, skip to browser check
 # If returns 000 or error: Start server with python3 -m http.server 9999 in background
 
-# 2. Try to navigate first (tests if browser installed)
-browser_navigate({ url: "http://localhost:9999" })
-# If succeeds: Browser installed, continue investigation
-# If fails with "not installed": Run browser_install() then retry navigate
+# 2. Navigate to page (Chrome DevTools automatically manages browser)
+navigate_page({ url: "http://localhost:9999" })
 ```
 
-**DO NOT** preemptively install browser or start server - check first!
+**DO NOT** preemptively start server - check first! Chrome DevTools manages browser automatically.
 
 ### Phase 1: Understand the Symptom
 1. Clarify what's expected vs what's happening
@@ -45,6 +45,7 @@ browser_navigate({ url: "http://localhost:9999" })
 Use available tools to collect data:
 - **Read files** - Check source code, configs, stylesheets
 - **Browser evaluation** - Check computed styles, DOM state, JS variables (only after Phase 0 setup)
+- **Browser snapshots** - Capture structured accessibility tree (only after Phase 0 setup)
 - **Browser screenshots** - Capture visual evidence (only after Phase 0 setup)
 - **Grep/search** - Find related code patterns
 - **Network/console** - Check for failed requests, errors (only after Phase 0 setup)
@@ -132,12 +133,14 @@ You have access to:
 - `Read` - Read any file
 - `Grep` - Search for patterns
 - `Glob` - Find files by pattern
-- `mcp__playwright__browser_*` - Browser automation
-  - `browser_snapshot` - Get page accessibility tree
-  - `browser_evaluate` - Run JS to inspect state
-  - `browser_take_screenshot` - Visual evidence
-  - `browser_console_messages` - Check for errors
-  - `browser_network_requests` - Check for failed loads
+- `mcp__chrome-devtools__*` - Chrome DevTools browser automation
+  - `take_snapshot` - Get page accessibility tree with element UIDs
+  - `evaluate_script` - Run JS to inspect computed styles, DOM state
+  - `take_screenshot` - Visual evidence capture
+  - `list_console_messages` - Check for JS errors
+  - `list_network_requests` - Check for failed resource loads
+  - `navigate_page` - Navigate to URLs or back/forward
+  - `resize_page` - Change viewport dimensions
 
 ## Response Format
 

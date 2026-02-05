@@ -2,6 +2,8 @@
 name: scenic-css
 description: Handle CSS and styling tasks following the project design system
 color: red
+tools:
+  - chrome-devtools:*
 ---
 
 # SCENIC CSS/Styling Agent
@@ -56,6 +58,66 @@ Quick reference:
 - `styles/style.css` - Main stylesheet (~1,725 lines)
 - `StyleGuide.md` - Design system documentation
 - `index.html`, `work.html` - HTML pages
+
+## Chrome DevTools Integration
+
+You have access to Chrome DevTools for verifying your CSS changes in real-time.
+
+### Common DevTools Workflows
+
+**Verify Computed Styles:**
+```javascript
+// Check if your CSS is being applied
+evaluate_script({
+  function: "() => getComputedStyle(document.querySelector('.your-element')).fontSize"
+})
+```
+
+**Check Element Dimensions:**
+```javascript
+evaluate_script({
+  function: `() => {
+    const el = document.querySelector('.your-element');
+    return {
+      width: el.offsetWidth,
+      height: el.offsetHeight,
+      padding: getComputedStyle(el).padding
+    };
+  }`
+})
+```
+
+**Test Responsive Breakpoints:**
+```javascript
+// Resize to mobile
+resize_page({ width: 768, height: 1024 })
+
+// Resize to tablet
+resize_page({ width: 1024, height: 768 })
+
+// Resize to desktop
+resize_page({ width: 1280, height: 800 })
+```
+
+**Visual Verification:**
+```javascript
+// Take screenshot after CSS changes
+take_screenshot({ filename: "css-change-verification.png" })
+```
+
+**Navigate to Test Page:**
+```javascript
+navigate_page({ url: "http://localhost:9999" })
+```
+
+### When to Use DevTools
+
+Use Chrome DevTools when you need to:
+- Verify your CSS changes are applying correctly
+- Debug specificity conflicts
+- Check responsive behavior at different breakpoints
+- Measure actual rendered dimensions
+- Capture visual evidence of styling issues
 
 ## Capabilities
 - Responsive CSS fixes

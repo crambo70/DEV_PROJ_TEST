@@ -1388,7 +1388,7 @@ body {
     display: flex;
     flex-wrap: wrap; /* Allow wrapping for 3-2 stacked layout */
     justify-content: center; /* Center all cards */
-    gap: 2rem; /* Gap between cards */
+    gap: 0; /* Gap between cards */
     align-items: start;
     padding-bottom: 0; /* No padding - whitespace eliminated */
     padding-top: 0; /* No padding - whitespace eliminated */
@@ -1405,7 +1405,7 @@ body {
     flex-direction: column;
     min-height: auto; /* Changed from 220px to auto for compact layout */
     margin-bottom: 0; /* Zero gap between cards */
-    flex: 0 1 calc(33.333% - 1.5rem); /* 3 cards per row with gap */
+    flex: 0 1 33.333%; /* 3 cards per row */
     max-width: 400px; /* Cap maximum card width */
 }
 
@@ -1671,8 +1671,8 @@ body {
         flex-direction: column; /* Vertical stacking for mobile */
         flex-wrap: nowrap; /* No wrapping needed */
         align-items: center; /* Center cards horizontally */
-        gap: 2rem; /* Vertical spacing between cards */
-        padding: 0 1rem; /* Add horizontal padding for breathing room */
+        gap: 0; /* No vertical spacing between cards */
+        padding: 0; /* No horizontal padding */
         width: 100%; /* Full width container */
     }
 
@@ -1684,7 +1684,7 @@ body {
         position: relative; /* Enable z-index stacking */
         z-index: 1; /* Base z-index */
         width: 100%; /* Full width for single column */
-        max-width: 400px; /* Max width to keep cards manageable */
+        max-width: none; /* Fill available width */
         margin-left: 0; /* No overlap on mobile */
     }
 
@@ -1750,10 +1750,11 @@ body {
         min-height: 44px; /* Minimum touch target height */
     }
 
-    /* Service icon sizing for mobile - larger for single column layout */
+    /* Service icon sizing for mobile - ~65% of card width for visual balance */
     .service-icon {
-        width: 200px; /* Increased from 140px for better visibility in single column */
-        height: 200px;
+        width: 65%;
+        height: auto;
+        aspect-ratio: 1 / 1;
     }
 
     .team-title {
@@ -2043,10 +2044,11 @@ body {
     /* Desktop service cards use 3-2 stacked layout from base styles */
     /* No overrides needed - flex-wrap: wrap and centering inherited from .services-container */
 
-    /* Desktop service icon sizing - 50% larger than base */
+    /* Desktop service icon sizing - fill card width */
     .service-icon {
-        width: 300px; /* 50% increase from 200px base */
-        height: 300px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
     }
 
     /* Desktop service title sizing - 50% larger than base */
@@ -2058,6 +2060,7 @@ body {
     .service-card {
         position: relative;
         z-index: 1;
+        min-width: 33.333%; /* Prevent 4+ cards per row at large viewports */
     }
 
     /* Elevate hovered card above adjacent cards on desktop */
