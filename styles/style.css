@@ -387,15 +387,16 @@ body {
 }
 
 /* Push "GET IN TOUCH" (last item) to the right */
-.nav-list li:last-child {
+.nav-list > li:last-child {
     margin-left: auto;
 }
 
-.nav-list a {
+.nav-list > li > a {
     font-family: var(--font-family-primary);
     text-decoration: none;
     color: var(--color-gray-dark); /* Medium Gray from palette */
-    font-size: 11px; /* Desktop size - doubled from 9px */
+    font-size: 14px; /* Desktop size - increased for readability */
+    font-weight: 600; /* Semibold for nav prominence */
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.1s ease;
     /* Touch optimization: Ensure minimum 44x44px tap target */
     padding: 0.7rem 1rem; /* 11.2px + 18px + 11.2px = 40.4px + line-height ≈ 48px */
@@ -405,19 +406,19 @@ body {
     touch-action: manipulation;
 }
 
-.nav-list a:hover {
+.nav-list > li > a:hover {
     color: var(--color-accent-red); /* Red accent */
     background-color: rgba(238, 61, 51, 0.05); /* Subtle red background */
 }
 
 /* Touch feedback for mobile */
-.nav-list a:active {
+.nav-list > li > a:active {
     background-color: rgba(238, 61, 51, 0.1);
     transform: scale(0.98); /* Haptic feedback via scale */
 }
 
 /* Active state for current page navigation */
-.nav-list a.active {
+.nav-list > li > a.active {
     color: var(--color-primary-blue); /* Blue for active/current page */
     text-decoration: underline; /* Subtle underline only under text */
     text-underline-offset: 4px; /* Small gap between text and underline */
@@ -425,13 +426,13 @@ body {
 }
 
 /* GET IN TOUCH - Special border box styling (desktop/tablet only) */
-.nav-list li:last-child a {
+.nav-list > li:last-child > a {
     border: 1px solid var(--color-primary-blue);
     padding: 0.5rem 1rem; /* More breathing room: 8px 16px */
     border-radius: 4px;
 }
 
-.nav-list li:last-child a:hover {
+.nav-list > li:last-child > a:hover {
     background-color: var(--color-primary-blue);
     color: var(--color-white);
     border-color: var(--color-primary-blue);
@@ -452,7 +453,7 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: 200px;
+    min-width: 230px;
     background-color: var(--color-white);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border: 1px solid var(--color-gray-medium);
@@ -492,7 +493,8 @@ body {
     display: block;
     padding: 0.75rem 1.25rem;
     font-family: var(--font-family-primary);
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 500; /* Medium weight for dropdown items */
     color: var(--color-gray-dark);
     text-decoration: none;
     transition: background-color var(--transition-fast),
@@ -1576,16 +1578,16 @@ body {
     }
 
     /* Navigation font size for mobile */
-    .nav-list a {
-        font-size: 9px; /* Mobile size - proportionally smaller than desktop 11px */
+    .nav-list > li > a {
+        font-size: 12px; /* Mobile size - increased for readability */
     }
 
     /* Remove GET IN TOUCH border box and margin on mobile (dropdown menu context) */
-    .nav-list li:last-child {
+    .nav-list > li:last-child {
         margin-left: 0; /* Remove right-justification in mobile menu */
     }
 
-    .nav-list li:last-child a {
+    .nav-list > li:last-child > a {
         border: none;
         padding: 0.7rem 1rem; /* Reset to default nav padding */
     }
@@ -1634,7 +1636,7 @@ body {
     }
 
     .subnav-link {
-        font-size: 8px;
+        font-size: 10px;
         padding: 0.5rem 0.75rem;
         color: var(--color-gray-dark);
     }
@@ -1853,18 +1855,18 @@ body {
     }
 
     /* Navigation font size for tablet */
-    .nav-list a {
-        font-size: 10px; /* Tablet size - proportionally between desktop 11px and mobile 9px */
+    .nav-list > li > a {
+        font-size: 13px; /* Tablet size - between desktop 14px and mobile 12px */
     }
 
     /* Tablet dropdown behavior - keep desktop hover behavior */
     .subnav-link {
-        font-size: 9px; /* Slightly smaller for tablet */
+        font-size: 11px; /* Slightly smaller for tablet */
         padding: 0.65rem 1.15rem;
     }
 
     .subnav-dropdown {
-        min-width: 180px; /* Slightly narrower on tablet */
+        min-width: 210px; /* Adjusted for larger font sizes */
     }
 
     /* Text sizing for tablet */

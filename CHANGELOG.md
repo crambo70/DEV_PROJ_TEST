@@ -8,6 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!-- Future changes go here -->
 
+## [2.17.0] - 2026-02-06
+### Changed
+- **Nav Menu Rework - EVENT SERVICES Dropdown**: Comprehensive navigation overhaul across all pages
+  - Reordered EVENT SERVICES dropdown: FABRICATION (first), SCENIC RENTALS, DRAPE RENTALS
+  - Removed PIPE PARTS from dropdown menu
+  - Renamed "AND FABRICATION" to "FABRICATION"
+  - Increased nav font sizes and weights across all breakpoints (Desktop: 14px/600, Tablet: 13px, Mobile: 12px; dropdown: 12px/500, 11px, 10px)
+  - Fixed selector specificity bug: `.nav-list li:last-child a` was leaking GET IN TOUCH border styling into dropdown's last item (DRAPE RENTALS) -- changed all `.nav-list li:last-child` selectors to `.nav-list > li:last-child` with child combinators
+  - Scoped `.nav-list a` to `.nav-list > li > a` (plus hover/active states) to prevent overriding `.subnav-link` styles in the dropdown
+  - Increased `.subnav-dropdown` min-width (Desktop: 200px to 230px, Tablet: 180px to 210px)
+
 ## [2.16.1] - 2026-02-05
 ### Changed
 - **Fluid Service Icon Sizing**: Replaced fixed service icon sizing with fluid width + aspect-ratio across all breakpoints (Desktop, Tablet, Mobile)
